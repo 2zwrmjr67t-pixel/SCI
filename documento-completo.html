@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mundo Colorado — Material Completo</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+  :root{
+    --ink:#131211;
+    --ink-soft:#1c1a18;
+    --paper:#EDEAE2;
+    --paper-dim:#B9B6AC;
+    --red:#CC142F;
+    --red-dim:#7a0c1c;
+    --amber:#E8A33D;
+    --line:rgba(237,234,226,0.14);
+    --line-strong:rgba(237,234,226,0.28);
+    --maxw:1120px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'IBM Plex Sans',sans-serif;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:var(--red);color:var(--paper);}
+  a{color:inherit;}
+  a:focus-visible, button:focus-visible{
+    outline:2px solid var(--amber);
+    outline-offset:3px;
+  }
+
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;}
+
+  /* NAV */
+  nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(19,18,17,0.88);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  nav .wrap{
+    display:flex;align-items:center;justify-content:space-between;
+    height:64px;
+  }
+  .brand{
+    font-family:'Bebas Neue',sans-serif;
+    font-size:22px;letter-spacing:0.04em;
+    display:flex;align-items:center;gap:10px;
+  }
+  .brand .dot{width:9px;height:9px;border-radius:50%;background:var(--red);}
+  .navlinks{display:flex;gap:32px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.06em;text-transform:uppercase;}
+  .navlinks a{text-decoration:none;color:var(--paper-dim);transition:color .15s;}
+  .navlinks a:hover{color:var(--paper);}
+  .navlinks a.nav-deep{color:var(--amber);}
+  .navlinks a.nav-deep:hover{color:var(--paper);}
+  @media (max-width:720px){.navlinks{display:none;}}
+
+  /* HERO / SCOREBOARD */
+  .hero{
+    padding:88px 0 64px;
+    border-bottom:1px solid var(--line);
+    position:relative;
+    overflow:hidden;
+  }
+  .hero::before{
+    content:"";position:absolute;inset:0;
+    background:
+      repeating-linear-gradient(180deg, transparent 0 39px, var(--line) 39px 40px);
+    mask-image:linear-gradient(180deg, transparent, black 40%, transparent 90%);
+    opacity:.5;pointer-events:none;
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;letter-spacing:0.12em;text-transform:uppercase;
+    color:var(--amber);margin:0 0 20px;
+  }
+  .scoreboard{
+    display:grid;
+    grid-template-columns:repeat(2, minmax(0,1fr));
+    gap:1px;
+    background:var(--line-strong);
+    border:1px solid var(--line-strong);
+    margin-bottom:28px;
+  }
+  .cell{
+    background:var(--ink);
+    padding:22px 24px;
+  }
+  .cell .num{
+    font-family:'Bebas Neue',sans-serif;
+    font-size:clamp(34px,6vw,56px);
+    line-height:1;
+    color:var(--paper);
+    letter-spacing:0.01em;
+  }
+  .cell .num.red{color:var(--red);}
+  .cell .label{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11.5px;letter-spacing:0.06em;text-transform:uppercase;
+    color:var(--paper-dim);margin-top:6px;
+  }
+  @media (max-width:640px){.scoreboard{grid-template-columns:1fr;}}
+
+  h1.claim{
+    font-family:'Bebas Neue',sans-serif;
+    font-weight:400;
+    font-size:clamp(36px,5.2vw,58px);
+    line-height:1.04;
+    letter-spacing:0.005em;
+    margin:0 0 22px;
+    max-width:15ch;
+  }
+  h1.claim em{
+    font-style:normal;color:var(--red);
+  }
+  .decision{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:14.5px;line-height:1.7;
+    color:var(--paper);
+    border-left:2px solid var(--amber);
+    padding:4px 0 4px 18px;
+    max-width:62ch;
+    margin:0 0 8px;
+  }
+  .decision b{color:var(--amber);font-weight:500;}
+
+  /* CARDS */
+  .cards{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+    background:var(--line-strong);border:1px solid var(--line-strong);
+    margin-top:56px;
+  }
+  @media (max-width:820px){.cards{grid-template-columns:1fr;}}
+  .card{
+    background:var(--ink);padding:30px 26px 28px;
+    text-decoration:none;color:var(--paper);
+    display:flex;flex-direction:column;gap:14px;
+    transition:background .18s;
+    position:relative;
+  }
+  .card:hover{background:var(--ink-soft);}
+  .card:hover .arrow{transform:translateX(4px);}
+  .card .idx{
+    font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--red);letter-spacing:0.08em;
+  }
+  .card h3{
+    font-family:'Bebas Neue',sans-serif;font-weight:400;
+    font-size:26px;margin:0;letter-spacing:0.01em;
+  }
+  .card p{
+    font-size:14px;color:var(--paper-dim);margin:0;flex-grow:1;
+  }
+  .card .arrow{
+    font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--amber);
+    display:inline-flex;align-items:center;gap:6px;transition:transform .18s;
+  }
+
+  /* SECTIONS */
+  section.block{padding:88px 0;border-bottom:1px solid var(--line);}
+  section.block:last-of-type{border-bottom:none;}
+  .kicker{
+    font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;
+    color:var(--red);margin:0 0 14px;display:flex;align-items:center;gap:10px;
+  }
+  .kicker::after{content:"";flex:1;height:1px;background:var(--line-strong);}
+  h2.blocktitle{
+    font-family:'Bebas Neue',sans-serif;font-weight:400;
+    font-size:clamp(30px,4vw,42px);margin:0 0 10px;letter-spacing:0.005em;
+  }
+  .lede{
+    font-size:15.5px;color:var(--paper-dim);max-width:68ch;margin:0 0 40px;
+  }
+  .lede b{color:var(--paper);font-weight:600;}
+
+  .insight-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px;}
+  @media (max-width:760px){.insight-grid{grid-template-columns:1fr;}}
+  .insight{border-top:1px solid var(--line-strong);padding-top:16px;}
+  .insight .tag{
+    font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--amber);
+    text-transform:uppercase;letter-spacing:0.06em;
+  }
+  .insight p{font-size:14.5px;margin:8px 0 0;color:var(--paper);}
+
+  table.mini{width:100%;border-collapse:collapse;margin-top:8px;font-size:13.5px;}
+  table.mini th{
+    text-align:left;font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:11px;
+    text-transform:uppercase;letter-spacing:0.05em;color:var(--paper-dim);
+    padding:10px 14px;border-bottom:1px solid var(--line-strong);
+  }
+  table.mini td{
+    padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top;
+  }
+  table.mini tr:hover td{background:var(--ink-soft);}
+
+  .roadmap{display:flex;flex-direction:column;border:1px solid var(--line-strong);margin-top:8px;}
+  .rstep{display:grid;grid-template-columns:120px 1fr 1fr;gap:20px;padding:20px 22px;border-bottom:1px solid var(--line);align-items:start;}
+  .rstep:last-child{border-bottom:none;}
+  @media (max-width:700px){.rstep{grid-template-columns:1fr;gap:6px;}}
+  .rstep .phase{font-family:'Bebas Neue',sans-serif;font-size:20px;color:var(--red);}
+  .rstep .desc{font-size:14px;color:var(--paper);}
+  .rstep .kpi{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--amber);}
+
+  footer{padding:48px 0 64px;}
+  footer .wrap{
+    display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;
+    font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--paper-dim);
+  }
+  footer .status{color:var(--amber);}
+
+  @media (prefers-reduced-motion: no-preference){
+    .fade-up{animation:fadeUp .6s ease-out both;}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+  }
+
+</style>
+<style>
+  .toc{
+    display:flex;flex-wrap:wrap;gap:10px 22px;
+    font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.04em;
+    margin:28px 0 0;padding-top:24px;border-top:1px solid var(--line-strong);
+  }
+  .toc a{color:var(--paper-dim);text-decoration:none;}
+  .toc a:hover{color:var(--amber);}
+  .backlink{
+    font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--paper-dim);
+    text-decoration:none;display:inline-flex;align-items:center;gap:6px;
+  }
+  .backlink:hover{color:var(--paper);}
+  h4.subtitle{
+    font-family:'IBM Plex Mono',monospace;font-size:12.5px;letter-spacing:0.05em;text-transform:uppercase;
+    color:var(--amber);margin:40px 0 12px;
+  }
+  h4.subtitle:first-child{margin-top:0;}
+  .note{
+    font-size:13.5px;color:var(--paper-dim);border-left:2px solid var(--line-strong);
+    padding:2px 0 2px 16px;margin:14px 0 22px;
+  }
+  .note b{color:var(--paper);}
+  .tagbox{
+    display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:10.5px;
+    padding:2px 7px;border:1px solid var(--line-strong);border-radius:3px;color:var(--paper-dim);
+    margin-left:6px;
+  }
+  ol.top10{padding-left:22px;font-size:14.5px;}
+  ol.top10 li{margin-bottom:10px;padding-left:4px;}
+  ol.top10 li::marker{color:var(--red);font-family:'IBM Plex Mono',monospace;}
+  .quote{
+    font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--paper);
+    border-left:2px solid var(--amber);padding:6px 0 6px 18px;margin:18px 0 26px;letter-spacing:0.01em;
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="brand"><span class="dot"></span>MUNDO COLORADO — DIAGNÓSTICO</div>
+    <a href="index.html" class="backlink">← Voltar para a home</a>
+  </div>
+</nav>
+
+<header style="padding:64px 0 0;">
+  <div class="wrap">
+    <p class="eyebrow">Material completo · uso interno / conselho</p>
+    <h1 class="claim" style="max-width:22ch;">Background, contextualização e recomendação — sem corte.</h1>
+    <p class="lede" style="margin-bottom:0;">Esta página reúne o conteúdo integral do diagnóstico: todas as tabelas, o catálogo de oportunidades, o Business Case e as fontes. A home traz a versão condensada; aqui está a base que sustenta cada afirmação.</p>
+    <div class="toc">
+      <a href="#background">01 Background</a>
+      <a href="#contexto">02 Contextualização</a>
+      <a href="#recomendacao">03 Recomendação</a>
+      <a href="#apendice">04 Apêndice</a>
+    </div>
+  </div>
+</header>
+
+<!-- ===================== BACKGROUND ===================== -->
+<section class="block" id="background">
+  <div class="wrap">
+    <p class="kicker">01 — Background</p>
+    <h2 class="blocktitle">Estado atual do produto</h2>
+    <p class="lede">O Mundo Colorado é uma plataforma (site socio.internacional.com.br + app) lançada em outubro de 2022, em fases. A infraestrutura transacional — bilheteria, gestão de sócios, controle de acesso com reconhecimento facial e o próprio app — é fornecida pela <b>Imply/ElevenTickets</b>, parceira do clube desde 2017. O app é, na prática, um shell que embarca webviews da stack Imply. Segundo release da própria Imply, a tecnologia alcançou "7 dos 10 maiores públicos do futebol brasileiro em 2024, com 31% de market share na Série A" <span class="tagbox">autodeclarado</span>. Reconhecimento facial é obrigatório no Beira-Rio desde jun/2025 (Lei Geral do Esporte, art. 148).</p>
+
+    <p class="lede"><b>Escala (1º ano, out/2023):</b> +2,9 milhões de acessos · +160 mil downloads · 206 vídeos de bastidores · 27 transmissões ao vivo · 3.100+ minutos de conteúdo. Google Play reporta 100 mil+ downloads (jun/2026).</p>
+
+    <h4 class="subtitle">Tabela de funcionalidades</h4>
+    <table class="mini">
+      <thead><tr><th>Funcionalidade</th><th>Como funciona</th><th>Maturidade (1–10)</th><th>Evidência/fonte</th></tr></thead>
+      <tbody>
+        <tr><td>Carteira/carteirinha digital</td><td>Prometida no lançamento; hoje o acesso é via matrícula/senha + cartão, com biometria facial substituindo a carteirinha na entrada. Segue em "O que vem por aí?"</td><td>4</td><td>App Store/Google Play; internacional.com.br</td></tr>
+        <tr><td>Check-in / ingressos</td><td>Núcleo do produto: compra, check-in/check-out, cadeira locada, meia-entrada, gestão de convidados. Funciona, com falhas recorrentes em dia de jogo</td><td>6</td><td>cms.internacional.com.br; App Store; Reclame Aqui</td></tr>
+        <tr><td>Cashback (Zé Delivery/Ambev)</td><td>50% da mensalidade em cupons de R$10, uso individual, sem acúmulo. Resgate ocorre no app do parceiro, não no Mundo Colorado. Parceria desde 2023</td><td>3</td><td>internacional.com.br; regulamento Zé Delivery</td></tr>
+        <tr><td>Conteúdo exclusivo</td><td>Bastidores, entrevistas, lives. Menu redireciona a YouTube/Canal do Inter via webview</td><td>6</td><td>cms.internacional.com.br; changelog App Store</td></tr>
+        <tr><td>Gamificação</td><td>Prometida out/2022 (entrega prevista 1T2023); nunca lançada; ainda "O que vem por aí?" em out/2025</td><td>1</td><td>descrição do app; Coletiva.net</td></tr>
+        <tr><td>CRM / personalização</td><td>Discurso institucional de integração de dados (ERP + sócio + bilheteria via Imply), sem personalização visível ao torcedor</td><td>3</td><td>osul.com.br; [Inferência]</td></tr>
+        <tr><td>Marketplace / loja oficial</td><td>App oferece "descontos e cupons"; loja (lojadointer.com.br) operada pela Netshoes, fora do app</td><td>4</td><td>lojadointer.com.br; reviews App Store</td></tr>
+        <tr><td>Comunidade / engajamento social</td><td>Presença em redes; sem feed, palpites ou quiz dentro do app</td><td>2</td><td>cms.internacional.com.br; [Inferência]</td></tr>
+      </tbody>
+    </table>
+
+    <h4 class="subtitle">Voz do usuário</h4>
+    <p class="note">Notas de loja: <b>Google Play 4,3★</b> (3,35 mil avaliações) · <b>App Store 4,4★</b> (3 mil avaliações). Reclame Aqui variou entre 5,1/10 e 4,7/10 conforme recorte — canal não-oficial, volume baixo, ler como sinal qualitativo. [Não verificado] os percentuais específicos.</p>
+
+    <p style="font-size:13.5px;color:var(--paper-dim);margin-bottom:6px;">(a) Bugs técnicos — dívida de engenharia</p>
+    <table class="mini">
+      <thead><tr><th>Problema</th><th>Impacto</th><th>Prioridade</th><th>Solução</th></tr></thead>
+      <tbody>
+        <tr><td>Login não persiste / desloga aleatoriamente</td><td>Atrito; abandono; risco em dia de jogo</td><td>Crítica</td><td>Persistência de sessão/token; reduzir dependência de webview</td></tr>
+        <tr><td>Travamentos e lentidão</td><td>NPS; percepção de amadorismo</td><td>Crítica</td><td>Rearquitetar telas críticas em nativo; crashlytics</td></tr>
+        <tr><td>Falha no check-in/ingresso em dia de jogo</td><td>Sócio perde acesso ao estádio</td><td>Crítica</td><td>Reconciliação idempotente; fallback presencial na CAS</td></tr>
+        <tr><td>Erros de webview/carregamento</td><td>Instabilidade difusa</td><td>Alta</td><td>Migração gradual webview → nativo</td></tr>
+        <tr><td>Voucher de menor/meia-entrada falha</td><td>Bloqueia uso familiar</td><td>Alta</td><td>Corrigir fluxo de menores; testes E2E</td></tr>
+      </tbody>
+    </table>
+
+    <p style="font-size:13.5px;color:var(--paper-dim);margin:26px 0 6px;">(b) Gaps de produto</p>
+    <table class="mini">
+      <thead><tr><th>Problema</th><th>Impacto</th><th>Prioridade</th><th>Solução</th></tr></thead>
+      <tbody>
+        <tr><td>Gamificação inexistente (3+ anos)</td><td>Perde retenção fora de dia de jogo</td><td>Alta</td><td>MVP: pontos → resgates; palpites/quiz</td></tr>
+        <tr><td>Cashback não-nativo</td><td>Não gera tráfego/dado no app do clube</td><td>Média-Alta</td><td>Visão de saldo via API do parceiro</td></tr>
+        <tr><td>Sem personalização/CRM</td><td>Home genérica; subutiliza base</td><td>Alta</td><td>Home por perfil; jornadas por RFM</td></tr>
+        <tr><td>Loja fora do app</td><td>Perde conversão de merch</td><td>Média</td><td>Loja embarcada, login único</td></tr>
+        <tr><td>Sem comunidade/social</td><td>Menor sessão fora de jogo</td><td>Média</td><td>Feed, palpites, ranking</td></tr>
+        <tr><td>Cancelamento difícil pelo app</td><td>Reclamações/litígio</td><td>Média</td><td>Autosserviço conforme CDC</td></tr>
+      </tbody>
+    </table>
+
+    <h4 class="subtitle">Diagnóstico (racional de suporte)</h4>
+    <ol style="font-size:14.5px;color:var(--paper);padding-left:20px;">
+      <li style="margin-bottom:10px;"><b>Modelo validado:</b> Inter é 2º maior clube em sócios do Brasil (ge.globo/Bar FC/Poder360, jul/2025), atrás só do Palmeiras.</li>
+      <li style="margin-bottom:10px;"><b>Falha de priorização documentada:</b> promessa pública de gamificação (Alessandro Barcellos, out/2022, entrega prevista 1T2023) sem cumprimento até out/2025.</li>
+      <li><b>Dívida técnica como agravante, não causa raiz:</b> mesmo um app tecnicamente perfeito continuaria pobre em engajamento — o problema primário é produto.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ===================== CONTEXTUALIZAÇÃO ===================== -->
+<section class="block" id="contexto">
+  <div class="wrap">
+    <p class="kicker">02 — Contextualização</p>
+    <h2 class="blocktitle">Mercado</h2>
+    <p class="lede">Escala não é o problema do Inter. Clubes em faixas de sócios variadas — incluindo um clube menor (Athletico-PR) — já entregaram engajamento digital que o Inter prometeu e não entregou. Bug de login/sessão é epidêmico no setor — corrigi-lo é higiene competitiva, não diferencial. O topo global (Real Madrid, City, Bayern) compete em arquitetura de dados (CRM/CDP unificado), exatamente a lacuna do Mundo Colorado — mas com orçamento 10x+, entrando só como referência downscaled.</p>
+
+    <h4 class="subtitle">Benchmark Brasil</h4>
+    <table class="mini">
+      <thead><tr><th>Clube</th><th>App/plataforma</th><th>Diferencial</th><th>O que faz melhor</th><th>Aplicável ao Inter?</th></tr></thead>
+      <tbody>
+        <tr><td>Flamengo</td><td>Fla-App (Sportheca)</td><td>Nação + Fla-Experience (pontos→experiências)</td><td>Quizzes, palpites, "escale seu time"; cashback Zé Delivery 50% (idêntico ao Inter)</td><td>Sim — mesma faixa de porte; ressalva: reviews reportam mesmo bug de login</td></tr>
+        <tr><td>Corinthians</td><td>Universo SCCP (via OneFan) + Fiel Torcedor</td><td>Gamificação: quiz/palpite/ranking/pontuação</td><td>Entrega a gamificação central que o Inter listou "em breve" e nunca lançou</td><td>Sim — modelo "comprar vs. construir"; ressalva: reviews citam bugs graves</td></tr>
+        <tr><td>Palmeiras</td><td>Avanti + Palmeiras Pay (fintech)</td><td>Maior programa do Brasil; rating por estrelas para prioridade de ingresso</td><td>Monetização via fintech própria — R$30M+ ao Avanti até mai/2025</td><td>Parcial — rating de estrelas é replicável; fintech própria exige investimento e parceria bancária</td></tr>
+        <tr><td>GFPA</td><td>Meu Grêmio (v4.0, ativo até 2026)</td><td>Base de sócios de porte semelhante; mesmos parceiros comerciais regionais (Panvel, Zé Delivery, SIM)</td><td>Gamificação lançada e mantida (quizzes/pesquisas)</td><td>Sim, como referência de viabilidade regional — prova de que o formato funciona no mesmo mercado e com os mesmos parceiros</td></tr>
+        <tr><td>São Paulo</td><td>SPFC Oficial + Técnico Torcedor</td><td>Palpite em tempo real (escalação, gols, cartões) durante o jogo</td><td>Camada de "jogo dentro do jogo" ausente no Mundo Colorado</td><td>Sim — baixo custo, alto engajamento em dia de jogo</td></tr>
+        <tr><td>Athletico-PR</td><td>Super App Furacão</td><td>Construído do zero, nativo, avatar personalizável, streaming próprio (Furacão Play)</td><td>Prova que um clube pode entregar app nativo — oposto do shell de webviews do Mundo Colorado</td><td>Sim — benchmark forte: modelo downscaled ideal</td></tr>
+        <tr><td>Bahia</td><td>App + Socios.com (fan token)</td><td>Acesso a know-how do City Football Group (dono de 90%)</td><td>Fan token adiciona camada de votação/recompensa</td><td>Não como modelo — depende de aquisição por grupo global; fan tokens têm risco reputacional</td></tr>
+      </tbody>
+    </table>
+
+    <h4 class="subtitle">Benchmark Internacional</h4>
+    <table class="mini">
+      <thead><tr><th>Clube</th><th>Plataforma</th><th>Diferencial</th><th>Aplicável ao Inter?</th></tr></thead>
+      <tbody>
+        <tr><td>Real Madrid</td><td>App (redesenho Softtek: +150% usuários ativos) + RM Play</td><td>Adobe Real-Time CDP + Customer Journey Analytics; personalização 1:1</td><td>Descartado do ranking (orçamento 10x+); elemento downscaled: CRM/segmentação básica</td></tr>
+        <tr><td>Manchester City</td><td>App + Cityzens</td><td>Comunidade com votação (man of the match, polls, quizzes)</td><td>Descartado; módulo de votação/enquete é barato e replicável isoladamente</td></tr>
+        <tr><td>Bayern de Munique</td><td>FC Bayern App</td><td>CRM unificado via SAP Emarsys (50+ sistemas legados); 432.500 membros</td><td>Descartado; elemento downscaled: perfil digital + prediction game</td></tr>
+        <tr><td>Benfica</td><td>App relançado 2024 (OutSystems)</td><td>400 mil sócios; mercado secundário de ingressos in-app</td><td>Parcial — mercado secundário é altamente aplicável, exige maturidade de bilheteria</td></tr>
+        <tr><td>River Plate</td><td>Somos River</td><td>Carnet único, concursos com prêmios</td><td>Parcial — barato e aplicável, menos maduro tecnologicamente</td></tr>
+        <tr><td>Boca Juniors</td><td>Boca Socios</td><td>Carteira digital, renovação de abonos, histórico</td><td>Não como diferencial — não adiciona camada de engajamento</td></tr>
+      </tbody>
+    </table>
+
+    <h4 class="subtitle">Benchmark Outros Setores</h4>
+    <table class="mini">
+      <thead><tr><th>Empresa</th><th>Programa</th><th>Diferencial</th><th>Aplicável ao Inter?</th></tr></thead>
+      <tbody>
+        <tr><td>Starbucks Rewards</td><td>Stars, tiers Green/Gold/Reserve</td><td>35,5M membros ativos (Q1 FY26); gastam 2,5–3x mais; ~60% da receita EUA</td><td>Sim, downscaled: mecânica de desafios/progressão sobre benefícios já existentes</td></tr>
+        <tr><td>Nike Membership</td><td>Ecossistema de 4 apps, grátis</td><td>Filosofia "valor primeiro"; SNKRS (receita US$70M→700M em 5 anos)</td><td>Parcial — princípio aplicável; ecossistema de 4 apps não é replicável</td></tr>
+        <tr><td>Mercado Livre MELI+</td><td>Assinatura (R$74,90, streaming bundlado)</td><td>Bundling de entretenimento + fintech numa assinatura única</td><td>Não como modelo de negócio — lição: empacotar benefícios reduz churn</td></tr>
+        <tr><td>Livelo/Smiles</td><td>Moeda de coalizão/milhas</td><td>Pontos transferíveis entre parceiros</td><td>Parcial — moeda própria resolve a falta de progressão do cashback atual</td></tr>
+      </tbody>
+    </table>
+
+    <h4 class="subtitle">Tendências — Ranking dos 5 benchmarks mais replicáveis</h4>
+    <p class="note">Ponderação: base comparável + investimento viável sem gasto 10x+ + maturidade tecnológica (distância do ponto de partida do Inter).</p>
+    <ol class="top10">
+      <li><b>GFPA — "Meu Grêmio".</b> Base de porte semelhante, mesma região metropolitana, parceiros comerciais em comum. Não é comparação de rivalidade, é prova de viabilidade: o formato funciona neste mercado específico. Ressalva: funções mais ambiciosas (moedas/ranking) parecem ter perdido força — entregar exige sustentar.</li>
+      <li><b>Athletico-PR — Super App Furacão.</b> Entregou nativo, custom, recusando explicitamente white-label. Downscaled: migrar dos pontos de maior fricção (check-in, carteirinha) para nativo, sem streaming próprio.</li>
+      <li><b>Corinthians — Universo SCCP (via OneFan).</b> O modelo relevante é o fornecedor, não o clube: licenciar é mais barato/rápido que construir do zero. Ressalva crítica: a execução do Corinthians tem falhas — licenciar exigiria SLA rígido.</li>
+      <li><b>Starbucks Rewards (downscaled).</b> Entra só pela mecânica de desafios/progressão por tiers sobre benefícios já existentes.</li>
+      <li><b>Flamengo — Fla-Experience.</b> Faixa de porte do Inter, mesmo cashback Zé Delivery. Modelo mais próximo do que o Inter poderia construir. Ressalva: mesmos bugs de login do setor.</li>
+    </ol>
+    <p class="note">Excluídos do ranking por orçamento 10x+ (mas com elementos downscaled): Real Madrid, Manchester City, Bayern, Benfica.</p>
+  </div>
+</section>
+
+<!-- ===================== RECOMENDAÇÃO ===================== -->
+<section class="block" id="recomendacao">
+  <div class="wrap">
+    <p class="kicker">03 — Recomendação</p>
+    <h2 class="blocktitle">Cenário sem intervenção</h2>
+    <p class="lede">Se o Mundo Colorado permanecer no estado atual: (a) a dívida técnica em dia de jogo continua corroendo a confiança do sócio pagante — exatamente o momento de maior exposição reputacional; (b) o cashback (principal benefício de fidelização) segue gerando tráfego e dado para o parceiro, não para o clube; (c) a lacuna de engajamento entre o Mundo Colorado e o mercado se torna estrutural, não temporária. <span class="tagbox">Inferência</span> Não há dado público de churn ou CAC do programa de sócios para quantificar o risco financeiro direto — o argumento aqui é reputacional e de oportunidade perdida, não uma projeção de receita mensurada.</p>
+
+    <h4 class="subtitle">Cenários — Evoluir, substituir ou white-label?</h4>
+    <table class="mini">
+      <thead><tr><th>Critério</th><th>(a) Evoluir stack Imply</th><th>(b) Trocar plataforma-base</th><th>(c) White-label de engajamento</th></tr></thead>
+      <tbody>
+        <tr><td>O que é</td><td>Manter Imply; investir em produto via API</td><td>Substituir o fornecedor de base transacional</td><td>Contratar solução pronta plugada à base atual</td></tr>
+        <tr><td>Prós</td><td>Zero risco de migração; biometria já funcionando; relação de 8 anos</td><td>Possível ganho de UX apenas se a base fosse insubstituível — não é o caso</td><td>Time-to-market rápido; dados first-party</td></tr>
+        <tr><td>Contras</td><td>Depende de a Imply entregar roadmap — histórico de "em breve" não cumprido</td><td>Alto custo, alto risco, sem resolver o gargalo real</td><td>Risco de lock-in de dados; governança LGPD</td></tr>
+        <tr><td><b>Recomendação</b></td><td>✅ Manter</td><td>❌ Descartar</td><td>✅ Adotar, com cláusula de portabilidade de dados</td></tr>
+      </tbody>
+    </table>
+
+    <h4 class="subtitle">Comparação — Players e aderência ao porte do Inter</h4>
+    <table class="mini">
+      <thead><tr><th>Fornecedor</th><th>Perfil</th><th>Aderência</th></tr></thead>
+      <tbody>
+        <tr><td><b>Fanbase (br)</b> — recomendação primária</td><td>Fan iD + FanBox (CRM) + FanApp white-label; ~30% das Séries A/B</td><td>Alta. R$8M captados; arquitetura modular ideal para plugar na Imply; sem litígio reportado</td></tr>
+        <tr><td><b>OneFan (br)</b> — contingência, não recomendação primária</td><td>SuperApp white-label; maior track record em gamificação de futebol</td><td>Desqualificada como 1ª escolha: Corinthians enviou notificação extrajudicial por problemas de migração — risco direto de lock-in</td></tr>
+        <tr><td>FENG (br)</td><td>Gestão de programa de sócio-torcedor; usa Salesforce</td><td>Alta para gestão do programa. Sem preços públicos [Não verificado]</td></tr>
+        <tr><td>Socios.com/Chiliz</td><td>Fan tokens (blockchain)</td><td>Baixa como pilar de engajamento — mercado volátil, risco reputacional</td></tr>
+        <tr><td>Braze/CleverTap</td><td>CRM/mensageria enterprise global</td><td>Média — poderosas, provavelmente caras/complexas vs. fornecedor nacional</td></tr>
+      </tbody>
+    </table>
+
+    <h4 class="subtitle">Business Case — Priorização</h4>
+    <p class="note"><b>Nota metodológica:</b> não há dado público de ticket médio por sócio, CAC ou churn do Mundo Colorado, nem levantamento de custo interno de desenvolvimento. Por isso, faixas de investimento em reais foram deliberadamente retiradas — permanecem classificações relativas de complexidade/custo. Qualquer número em reais exigiria validação de orçamento interno antes de circular como recomendação.</p>
+    <table class="mini">
+      <thead><tr><th>Iniciativa</th><th>Prazo</th><th>Impacto engajamento</th><th>Impacto receita</th><th>Investimento (relativo)</th></tr></thead>
+      <tbody>
+        <tr><td>Corrigir dívida técnica</td><td>Quick win (&lt;6m)</td><td>Alto</td><td>Médio (evita churn)</td><td>Baixo-médio</td></tr>
+        <tr><td>Apple/Google Wallet</td><td>Quick win</td><td>Médio</td><td>Baixo</td><td>Baixo</td></tr>
+        <tr><td>Gamificação contínua</td><td>Quick win a médio</td><td>Alto</td><td>Médio</td><td>[Não verificado]</td></tr>
+        <tr><td>CRM + push segmentado</td><td>Médio (6–18m)</td><td>Alto</td><td>Alto</td><td>[Não verificado]</td></tr>
+        <tr><td>Cashless + pedido antecipado</td><td>Médio</td><td>Médio</td><td>Alto (+20–30% ticket)</td><td>Médio-alto</td></tr>
+        <tr><td>Marketplace P2P de ingressos</td><td>Médio</td><td>Médio</td><td>Alto (taxa de transação)</td><td>[Não verificado]</td></tr>
+        <tr><td>Cashback nativo integrado</td><td>Médio</td><td>Alto</td><td>Médio</td><td>[Não verificado]</td></tr>
+        <tr><td>Assinatura premium (OTT)</td><td>Médio a longo</td><td>Médio</td><td>Alto (recorrência)</td><td>[Não verificado]</td></tr>
+        <tr><td>Link direto de estacionamento (Estapar)</td><td>Quick win (&lt;6m)</td><td>Baixo</td><td>Médio</td><td>Baixo — fornecedor já contratado</td></tr>
+        <tr><td>Colecionáveis digitais</td><td>Longo (18–36m)</td><td>Baixo</td><td>Baixo/incerto</td><td>Não recomendado</td></tr>
+      </tbody>
+    </table>
+
+    <h4 class="subtitle">Roadmap operacional</h4>
+    <div class="roadmap">
+      <div class="rstep">
+        <div class="phase">Fase 1</div>
+        <div class="desc">Sprint de correção da dívida técnica (login/sessão, check-in). Apple/Google Wallet. Corrigir link Estapar. Cashback nativo.</div>
+        <div class="kpi">0–6m · falhas de check-in &lt;1% · Se a Imply não entregar, acionar cláusula de SLA</div>
+      </div>
+      <div class="rstep">
+        <div class="phase">Fase 2</div>
+        <div class="desc">Contratar Fanbase (white-label) com posse de dados. CRM/segmentação. Gamificação contínua. Programa de indicação.</div>
+        <div class="kpi">6–18m · DAU/MAU ≥20% · ≥6% da base ativa em ação de cashback</div>
+      </div>
+      <div class="rstep">
+        <div class="phase">Fase 3</div>
+        <div class="desc">Cashless + pedido antecipado. Marketplace P2P oficial. Avaliar assinatura premium/OTT. Programa de pontos maduro.</div>
+        <div class="kpi">18–36m · +20% ticket médio de A&amp;B · redução mensurável de cambismo</div>
+      </div>
+    </div>
+    <p class="note" style="margin-top:18px;"><b>Gatilhos que mudam o plano:</b> se a Imply demonstrar capacidade de entregar engajamento com qualidade → Fase 2 sem terceiro. Se volume de dados exceder capacidade dos nacionais → migrar CRM para Braze/CleverTap. Se a plataforma licenciada replicar bugs conhecidos do setor → abortar e reavaliar fornecedor.</p>
+
+    <h4 class="subtitle">Decisão recomendada (detalhada)</h4>
+    <p class="quote">Estabilizar primeiro. Engajar depois. Monetizar por último.</p>
+    <p class="lede">O Inter deve manter a base Imply/ElevenTickets e contratar a Fanbase como camada de engajamento white-label plugada via API, começando por um sprint de estabilização da dívida técnica nos próximos 6 meses, porque o gargalo é de produto e execução — não de base transacional nem de escala. A prioridade zero é parar de perder confiança do sócio adimplente com bugs em dia de jogo; a prioridade um é implantar CRM/segmentação, gamificação contínua e matchday commerce. A cláusula inegociável em qualquer contrato white-label é a posse e portabilidade da base de dados pelo Inter. Fan tokens e colecionáveis digitais devem ser despriorizados: são nicho, voláteis e de risco reputacional.</p>
+
+    <h4 class="subtitle">Ranking final — Top 10 oportunidades (por impacto/esforço)</h4>
+    <ol class="top10">
+      <li>Estabilizar dívida técnica (login/sessão + check-in) — pré-requisito de tudo</li>
+      <li>CRM + push segmentado + personalização básica — maior alavancagem de receita</li>
+      <li>Gamificação contínua — promessa de 2022 não cumprida; módulo pronto de fornecedor</li>
+      <li>Corrigir o link direto de estacionamento (Estapar) — quick win de baixíssima complexidade</li>
+      <li>Apple/Google Wallet — quick win de UX</li>
+      <li>Cashback nativo integrado (Ambev/Zé Delivery) — parceria já existe, falta ser nativa</li>
+      <li>Cashless + pedido antecipado de alimentação — maior impacto em ticket médio</li>
+      <li>Marketplace P2P oficial de ingressos — ataca cambismo, gera taxa</li>
+      <li>Benefícios geolocalizados + programa de indicação — ativa base ociosa, baixo custo</li>
+      <li>Assinatura premium de conteúdo (OTT) — receita recorrente</li>
+    </ol>
+
+    <h4 class="subtitle">Matchday commerce — fluxo operacional</h4>
+    <p class="lede"><b>Pedido antecipado (pickup, não entrega no assento):</b> cardápio dentro do próprio app, janela de pedido 90 min antes até o intervalo, pagamento via Pix/carteira já existente, retirada em pista dedicada por QR. Ganho é fila menor, não entrega em assento — catálogo já descartou entrega no assento (falha logística documentada na NFL). Maior gargalo real é integração com o POS dos concessionários, não o app em si. <span class="tagbox">Inferência</span></p>
+    <p class="lede"><b>Estacionamento:</b> a Estapar já opera o entorno do Beira-Rio — o gargalo é que o link de compra/reserva direto dentro do Mundo Colorado hoje não funciona. Corrigir esse link é o quick win real; prioridade de vaga por tier do programa de pontos depende de acordo comercial com a Estapar. <span class="tagbox">Inferência</span></p>
+    <p class="lede"><b>Loja oficial dentro do app:</b> reaproveita a integração já mapeada (hoje fora do app, via Netshoes) — para matchday, o modelo relevante é "compre no app, retire num quiosque físico no Beira-Rio".</p>
+
+    <h4 class="subtitle">Programa de pontos — mecânica proposta</h4>
+    <p class="note">Os valores desta tabela são <span class="tagbox">Especulação</span> — parâmetros de design a calibrar em piloto, não dado de mercado.</p>
+    <table class="mini">
+      <thead><tr><th>Ação</th><th>Racional</th></tr></thead>
+      <tbody>
+        <tr><td>Check-in confirmado em jogo no Beira-Rio</td><td>Verificável via biometria/Imply — sem fraude, sem passo extra</td></tr>
+        <tr><td>Sequência de presença (3+ jogos seguidos)</td><td>Recompensa fidelidade de frequência, não só volume</td></tr>
+        <tr><td>Compra de alimentação/bebida via app</td><td>Proporcional ao valor gasto; alinhado à lógica de cashback já existente</td></tr>
+        <tr><td>Compra na loja oficial via app</td><td>Peso relativo maior — categoria de maior margem para o clube</td></tr>
+        <tr><td>Ativação mensal do cashback Zé Delivery no app</td><td>Incentiva usar o app como hub, não só o app do parceiro</td></tr>
+        <tr><td>Indicação de novo sócio (referral)</td><td>Custo de aquisição zero; só conta após adimplência do indicado</td></tr>
+        <tr><td>Consumo de conteúdo (quiz pós-jogo, etc.)</td><td>Engajamento fora de dia de jogo, valor baixo de propósito</td></tr>
+      </tbody>
+    </table>
+    <p class="lede" style="margin-top:18px;"><b>Resgate</b> — reaproveitando parceiros que já existem: nível baixo (cupom extra, desconto adicional Panvel/Dalhe Inter), nível médio (prioridade de fila/setor em ingresso de alta demanda; vaga de estacionamento prioritária), nível alto (experiências que o clube já opera: Chute a Gol, entrada em campo). <b>Tiers</b> desbloqueiam janela de compra antecipada para jogos fora de casa — maior valor percebido, menor custo direto. <b>O que evitar:</b> criar catálogo de resgate sem dono interno responsável por sustentá-lo — programas sem manutenção tendem a perder força ao longo do tempo.</p>
+
+    <h4 class="subtitle">O que mais a plataforma pode agregar</h4>
+    <ul style="font-size:14.5px;color:var(--paper);padding-left:20px;">
+      <li style="margin-bottom:10px;"><b>Upsell dinâmico de assento:</b> se o setor não vender no ritmo esperado, oferecer upgrade a preço reduzido via push horas antes do jogo — monetiza inventário ocioso sem re-precificar o ingresso original.</li>
+      <li style="margin-bottom:10px;"><b>Monetização de dados agregados para patrocinadores</b> (anonimizados, LGPD): o CRM da Fase 2 gera, como subproduto, inteligência de consumo que pode virar argumento comercial em negociação de patrocínio — receita B2B indireta. <span class="tagbox">Inferência</span></li>
+      <li style="margin-bottom:10px;"><b>Gatilho de CRM por data pessoal</b> (aniversário do sócio): oferta automática personalizada — baixo custo, versão simples do que o Real Madrid faz via Adobe.</li>
+      <li><b>Pacote torcedor-de-fora integrado:</b> turismo esportivo combinado com link funcional de estacionamento (Estapar) e pedido antecipado — pacote único para quem vem de fora de Porto Alegre.</li>
+    </ul>
+
+    <h4 class="subtitle">Oportunidades pouco exploradas (catálogo)</h4>
+    <table class="mini">
+      <thead><tr><th>Oportunidade</th><th>Quem utiliza</th><th>Viabilidade Inter</th><th>Evidência</th></tr></thead>
+      <tbody>
+        <tr><td>Pedido antecipado (pickup)</td><td>Dodger Stadium, Bengals, NBA/NFL</td><td>Média</td><td>Oracle: 45% abandonam fila longa</td></tr>
+        <tr><td>Entrega no assento</td><td>Liverpool (SeatServe), Zenit</td><td>Baixa</td><td>49ers recuaram — falha logística</td></tr>
+        <tr><td>Cashless (pré/pós-pago)</td><td>Estádio Banorte, Benfica, Allianz</td><td>Alta</td><td>Banorte: +50% em A&B; Allianz +55%</td></tr>
+        <tr><td>Estacionamento inteligente</td><td>SpotHero, Dallas Cowboys</td><td>Alta</td><td>Cowboys: melhora de fluxo</td></tr>
+        <tr><td>Localizador de carro</td><td>Disney</td><td>Alta</td><td>Recurso consolidado Disney World</td></tr>
+        <tr><td>Geolocalização/mapa indoor</td><td>Smart stadiums</td><td>Média</td><td>[Inferência]</td></tr>
+        <tr><td>Filas virtuais</td><td>Parques temáticos</td><td>Média</td><td>[Não verificado]</td></tr>
+        <tr><td>Upgrade instantâneo de ingresso</td><td>NFL/NBA apps</td><td>Média</td><td>Converte inventário premium ocioso</td></tr>
+        <tr><td>Marketplace P2P de ingressos</td><td>SeatGeek, StubHub, TiqAssist</td><td>Alta</td><td>TiqAssist ~US$5M vendidos</td></tr>
+        <tr><td>Compra de produtos oficiais no app</td><td>Fla-App + Manto</td><td>Alta</td><td>Fla-App já integra loja</td></tr>
+        <tr><td>Apple/Google Wallet</td><td>MLB Ballpark, SeatGeek</td><td>Alta</td><td>MLB permite add-to-wallet</td></tr>
+        <tr><td>Pix integrado</td><td>Mundo Colorado já usa</td><td>Alta (já existe)</td><td>—</td></tr>
+        <tr><td>Programa de indicação</td><td>Fintechs, Palmeiras Pay</td><td>Alta</td><td>[Não verificado]</td></tr>
+        <tr><td>Gamificação contínua</td><td>OneFan (Corinthians/GFPA), Fla-App</td><td>Alta</td><td>OneFan: 6M interações (autodeclarado)</td></tr>
+        <tr><td>Colecionáveis digitais</td><td>NBA Top Shot</td><td>Baixa</td><td>Top Shot -50% compradores pós-2022</td></tr>
+        <tr><td>Segunda tela / stats em tempo real</td><td>Monterosa (Liverpool), app do GFPA</td><td>Média</td><td>App do GFPA já tem narração/stats ao vivo</td></tr>
+        <tr><td>Realidade aumentada</td><td>Dallas Cowboys, Titans</td><td>Baixa</td><td>Ativação viral em redes</td></tr>
+        <tr><td>Reconhecimento facial além do acesso</td><td>Wicket (NFL/NBA)</td><td>Média</td><td>Inter já tem biometria (Imply) — reuso possível</td></tr>
+        <tr><td>CRM + IA para personalização</td><td>Real Madrid (Adobe), Starbucks</td><td>Alta</td><td>Starbucks: membros = ~60% da receita EUA</td></tr>
+        <tr><td>Assinatura premium/OTT</td><td>FlaTV+, Real Madrid</td><td>Média</td><td>Real Madrid converte free→premium via Adobe Target</td></tr>
+        <tr><td>Turismo esportivo (pacotes)</td><td>Flamengo (Nação Sem Fronteiras)</td><td>Alta</td><td>Flamengo já lançou plano nacional</td></tr>
+        <tr><td>Programa familiar</td><td>Fidelidade em geral</td><td>Alta</td><td>[Não verificado]</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ===================== APÊNDICE ===================== -->
+<section class="block" id="apendice">
+  <div class="wrap">
+    <p class="kicker">04 — Apêndice</p>
+    <h2 class="blocktitle">Fontes, dados-chave e ressalvas</h2>
+
+    <h4 class="subtitle">Fontes principais</h4>
+    <p class="lede" style="font-size:13.5px;">apps.apple.com / play.google.com · cms.internacional.com.br, socio.internacional.com.br, osul.com.br · ge.globo / Bar FC / Poder360 / Exame (jul-ago/2025) · Coletiva.net, Máquina do Esporte · sites oficiais dos clubes benchmarked · releases de fornecedores (OneFan, Fanbase, FENG, Sportheca, Socios.com/Chiliz, Braze, CleverTap) · Starbucks Investor Relations (Q1 FY2026) · Bloomberg Línea (caso Estádio Banorte) · Reclame Aqui.</p>
+
+    <h4 class="subtitle">Dados-chave</h4>
+    <p class="lede" style="font-size:13.5px;">Sócios adimplentes: Inter 111.021 · Palmeiras 184.712 · Atlético-MG 106.465 · GFPA 104.823 · Flamengo ~100 mil (jul-ago/2025). Sócios cadastrados Inter: 150 mil (abr/2025). Notas de loja Mundo Colorado: Google Play 4,3★ (3,35 mil) · App Store 4,4★ (3 mil). Funding fornecedores: OneFan R$10M (SBF Ventures, 2022) · Fanbase R$8M (DOMO.VC/OutField/Harvard Angels). Starbucks: 35,5M membros ativos (Q1 FY26) · gasto 2,5-3x maior · ~60% da receita EUA.</p>
+
+    <h4 class="subtitle">Ressalvas gerais</h4>
+    <ul style="font-size:13.5px;color:var(--paper-dim);padding-left:20px;">
+      <li style="margin-bottom:8px;">Notas de maturidade e "frequência aparente" são [Inferência] — sem acesso a telemetria interna de nenhum dos clubes analisados.</li>
+      <li style="margin-bottom:8px;">MAU/DAU de apps de clubes brasileiros, incluindo Mundo Colorado, não são públicos — adoção é inferida via downloads/notas de loja.</li>
+      <li style="margin-bottom:8px;">Dados de fornecedores (Imply "31% market share", métricas OneFan de conversão) são autodeclarados, não auditados independentemente.</li>
+      <li style="margin-bottom:8px;">Status da gamificação completa do GFPA (moedas/ranking) é [Não verificado] — quizzes seguem ativos, pacote de premiação não consta mais na descrição de loja.</li>
+      <li style="margin-bottom:8px;">Benchmarks de cashless (+20% a +55%) vêm de materiais de fornecedores — indicativos, não garantidos para o Beira-Rio.</li>
+      <li style="margin-bottom:8px;">Operação do estacionamento do entorno do Beira-Rio pela Estapar confirmada; detalhes de contrato/parceria comercial não fazem parte deste diagnóstico. [Não verificado]</li>
+      <li>Colecionáveis digitais e fan tokens carregam risco de mercado (declínio NFT pós-2022) e reputacional — recomendação de despriorização é do consultor, não consenso de mercado unânime.</li>
+    </ul>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <a href="index.html" class="backlink">← Voltar para a home</a>
+    <span class="status">● material completo — versão para validação</span>
+  </div>
+</footer>
+
+</body>
+</html>

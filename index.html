@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mundo Colorado — Diagnóstico Estratégico</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+  :root{
+    --ink:#131211;
+    --ink-soft:#1c1a18;
+    --paper:#EDEAE2;
+    --paper-dim:#B9B6AC;
+    --red:#CC142F;
+    --red-dim:#7a0c1c;
+    --amber:#E8A33D;
+    --line:rgba(237,234,226,0.14);
+    --line-strong:rgba(237,234,226,0.28);
+    --maxw:1120px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'IBM Plex Sans',sans-serif;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:var(--red);color:var(--paper);}
+  a{color:inherit;}
+  a:focus-visible, button:focus-visible{
+    outline:2px solid var(--amber);
+    outline-offset:3px;
+  }
+
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;}
+
+  /* NAV */
+  nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(19,18,17,0.88);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  nav .wrap{
+    display:flex;align-items:center;justify-content:space-between;
+    height:64px;
+  }
+  .brand{
+    font-family:'Bebas Neue',sans-serif;
+    font-size:22px;letter-spacing:0.04em;
+    display:flex;align-items:center;gap:10px;
+  }
+  .brand .dot{width:9px;height:9px;border-radius:50%;background:var(--red);}
+  .navlinks{display:flex;gap:32px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.06em;text-transform:uppercase;}
+  .navlinks a{text-decoration:none;color:var(--paper-dim);transition:color .15s;}
+  .navlinks a:hover{color:var(--paper);}
+  .navlinks a.nav-deep{color:var(--amber);}
+  .navlinks a.nav-deep:hover{color:var(--paper);}
+  @media (max-width:720px){.navlinks{display:none;}}
+
+  /* HERO / SCOREBOARD */
+  .hero{
+    padding:88px 0 64px;
+    border-bottom:1px solid var(--line);
+    position:relative;
+    overflow:hidden;
+  }
+  .hero::before{
+    content:"";position:absolute;inset:0;
+    background:
+      repeating-linear-gradient(180deg, transparent 0 39px, var(--line) 39px 40px);
+    mask-image:linear-gradient(180deg, transparent, black 40%, transparent 90%);
+    opacity:.5;pointer-events:none;
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;letter-spacing:0.12em;text-transform:uppercase;
+    color:var(--amber);margin:0 0 20px;
+  }
+  .scoreboard{
+    display:grid;
+    grid-template-columns:repeat(2, minmax(0,1fr));
+    gap:1px;
+    background:var(--line-strong);
+    border:1px solid var(--line-strong);
+    margin-bottom:28px;
+  }
+  .cell{
+    background:var(--ink);
+    padding:22px 24px;
+  }
+  .cell .num{
+    font-family:'Bebas Neue',sans-serif;
+    font-size:clamp(34px,6vw,56px);
+    line-height:1;
+    color:var(--paper);
+    letter-spacing:0.01em;
+  }
+  .cell .num.red{color:var(--red);}
+  .cell .label{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11.5px;letter-spacing:0.06em;text-transform:uppercase;
+    color:var(--paper-dim);margin-top:6px;
+  }
+  @media (max-width:640px){.scoreboard{grid-template-columns:1fr;}}
+
+  h1.claim{
+    font-family:'Bebas Neue',sans-serif;
+    font-weight:400;
+    font-size:clamp(36px,5.2vw,58px);
+    line-height:1.04;
+    letter-spacing:0.005em;
+    margin:0 0 22px;
+    max-width:15ch;
+  }
+  h1.claim em{
+    font-style:normal;color:var(--red);
+  }
+  .decision{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:14.5px;line-height:1.7;
+    color:var(--paper);
+    border-left:2px solid var(--amber);
+    padding:4px 0 4px 18px;
+    max-width:62ch;
+    margin:0 0 8px;
+  }
+  .decision b{color:var(--amber);font-weight:500;}
+
+  /* CARDS */
+  .cards{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+    background:var(--line-strong);border:1px solid var(--line-strong);
+    margin-top:56px;
+  }
+  @media (max-width:820px){.cards{grid-template-columns:1fr;}}
+  .card{
+    background:var(--ink);padding:30px 26px 28px;
+    text-decoration:none;color:var(--paper);
+    display:flex;flex-direction:column;gap:14px;
+    transition:background .18s;
+    position:relative;
+  }
+  .card:hover{background:var(--ink-soft);}
+  .card:hover .arrow{transform:translateX(4px);}
+  .card .idx{
+    font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--red);letter-spacing:0.08em;
+  }
+  .card h3{
+    font-family:'Bebas Neue',sans-serif;font-weight:400;
+    font-size:26px;margin:0;letter-spacing:0.01em;
+  }
+  .card p{
+    font-size:14px;color:var(--paper-dim);margin:0;flex-grow:1;
+  }
+  .card .arrow{
+    font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--amber);
+    display:inline-flex;align-items:center;gap:6px;transition:transform .18s;
+  }
+
+  /* SECTIONS */
+  section.block{padding:88px 0;border-bottom:1px solid var(--line);}
+  section.block:last-of-type{border-bottom:none;}
+  .kicker{
+    font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;
+    color:var(--red);margin:0 0 14px;display:flex;align-items:center;gap:10px;
+  }
+  .kicker::after{content:"";flex:1;height:1px;background:var(--line-strong);}
+  h2.blocktitle{
+    font-family:'Bebas Neue',sans-serif;font-weight:400;
+    font-size:clamp(30px,4vw,42px);margin:0 0 10px;letter-spacing:0.005em;
+  }
+  .lede{
+    font-size:15.5px;color:var(--paper-dim);max-width:68ch;margin:0 0 40px;
+  }
+  .lede b{color:var(--paper);font-weight:600;}
+
+  .insight-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px;}
+  @media (max-width:760px){.insight-grid{grid-template-columns:1fr;}}
+  .insight{border-top:1px solid var(--line-strong);padding-top:16px;}
+  .insight .tag{
+    font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--amber);
+    text-transform:uppercase;letter-spacing:0.06em;
+  }
+  .insight p{font-size:14.5px;margin:8px 0 0;color:var(--paper);}
+
+  table.mini{width:100%;border-collapse:collapse;margin-top:8px;font-size:13.5px;}
+  table.mini th{
+    text-align:left;font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:11px;
+    text-transform:uppercase;letter-spacing:0.05em;color:var(--paper-dim);
+    padding:10px 14px;border-bottom:1px solid var(--line-strong);
+  }
+  table.mini td{
+    padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top;
+  }
+  table.mini tr:hover td{background:var(--ink-soft);}
+
+  .roadmap{display:flex;flex-direction:column;border:1px solid var(--line-strong);margin-top:8px;}
+  .rstep{display:grid;grid-template-columns:120px 1fr 1fr;gap:20px;padding:20px 22px;border-bottom:1px solid var(--line);align-items:start;}
+  .rstep:last-child{border-bottom:none;}
+  @media (max-width:700px){.rstep{grid-template-columns:1fr;gap:6px;}}
+  .rstep .phase{font-family:'Bebas Neue',sans-serif;font-size:20px;color:var(--red);}
+  .rstep .desc{font-size:14px;color:var(--paper);}
+  .rstep .kpi{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--amber);}
+
+  footer{padding:48px 0 64px;}
+  footer .wrap{
+    display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;
+    font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--paper-dim);
+  }
+  footer .status{color:var(--amber);}
+
+  @media (prefers-reduced-motion: no-preference){
+    .fade-up{animation:fadeUp .6s ease-out both;}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+  }
+
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="brand"><span class="dot"></span>MUNDO COLORADO — DIAGNÓSTICO</div>
+    <div class="navlinks">
+      <a href="#quebrado">O que está quebrado</a>
+      <a href="#mercado">O mercado já resolveu</a>
+      <a href="#decisao">O que fazer</a>
+      <a href="documento-completo.html" class="nav-deep">Material completo →</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow fade-up">Diagnóstico estratégico · uso interno / conselho</p>
+
+    <div class="scoreboard fade-up" style="animation-delay:.05s">
+      <div class="cell">
+        <div class="num">111.021</div>
+        <div class="label">Sócios adimplentes — 2º maior do Brasil</div>
+      </div>
+      <div class="cell">
+        <div class="num red">0</div>
+        <div class="label">Funcionalidades de engajamento entregues desde 2022</div>
+      </div>
+    </div>
+
+    <h1 class="claim fade-up" style="animation-delay:.1s">A base é forte. <em>O app é o gargalo.</em></h1>
+
+    <p class="decision fade-up" style="animation-delay:.15s">
+      <b>Decisão recomendada:</b> manter a infraestrutura atual (Imply/ElevenTickets), corrigir a dívida técnica em 6 meses e contratar camada de engajamento white-label nacional — nessa ordem, não em paralelo.
+    </p>
+
+    <div class="cards fade-up" style="animation-delay:.2s">
+      <a class="card" href="#quebrado">
+        <span class="idx">01 · BACKGROUND</span>
+        <h3>O que está quebrado hoje</h3>
+        <p>Bugs em dia de jogo, gamificação prometida em 2022 e nunca entregue, cashback que vive no app de outra empresa.</p>
+        <span class="arrow">Ver diagnóstico →</span>
+      </a>
+      <a class="card" href="#mercado">
+        <span class="idx">02 · CONTEXTUALIZAÇÃO</span>
+        <h3>O que o mercado já resolveu</h3>
+        <p>Clubes do mesmo porte já entregam o que o Mundo Colorado prometeu — a barreira nunca foi orçamento.</p>
+        <span class="arrow">Ver benchmarking →</span>
+      </a>
+      <a class="card" href="#decisao">
+        <span class="idx">03 · RECOMENDAÇÃO</span>
+        <h3>O que fazer, em ordem</h3>
+        <p>Sequência de 3 fases, com KPI de saída em cada uma — não uma lista de ideias soltas.</p>
+        <span class="arrow">Ver roadmap →</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<section class="block" id="quebrado">
+  <div class="wrap">
+    <p class="kicker">01 — Background</p>
+    <h2 class="blocktitle">O modelo de negócio funciona. O produto, não.</h2>
+    <p class="lede">O Inter tem <b>a matéria-prima que a maioria dos clubes não tem</b> — 2ª maior base de sócios do país, pacote de benefícios competitivo. O app não converte esse ativo em engajamento nem em dado proprietário.</p>
+
+    <div class="insight-grid">
+      <div class="insight">
+        <span class="tag">Dívida técnica</span>
+        <p>Bugs de login/sessão e falhas de check-in concentram-se em dia de jogo — o momento de maior exposição reputacional, quando o sócio pagante corre risco de perder acesso ao estádio.</p>
+      </div>
+      <div class="insight">
+        <span class="tag">Gap de produto</span>
+        <p>Gamificação anunciada em outubro de 2022, com entrega prevista para o 1º trimestre de 2023. Em outubro de 2025, ainda constava como "O que vem por aí?" na descrição da loja.</p>
+      </div>
+    </div>
+
+    <table class="mini" style="margin-top:44px">
+      <thead><tr><th>Funcionalidade</th><th>Maturidade</th><th>Situação</th></tr></thead>
+      <tbody>
+        <tr><td>Check-in / ingressos</td><td>6 / 10</td><td>Funciona, com falhas recorrentes em dia de jogo</td></tr>
+        <tr><td>Cashback (Zé Delivery)</td><td>3 / 10</td><td>Resgate ocorre fora do app do clube</td></tr>
+        <tr><td>Gamificação</td><td>1 / 10</td><td>Nunca lançada</td></tr>
+        <tr><td>CRM / personalização</td><td>3 / 10</td><td>Sem home dinâmica, sem oferta segmentada</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="block" id="mercado">
+  <div class="wrap">
+    <p class="kicker">02 — Contextualização</p>
+    <h2 class="blocktitle">Escala nunca foi o obstáculo.</h2>
+    <p class="lede">Clubes na mesma faixa de sócios — e um clube menor — já entregaram exatamente o que o Mundo Colorado prometeu. A diferença é execução, não orçamento.</p>
+
+    <table class="mini">
+      <thead><tr><th>Referência</th><th>Base de sócios/usuários</th><th>O que já entrega</th></tr></thead>
+      <tbody>
+        <tr><td>GFPA (app "Meu Grêmio")</td><td>104.823 sócios adimplentes</td><td>Gamificação lançada e mantida desde 2022</td></tr>
+        <tr><td>Athletico-PR (Super App Furacão)</td><td>Base regional própria [dado não consolidado]</td><td>App nativo custom, recusando modelo white-label</td></tr>
+        <tr><td>Corinthians (Universo SCCP)</td><td>Programa Fiel Torcedor, uma das maiores bases do país</td><td>Gamificação via plataforma licenciada de terceiro</td></tr>
+        <tr><td>Starbucks Rewards</td><td>35,5 milhões de membros ativos (EUA)</td><td>Progressão por tiers sobre benefícios já existentes</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="block" id="decisao">
+  <div class="wrap">
+    <p class="kicker">03 — Recomendação</p>
+    <h2 class="blocktitle">Três fases, em sequência.</h2>
+    <p class="lede">Estabilizar antes de engajar. Engajar antes de monetizar. Nessa ordem — investir em gamificação sobre um app que trava em dia de jogo desperdiça o investimento.</p>
+
+    <div class="roadmap">
+      <div class="rstep">
+        <div class="phase">Fase 1</div>
+        <div class="desc">Corrigir login/sessão e check-in. Ativar Apple/Google Wallet. Corrigir o link de estacionamento (Estapar).</div>
+        <div class="kpi">0–6 meses · falhas de check-in &lt;1%</div>
+      </div>
+      <div class="rstep">
+        <div class="phase">Fase 2</div>
+        <div class="desc">Camada de engajamento white-label via API. CRM/segmentação. Gamificação contínua. Cashback nativo.</div>
+        <div class="kpi">6–18 meses · DAU/MAU ≥ 20%</div>
+      </div>
+      <div class="rstep">
+        <div class="phase">Fase 3</div>
+        <div class="desc">Cashless + pedido antecipado no estádio. Marketplace P2P de ingressos. Programa de pontos maduro.</div>
+        <div class="kpi">18–36 meses · +20% ticket médio de A&amp;B</div>
+      </div>
+    </div>
+
+    <div style="margin-top:36px;">
+      <a href="documento-completo.html" style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--amber);text-decoration:none;border-bottom:1px solid var(--amber);padding-bottom:2px;">
+        Ver Business Case, tabela de priorização e roadmap operacional completo →
+      </a>
+    </div>
+  </div>
+</section>
+  <div class="wrap">
+    <span>Background completo · Contextualização completa · Business Case · Catálogo de 20+ oportunidades · Apêndice com fontes — tudo em <a href="documento-completo.html" style="color:var(--amber);text-decoration:underline;">Material completo →</a></span>
+    <span class="status">● home — visão condensada para leitura rápida</span>
+  </div>
+</footer>
+
+</body>
+</html>

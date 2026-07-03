@@ -49,6 +49,10 @@
     display:flex;align-items:center;justify-content:space-between;
     height:64px;
   }
+  @media (max-width:640px){
+    .brand{font-size:15px;}
+    .backlink{font-size:11px;}
+  }
   .brand{
     font-family:'Bebas Neue',sans-serif;
     font-size:22px;letter-spacing:0.04em;
@@ -268,7 +272,7 @@
 
 <header style="padding:64px 0 0;">
   <div class="wrap">
-    <p class="eyebrow">Material completo · uso interno / conselho</p>
+    <p class="eyebrow">Material completo · uso interno / grupo de trabalho</p>
     <h1 class="claim" style="max-width:22ch;">Background, contextualização e recomendação — sem corte.</h1>
     <p class="lede" style="margin-bottom:0;">Esta página reúne o conteúdo integral do diagnóstico: todas as tabelas, o catálogo de oportunidades, o Business Case e as fontes. A home traz a versão condensada; aqui está a base que sustenta cada afirmação.</p>
     <div class="toc">
@@ -571,9 +575,12 @@
 </section>
 
 <footer>
-  <div class="wrap">
+  <div class="wrap" style="flex-direction:column;align-items:flex-start;gap:10px;">
     <a href="index.html" class="backlink">← Voltar para a home</a>
     <span class="status">● material completo — versão para validação</span>
+    <p style="color:var(--paper-dim);font-size:12px;line-height:1.7;max-width:80ch;margin:6px 0 0;">
+      <b style="color:var(--paper);">Nota de resguardo:</b> este é um material de consulta independente, elaborado a partir de pesquisa pública com apoio de ferramentas de IA — não constitui levantamento factual auditado nem posição oficial do clube. Dados autodeclarados por fornecedores, benchmarks de mercado e leituras do consultor estão sinalizados como [Inferência], [Especulação] ou [Não verificado] ao longo do texto; onde não há fonte pública, isso é dito explicitamente em vez de preenchido. O documento está aberto a críticas, correções e sugestões — é ponto de partida para discussão, não conclusão fechada.
+    </p>
   </div>
 </footer>
 

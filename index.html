@@ -56,11 +56,20 @@
   }
   .brand .dot{width:9px;height:9px;border-radius:50%;background:var(--red);}
   .navlinks{display:flex;gap:32px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.06em;text-transform:uppercase;}
-  .navlinks a{text-decoration:none;color:var(--paper-dim);transition:color .15s;}
+  .navlinks a{text-decoration:none;color:var(--paper-dim);transition:color .15s;white-space:nowrap;}
   .navlinks a:hover{color:var(--paper);}
   .navlinks a.nav-deep{color:var(--amber);}
   .navlinks a.nav-deep:hover{color:var(--paper);}
-  @media (max-width:720px){.navlinks{display:none;}}
+  @media (max-width:720px){
+    nav .wrap{gap:14px;}
+    .brand{font-size:16px;flex-shrink:0;}
+    .navlinks{
+      gap:18px;font-size:10.5px;
+      overflow-x:auto;-webkit-overflow-scrolling:touch;
+      scrollbar-width:none;flex-shrink:1;min-width:0;
+    }
+    .navlinks::-webkit-scrollbar{display:none;}
+  }
 
   /* HERO / SCOREBOARD */
   .hero{
@@ -237,7 +246,7 @@
 
 <header class="hero">
   <div class="wrap">
-    <p class="eyebrow fade-up">Diagnóstico estratégico · uso interno / conselho</p>
+    <p class="eyebrow fade-up">Diagnóstico estratégico · uso interno / grupo de trabalho</p>
 
     <div class="scoreboard fade-up" style="animation-delay:.05s">
       <div class="cell">
@@ -357,9 +366,12 @@
     </div>
   </div>
 </section>
-  <div class="wrap">
+
+<footer>
+  <div class="wrap" style="flex-direction:column;align-items:flex-start;gap:6px;">
     <span>Background completo · Contextualização completa · Business Case · Catálogo de 20+ oportunidades · Apêndice com fontes — tudo em <a href="documento-completo.html" style="color:var(--amber);text-decoration:underline;">Material completo →</a></span>
     <span class="status">● home — visão condensada para leitura rápida</span>
+    <span style="color:var(--paper-dim);font-size:11px;line-height:1.6;max-width:80ch;">Material de consulta independente, produzido a partir de pesquisa pública e não auditada — não deve ser tratado como fonte factual definitiva. Dados sem confirmação direta estão sinalizados ao longo do documento completo. Sujeito a revisão; críticas, correções e sugestões são bem-vindas.</span>
   </div>
 </footer>
 

@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Internacional — Recruitment &amp; Expansion</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+:root{
+  --red:#E5050F;
+  --red-dim:#b5040c;
+  --white:#FFFFFF;
+  --ink:#1a1a1a;
+  --ink-soft:#4a4a4a;
+  --paper:#FFFFFF;
+  --paper-alt:#f7f5f5;
+  --line:#eadfe0;
+  --line-strong:#e3c9cb;
+  --maxw:920px;
+}
+*{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:'IBM Plex Sans',-apple-system,sans-serif;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  padding-bottom:env(safe-area-inset-bottom);
+}
+::selection{background:var(--red);color:var(--white);}
+a{color:var(--red-dim);text-decoration:none;}
+a:hover{text-decoration:underline;}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 18px;}
+
+/* ===== HEADER ===== */
+header.top{
+  background:var(--red);
+  color:var(--white);
+  padding:calc(env(safe-area-inset-top) + 18px) 0 20px;
+}
+header.top .wrap{display:flex;flex-direction:column;gap:6px;}
+.brand{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(22px,6vw,30px);
+  letter-spacing:0.02em;
+  display:flex;align-items:center;gap:10px;
+}
+.brand .dot{width:10px;height:10px;border-radius:50%;background:var(--white);flex-shrink:0;}
+.subtitle{font-size:13.5px;color:rgba(255,255,255,0.88);max-width:60ch;}
+.disclaimer{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:11px;
+  color:rgba(255,255,255,0.82);
+  border-left:2px solid var(--white);
+  padding-left:10px;
+  margin-top:8px;
+  max-width:60ch;
+}
+
+/* ===== TABS ===== */
+nav.tabs{
+  position:sticky;top:0;z-index:50;
+  background:var(--white);
+  border-bottom:2px solid var(--red);
+  box-shadow:0 2px 6px rgba(0,0,0,0.06);
+}
+.tabscroll{
+  display:flex;gap:4px;
+  overflow-x:auto;-webkit-overflow-scrolling:touch;
+  scrollbar-width:none;
+  padding:8px 12px;
+}
+.tabscroll::-webkit-scrollbar{display:none;}
+.tabbtn{
+  flex-shrink:0;
+  font-family:'IBM Plex Mono',monospace;
+  font-size:11.5px;
+  letter-spacing:0.02em;
+  color:var(--ink-soft);
+  background:var(--paper-alt);
+  border:1px solid var(--line-strong);
+  border-radius:20px;
+  padding:8px 14px;
+  cursor:pointer;
+  white-space:nowrap;
+  transition:background .15s, color .15s, border-color .15s;
+  -webkit-tap-highlight-color:transparent;
+}
+.tabbtn .n{color:var(--red-dim);font-weight:600;margin-right:5px;}
+.tabbtn.active{
+  background:var(--red);
+  border-color:var(--red);
+  color:var(--white);
+}
+.tabbtn.active .n{color:var(--white);}
+
+/* ===== CONTENT ===== */
+main{padding:26px 0 60px;}
+.panel{display:none;}
+.panel.active{display:block;animation:fadeIn .25s ease-out;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:translateY(0);}}
+
+h2.title{
+  font-family:'Bebas Neue',sans-serif;
+  font-weight:400;
+  font-size:clamp(26px,7vw,34px);
+  color:var(--red);
+  margin:0 0 4px;
+  letter-spacing:0.01em;
+}
+h3{
+  font-family:'IBM Plex Sans',sans-serif;
+  font-size:17px;font-weight:700;
+  color:var(--ink);
+  margin:30px 0 10px;
+  padding-top:14px;
+  border-top:1px solid var(--line);
+}
+.panel > h3:first-of-type{border-top:none;padding-top:0;}
+p{font-size:14.5px;color:var(--ink);margin:0 0 12px;}
+.dim{color:var(--ink-soft);}
+
+blockquote.pull{
+  margin:0 0 14px;
+  padding:10px 14px;
+  border-left:3px solid var(--red);
+  background:var(--paper-alt);
+  font-size:15px;
+  font-style:italic;
+  color:var(--ink);
+  border-radius:0 6px 6px 0;
+}
+
+.callout{
+  background:var(--paper-alt);
+  border:1px solid var(--line-strong);
+  border-left:4px solid var(--red);
+  border-radius:6px;
+  padding:12px 14px;
+  font-size:13.5px;
+  margin:14px 0;
+}
+.callout b{color:var(--red-dim);}
+
+.badge{
+  display:inline-block;
+  font-family:'IBM Plex Mono',monospace;
+  font-size:10.5px;
+  font-weight:600;
+  letter-spacing:0.03em;
+  color:var(--red);
+  background:rgba(229,5,15,0.08);
+  border:1px solid rgba(229,5,15,0.3);
+  border-radius:4px;
+  padding:2px 7px;
+  margin-bottom:8px;
+}
+
+ul,ol{margin:0 0 14px;padding-left:22px;}
+li{font-size:14.5px;margin-bottom:8px;}
+li b{color:var(--ink);}
+li .imp{color:var(--red-dim);font-weight:600;}
+
+.tablewrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:14px 0 18px;border:1px solid var(--line-strong);border-radius:8px;}
+table{width:100%;border-collapse:collapse;font-size:12.5px;min-width:520px;}
+thead th{
+  text-align:left;
+  background:var(--red);
+  color:var(--white);
+  font-family:'IBM Plex Mono',monospace;
+  font-weight:500;
+  font-size:11px;
+  letter-spacing:0.03em;
+  text-transform:uppercase;
+  padding:9px 11px;
+  position:sticky;top:0;
+}
+tbody td{
+  padding:10px 11px;
+  border-bottom:1px solid var(--line);
+  vertical-align:top;
+  color:var(--ink);
+}
+tbody tr:nth-child(even){background:var(--paper-alt);}
+tbody tr:last-child td{border-bottom:none;}
+.legend{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--ink-soft);margin:-4px 0 18px;}
+
+.diagram{
+  background:var(--ink);
+  color:#f2f2f2;
+  border-radius:8px;
+  padding:16px 14px;
+  font-family:'IBM Plex Mono',monospace;
+  font-size:11.5px;
+  line-height:1.7;
+  overflow-x:auto;
+  margin:10px 0 18px;
+  white-space:pre;
+}
+.diagram .arrow{color:var(--red);}
+
+.tldr{
+  background:var(--paper-alt);
+  border:1px solid var(--line-strong);
+  border-radius:8px;
+  padding:14px 16px;
+  margin-bottom:20px;
+}
+.tldr .lbl{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:11px;letter-spacing:0.08em;
+  color:var(--red);text-transform:uppercase;
+  margin-bottom:8px;display:block;
+}
+
+footer{
+  border-top:1px solid var(--line-strong);
+  padding:22px 0 calc(env(safe-area-inset-bottom) + 30px);
+  margin-top:10px;
+}
+footer p{font-size:11.5px;color:var(--ink-soft);}
+
+@media (prefers-color-scheme: dark){
+  :root{
+    --paper:#161213;
+    --paper-alt:#211c1d;
+    --ink:#f2ecec;
+    --ink-soft:#b8adad;
+    --line:#3a2f30;
+    --line-strong:#4a3839;
+  }
+  .diagram{background:#0d0b0b;}
+  .tabbtn{background:var(--paper-alt);color:var(--ink-soft);border-color:var(--line-strong);}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <div class="brand"><span class="dot"></span>INTERNACIONAL — RECRUITMENT &amp; EXPANSION</div>
+    <div class="subtitle">Preparação para conversa sobre o cargo de Gerente de Expansão e Captação / Head of Recruitment</div>
+    <div class="disclaimer">Material de apoio para conversa, não documento formal. Se evoluir para proposta formal ao clube, expandir com business case completo (custo, headcount, KPIs).</div>
+  </div>
+</header>
+
+<nav class="tabs">
+  <div class="tabscroll" id="tabscroll">
+    <button class="tabbtn active" data-tab="resumo"><span class="n">◆</span>Resumo</button>
+    <button class="tabbtn" data-tab="aba1"><span class="n">01</span>O cargo</button>
+    <button class="tabbtn" data-tab="aba2"><span class="n">02</span>Jurídico</button>
+    <button class="tabbtn" data-tab="aba3"><span class="n">03</span>Diagnóstico</button>
+    <button class="tabbtn" data-tab="aba4"><span class="n">04</span>Benchmark</button>
+    <button class="tabbtn" data-tab="aba5"><span class="n">05</span>Mercado</button>
+    <button class="tabbtn" data-tab="aba6"><span class="n">06</span>Perfil</button>
+    <button class="tabbtn" data-tab="redflags"><span class="n">⚠</span>Red flags</button>
+    <button class="tabbtn" data-tab="perguntas"><span class="n">?</span>5 perguntas</button>
+  </div>
+</nav>
+
+<main class="wrap">
+
+  <!-- RESUMO -->
+  <section class="panel active" id="resumo">
+    <h2 class="title">Resumo executivo</h2>
+
+    <blockquote class="pull">"O Inter não vai vencer sendo o clube que vê mais jogadores. Vai vencer sendo o clube que identifica antes, seleciona melhor, desenvolve melhor e retém por mais tempo os jogadores certos."</blockquote>
+    <blockquote class="pull">"Não procuro jogadores que já têm identidade com o Inter. Procuro jogadores nos quais seja possível construir essa identidade."</blockquote>
+    <blockquote class="pull">"Eu recruto atitude e base; o clube desenvolve técnica e constrói identidade. Talento é pressuposto, não diferencial."</blockquote>
+
+    <p><b>Contexto do cargo:</b> clube busca alguém "de mercado, cabeça fresca, sem vícios" — não "mais do mesmo". Conversa é de direcionamento, não entrega de estudo formal.</p>
+
+    <h3>Achados-chave</h3>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Bloco</th><th>Achado central</th></tr></thead>
+        <tbody>
+          <tr><td>1. O problema</td><td>"Gerente de Expansão" pode significar 6 coisas diferentes — a conversa precisa calibrar qual, antes de discutir solução</td></tr>
+          <tr><td>2. Jurídico</td><td>Captar ≠ transferir. Formar localmente (Uruguai/Argentina) é viável; transferir menor para o Brasil, não — salvo exceções raras</td></tr>
+          <tr><td>3. Diagnóstico</td><td>Não pesquisável — é o roteiro de perguntas pra fazer na própria conversa</td></tr>
+          <tr><td>4. Benchmark</td><td>Nenhum clube resolve as 4 funções (identificar/captar/desenvolver/monetizar) sozinho. CFG/Torque é contraexemplo: formar não gera valor se o clube for satélite</td></tr>
+          <tr><td>5. Mercado</td><td>Inter parte atrás do Grêmio em escala (13k x greenfield) — vencer por profundidade em zonas abandonadas, não por volume</td></tr>
+          <tr><td>6. Perfil</td><td>CHA invertido: atitude e base são filtro; conhecimento e habilidade o clube desenvolve; identidade é resultado, não pré-requisito</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ABA 1 -->
+  <section class="panel" id="aba1">
+    <h2 class="title">O problema e o cargo</h2>
+
+    <h3>6 hipóteses de escopo <span class="dim">(testar, não assumir)</span></h3>
+    <ul>
+      <li><b>H1 — Expansão de marca territorial:</b> foco é presença institucional; escolinha é ativo de marca, recrutamento é subproduto</li>
+      <li><b>H2 — Recrutamento/scouting expandido:</b> território é meio, não fim</li>
+      <li><b>H3 — Estrutura de parcerias/rede:</b> cargo é sobre relacionamento institucional, não operação direta</li>
+      <li><b>H4 — Coordenação de processo fragmentado:</b> já existe scouting/base, falta um dono ponta a ponta</li>
+      <li><b>H5 — Resposta reativa:</b> surgiu de um caso concreto (ex: perda de jogador para rival)</li>
+      <li><b>H6 — Combinação de tudo:</b> ambicioso demais pra uma pessoa — sinal de que parte da conversa é desmembrar escopo</li>
+    </ul>
+
+    <h3>Roteiro de perguntas para a conversa <span class="dim">(ordem sugerida)</span></h3>
+    <ol>
+      <li>Qual problema vocês querem que essa pessoa resolva?</li>
+      <li>Quando falam em "expansão" — território, marca, formação ou recrutamento, ou tudo junto? <span class="imp">(pergunta-gatilho — sozinha já separa a maioria das hipóteses)</span></li>
+      <li>Qual o resultado esperado desse cargo em 2-3 anos?</li>
+      <li>Essa pessoa teria responsabilidade sobre scouting/recrutamento, ou seria função mais comercial/institucional?</li>
+      <li>Teria autonomia e orçamento para construir estrutura nova, ou coordenaria o que já existe?</li>
+      <li>As escolinhas são o ponto de partida da estratégia, ou uma das possibilidades levantadas?</li>
+      <li>Existe hoje algum território que o Inter já considera prioritário — e por quê?</li>
+      <li>Essa ideia surgiu de algum caso específico recente, ou é parte de planejamento maior do Projeto Futebol?</li>
+      <li>O bônus por jogador captado seria sobre chegada ao profissional ou volume de captação?</li>
+    </ol>
+
+    <div class="callout"><b>Linha transversal</b> (aplicar em todos os blocos): a cada achado, perguntar — "o que isso sugere sobre escopo, poder e nome do cargo?" Talvez "Gerente de Expansão" seja nome ruim para a função certa; talvez o cargo seja menor ou maior do que parece.</div>
+  </section>
+
+  <!-- ABA 2 -->
+  <section class="panel" id="aba2">
+    <h2 class="title">Scoping jurídico completo</h2>
+
+    <div class="tldr">
+      <span class="lbl">TL;DR</span>
+      <p><b>A trave central é o Art. 19 do RSTP da FIFA</b>: registrar formalmente ou transferir internacionalmente um menor uruguaio ou argentino para o Inter é 🟥 proibido por regra geral, com poucas exceções — sendo a <b>exceção de fronteira (50 km / 100 km, Art. 19.2.c)</b> a única realmente aproveitável na geografia Rivera/Santana do Livramento, Chuí/Chuy e Paso de los Libres/Uruguaiana. <b>Descobrir, observar e acompanhar</b> talentos é 🟩 livre, e <b>formar localmente via estrutura no país do menor</b> é 🔵 (viável se estruturado).</p>
+      <p>O modelo estruturalmente mais seguro é montar/associar-se a uma estrutura formadora <b>DENTRO</b> do Uruguai e da Argentina (aquisição, JV, filial licenciada ou escola conveniada), registrando o menor na federação local (AUF/AFA), e só trazendo o atleta ao Brasil aos 18 ou via exceção de fronteira. <span class="dim">Nota metodológica: isso é modelo que merece investigação prioritária, não recomendação fechada — falta cruzar custo, governança e ROI antes de virar decisão.</span></p>
+      <p>Existe potencial de monetização via training compensation (Anexo 4) e solidarity mechanism (5%, Anexo 5) mesmo sem registrar o menor no Brasil, se a estrutura formadora estiver corretamente filiada. As sanções por violar o Art. 19 são severas (Barcelona, Real Madrid, Atlético já foram punidos).</p>
+    </div>
+
+    <h3>Zonas por etapa (visão consolidada)</h3>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Etapa</th><th>FIFA</th><th>Brasil (CBF)</th><th>Uruguai (AUF)</th><th>Argentina (AFA)</th></tr></thead>
+        <tbody>
+          <tr><td>Descobrir / observar</td><td>🟩</td><td>🟩</td><td>🟩</td><td>🟩</td></tr>
+          <tr><td>Acompanhar / trial (Art. 19ter)</td><td>🟩/🟨</td><td>🟩</td><td>🟩</td><td>🟩</td></tr>
+          <tr><td>Relacionar / captación local</td><td>🟨</td><td>—</td><td>🟨/🔵 (idade mínima laboral, INAU)</td><td>🟨/🔵</td></tr>
+          <tr><td>Formar localmente (registro na federação do país do menor)</td><td>🔵 se estruturado</td><td>—</td><td>🔵 (via clube/estrutura filiada)</td><td>🔵 (via clube/estrutura filiada)</td></tr>
+          <tr><td>Registrar no Brasil (CBF)</td><td>🟥 (salvo exceção)</td><td>🟥 (salvo exceção Art. 19)</td><td>🟥 (ONFI art. 3 remete ao Art. 19)</td><td>🟥 (Art. 19)</td></tr>
+          <tr><td>Transferir internacionalmente antes dos 18</td><td>🟥 (salvo exceção)</td><td>—</td><td>🟩 aos 18 / 🟨 fronteira</td><td>🟩 aos 18 / 🟨 fronteira</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="legend">🟩 livre &nbsp;·&nbsp; 🟨 depende do contexto &nbsp;·&nbsp; 🔵 viável se estruturado &nbsp;·&nbsp; 🟥 proibido salvo exceção</p>
+
+    <h3>Detalhes por bloco</h3>
+    <p><b>FIFA (RSTP).</b> Exceções ao Art. 19: (a) mudança dos pais por motivo não ligado ao futebol; (b) UE/EEE 16-18 (inaplicável ao Cone Sul); (c) <b>fronteira</b> — jogador e clube ambos ≤50km da fronteira, distância total ≤100km, menor mora em casa, ambas federações consentem via TMS; (d) refugiados; (e) estudante de intercâmbio; regra dos 5 anos de residência. <b>Art. 19bis:</b> academias que atendem menores devem reportar todos à associação — não é espaço cinzento fora do radar. <b>Art. 19ter:</b> trials são permitidos (FIFA Trial Form no TMS até 10 dias antes). Sanções reais: Barcelona (2014) e Real Madrid/Atlético (2016) — bans de até duas janelas de registro, multas de centenas de milhares de CHF.</p>
+    <p><b>Brasil.</b> RGR/CBF remete integralmente ao Art. 19 FIFA. Lei Geral do Esporte (14.597/2023): vínculo formativo desde 12 anos, contrato de formação desde 12, profissional desde 16. Veda alojamento de menor de 12-14 fora do domicílio familiar. Certificado de Clube Formador (CCF) garante indenização por formação; mecanismo de solidariedade não exige CCF, só passaporte desportivo correto.</p>
+    <p><b>Uruguai.</b> ONFI governa até ~13 anos; AUF a partir de Sub-14. Ficha de estrangeiro remete expressamente aos arts. 19/19bis FIFA. Idade mínima para trabalhar: 15 anos (exceções via INAU) — sem carve-out esportivo expresso <span class="dim">[inferência jurídica sobre vínculo formativo vs. laboral]</span>. AUF publica anualmente listas de retenção de juvenis.</p>
+    <p><b>Argentina.</b> Ficha/afiliação desde ~12 anos. <b>Lei 27.211</b> institui "derecho de formación" para associações civis, dos 9 aos 18 — compensação devida no 1º contrato e em transferências posteriores. AFA reconhece formação dos 12 aos 21.</p>
+    <p><b>Modelos societários viáveis:</b> aquisição de clube local (ex.: City Football Group comprou o Club Atlético Torque em 2017 — ver Benchmark); filial licenciada (Proyecto Crecer/Bordeaux na Argentina); escola conveniada/franquia (Grêmio: 100+ escolas, ~13.000 atletas — ver Mercado); joint venture; associação civil sem fins lucrativos.</p>
+
+    <h3>Recomendação faseada</h3>
+    <ul>
+      <li><b>Fase 0 (0-3m):</b> obter/atualizar CCF na CBF; confirmar passaporte desportivo correto.</li>
+      <li><b>Fase 1 (baixo risco):</b> rede de observação e trials (Art. 19ter); mapear elegibilidade à exceção de fronteira caso a caso.</li>
+      <li><b>Fase 2 (estrutura local):</b> priorizar parceria/aquisição filiada à AUF/AFA; registrar localmente, nunca na CBF antes dos 18; cumprir Art. 19bis (reporte) e leis trabalhistas locais.</li>
+      <li><b>Fase 3 (monetização):</b> capturar training compensation/solidarity mechanism via Clearing House; transferir aos 18 ou via exceção de fronteira quando elegível.</li>
+    </ul>
+
+    <h3>Caveats</h3>
+    <ul>
+      <li>Scoping rápido e exploratório, não opinião jurídica definitiva — validar caso a caso com assessoria especializada nas três jurisdições.</li>
+      <li>Gaps de sourcing: idade mínima exata de 1ª ficha na AUF (Estatuto del Jugador não obtido); tratamento exato do vínculo formativo não-laboral de menores de 15 no Uruguai; <b>ausência de caso documentado de uso da exceção 19.2.c no Cone Sul é "não encontramos", não "não existe"</b> — merece verificação futura antes de virar premissa de peso.</li>
+      <li>"Aos 18 pode transferir" é simplificação — mais correto dizer "a partir dos 18 desaparece a restrição específica de menor do Art. 19" (ainda há ITC, registro, contrato, direitos do clube formador).</li>
+      <li>Training compensation não é garantido só por ter academia — depende de categorização do clube formador, documentação do passaporte desportivo e do tipo de transferência.</li>
+    </ul>
+  </section>
+
+  <!-- ABA 3 -->
+  <section class="panel" id="aba3">
+    <h2 class="title">Diagnóstico do Inter hoje</h2>
+    <p class="dim"><i>Não é pesquisável externamente — é o roteiro para a própria conversa.</i></p>
+
+    <h3>Mapeamento base</h3>
+    <ol>
+      <li>Scouting hoje — metodologia ou informal/indicação?</li>
+      <li>Quem decide que um jogador desperta interesse?</li>
+      <li>Como o interior do RS é coberto hoje? E Uruguai/Argentina?</li>
+      <li>Quantas pessoas trabalham nisso, mesmo informalmente?</li>
+      <li>Existe banco de dados/histórico, ou fica na cabeça de quem observa?</li>
+      <li>Algum caso recente de jogador que "escapou" pra outro clube?</li>
+    </ol>
+
+    <h3>Testando vício vs. abertura real <span class="dim">("cabeça fresca, sem vícios")</span></h3>
+    <ol start="7">
+      <li><span class="imp">"O que vocês já tentaram fazer diferente nisso, e o que não deu certo?"</span> <span class="dim">(a pergunta mais importante do bloco)</span></li>
+      <li>"Tem cara de Inter" é formalizado em algum critério, ou é intuição de quem está na sala?</li>
+      <li>Já trabalham com rede/parceria fora do Brasil, ou é território nunca sistematizado?</li>
+    </ol>
+
+    <div class="callout"><b>Postura ao ouvir:</b> atenção a respostas ancoradas em "sempre foi assim" / "é o fulano que cuida disso há anos" / "nunca tivemos orçamento" — são os pontos de maior espaço para propor diferente, e também onde vai encontrar mais resistência institucional.</div>
+  </section>
+
+  <!-- ABA 4 -->
+  <section class="panel" id="aba4">
+    <h2 class="title">Benchmark completo</h2>
+
+    <div class="tldr">
+      <span class="lbl">TL;DR</span>
+      <p><b>Nenhum dos cinco modelos é replicável em bloco; a estratégia certa é HYBRID</b>: núcleo de captação regional barato (River/Nacional) + camada leve de analytics comprada (Midtjylland) + rede de escolas/clubes conveniados (Athletic/Sporting/Grêmio).</p>
+      <p><b>O caso City Football Group/Montevideo City Torque é alerta, não exemplo:</b> em ~9 anos, <b>nenhum jogador formado na própria base do Torque chegou ao Manchester City ou à rede CFG</b> — os que subiram foram todos <i>comprados</i>, não formados. Ser satélite de rede pode drenar o valor da base para o clube-mãe.</p>
+      <p class="dim">Nota metodológica: os 5 casos respondem funções diferentes de uma cadeia — Identificar → Captar → Desenvolver → Monetizar. Não são comparáveis linha a linha; o cargo não precisa ser dono das quatro funções.</p>
+    </div>
+
+    <h3>Os 5 casos</h3>
+
+    <p><span class="badge">1 · BUILD + PARTNER</span><br><b>River Plate (Argentina).</b> Predios separados por idade, metodologia de jogo unificada da base ao profissional, scouting próprio com vídeo/GPS, máster universitário em Big Data aplicado. <b>3º melhor formador do mundo no CIES (out/2025)</b>, mais de €410M em vendas de formados na década; Mastantuono rendeu €45M líquidos ao River (transferência mais cara da história argentina). <i>Replicável:</i> metodologia unificada, scouting próprio, retenção de % de mais-valia. <i>Não replicável:</i> densidade e marca do mercado argentino.</p>
+
+    <p><span class="badge">2 · BUILD</span><br><b>Nacional / Peñarol (Uruguai).</b> Usinas de formação de altíssima densidade; disputam garotos de 13-14 entre si; venda cedo retendo 10-15% de mais-valia. <i>Replicável:</i> disciplina de reter percentual; captação de fronteira (vantagem geográfica real do Inter, mas relativa — Nacional/Peñarol/River são o mercado doméstico, o Inter reduz custo de aquisição e monitoramento, não tem vantagem competitiva absoluta). <i>Não replicável:</i> densidade cultural uruguaia (baby fútbol).</p>
+
+    <p><span class="badge">3 · BUY sobre base própria</span><br><b>FC Midtjylland (Dinamarca).</b> Modelo estatístico (xG, pre-assists) via Smartodds para achar subvalorizados em mercados ineficientes — inclusive o Brasil (Paulinho, Evander vieram baratos). Continuidade do acesso à Smartodds confirmada mesmo após venda de Benham em 2023. <i>Replicável:</i> comprar/montar camada analítica pequena focada no interior do Brasil e Cone Sul — o Brasil é, pro Inter, o mesmo "mercado ineficiente" que era pro Midtjylland, com a vantagem de o Inter ser insider. <i>Não replicável:</i> subordinação total da decisão esportiva ao modelo (cultura difícil num clube-associação).</p>
+
+    <p><span class="badge">4 · BUILD + PARTNER</span><br><b>Athletic Club de Bilbao (Espanha).</b> Só bascos/formados em clube basco. Mas o ponto central é a escala da rede: <b>179 clubes conveniados</b>, supervisão formal, formação de treinadores, centros de tecnificação — projeto que chega a quase 40 mil jovens só na Bizkaia. Retenção via contratos longuíssimos (Nico Williams até 2035, recusando o Barcelona). <i>Replicável:</i> <b>não é a restrição de elegibilidade — é a infraestrutura de inteligência territorial que o clube controla sem precisar possuir os clubes.</b> Rede de acordos com clubes pequenos alimentando o olho central. <i>Não replicável:</i> restrição pura seria inviável no Brasil; identidade basca é sui generis.</p>
+
+    <p><span class="badge">5 · HYBRID</span><br><b>Sporting CP (Portugal).</b> Academia CR + ~32 escolas (5 próprias, 27 franchising). Mais de €350M gerados desde 2018 com formados; 80+ chegaram à equipa principal. <b>6º melhor formador do mundo no CIES (out/2025).</b> <i>Replicável:</i> escolas em franchising geram receita+funil+marca com baixo capital — o Grêmio já valida esse modelo no próprio mercado do Inter. <b>Distinção importante: escola/franquia (objetivo: marca, receita, volume) ≠ clube conveniado (objetivo: acesso privilegiado a talento, monitoramento). Para um Head of Recruitment, o segundo modelo interessa mais.</b></p>
+
+    <p><span class="badge">6 · BUY/PARTNER (rede)</span><br><b>City Football Group / Montevideo City Torque.</b> Comprado em 2017, academia desde 2021 — já 2ª maior fornecedora de seleções juveniles do Uruguai. <b>Até set/2026, nenhuma evidência de que um jogador formado na própria base do Torque tenha chegado ao Man City ou outro clube CFG</b> — os movimentos ascendentes (Castellanos, Rodríguez, López) envolveram jogadores <i>comprados</i>, não formados. <i>Lição para o Inter:</i> o valor da formação só fica no clube se o clube for o destino final do talento (como River, Nacional, Athletic), não uma estação intermediária de uma rede maior. <i>Ressalva metodológica:</i> 5 anos de academia é pouco tempo para conclusão definitiva — tratar como "não identificamos evidência até agora", não como prova definitiva de fracasso do modelo.</p>
+
+    <h3>Ideias de alto valor para levar à conversa</h3>
+    <ul>
+      <li><b>"Segunda janela de recrutamento":</b> jogador rejeitado por um grande aos 14-15 pode estar em percentil alto aos 16-17. Sistema tradicional descarta; um sistema longitudinal recupera — ideia original, barata, alinhada ao pedido de "cabeça fresca".</li>
+      <li><b>RETAIN como dimensão própria:</b> não é só contrato longo — é identidade, pertencimento, caminho esportivo, confiança na formação. Conecta direto com o framework do Perfil.</li>
+      <li><b>Repensar a arquitetura do cargo em 4 braços,</b> se fizer sentido na conversa: Regional Scouting / National Scouting / Talent Intelligence-Analytics / Recruitment Operations — deixando metodologia e desenvolvimento técnico com a estrutura da base.</li>
+    </ul>
+
+    <h3>Caveats</h3>
+    <ul>
+      <li>Rankings CIES têm metodologias distintas (formação × training index × exportação) — citar com a métrica específica, não como ranking único.</li>
+      <li>Valores de transferência variam por fonte (bônus, mais-valias, câmbio) — tratar como ordem de grandeza.</li>
+      <li>Receita agregada do Torque não é divulgada publicamente.</li>
+    </ul>
+  </section>
+
+  <!-- ABA 5 -->
+  <section class="panel" id="aba5">
+    <h2 class="title">Mercado Natural completo</h2>
+
+    <div class="tldr">
+      <span class="lbl">TL;DR</span>
+      <p><b>O white space mais defensável não é a fronteira "óbvia"</b>, e sim três frentes: (1) interior norte/noroeste e Fronteira Oeste/Campanha do RS, onde a rede do Grêmio é rala; (2) interior de Santa Catarina, sem clube de elite formador dominante; (3) interior/litoral do Uruguai, comprovadamente exportador mas concentrado fora de Montevidéu. A fronteira argentina (Misiones/Corrientes/Entre Ríos) tem lastro histórico real mas é a praça mais distante e já assediada pelos grandes de Buenos Aires.</p>
+      <p><b>Ponto de partida desfavorável a reconhecer na conversa:</b> Grêmio declara ~13.000 atletas e 100+ escolas conveniadas (RS, Brasil e exterior). Rede oficial do Inter foi relançada em 27/10/2025 (parceria Time Forte), com 40-50 interessados e meta de 120 escolas/16 mil alunos até 2030 — <b>é greenfield, ainda intenção, não capacidade instalada.</b></p>
+    </div>
+
+    <h3>Os 4 núcleos</h3>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Núcleo</th><th>Tradição/densidade</th><th>Concorrência dominante</th><th>White space</th><th>Casos concretos</th></tr></thead>
+        <tbody>
+          <tr><td><b>Interior RS</b></td><td>Alta e comprovada</td><td>Grêmio forte na Serra/Metropolitana; ralo na Fronteira Oeste/Campanha e Zona Sul além de Pelotas</td><td>Alegrete, Uruguaiana, Bagé, São Borja, Rosário do Sul; Rio Grande, Canguçu</td><td>Taison, Emerson, Daniel Carvalho (Pelotas); Alisson (base Inter)</td></tr>
+          <tr><td><b>SC / PR</b></td><td>Média-alta. PR disputado (Athletico+Coritiba). SC: clubes captam mais do que formam (só 26,3% dos atletas com 1º vínculo no próprio clube)</td><td>PR: Athletico-PR + Coritiba fortes. SC: nenhum clube de elite dominante em formação</td><td>Interior de SC, fora do eixo Florianópolis/Criciúma</td><td>Roberto Firmino (Figueirense); Filipe Luís (interior SC)</td></tr>
+          <tr><td><b>Uruguai</b></td><td>Alta e comprovada — ~60% da seleção nasce fora de Montevidéu; OFI move ~120 mil jogadores em 762 clubes</td><td>Nacional e Peñarol concentrados em Montevidéu</td><td>Rivera, Salto, Tacuarembó, Artigas</td><td>Suárez, Cavani, Maxi Gómez (Salto); <b>Ronald Araújo (Rivera — prova real de fronteira, não hipótese)</b></td></tr>
+          <tr><td><b>Argentina litoral</b></td><td>Real mas rala; falta estrutura ("treinamos 3x/semana", formador local em Misiones)</td><td>River/Boca/Argentinos já enviam captadores ao interior</td><td>Misiones/Posadas; interior de Corrientes/Entre Ríos</td><td>Jainikoski, Viveros (Posadas); Lisandro Martínez (Gualeguay)</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Recomendação faseada</h3>
+    <ul>
+      <li><b>Estágio 1 (0-6m):</b> ~80% do esforço no interior do RS — Fronteira Oeste/Campanha e Zona Sul além de Pelotas. 8-12 convênios + 1-2 olheiros regionais.</li>
+      <li><b>Estágio 2 (3-9m):</b> abrir frente em SC — interior/várzea fora do eixo capital. 4-6 convênios.</li>
+      <li><b>Estágio 3 (6-18m):</b> célula transfronteiriça leve em Rivera/Salto/Tacuarembó — parceria com clube local da OFI + 1 olheiro, sem custo de rede fixa.</li>
+      <li><b>Estágio 4 (oportunista, 12m+):</b> Argentina litoral — só escalar se aparecer caso concreto de baixo custo (padrão Jainikoski).</li>
+    </ul>
+
+    <div class="callout"><b>Princípio:</b> não competir em escala bruta com o Grêmio — competir em profundidade seletiva nas praças que ele abandonou.</div>
+
+    <h3>Caveats</h3>
+    <ul>
+      <li>Números da rede do Grêmio são do site oficial; a lista geográfica detalhada de conveniadas vem de fonte possivelmente desatualizada — os gaps exatos são inferência, validar antes de decisão.</li>
+      <li>Para praças menores (Fronteira Oeste, interior de SC/Uruguai/Misiones) há pouco dado público estruturado — isso é, em si, sinal de mercado pouco mapeado (oportunidade e risco).</li>
+      <li>Metas de 120 escolas/16 mil alunos do Inter são declaração de intenção (2025), não capacidade instalada.</li>
+    </ul>
+  </section>
+
+  <!-- ABA 6 -->
+  <section class="panel" id="aba6">
+    <h2 class="title">International Player Profile</h2>
+
+    <h3>CHA invertido (framework autoral)</h3>
+    <div class="diagram">ATITUDE (filtro primário — comprometimento, profissionalismo, capacidade de doação)
+        <span class="arrow">↓</span>
+BASE FÍSICA E MENTAL (pré-requisito — preparo, histórico de lesão baixo,
+                       capacidade de recuperação, leitura comportamental)
+        <span class="arrow">↓</span>
+CONHECIMENTO + HABILIDADE (o clube desenvolve — pressupõe qualidade de
+                            futebol, mas trata como matéria-prima a lapidar)
+        <span class="arrow">↓</span>
+IDENTIDADE (resultado da formação, não critério de entrada — o clube constrói)</div>
+
+    <h3>Por que a inversão importa <span class="dim">(argumentos para a conversa)</span></h3>
+    <ul>
+      <li><b>Geográfico:</b> não exclui talento por acaso de nascença (um garoto de Rivera ou Posadas não tem por que já "amar" o Inter)</li>
+      <li><b>Estatístico:</b> identidade declarada aos 13 não prediz nada aos 20; traço comportamental prediz</li>
+      <li><b>Estratégico:</b> filtrar por potencial de vínculo (não por vínculo já existente) abre mercado que o Grêmio não enxerga — competir por quem eles já fisgaram é jogo perdido</li>
+    </ul>
+
+    <div class="callout"><b>Nota de cuidado:</b> usar "leitura comportamental", não "avaliação psicológica" — menor tem limite ético/legal nisso.</div>
+
+    <p><b>Conexão com retenção:</b> identidade construída — não exigida — funciona como ferramenta de retenção de ativo: caminho esportivo, pertencimento, confiança na formação tornam mais caro para Palmeiras/Flamengo levar o jogador aos 16.</p>
+
+    <h3>As 3 chaves de idade</h3>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Faixa</th><th>Chave</th><th>O que fazer</th><th>Custo/risco</th></tr></thead>
+        <tbody>
+          <tr><td><b>13-15</b></td><td>Observação</td><td>Observar atitude+base, criar relação com a família, alimentar banco histórico. Não registrar, não transferir (trava jurídica)</td><td>Baixo, zero compromisso</td></tr>
+          <tr><td><b>16-17</b></td><td>Aposta</td><td>Maturação começa a ficar legível; é a idade da "segunda janela" (garoto que os grandes descartaram por técnica crua aos 15). Já viável juridicamente no Brasil (contrato de formação desde os 16)</td><td>Médio</td></tr>
+          <tr><td><b>18-21</b></td><td>Mercado</td><td>Some a trava de menor. Recrutamento de eficiência — uruguaio/argentino/brasileiro subvalorizado. Modelo Midtjylland puro</td><td>Baixo risco jurídico, retorno rápido</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Scout em zona branca — como operacionalizar</h3>
+    <ol>
+      <li><b>Nó local fixo</b>, não olheiro viajante — relacionamento permanente com clube/treinador local (modelo Athletic) em vez de peneira anual</li>
+      <li><b>Banco histórico próprio</b> — diferencial não é ver mais, é continuar acompanhando o garoto que os outros descartaram</li>
+      <li><b>Fronteira operacionalizada</b> — Rivera/Santana do Livramento é o único ponto onde um olheiro cobre dois países na mesma tarde</li>
+    </ol>
+  </section>
+
+  <!-- RED FLAGS -->
+  <section class="panel" id="redflags">
+    <h2 class="title">⚠️ O que não fazer / red flags</h2>
+    <ul>
+      <li>Não validar a premissa "escolinha" sem testar antes se é ponto de partida real ou uma entre várias ideias do clube</li>
+      <li>Não dizer "aos 18 pode transferir" sem qualificar — sempre "a partir dos 18 desaparece a restrição específica de menor do Art. 19"</li>
+      <li>Não citar o caso Torque como modelo a copiar — é alerta, não exemplo</li>
+      <li>Não propor competir em volume/escala direta com o Grêmio — é jogo perdido; competir em profundidade nas zonas abandonadas</li>
+      <li>Não confundir escola (marca/receita) com clube conveniado (acesso a talento) — são parcerias com objetivos diferentes</li>
+      <li>Não aceitar escopo "H6 combinação de tudo" sem propor desmembrar — um cargo dono de tudo tende a não ter poder real em nada</li>
+      <li>Não chamar de "avaliação psicológica" o que na prática é leitura comportamental de menor</li>
+    </ul>
+  </section>
+
+  <!-- 5 PERGUNTAS -->
+  <section class="panel" id="perguntas">
+    <h2 class="title">📌 5 perguntas para sair sabendo responder</h2>
+    <ol>
+      <li>O que exatamente esse cargo deveria fazer?</li>
+      <li>Qual problema do modelo atual ele resolveria?</li>
+      <li>Escolinhas de fronteira são realmente a melhor ferramenta?</li>
+      <li>Onde deveria estar o território prioritário do Inter?</li>
+      <li>Que tipo de jogador o Inter deveria procurar?</li>
+    </ol>
+    <blockquote class="pull">E, acima de tudo: preciso conseguir discordar da proposta original, se o raciocínio apontar nessa direção.</blockquote>
+  </section>
+
+</main>
+
+<footer class="wrap">
+  <p>Material de consulta independente, produzido a partir de pesquisa pública e não auditada — não deve ser tratado como fonte factual definitiva. Dados sem confirmação direta estão sinalizados ao longo do documento. Sujeito a revisão; críticas, correções e sugestões são bem-vindas.</p>
+</footer>
+
+<script>
+(function(){
+  var buttons = document.querySelectorAll('.tabbtn');
+  var panels = document.querySelectorAll('.panel');
+  function activate(id){
+    panels.forEach(function(p){ p.classList.toggle('active', p.id === id); });
+    buttons.forEach(function(b){ b.classList.toggle('active', b.dataset.tab === id); });
+    var btn = document.querySelector('.tabbtn[data-tab="'+id+'"]');
+    if(btn && btn.scrollIntoView){ btn.scrollIntoView({behavior:'smooth', inline:'center', block:'nearest'}); }
+    window.scrollTo({top:0, behavior:'instant'});
+    try{ sessionStorage.setItem('ie-tab', id); }catch(e){}
+  }
+  buttons.forEach(function(b){
+    b.addEventListener('click', function(){ activate(b.dataset.tab); });
+  });
+  var saved;
+  try{ saved = sessionStorage.getItem('ie-tab'); }catch(e){}
+  if(saved && document.getElementById(saved)){ activate(saved); }
+})();
+</script>
+
+</body>
+</html>

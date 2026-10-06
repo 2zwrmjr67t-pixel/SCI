@@ -1,380 +1,1166 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mundo Colorado — Diagnóstico Estratégico</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Projeto SACI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+/* Layout: cada capítulo é uma cena presa na tela; a rolagem troca quadros, conta números e move a câmera. Sem JS ou com movimento reduzido, tudo fica empilhado e legível. */
+:root{
+  --ink:#100E0E; --ink-2:#1B1818; --ink-3:#241F1F; --line:#2F2A2A; --off:#3A3434; --off-lab:#6A625E;
+  --fg:#F4F1ED; --fg-2:#C9C1BA; --fg-3:#978F88;
+  --red:#D3122C; --red-soft:#F5B7B2; --red-deep:#5E0E17; --red-a:rgba(211,18,44,.16);
+  --grass:#1D3A2A; --grass-line:#4C8A65;
+  --paper:#F1EFEC; --card:#FFFFFF; --on-paper:#141212; --on-paper-2:#57514D; --red-on-paper:#AE0E22; --rule-paper:#DCD6D0;
+  --ph1:#2B2727; --ph2:#423C3A; --ph3:#5C5552;
+  --on-red:#FFFFFF; --nav-bg:rgba(16,14,14,.86); --amber:#E2B556; --amber-soft:#F0CF86; --mint:#9FD8B5;
+  --display:'Archivo','Arial Narrow',system-ui,sans-serif;
+  --body:'IBM Plex Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,Menlo,Consolas,monospace;
+  --navh:56px; --vh:100vh; --sh:calc(var(--vh) - var(--navh));
+  color-scheme:dark;
+}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto} *,*::before,*::after{transition:none!important;animation:none!important}}
+body{margin:0;background:var(--ink);color:var(--fg);font-family:var(--body);font-size:18px;line-height:1.55;-webkit-font-smoothing:antialiased}
+main{overflow-x:clip}
+a{color:var(--red-soft)}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid var(--red-soft);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1180px;margin:0 auto;padding-inline:24px;box-sizing:border-box;width:100%}
+@media (max-width:480px){.wrap{padding-inline:18px}}
+[id]{scroll-margin-top:var(--navh)}
 
-  :root{
-    --ink:#131211;
-    --ink-soft:#1c1a18;
-    --paper:#EDEAE2;
-    --paper-dim:#B9B6AC;
-    --red:#CC142F;
-    --red-dim:#7a0c1c;
-    --amber:#E8A33D;
-    --line:rgba(237,234,226,0.14);
-    --line-strong:rgba(237,234,226,0.28);
-    --maxw:1120px;
-  }
-  *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  body{
-    margin:0;
-    background:var(--ink);
-    color:var(--paper);
-    font-family:'IBM Plex Sans',sans-serif;
-    line-height:1.55;
-    -webkit-font-smoothing:antialiased;
-  }
-  ::selection{background:var(--red);color:var(--paper);}
-  a{color:inherit;}
-  a:focus-visible, button:focus-visible{
-    outline:2px solid var(--amber);
-    outline-offset:3px;
-  }
+/* barra de progresso e navegação */
+.progress{position:fixed;top:0;left:0;right:0;height:3px;z-index:30;pointer-events:none}
+.progress i{display:block;height:100%;background:var(--red);transform-origin:0 50%;transform:scaleX(0)}
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--nav-bg);-webkit-backdrop-filter:saturate(1.4) blur(14px);backdrop-filter:saturate(1.4) blur(14px);border-bottom:1px solid var(--line)}
+.nav-in{max-width:1180px;margin:0 auto;padding-inline:24px;box-sizing:border-box;height:56px;display:flex;align-items:center;gap:22px}
+.brand{font-family:var(--display);font-weight:800;font-size:20px;letter-spacing:.06em;color:var(--fg);text-decoration:none;flex:none}
+.nav-links{flex:1;min-width:0;display:flex;gap:18px;overflow-x:auto;scrollbar-width:none;white-space:nowrap;font-size:14px}
+.nav-links::-webkit-scrollbar{display:none}
+.nav-links a{color:var(--fg-3);text-decoration:none;padding:6px 0;border-bottom:2px solid transparent;transition:color .3s,border-color .3s}
+.nav-links a:hover{color:var(--fg)}
+.nav-links a.active{color:var(--fg);border-color:var(--red)}
+.badge{flex:none;font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--fg-3);border:1px solid var(--line);border-radius:999px;padding:4px 10px;white-space:nowrap}
+@media (max-width:600px){.badge{display:none}.nav-in{gap:16px;padding-inline:18px}}
 
-  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;}
+/* tipografia comum */
+.eyebrow{font-family:var(--mono);font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--red-soft);margin:0 0 16px}
+.paper .eyebrow{color:var(--red-on-paper)}
+.h2{font-family:var(--display);font-weight:850;font-stretch:78%;font-size:clamp(38px,min(6vw,9vh),86px);line-height:.95;letter-spacing:-.01em;margin:0;max-width:17ch;text-wrap:balance}
+.lead{font-size:clamp(17px,1.6vw,21px);color:var(--fg-2);max-width:56ch;margin:16px 0 0}
+.paper .lead{color:var(--on-paper-2)}
+sup{line-height:0}
+sup a{color:var(--red-soft);text-decoration:none;font-family:var(--mono);font-size:.62em;margin-left:2px}
+.paper sup a{color:var(--red-on-paper)}
+.fine{font-size:13px;color:var(--fg-3);margin:0}
+.paper .fine{color:var(--on-paper-2)}
+.w{transition:opacity .25s linear}
 
-  /* NAV */
-  nav{
-    position:sticky;top:0;z-index:50;
-    background:rgba(19,18,17,0.88);
-    backdrop-filter:blur(8px);
-    border-bottom:1px solid var(--line);
-  }
-  nav .wrap{
-    display:flex;align-items:center;justify-content:space-between;
-    height:64px;
-  }
-  .brand{
-    font-family:'Bebas Neue',sans-serif;
-    font-size:22px;letter-spacing:0.04em;
-    display:flex;align-items:center;gap:10px;
-  }
-  .brand .dot{width:9px;height:9px;border-radius:50%;background:var(--red);}
-  .navlinks{display:flex;gap:32px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.06em;text-transform:uppercase;}
-  .navlinks a{text-decoration:none;color:var(--paper-dim);transition:color .15s;white-space:nowrap;}
-  .navlinks a:hover{color:var(--paper);}
-  .navlinks a.nav-deep{color:var(--amber);}
-  .navlinks a.nav-deep:hover{color:var(--paper);}
-  @media (max-width:720px){
-    nav .wrap{gap:14px;}
-    .brand{font-size:16px;flex-shrink:0;}
-    .navlinks{
-      gap:18px;font-size:10.5px;
-      overflow-x:auto;-webkit-overflow-scrolling:touch;
-      scrollbar-width:none;flex-shrink:1;min-width:0;
-    }
-    .navlinks::-webkit-scrollbar{display:none;}
-  }
+/* mecânica das cenas */
+.band{padding-block:112px}
+.paper{background:var(--paper);color:var(--on-paper)}
+.stage{padding-block:96px}
+.pinned{height:calc(var(--vh) * var(--len))}
+.pinned>.stage{position:sticky;top:var(--navh);height:var(--sh);box-sizing:border-box;padding-block:16px;display:flex;align-items:center;overflow:hidden}
+.frames{display:flex;flex-direction:column;gap:72px}
+.pinned .frames{display:block;position:relative;height:calc(var(--sh) - 32px)}
+.pinned .frame{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;opacity:0}
+.pinned .frame:first-child{opacity:1}
+.dots{display:none}
+.pinned .dots{display:flex;gap:6px;position:absolute;left:0;bottom:4px;z-index:2}
+.dots i{width:22px;height:3px;border-radius:2px;background:var(--line);transition:background .3s,width .3s}
+.dots i.on{background:var(--red);width:34px}
+.paper .dots i{background:var(--rule-paper)}
+.paper .dots i.on{background:var(--red-on-paper)}
+.pinned [data-step]{transition:opacity .5s ease,transform .5s cubic-bezier(.2,.7,.2,1)}
+.pinned [data-step]:not(.on){opacity:.12}
 
-  /* HERO / SCOREBOARD */
-  .hero{
-    padding:88px 0 64px;
-    border-bottom:1px solid var(--line);
-    position:relative;
-    overflow:hidden;
-  }
-  .hero::before{
-    content:"";position:absolute;inset:0;
-    background:
-      repeating-linear-gradient(180deg, transparent 0 39px, var(--line) 39px 40px);
-    mask-image:linear-gradient(180deg, transparent, black 40%, transparent 90%);
-    opacity:.5;pointer-events:none;
-  }
-  .eyebrow{
-    font-family:'IBM Plex Mono',monospace;
-    font-size:12px;letter-spacing:0.12em;text-transform:uppercase;
-    color:var(--amber);margin:0 0 20px;
-  }
-  .scoreboard{
-    display:grid;
-    grid-template-columns:repeat(2, minmax(0,1fr));
-    gap:1px;
-    background:var(--line-strong);
-    border:1px solid var(--line-strong);
-    margin-bottom:28px;
-  }
-  .cell{
-    background:var(--ink);
-    padding:22px 24px;
-  }
-  .cell .num{
-    font-family:'Bebas Neue',sans-serif;
-    font-size:clamp(34px,6vw,56px);
-    line-height:1;
-    color:var(--paper);
-    letter-spacing:0.01em;
-  }
-  .cell .num.red{color:var(--red);}
-  .cell .label{
-    font-family:'IBM Plex Mono',monospace;
-    font-size:11.5px;letter-spacing:0.06em;text-transform:uppercase;
-    color:var(--paper-dim);margin-top:6px;
-  }
-  @media (max-width:640px){.scoreboard{grid-template-columns:1fr;}}
+/* 0 · abertura */
+.hero-stage{position:relative}
+.hero-in{position:relative;text-align:center;z-index:1}
+.hero-eyebrow{font-family:var(--mono);font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--red-soft);margin:0 0 26px}
+.hero-in h1{font-family:var(--display);font-weight:850;font-stretch:76%;font-size:clamp(48px,min(9vw,13vh),132px);line-height:.92;letter-spacing:-.02em;margin:0 auto;max-width:14ch;text-wrap:balance}
+.hero-in h1 .w{display:inline-block;animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
+@keyframes rise{from{opacity:0;transform:translateY(.4em)}to{opacity:1;transform:none}}
+.hero-sub{margin:28px auto 0;max-width:38ch;font-size:clamp(18px,2vw,24px);color:var(--fg-2);animation:fade 1s .9s both}
+.hero-meta{margin:22px 0 0;font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--fg-3);animation:fade 1s 1.1s both}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+.scroll-cue{margin:34px auto 0;width:22px;height:36px;border:2px solid var(--fg-3);border-radius:12px;position:relative;animation:fade 1s 1.4s both}
+.scroll-cue::after{content:"";position:absolute;left:50%;top:7px;width:4px;height:8px;margin-left:-2px;border-radius:2px;background:var(--fg-2);animation:cue 1.6s 1.6s infinite}
+@keyframes cue{0%{transform:translateY(0);opacity:1}70%{transform:translateY(10px);opacity:0}100%{opacity:0}}
+.disc{display:none}
+.pinned .disc{display:block;position:absolute;left:50%;top:50%;width:60vmax;height:60vmax;margin:-30vmax 0 0 -30vmax;border-radius:50%;background:var(--red);transform:scale(0);z-index:0}
+.hero-b{margin:96px auto 0;font-family:var(--display);font-weight:850;font-stretch:78%;font-size:clamp(40px,min(7vw,11vh),108px);line-height:.95;max-width:15ch;text-wrap:balance}
+.pinned .hero-b{position:absolute;left:24px;right:24px;top:50%;margin:0 auto;transform:translateY(-50%);color:var(--on-red);z-index:2;opacity:0}
 
-  h1.claim{
-    font-family:'Bebas Neue',sans-serif;
-    font-weight:400;
-    font-size:clamp(36px,5.2vw,58px);
-    line-height:1.04;
-    letter-spacing:0.005em;
-    margin:0 0 22px;
-    max-width:15ch;
-  }
-  h1.claim em{
-    font-style:normal;color:var(--red);
-  }
-  .decision{
-    font-family:'IBM Plex Mono',monospace;
-    font-size:14.5px;line-height:1.7;
-    color:var(--paper);
-    border-left:2px solid var(--amber);
-    padding:4px 0 4px 18px;
-    max-width:62ch;
-    margin:0 0 8px;
-  }
-  .decision b{color:var(--amber);font-weight:500;}
+/* 1 · lacuna */
+.statement{font-family:var(--display);font-weight:850;font-stretch:78%;font-size:clamp(38px,min(6.4vw,10vh),96px);line-height:.98;max-width:18ch;margin:0;text-wrap:balance}
+.bignum{display:flex;flex-wrap:wrap;align-items:flex-end;gap:12px 40px}
+.bignum .num{font-family:var(--display);font-weight:850;font-stretch:70%;font-size:clamp(120px,min(26vw,42vh),360px);line-height:.8;letter-spacing:-.03em;font-variant-numeric:tabular-nums;color:var(--fg)}
+.bignum.key .num{color:var(--red)}
+.bignum p{flex:1 1 260px;min-width:0;max-width:30ch;margin:0 0 .6em;font-size:clamp(18px,1.9vw,24px);color:var(--fg-2)}
+.bignum .lab{display:block;font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--fg-3);margin-bottom:8px}
 
-  /* CARDS */
-  .cards{
-    display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
-    background:var(--line-strong);border:1px solid var(--line-strong);
-    margin-top:56px;
-  }
-  @media (max-width:820px){.cards{grid-template-columns:1fr;}}
-  .card{
-    background:var(--ink);padding:30px 26px 28px;
-    text-decoration:none;color:var(--paper);
-    display:flex;flex-direction:column;gap:14px;
-    transition:background .18s;
-    position:relative;
-  }
-  .card:hover{background:var(--ink-soft);}
-  .card:hover .arrow{transform:translateX(4px);}
-  .card .idx{
-    font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--red);letter-spacing:0.08em;
-  }
-  .card h3{
-    font-family:'Bebas Neue',sans-serif;font-weight:400;
-    font-size:26px;margin:0;letter-spacing:0.01em;
-  }
-  .card p{
-    font-size:14px;color:var(--paper-dim);margin:0;flex-grow:1;
-  }
-  .card .arrow{
-    font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--amber);
-    display:inline-flex;align-items:center;gap:6px;transition:transform .18s;
-  }
+/* faixa de cidades */
+.marquee{overflow:hidden;padding-block:28px;border-block:1px solid var(--line);background:var(--ink)}
+.mq-row{display:flex;gap:28px;white-space:nowrap;width:max-content;font-family:var(--display);font-weight:800;font-stretch:80%;font-size:clamp(28px,4vw,52px);line-height:1.15;will-change:transform}
+.mq-row span{color:var(--fg-3)}
+.mq-row span.hl{color:var(--fg)}
+.mq-row span::after{content:"·";margin-left:28px;color:var(--red)}
+.mq-row+.mq-row{margin-top:6px}
 
-  /* SECTIONS */
-  section.block{padding:88px 0;border-bottom:1px solid var(--line);}
-  section.block:last-of-type{border-bottom:none;}
-  .kicker{
-    font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;
-    color:var(--red);margin:0 0 14px;display:flex;align-items:center;gap:10px;
-  }
-  .kicker::after{content:"";flex:1;height:1px;background:var(--line-strong);}
-  h2.blocktitle{
-    font-family:'Bebas Neue',sans-serif;font-weight:400;
-    font-size:clamp(30px,4vw,42px);margin:0 0 10px;letter-spacing:0.005em;
-  }
-  .lede{
-    font-size:15.5px;color:var(--paper-dim);max-width:68ch;margin:0 0 40px;
-  }
-  .lede b{color:var(--paper);font-weight:600;}
+/* 2 · território */
+.terr{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:40px;align-items:center;width:100%}
+@media (max-width:820px){.terr{grid-template-columns:minmax(0,1fr);gap:16px}}
+.mapbox{position:relative;width:100%;max-width:100%}
+.pinned .map{width:min(100%,calc((var(--sh) - 60px) / .961));margin:0 auto}
+@media (max-width:820px){.pinned .map{width:min(100%,calc(var(--sh) * .5 / .961))}}
+.map{display:block;width:100%;height:auto}
+.map .rs{fill:var(--ink-2);stroke:var(--off-lab);stroke-width:1.6}
+.map .city{fill:var(--fg);opacity:.9;transform-box:fill-box;transform-origin:center;transition:transform .45s cubic-bezier(.2,.9,.3,1.4),opacity .45s}
+.pinned .map .city:not(.on){transform:scale(0);opacity:0}
+.map .city.now{fill:var(--red)}
+.map .pring{fill:none;stroke:var(--red);stroke-width:3;transform-box:fill-box;transform-origin:center;transition:transform .7s cubic-bezier(.2,.8,.2,1),opacity .7s}
+.map .pring.cand{stroke:var(--fg-2);stroke-dasharray:8 7;stroke-width:2.4}
+.map .plab{font-family:var(--mono);font-size:30px;fill:var(--fg);transition:opacity .7s}
+.map .plab.cand{fill:var(--fg-2)}
+.pinned .map .pol:not(.on) .pring{transform:scale(.3);opacity:0}
+.pinned .map .pol:not(.on) .plab{opacity:0}
+.tcount{display:flex;gap:28px;flex-wrap:wrap;margin-top:24px}
+.tcount div{border-top:1px solid var(--line);padding-top:10px;min-width:120px}
+.tcount .n{font-family:var(--display);font-weight:850;font-stretch:72%;font-size:clamp(48px,min(6vw,9vh),80px);line-height:.95;font-variant-numeric:tabular-nums}
+.tcount .l{font-size:14px;color:var(--fg-2)}
+.tnow{margin-top:14px;font-family:var(--mono);font-size:13px;color:var(--fg-3);min-height:1.5em}
+.tnow b{color:var(--fg);font-weight:500}
+@media (max-width:820px){.terr .lead{display:none}.tcount{margin-top:10px;gap:18px}.terr .h2{font-size:clamp(30px,8vw,44px)}}
 
-  .insight-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px;}
-  @media (max-width:760px){.insight-grid{grid-template-columns:1fr;}}
-  .insight{border-top:1px solid var(--line-strong);padding-top:16px;}
-  .insight .tag{
-    font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--amber);
-    text-transform:uppercase;letter-spacing:0.06em;
-  }
-  .insight p{font-size:14.5px;margin:8px 0 0;color:var(--paper);}
+/* 3 · sistema */
+.layers{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:48px}
+@media (max-width:900px){.layers{grid-template-columns:minmax(0,1fr)}}
+.layer{background:var(--card);border-radius:18px;padding:32px 28px}
+.layer .lnum{font-family:var(--mono);font-size:13px;letter-spacing:.1em;color:var(--red-on-paper)}
+.layer h3{font-family:var(--display);font-weight:800;font-size:34px;line-height:1;margin:10px 0 12px}
+.layer p{margin:0;color:var(--on-paper-2)}
+.lbars{display:none}
+.pinned .sis-h2{font-size:clamp(24px,3vw,40px);max-width:none}
+.pinned .lbars{display:flex;gap:8px;max-width:360px;margin:20px 0 0}
+.lbar{flex:1;height:3px;background:var(--rule-paper);border-radius:2px;overflow:hidden}
+.lbar i{display:block;height:100%;background:var(--red-on-paper);transform-origin:0 50%;transform:scaleX(0)}
+.pinned .layers{display:block;position:relative;height:calc(var(--sh) * .6);margin-top:0}
+.pinned .layer{position:absolute;inset:0;background:none;padding:0;border-radius:0;display:flex;flex-direction:column;justify-content:center;opacity:0}
+.pinned .layer:first-child{opacity:1}
+.pinned .layer h3{font-weight:850;font-stretch:72%;font-size:clamp(68px,min(15vw,24vh),230px);line-height:.84;letter-spacing:-.02em;margin:6px 0 20px}
+.pinned .layer p{font-size:clamp(17px,1.8vw,23px);max-width:44ch}
 
-  table.mini{width:100%;border-collapse:collapse;margin-top:8px;font-size:13.5px;}
-  table.mini th{
-    text-align:left;font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:11px;
-    text-transform:uppercase;letter-spacing:0.05em;color:var(--paper-dim);
-    padding:10px 14px;border-bottom:1px solid var(--line-strong);
-  }
-  table.mini td{
-    padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top;
-  }
-  table.mini tr:hover td{background:var(--ink-soft);}
+/* 4 · rede: galeria horizontal */
+.rede-head{display:flex;flex-wrap:wrap;gap:12px 40px;align-items:flex-end;justify-content:space-between}
+.rede-head .h2{max-width:13ch}
+.forms{display:flex;flex-wrap:wrap;gap:8px;max-width:520px}
+.chip{font-size:14px;border:1px solid var(--line);border-radius:999px;padding:6px 14px;color:var(--fg-2)}
+.forms-note{flex-basis:100%;font-size:14px;color:var(--fg-3);margin:2px 0 0;max-width:60ch}
+.track-wrap{margin-top:36px}
+.track{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
+.pinned .track-wrap{overflow:visible}
+.pinned .track{display:flex;gap:18px;width:max-content;will-change:transform}
+.card{background:var(--ink-2);border-radius:22px;padding:26px;display:flex;flex-direction:column;gap:10px;box-sizing:border-box}
+.pinned .card{width:min(78vw,400px);min-height:min(40vh,300px);justify-content:flex-end}
+.card .big{font-family:var(--display);font-weight:850;font-stretch:74%;font-size:clamp(34px,min(4vw,6.5vh),56px);line-height:.92;overflow-wrap:anywhere}
+.card.lesson .big{font-size:clamp(26px,min(2.8vw,4.6vh),40px);line-height:1}
+.pinned .rede-head .h2{font-size:clamp(32px,min(4.6vw,7.5vh),66px)}
+.card p{margin:0;color:var(--fg-2);font-size:16px}
+.card .tag{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--fg-3);margin-bottom:auto}
+.card.lesson{background:var(--red);color:var(--on-red)}
+.card.lesson p,.card.lesson .tag{color:var(--on-red)}
+.card.lesson sup a{color:var(--on-red)}
+@media (max-width:600px){.rede-head .forms,.forms-note{display:none}.pinned .rede-head .forms{display:none}}
 
-  .roadmap{display:flex;flex-direction:column;border:1px solid var(--line-strong);margin-top:8px;}
-  .rstep{display:grid;grid-template-columns:120px 1fr 1fr;gap:20px;padding:20px 22px;border-bottom:1px solid var(--line);align-items:start;}
-  .rstep:last-child{border-bottom:none;}
-  @media (max-width:700px){.rstep{grid-template-columns:1fr;gap:6px;}}
-  .rstep .phase{font-family:'Bebas Neue',sans-serif;font-size:20px;color:var(--red);}
-  .rstep .desc{font-size:14px;color:var(--paper);}
-  .rstep .kpi{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--amber);}
+/* 5 · competição */
+.comp-head{display:flex;flex-wrap:wrap;gap:16px 40px;align-items:flex-end;justify-content:space-between}
+.legend{display:flex;flex-wrap:wrap;gap:8px 16px;font-size:14px;color:var(--fg-2)}
+.legend span{display:inline-flex;align-items:center;gap:8px}
+.sw{display:inline-block;width:14px;height:14px;border-radius:4px}
+.sw.f{background:var(--red)}.sw.c{background:var(--grass-line)}.sw.x{border:2px solid var(--fg)}
+.tiles{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;margin-top:28px}
+@media (max-width:820px){.tiles{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}}
+.tile{border-radius:14px;padding:12px 14px;min-height:clamp(62px,11vh,104px);display:flex;flex-direction:column;justify-content:space-between;gap:6px;box-sizing:border-box}
+.tile .t1{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;opacity:.85}
+.tile .t2{font-family:var(--display);font-weight:800;font-size:clamp(17px,1.8vw,22px);line-height:1.05}
+.tile.f{background:var(--red-deep);border:1px solid var(--red)}
+.tile.c{background:var(--grass);border:1px solid var(--grass-line)}
+.tile.x{background:var(--fg);color:var(--ink)}
+@media (max-width:820px){.tile{min-height:clamp(44px,6.5vh,70px);padding:8px 10px}.tile .t2{font-size:15px}.tile .t1{font-size:10px}.cats{display:none}.comp-foot{margin-top:14px}.tiles{margin-top:16px}}
+.pinned .tile{transition:opacity .4s,transform .5s cubic-bezier(.2,.9,.3,1.3)}
+.pinned .tile:not(.on){opacity:.08;transform:scale(.85)}
+.comp-foot{display:flex;flex-wrap:wrap;gap:16px 40px;align-items:flex-end;justify-content:space-between;margin-top:24px}
+.datas{display:flex;align-items:baseline;gap:14px}
+.datas .n{font-family:var(--display);font-weight:850;font-stretch:70%;font-size:clamp(56px,min(8vw,12vh),110px);line-height:.85;font-variant-numeric:tabular-nums}
+.datas .l{font-size:16px;color:var(--fg-2);max-width:22ch;line-height:1.35}
+.pending{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.pending b{font-family:var(--mono);font-weight:500;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--fg-3);margin-right:4px}
+.dash{font-size:14px;border:1px dashed var(--fg-3);border-radius:999px;padding:5px 12px;color:var(--fg-2)}
+.cats{font-size:14px;color:var(--fg-3);margin:10px 0 0}
 
-  footer{padding:48px 0 64px;}
-  footer .wrap{
-    display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;
-    font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--paper-dim);
-  }
-  footer .status{color:var(--amber);}
+/* 6 · metodologia */
+.met-h2{max-width:22ch}
+.pinned .met-h2{font-size:clamp(26px,min(3.6vw,6vh),48px)}
+.ruler{position:relative;display:grid;grid-template-columns:150px repeat(8,minmax(0,1fr));column-gap:4px;row-gap:10px;margin-top:26px;align-items:center}
+.age{font-family:var(--mono);font-size:12px;color:var(--on-paper-2);text-align:center;border-bottom:1px solid var(--rule-paper);padding-bottom:6px;transition:color .3s}
+.age.hot{color:var(--red-on-paper);font-weight:500}
+.age.blank{border:0}
+.rl{grid-column:1;font-size:14px;font-weight:600;line-height:1.25;padding-right:10px}
+.bar{height:34px;border-radius:9px;display:flex;align-items:center;padding:0 10px;font-size:13px;line-height:1.15;overflow:hidden;min-width:0;white-space:nowrap}
+.bar.p1{background:var(--ph1);color:var(--paper)}
+.bar.p2{background:var(--ph2);color:var(--paper)}
+.bar.p3{background:var(--ph3);color:var(--paper)}
+.bar.funil{background:var(--red-on-paper);color:var(--on-red)}
+.bar.cap{background:transparent;border:1.5px dashed var(--on-paper-2);color:var(--on-paper)}
+.mk{justify-self:center;width:20px;height:20px;border-radius:50%}
+.mk.fut{background:var(--red-on-paper)}
+.mk.cam{background:var(--grass-line)}
+.mk.ghost{background:transparent;border:2px dashed var(--grass-line);box-sizing:border-box}
+.cursor{display:none}
+.pinned .cursor{display:block;position:absolute;top:-6px;bottom:-6px;border-radius:10px;background:var(--red-a);border:1.5px solid var(--red-on-paper);pointer-events:none;opacity:0;transition:left .25s ease,opacity .3s}
+.a6{grid-column-start:2}.a7{grid-column-start:3}.a9{grid-column-start:5}.a11{grid-column-start:7}.a12{grid-column-start:8}.a13{grid-column-start:9}
+.e7{grid-column-end:4}.e8{grid-column-end:5}.e9{grid-column-end:6}.e11{grid-column-end:8}.e13{grid-column-end:10}
+.r1{grid-row:2}.r2{grid-row:3}.r3{grid-row:4}.r4{grid-row:5}.r5{grid-row:6}
+.agecard{margin-top:22px;display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 24px;align-items:baseline;min-height:6.2em}
+.agecard .ag{grid-row:span 3;font-family:var(--display);font-weight:850;font-stretch:72%;font-size:clamp(52px,min(7vw,11vh),96px);line-height:.85;color:var(--red-on-paper);font-variant-numeric:tabular-nums}
+.agecard .af{font-family:var(--display);font-weight:800;font-size:clamp(20px,2vw,26px);line-height:1.1}
+.agecard .at,.agecard .ac{font-size:15px;color:var(--on-paper-2);margin:0}
+.static-caps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:28px}
+.static-caps p{margin:0;font-size:15px;color:var(--on-paper-2);border-top:1px solid var(--rule-paper);padding-top:10px}
+.static-caps b{display:block;color:var(--on-paper)}
+.agecard{display:none}
+.pinned .agecard{display:grid}
+.pinned .static-caps{display:none}
+@media (max-width:640px){
+  .ruler{grid-template-columns:repeat(8,minmax(0,1fr));row-gap:5px}
+  .age.blank{display:none}
+  .rl{grid-column:1/-1;padding:6px 0 0;font-size:13px}
+  .a6{grid-column-start:1}.a7{grid-column-start:2}.a9{grid-column-start:4}.a11{grid-column-start:6}.a12{grid-column-start:7}.a13{grid-column-start:8}
+  .e7{grid-column-end:3}.e8{grid-column-end:4}.e9{grid-column-end:5}.e11{grid-column-end:7}.e13{grid-column-end:9}
+  .r1,.r2,.r3,.r4,.r5{grid-row:auto}
+  .age .s{display:none}
+  .bar{height:26px;font-size:11px;padding:0 6px}
+  .mk{width:14px;height:14px}
+  .agecard{min-height:7.5em}
+  .agecard .at,.agecard .ac{font-size:13px}
+}
 
-  @media (prefers-reduced-motion: no-preference){
-    .fade-up{animation:fadeUp .6s ease-out both;}
-    @keyframes fadeUp{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
-  }
+/* 7 · funil */
+.roleline{display:flex;gap:8px;margin-top:22px;max-width:640px}
+.roleline span{flex:1;font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--fg-3);border-top:3px solid var(--line);padding-top:8px;transition:color .3s,border-color .3s}
+.roleline span.on{color:var(--fg);border-color:var(--red)}
+.verbs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:36px}
+@media (max-width:900px){.verbs{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.vb{background:var(--ink-2);border-radius:18px;padding:22px}
+.vb .who{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--fg-3)}
+.vb .verb{font-family:var(--display);font-weight:850;font-stretch:74%;font-size:clamp(34px,4vw,54px);line-height:1;margin:10px 0 10px}
+.vb p{margin:0;font-size:15px;color:var(--fg-2)}
+.pinned .verbs{display:block;position:relative;height:calc(var(--sh) * .52);margin-top:10px}
+.pinned .vb{position:absolute;inset:0;background:none;padding:0;display:flex;flex-direction:column;justify-content:center;opacity:0}
+.pinned .vb:first-child{opacity:1}
+.pinned .vb .verb{font-size:clamp(76px,min(16vw,24vh),240px);line-height:.84;letter-spacing:-.02em;margin:8px 0 18px}
+.pinned .vb p{font-size:clamp(17px,1.8vw,23px);max-width:40ch}
+.guards{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px}
+.guard{font-size:14px;border:1px solid var(--line);border-radius:999px;padding:7px 14px;color:var(--fg-2)}
+.coda{font-family:var(--display);font-weight:850;font-stretch:78%;font-size:clamp(34px,min(5vw,8vh),72px);line-height:1;margin:28px 0 0;max-width:18ch}
+.pinned .fun-stage{position:relative;height:calc(var(--sh) * .55)}
+.pinned .fun-stage .verbs{height:100%;margin-top:0}
+.pinned .coda-box{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;opacity:0}
+.pinned .coda-box .guards{margin-top:0}
 
+/* 8 · fases */
+.tabs{display:inline-flex;flex-wrap:wrap;gap:6px;padding:6px;background:var(--ink-2);border-radius:999px}
+.tab{min-height:44px;padding:10px 22px;border:0;border-radius:999px;background:transparent;color:var(--fg-2);font:600 15px var(--body);cursor:pointer;transition:background .3s,color .3s}
+.tab[aria-selected="true"]{background:var(--fg);color:var(--ink)}
+.fz{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px 56px;margin-top:28px;align-items:start}
+@media (max-width:820px){.fz{grid-template-columns:minmax(0,1fr);gap:18px}}
+.fz-title{font-family:var(--display);font-weight:850;font-stretch:76%;font-size:clamp(34px,min(5vw,8vh),64px);line-height:.95;margin:0}
+.fz-desc{margin:12px 0 0;color:var(--fg-2);font-size:17px;max-width:44ch;min-height:3.2em}
+.fbig{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.fbig div{border-top:1px solid var(--line);padding-top:10px}
+.fbig .n{font-family:var(--display);font-weight:850;font-stretch:70%;font-size:clamp(52px,min(7vw,11vh),104px);line-height:.88;font-variant-numeric:tabular-nums}
+.fbig .l{font-size:13px;color:var(--fg-2)}
+.meta{margin-top:22px}
+.meta .row{display:flex;justify-content:space-between;font-size:14px;color:var(--fg-2);gap:12px}
+.meta .bartrack{height:14px;border-radius:7px;background:var(--line);margin-top:8px;overflow:hidden}
+.meta .bartrack i{display:block;height:100%;width:20%;background:var(--red);border-radius:7px}
+.slots{display:flex;gap:10px;margin-top:22px;align-items:center;flex-wrap:wrap}
+.slots .l{font-size:14px;color:var(--fg-2);margin-right:6px}
+.slot{width:34px;height:34px;border-radius:50%;border:2px dashed var(--off-lab);box-sizing:border-box;position:relative}
+.slot i{position:absolute;inset:4px;border-radius:50%;background:var(--red);transform:scale(0);transition:transform .2s}
+.ceil{margin-top:22px;background:var(--ink-2);border-radius:16px;padding:14px 18px;font-size:15px;color:var(--fg-2)}
+.ceil b{font-family:var(--display);font-weight:800;font-size:28px;color:var(--fg);margin-right:6px;font-variant-numeric:tabular-nums}
+@media (max-width:820px){.fz-desc{display:none}.meta,.slots,.ceil{margin-top:12px}.pinned .fz .fine{display:none}.fbig .n{font-size:clamp(44px,12vw,64px)}}
+
+/* simulador */
+.sim{background:var(--ink-2);border-radius:28px;padding:40px}
+@media (max-width:600px){.sim{padding:26px 20px;border-radius:22px}}
+.sim h3{font-family:var(--display);font-weight:850;font-stretch:80%;font-size:clamp(34px,4vw,52px);line-height:1;margin:0}
+.sim-intro{color:var(--fg-2);margin:12px 0 0;max-width:58ch}
+.sim-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:48px;margin-top:36px}
+@media (max-width:900px){.sim-grid{grid-template-columns:minmax(0,1fr);gap:32px}}
+.ctls{display:flex;flex-direction:column;gap:26px}
+.ctl label{display:flex;justify-content:space-between;align-items:baseline;gap:12px;font-size:15px;color:var(--fg-2)}
+.ctl output{font-family:var(--display);font-weight:800;font-size:26px;color:var(--fg);font-variant-numeric:tabular-nums}
+.ctl input[type=range]{width:100%;margin-top:10px;accent-color:var(--red);height:28px}
+.ctl small{display:block;font-size:12px;color:var(--fg-3);margin-top:2px}
+.outs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 24px;align-content:start}
+.out{border-top:1px solid var(--line);padding-top:12px}
+.out .n{font-family:var(--display);font-weight:850;font-stretch:76%;font-size:50px;line-height:1;font-variant-numeric:tabular-nums}
+.out .l{font-size:14px;color:var(--fg-2)}
+.meter{grid-column:1/-1;border-top:1px solid var(--line);padding-top:14px}
+.meter-top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.meter-top .l{font-size:14px;color:var(--fg-2)}
+.meter-n{font-family:var(--display);font-weight:850;font-stretch:76%;font-size:50px;line-height:1;font-variant-numeric:tabular-nums}
+.mtrack{position:relative;height:12px;border-radius:6px;background:var(--line);margin-top:12px;overflow:hidden}
+.mtrack i{position:absolute;left:0;top:0;bottom:0;border-radius:6px;background:var(--fg);transition:width .35s ease,background .35s ease}
+.mtrack i.warn{background:var(--amber)}
+.mtrack i.bad{background:var(--red)}
+.mtrack b{position:absolute;top:0;bottom:0;left:66.667%;width:2px;background:var(--fg-3)}
+.scale{position:relative;height:16px;font-family:var(--mono);font-size:11px;color:var(--fg-3);margin-top:6px}
+.scale span{position:absolute;top:0}
+.scale span:nth-child(1){left:0}.scale span:nth-child(2){left:66.667%;transform:translateX(-50%)}.scale span:nth-child(3){right:0}
+.pill{font-family:var(--mono);font-size:12px;letter-spacing:.06em;border-radius:999px;padding:4px 10px;border:1px solid var(--line);color:var(--fg-2)}
+.pill.ok{border-color:var(--grass-line);color:var(--mint)}
+.pill.warn{border-color:var(--amber);color:var(--amber-soft)}
+.pill.bad{border-color:var(--red);background:var(--red);color:var(--on-red)}
+.sim .fine{margin-top:26px}
+
+/* 9 · recursos */
+.src-list{display:flex;flex-direction:column;gap:0;margin-top:22px}
+.src{display:grid;grid-template-columns:minmax(0,auto) minmax(0,1fr);gap:4px 28px;align-items:baseline;padding:18px 0;border-top:1px solid var(--rule-paper)}
+.src h3{font-family:var(--display);font-weight:850;font-stretch:76%;font-size:clamp(30px,min(4.2vw,6.5vh),58px);line-height:.95;margin:0}
+.pinned #recFrames .h2{font-size:clamp(30px,min(4.4vw,7vh),62px)}
+.pinned .src{padding:12px 0}
+.src .pays{font-size:16px;color:var(--on-paper);margin:0}
+.src .cond{font-size:14px;color:var(--on-paper-2);margin:4px 0 0}
+@media (max-width:720px){.src{grid-template-columns:minmax(0,1fr);padding:12px 0}.src .cond{display:none}}
+.pinned .src{transition:opacity .5s,transform .6s cubic-bezier(.2,.8,.2,1)}
+.pinned .src:not(.on){opacity:0;transform:translateX(60px)}
+.costs{background:var(--card);border-radius:22px;padding:30px;max-width:760px}
+@media (max-width:600px){.costs{padding:22px 18px}}
+.costs h3{font-family:var(--display);font-weight:850;font-stretch:80%;font-size:clamp(26px,min(3.4vw,6vh),44px);line-height:1;margin:0;text-wrap:balance}
+.crow{margin-top:20px}
+.clab{display:flex;justify-content:space-between;gap:12px;font-size:15px;align-items:baseline}
+.clab b{font-weight:600}
+.cval{font-family:var(--display);font-weight:850;font-size:30px;font-variant-numeric:tabular-nums;white-space:nowrap;color:var(--red-on-paper)}
+.ctrack{height:18px;border-radius:9px;background:repeating-linear-gradient(135deg,var(--rule-paper) 0 6px,var(--paper) 6px 12px);margin-top:6px;overflow:hidden}
+.cost{display:block;height:100%;border-radius:9px;background:var(--red-on-paper);width:calc(var(--v) * 1%);min-width:4px}
+.ckey{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:16px;font-size:13px;color:var(--on-paper-2)}
+.ckey span{display:inline-flex;align-items:center;gap:6px}
+.ck{width:14px;height:10px;border-radius:3px;display:inline-block}
+.ck.a{background:var(--red-on-paper)}
+.ck.b{background:repeating-linear-gradient(135deg,var(--rule-paper) 0 3px,var(--paper) 3px 6px);border:1px solid var(--rule-paper)}
+.why-co{margin-top:14px;font-size:15px;color:var(--on-paper-2)}
+
+/* 10 · decisões */
+.dec-group{margin-top:52px}
+.dec-group>h3{font-family:var(--mono);font-weight:500;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--fg-3);margin:0 0 16px}
+.dec-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px}
+@media (max-width:400px){.dec-grid{grid-template-columns:minmax(0,1fr)}}
+.dec{background:var(--ink-2);border-radius:18px;padding:22px;display:flex;flex-direction:column;gap:14px;border:1px solid transparent;transition:border-color .3s,opacity .6s,transform .6s cubic-bezier(.2,.8,.2,1)}
+.cine .dec.wait{opacity:0;transform:translateY(30px)}
+.dec.done{border-color:var(--red)}
+.dec h4{margin:0;font-size:18px;line-height:1.35;font-weight:600}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opt{min-height:44px;padding:9px 14px;border-radius:12px;border:1px solid var(--line);background:transparent;color:var(--fg-2);font:500 15px var(--body);cursor:pointer;text-align:left;transition:background .2s,color .2s,border-color .2s,transform .15s}
+.opt:hover{border-color:var(--fg-3);color:var(--fg)}
+.opt:active{transform:scale(.97)}
+.opt[aria-pressed="true"]{background:var(--fg);color:var(--ink);border-color:var(--fg)}
+.opt .rec{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.04em;color:var(--red-soft);margin-top:1px}
+.opt[aria-pressed="true"] .rec{color:var(--red-on-paper)}
+.dec .why{font-size:14px;color:var(--fg-3);margin:0;line-height:1.45}
+.dec-sum{margin-top:44px;display:flex;flex-wrap:wrap;gap:16px 24px;align-items:center;justify-content:space-between;background:var(--ink-2);border-radius:18px;padding:20px 24px}
+.dec-sum p{margin:0;color:var(--fg-2)}
+.dec-sum strong{font-family:var(--display);font-size:26px;color:var(--fg);margin-right:4px}
+.btn{min-height:44px;padding:10px 22px;border-radius:999px;border:0;background:var(--red);color:var(--on-red);font:600 15px var(--body);cursor:pointer}
+.btn:hover{filter:brightness(1.08)}
+.btn-ghost{background:transparent;color:var(--fg-2);border:1px solid var(--line)}
+.sum-actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+#copyMsg{font-size:14px;color:var(--fg-2)}
+#copyFallback{width:100%;min-height:160px;margin-top:14px;background:var(--ink);color:var(--fg);border:1px solid var(--line);border-radius:12px;padding:12px;font:13px/1.5 var(--mono);box-sizing:border-box}
+
+/* notas */
+.notes{border-top:1px solid var(--line);background:var(--ink);padding-block:64px 96px}
+.notes h2{font-family:var(--display);font-weight:800;font-size:28px;margin:0 0 18px}
+.notes ol,.notes ul{margin:0;padding-left:22px;display:flex;flex-direction:column;gap:10px;font-size:14px;color:var(--fg-3);max-width:90ch}
+.notes-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:48px}
+@media (max-width:900px){.notes-grid{grid-template-columns:minmax(0,1fr)}}
+.colophon{margin-top:48px;font-size:13px;color:var(--fg-3);max-width:90ch}
+.kbd{font-family:var(--mono);font-size:12px;border:1px solid var(--line);border-radius:5px;padding:1px 6px}
 </style>
 </head>
 <body>
 
-<nav>
-  <div class="wrap">
-    <div class="brand"><span class="dot"></span>MUNDO COLORADO — DIAGNÓSTICO</div>
-    <div class="navlinks">
-      <a href="#quebrado">O que está quebrado</a>
-      <a href="#mercado">O mercado já resolveu</a>
-      <a href="#decisao">O que fazer</a>
-      <a href="documento-completo.html" class="nav-deep">Material completo →</a>
+
+<div class="progress" aria-hidden="true"><i id="prog"></i></div>
+
+<nav class="nav" id="nav" aria-label="Capítulos">
+  <div class="nav-in">
+    <a class="brand" href="#topo">SACI</a>
+    <div class="nav-links" id="navlinks">
+      <a href="#lacuna">Lacuna</a>
+      <a href="#territorio">Território</a>
+      <a href="#sistema">Sistema</a>
+      <a href="#rede">Rede</a>
+      <a href="#competicao">Competição</a>
+      <a href="#metodologia">Metodologia</a>
+      <a href="#funil">Funil</a>
+      <a href="#fases">Fases</a>
+      <a href="#recursos">Recursos</a>
+      <a href="#decisoes">Decisões</a>
     </div>
+    <span class="badge">v1 · para validação</span>
   </div>
 </nav>
 
-<header class="hero">
-  <div class="wrap">
-    <p class="eyebrow fade-up">Diagnóstico estratégico · uso interno / grupo de trabalho</p>
+<main>
 
-    <div class="scoreboard fade-up" style="animation-delay:.05s">
-      <div class="cell">
-        <div class="num">111.021</div>
-        <div class="label">Sócios adimplentes — 2º maior do Brasil</div>
+<!-- 0 · ABERTURA -->
+<div class="pin" id="topo" data-ch data-pin="hero" style="--len:2.6">
+  <div class="stage hero-stage">
+    <div class="disc" id="disc" data-anim aria-hidden="true"></div>
+    <div class="wrap hero-in">
+      <div id="heroA" data-anim>
+        <p class="hero-eyebrow">Sistema de Acompanhamento e Captação Integrado</p>
+        <h1 id="heroH1">O Inter de volta a cada campinho do Rio Grande.</h1>
+        <p class="hero-sub">Rede, competição e inteligência para o ecossistema pré-base. Sem trocar a bandeira de ninguém.</p>
+        <p class="hero-meta">Projeto SACI · v1 para validação · outubro de 2026</p>
+        <div class="scroll-cue" aria-hidden="true"></div>
       </div>
-      <div class="cell">
-        <div class="num red">0</div>
-        <div class="label">Funcionalidades de engajamento entregues desde 2022</div>
-      </div>
-    </div>
-
-    <h1 class="claim fade-up" style="animation-delay:.1s">A base é forte. <em>O app é o gargalo.</em></h1>
-
-    <p class="decision fade-up" style="animation-delay:.15s">
-      <b>Decisão recomendada:</b> manter a infraestrutura atual (Imply/ElevenTickets), corrigir a dívida técnica em 6 meses e contratar camada de engajamento white-label nacional — nessa ordem, não em paralelo.
-    </p>
-
-    <div class="cards fade-up" style="animation-delay:.2s">
-      <a class="card" href="#quebrado">
-        <span class="idx">01 · BACKGROUND</span>
-        <h3>O que está quebrado hoje</h3>
-        <p>Bugs em dia de jogo, gamificação prometida em 2022 e nunca entregue, cashback que vive no app de outra empresa.</p>
-        <span class="arrow">Ver diagnóstico →</span>
-      </a>
-      <a class="card" href="#mercado">
-        <span class="idx">02 · CONTEXTUALIZAÇÃO</span>
-        <h3>O que o mercado já resolveu</h3>
-        <p>Clubes do mesmo porte já entregam o que o Mundo Colorado prometeu — a barreira nunca foi orçamento.</p>
-        <span class="arrow">Ver benchmarking →</span>
-      </a>
-      <a class="card" href="#decisao">
-        <span class="idx">03 · RECOMENDAÇÃO</span>
-        <h3>O que fazer, em ordem</h3>
-        <p>Sequência de 3 fases, com KPI de saída em cada uma — não uma lista de ideias soltas.</p>
-        <span class="arrow">Ver roadmap →</span>
-      </a>
+      <p class="hero-b" id="heroB" data-anim>Antes da base, existe um território inteiro.</p>
     </div>
   </div>
-</header>
+</div>
 
-<section class="block" id="quebrado">
-  <div class="wrap">
-    <p class="kicker">01 — Background</p>
-    <h2 class="blocktitle">O modelo de negócio funciona. O produto, não.</h2>
-    <p class="lede">O Inter tem <b>a matéria-prima que a maioria dos clubes não tem</b> — 2ª maior base de sócios do país, pacote de benefícios competitivo. O app não converte esse ativo em engajamento nem em dado proprietário.</p>
-
-    <div class="insight-grid">
-      <div class="insight">
-        <span class="tag">Dívida técnica</span>
-        <p>Bugs de login/sessão e falhas de check-in concentram-se em dia de jogo — o momento de maior exposição reputacional, quando o sócio pagante corre risco de perder acesso ao estádio.</p>
+<!-- 1 · LACUNA -->
+<div class="pin" id="lacuna" data-ch data-pin="lacuna" style="--len:5">
+  <div class="stage">
+    <div class="wrap" style="position:relative">
+      <div class="frames" id="lacFrames">
+        <div class="frame" data-anim>
+          <p class="eyebrow">A lacuna</p>
+          <p class="statement" id="lacStatement">A camada que ligava o clube aos projetos de formação ficou vazia.</p>
+        </div>
+        <div class="frame" data-anim>
+          <div class="bignum key"><span class="num" data-to="224">224</span><p><span class="lab">Território</span>escolinhas de futebol e futsal mapeadas em 38 cidades do estado. É um piso, não o universo.<sup><a href="#n1">1</a></sup></p></div>
+        </div>
+        <div class="frame" data-anim>
+          <div class="bignum"><span class="num" data-to="315">315</span><p><span class="lab">O que existia</span>núcleos chegou a ter o Genoma Colorado, encerrado sem comunicado público.<sup><a href="#n2">2</a></sup></p></div>
+        </div>
+        <div class="frame" data-anim>
+          <div class="bignum"><span class="num" data-to="71">71</span><p><span class="lab">Quem ocupa</span>escolas na rede do principal rival, no mesmo território.<sup><a href="#n2">2</a></sup></p></div>
+        </div>
+        <div class="frame" data-anim>
+          <div class="bignum"><span class="num" data-to="243">243</span><p><span class="lab">A competição já existe</span>equipes disputam a LGF, o maior estadual de base do país.<sup><a href="#n3">3</a></sup></p></div>
+        </div>
       </div>
-      <div class="insight">
-        <span class="tag">Gap de produto</span>
-        <p>Gamificação anunciada em outubro de 2022, com entrega prevista para o 1º trimestre de 2023. Em outubro de 2025, ainda constava como "O que vem por aí?" na descrição da loja.</p>
+      <div class="dots" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+    </div>
+  </div>
+</div>
+
+<!-- faixa de cidades -->
+<div class="marquee" id="marquee" aria-label="Cidades do levantamento de escolinhas">
+  <div class="mq-row" id="mq1"><span class="hl">Porto Alegre</span><span>Canoas</span><span>Novo Hamburgo</span><span>Viamão</span><span>Cachoeirinha</span><span>Erechim</span><span>São Leopoldo</span><span class="hl">Passo Fundo</span><span class="hl">Pelotas</span><span>Uruguaiana</span><span>Ijuí</span><span>Guaíba</span><span>Sapiranga</span><span>Capão da Canoa</span><span>São Borja</span><span>Canela</span><span>Venâncio Aires</span><span>Carazinho</span><span>Taquara</span><span class="hl">Porto Alegre</span><span>Canoas</span><span>Novo Hamburgo</span><span>Viamão</span><span>Cachoeirinha</span><span>Erechim</span><span>São Leopoldo</span><span class="hl">Passo Fundo</span><span class="hl">Pelotas</span><span>Uruguaiana</span><span>Ijuí</span><span>Guaíba</span><span>Sapiranga</span><span>Capão da Canoa</span><span>São Borja</span><span>Canela</span><span>Venâncio Aires</span><span>Carazinho</span><span>Taquara</span></div>
+  <div class="mq-row" id="mq2"><span class="hl">Caxias do Sul</span><span>Gravataí</span><span>Sapucaia do Sul</span><span>Alvorada</span><span>Bento Gonçalves</span><span>Santa Maria</span><span>Santa Cruz do Sul</span><span>Esteio</span><span>Bagé</span><span>Lajeado</span><span>Farroupilha</span><span>Santo Ângelo</span><span>Alegrete</span><span>Campo Bom</span><span>Tramandaí</span><span>Rio Grande</span><span>Vacaria</span><span>São Gabriel</span><span>Canguçu</span><span class="hl">Caxias do Sul</span><span>Gravataí</span><span>Sapucaia do Sul</span><span>Alvorada</span><span>Bento Gonçalves</span><span>Santa Maria</span><span>Santa Cruz do Sul</span><span>Esteio</span><span>Bagé</span><span>Lajeado</span><span>Farroupilha</span><span>Santo Ângelo</span><span>Alegrete</span><span>Campo Bom</span><span>Tramandaí</span><span>Rio Grande</span><span>Vacaria</span><span>São Gabriel</span><span>Canguçu</span></div>
+</div>
+
+<!-- 2 · TERRITÓRIO -->
+<div class="pin" id="territorio" data-ch data-pin="terr" style="--len:3.4">
+  <div class="stage">
+    <div class="wrap terr">
+      <div class="mapbox">
+        <svg class="map" viewBox="0 0 1000 961.5" role="img" aria-label="Mapa do Rio Grande do Sul com as 38 cidades do levantamento de escolinhas e os polos candidatos">
+          <path class="rs" d="M695.9,646.7 L696.4,644.7 L687.8,643.8 L687.1,647.9 L688.8,654.0 L692.2,653.8 L694.3,650.2 L694.6,655.6 L691.3,659.7 L692.9,661.2 L683.0,664.2 L676.8,668.5 L673.8,671.8 L675.3,680.0 L673.0,680.0 L674.1,684.7 L672.0,684.0 L670.0,685.5 L672.7,692.0 L672.3,689.9 L674.3,688.9 L677.3,692.3 L685.1,696.1 L687.5,698.8 L687.5,703.8 L690.3,710.1 L688.0,709.6 L688.0,710.8 L692.9,711.1 L693.5,713.5 L690.7,715.2 L688.5,722.1 L689.2,729.8 L682.2,733.8 L673.0,743.2 L663.9,758.0 L650.5,792.7 L644.2,819.8 L638.8,834.6 L624.6,864.7 L611.2,883.7 L604.2,891.0 L560.8,931.6 L533.8,953.6 L528.5,954.2 L526.5,952.7 L525.4,946.6 L514.8,945.5 L515.2,936.8 L514.0,935.1 L514.6,933.2 L515.3,935.1 L516.8,932.8 L517.1,924.0 L520.6,925.5 L520.7,927.8 L519.7,927.2 L520.9,929.3 L524.4,928.9 L523.5,926.2 L522.6,926.8 L526.3,919.0 L527.2,909.7 L522.0,885.0 L526.8,870.3 L529.0,871.4 L531.5,869.7 L540.3,856.1 L540.5,860.8 L545.5,863.7 L548.1,862.8 L559.8,844.0 L559.2,831.3 L561.8,821.3 L564.3,818.8 L570.4,824.7 L581.4,810.8 L579.2,819.1 L592.2,833.1 L599.6,836.1 L604.0,834.4 L609.8,828.8 L625.7,797.1 L629.8,781.4 L624.6,766.0 L616.7,751.9 L618.5,743.4 L625.4,727.2 L619.2,730.2 L613.6,731.5 L611.3,730.5 L610.4,731.7 L612.1,734.6 L607.7,735.8 L611.4,735.5 L612.4,737.0 L611.0,738.0 L609.3,736.9 L606.8,739.9 L605.8,744.8 L604.3,745.2 L605.2,746.5 L601.6,755.1 L602.7,756.8 L604.7,756.2 L603.6,757.6 L605.1,760.4 L609.8,757.9 L613.2,759.4 L613.0,761.7 L605.0,769.9 L589.5,773.2 L584.9,775.6 L581.5,779.0 L579.2,791.4 L576.9,793.5 L571.9,794.4 L570.0,799.7 L563.7,797.1 L558.1,799.7 L549.8,795.4 L548.9,792.3 L544.3,794.8 L538.8,789.8 L536.1,790.5 L534.2,787.6 L532.0,789.8 L528.3,786.2 L526.7,786.9 L522.8,775.5 L515.1,775.8 L511.3,773.5 L504.6,765.9 L504.1,762.9 L500.8,761.1 L502.2,756.4 L499.4,751.9 L500.9,748.9 L496.8,743.6 L494.6,735.7 L492.7,735.1 L493.4,733.9 L491.1,731.4 L491.9,728.6 L489.8,728.4 L490.7,726.4 L488.7,723.3 L490.9,720.7 L488.6,719.9 L488.4,718.0 L477.7,714.6 L477.2,711.6 L475.4,711.1 L475.7,707.1 L470.7,706.0 L468.0,702.2 L462.4,700.6 L460.8,695.4 L452.6,692.4 L446.9,697.4 L445.1,696.7 L444.2,694.2 L402.0,657.8 L400.4,652.1 L402.0,650.4 L397.2,644.6 L394.7,638.2 L387.3,633.7 L386.0,630.3 L375.7,629.8 L364.9,625.7 L355.5,628.0 L348.8,618.7 L342.9,619.4 L343.5,615.8 L340.4,615.2 L340.6,611.3 L338.1,610.4 L334.6,603.4 L331.6,603.7 L330.3,608.8 L328.4,610.0 L328.1,612.4 L326.4,612.5 L322.3,609.3 L320.6,609.7 L314.2,603.5 L306.4,602.3 L305.0,594.7 L301.1,592.9 L302.4,590.5 L300.2,588.7 L300.0,585.8 L297.6,586.2 L294.2,584.3 L295.6,578.0 L291.8,575.0 L292.7,570.8 L290.6,570.4 L289.9,568.2 L286.1,569.4 L282.2,566.1 L283.5,563.5 L281.7,560.0 L276.2,558.0 L276.1,555.2 L273.9,554.5 L273.4,551.7 L269.0,550.0 L265.1,542.0 L261.8,544.2 L257.8,544.0 L254.9,547.0 L257.1,552.9 L254.3,558.8 L251.0,557.6 L248.9,559.1 L247.4,557.5 L246.6,562.6 L244.7,562.8 L243.6,565.3 L241.4,565.2 L241.0,567.5 L236.5,567.7 L234.2,571.7 L231.2,571.9 L229.4,575.4 L226.8,576.4 L225.8,574.9 L221.3,577.6 L216.1,575.9 L212.3,577.0 L211.7,557.6 L214.8,545.5 L210.7,535.3 L205.9,533.5 L205.4,530.0 L202.5,531.1 L200.3,527.8 L197.8,528.5 L197.4,524.9 L195.1,523.9 L196.7,521.2 L193.2,517.9 L193.3,514.8 L191.2,512.5 L192.7,511.1 L190.2,509.6 L186.7,510.0 L185.1,508.1 L185.9,505.9 L184.4,505.3 L181.8,507.0 L182.0,503.6 L179.2,503.4 L177.8,497.8 L173.5,499.0 L170.4,493.9 L168.9,495.2 L166.7,494.5 L164.0,490.4 L165.0,487.9 L162.8,485.1 L158.3,483.8 L159.3,482.8 L157.5,478.6 L153.9,480.5 L151.7,476.2 L147.0,474.8 L147.6,468.6 L145.6,469.2 L143.3,464.9 L138.3,466.7 L139.6,464.1 L138.7,461.1 L137.0,461.9 L135.8,460.3 L137.3,459.3 L134.4,455.5 L132.1,454.9 L134.8,453.1 L130.4,451.8 L128.7,453.1 L127.4,449.1 L118.8,447.3 L118.4,442.1 L115.8,441.1 L115.0,438.8 L105.6,436.6 L103.3,440.0 L101.6,437.8 L96.9,438.5 L92.4,436.3 L88.8,436.6 L86.1,439.0 L83.3,438.4 L83.1,436.4 L80.7,441.1 L77.5,440.3 L78.7,443.3 L75.9,444.1 L71.1,452.3 L71.9,458.4 L67.8,461.5 L66.9,464.4 L64.5,465.2 L61.3,465.2 L59.8,461.9 L57.4,465.7 L53.7,460.5 L48.8,464.3 L46.5,462.7 L43.4,467.2 L40.5,466.7 L40.9,463.7 L34.8,461.6 L31.9,462.3 L30.8,464.8 L27.6,464.5 L22.4,460.5 L23.6,454.2 L17.2,450.9 L13.2,451.3 L14.3,448.8 L21.4,448.7 L32.7,441.6 L39.1,431.6 L49.4,424.6 L51.7,418.8 L51.6,407.2 L57.6,398.3 L63.8,392.9 L70.8,393.1 L76.7,390.9 L87.0,381.4 L90.9,375.3 L95.4,373.1 L95.2,368.4 L97.1,365.2 L106.6,355.5 L114.6,350.1 L118.7,343.8 L120.0,336.1 L127.4,333.9 L134.6,319.4 L135.0,310.6 L141.6,299.7 L147.4,298.8 L151.6,295.4 L163.0,292.8 L165.2,285.3 L162.9,282.8 L163.5,279.5 L167.0,275.6 L172.8,273.3 L176.4,268.6 L176.9,256.4 L179.0,252.8 L191.1,250.0 L198.2,238.5 L213.2,226.1 L213.2,222.7 L210.4,217.6 L212.1,213.1 L227.4,209.2 L225.5,198.9 L229.1,192.1 L244.5,193.9 L247.7,200.3 L250.1,201.6 L254.0,188.5 L246.2,181.8 L241.2,179.9 L241.1,176.0 L250.2,172.7 L258.4,166.3 L261.2,157.8 L264.1,158.6 L263.9,162.1 L267.4,164.3 L269.5,158.9 L273.0,157.3 L275.2,152.3 L281.2,155.0 L284.8,149.3 L289.7,146.5 L290.6,143.6 L288.6,139.0 L293.6,137.2 L296.4,131.0 L303.2,131.7 L311.5,121.1 L315.7,123.1 L319.3,126.7 L320.1,121.6 L322.4,119.7 L324.7,118.9 L330.5,121.1 L332.2,120.1 L332.0,117.0 L325.6,112.8 L326.7,109.3 L329.4,108.6 L334.1,112.7 L336.7,109.2 L343.2,109.2 L347.1,102.6 L347.1,90.0 L348.8,88.5 L353.7,88.1 L358.3,74.8 L360.3,75.2 L362.9,82.7 L366.9,79.4 L374.2,81.2 L375.4,80.0 L375.3,71.3 L377.7,72.8 L378.9,76.7 L381.5,76.5 L386.0,64.2 L388.2,64.7 L392.7,71.5 L396.0,67.9 L403.1,66.8 L403.5,65.1 L400.2,60.6 L407.3,57.2 L415.1,66.0 L416.7,64.5 L416.4,56.7 L423.2,63.0 L425.0,61.5 L425.6,56.2 L431.6,53.5 L434.9,37.4 L437.9,36.1 L438.5,41.8 L447.9,42.0 L450.7,37.4 L454.4,35.4 L455.2,28.4 L462.2,27.4 L463.1,21.5 L469.2,24.6 L472.1,18.3 L474.4,18.1 L477.6,23.9 L480.5,24.4 L485.0,20.9 L488.0,26.9 L489.5,27.0 L498.0,22.9 L500.0,24.9 L501.0,31.2 L503.8,26.6 L510.6,24.5 L517.2,28.7 L519.3,28.5 L517.6,19.5 L520.7,19.1 L523.5,22.0 L529.2,19.8 L533.9,12.8 L536.9,16.5 L541.5,16.7 L543.4,18.9 L540.5,27.5 L541.5,30.7 L549.7,24.1 L556.3,27.0 L560.0,19.6 L563.1,25.1 L570.5,22.2 L570.0,14.6 L572.2,12.1 L575.8,11.3 L577.1,12.8 L574.1,20.6 L576.1,22.2 L578.9,18.8 L580.1,19.5 L581.3,23.2 L579.0,26.8 L580.5,30.7 L583.0,30.6 L584.4,23.1 L586.9,24.1 L587.0,28.0 L588.4,28.5 L597.6,23.8 L598.3,29.1 L606.9,29.2 L608.7,30.4 L609.2,36.3 L614.1,33.4 L615.1,38.5 L616.9,40.0 L619.9,33.6 L624.3,37.4 L634.3,33.7 L635.9,36.7 L642.8,37.4 L642.9,33.2 L648.3,30.9 L647.5,36.7 L650.1,39.9 L653.0,41.3 L653.4,35.6 L654.8,36.7 L655.5,43.0 L659.0,40.7 L664.9,44.8 L664.5,36.7 L670.3,36.3 L672.6,38.2 L668.9,39.9 L667.8,42.8 L672.0,43.4 L675.3,46.7 L678.8,40.0 L681.0,38.7 L680.9,44.0 L688.1,43.7 L689.3,49.2 L692.4,47.8 L696.3,48.7 L699.1,46.8 L700.2,48.5 L698.8,51.1 L701.6,53.4 L707.3,53.8 L706.8,55.8 L702.3,55.1 L700.3,56.8 L706.7,58.6 L709.3,61.1 L705.8,65.3 L706.7,67.0 L711.5,64.9 L713.4,65.6 L714.8,73.5 L716.7,72.5 L716.4,68.3 L718.7,67.2 L720.5,68.7 L719.9,74.3 L723.1,72.4 L726.2,74.9 L727.4,73.7 L725.9,69.4 L731.4,68.8 L734.9,72.5 L739.4,67.7 L743.1,73.5 L744.9,69.5 L747.4,69.9 L746.2,76.0 L747.3,77.2 L752.5,74.1 L751.7,79.2 L753.8,82.5 L756.4,79.1 L763.4,79.1 L765.3,84.5 L770.1,89.4 L770.5,92.5 L776.1,88.1 L778.1,90.1 L778.2,95.0 L784.6,95.3 L786.4,99.3 L785.6,101.7 L789.6,102.3 L789.9,105.9 L794.5,110.1 L796.1,108.8 L800.0,109.8 L803.9,113.5 L806.9,114.0 L807.2,117.3 L813.2,118.0 L813.5,121.3 L816.6,122.6 L816.4,127.4 L821.1,130.8 L821.9,136.1 L825.1,133.2 L831.9,137.0 L832.6,143.0 L836.3,144.3 L838.2,147.2 L837.6,150.9 L835.2,153.7 L838.3,154.7 L839.2,160.8 L844.1,158.2 L845.4,161.2 L849.3,161.6 L849.0,169.4 L851.8,168.0 L853.8,176.3 L860.0,179.0 L860.5,182.1 L864.8,186.9 L864.1,189.1 L868.6,192.8 L868.9,196.7 L873.0,195.4 L878.8,201.7 L880.7,201.6 L880.8,198.5 L889.6,199.4 L892.3,202.3 L896.8,202.5 L898.9,204.4 L901.6,200.8 L903.0,206.8 L905.2,202.7 L912.1,205.9 L914.5,204.8 L913.0,204.0 L915.1,202.0 L918.0,206.8 L920.7,204.2 L923.6,205.3 L926.0,211.7 L928.2,211.2 L925.7,206.4 L927.2,206.3 L929.7,202.0 L931.6,204.3 L930.0,208.4 L932.0,208.2 L933.0,209.9 L934.6,208.2 L940.8,208.9 L942.9,205.3 L946.7,205.8 L946.6,204.4 L948.7,203.4 L949.2,205.6 L951.1,205.0 L952.1,209.5 L954.0,205.2 L957.6,206.8 L958.8,206.1 L957.8,204.0 L962.5,204.0 L960.1,205.6 L961.8,206.7 L961.1,209.3 L964.4,209.8 L964.7,211.5 L966.4,208.9 L968.2,209.7 L968.4,207.5 L971.6,211.5 L971.8,208.1 L973.8,206.4 L973.2,211.2 L974.1,212.3 L976.3,211.2 L978.3,214.6 L975.9,218.6 L978.1,219.4 L979.3,222.9 L980.4,222.4 L980.6,226.8 L982.7,229.7 L975.1,230.3 L974.7,228.4 L971.9,230.4 L971.7,227.8 L967.5,231.9 L968.0,234.4 L965.0,235.6 L965.4,238.6 L967.0,239.4 L964.4,242.3 L962.2,240.3 L960.8,240.9 L960.3,246.6 L958.8,246.9 L959.5,243.1 L958.1,243.8 L956.9,241.3 L953.1,244.3 L954.7,246.8 L950.8,248.8 L951.7,255.3 L950.1,254.6 L949.6,257.6 L950.8,258.2 L950.2,261.9 L951.8,261.4 L949.2,264.9 L953.8,264.5 L949.4,271.7 L952.0,271.9 L950.5,277.3 L954.9,279.7 L952.7,279.7 L952.3,282.9 L951.1,282.6 L949.5,285.9 L952.7,286.0 L950.2,289.7 L944.3,292.9 L949.6,291.9 L950.7,294.8 L949.1,294.6 L949.1,299.1 L946.3,299.6 L946.8,302.0 L943.5,300.8 L944.5,304.0 L941.8,306.9 L943.1,308.4 L941.0,307.7 L937.2,309.8 L937.8,307.7 L935.8,309.6 L933.9,306.4 L935.5,304.8 L933.1,305.9 L934.7,310.1 L933.8,314.1 L931.6,316.3 L931.6,314.4 L933.7,312.9 L928.1,310.1 L926.7,311.4 L928.9,312.2 L926.8,315.1 L928.2,315.9 L924.9,317.8 L926.9,318.0 L927.2,323.5 L929.4,325.6 L930.1,322.6 L934.6,328.4 L938.1,329.0 L937.3,331.0 L940.6,332.4 L937.5,326.8 L932.0,322.4 L931.2,319.4 L945.1,314.8 L949.7,310.8 L951.7,311.1 L961.2,314.4 L964.6,322.0 L975.8,324.7 L978.1,327.6 L976.3,329.1 L980.3,328.8 L954.6,368.5 L943.0,391.9 L930.8,420.7 L904.5,494.9 L851.4,581.1 L837.0,598.9 L802.0,632.3 L792.7,645.7 L765.9,668.2 L735.6,686.4 L715.3,701.0 L691.3,729.1 L690.5,725.1 L695.3,717.2 L696.3,712.1 L694.6,704.4 L698.5,702.6 L699.6,698.3 L690.0,687.3 L689.3,683.7 L693.7,680.9 L700.8,681.3 L712.4,688.4 L719.3,688.2 L724.7,684.1 L724.1,681.0 L727.2,679.5 L725.9,680.7 L724.1,679.9 L724.1,681.0 L717.7,678.5 L738.7,676.1 L742.2,674.5 L750.9,665.3 L763.3,646.0 L765.4,644.6 L765.9,648.9 L770.0,653.8 L766.5,645.3 L768.3,641.8 L768.5,640.1 L766.8,642.5 L767.2,640.3 L770.9,633.5 L772.5,632.4 L773.2,638.0 L779.3,640.3 L794.2,630.3 L801.4,616.9 L803.8,605.3 L801.3,584.5 L802.7,575.0 L806.0,578.5 L810.6,579.5 L817.3,574.2 L825.6,571.3 L828.8,565.9 L827.3,550.8 L834.1,552.2 L845.3,542.9 L853.3,539.9 L859.6,529.6 L862.3,510.2 L861.5,494.9 L859.8,484.2 L856.2,476.2 L859.9,473.0 L866.2,480.0 L867.0,478.8 L869.1,479.5 L867.4,477.7 L868.7,470.5 L872.8,480.7 L866.1,482.4 L865.4,486.7 L870.7,492.8 L874.1,493.4 L875.1,492.2 L876.0,480.0 L878.7,474.4 L877.5,469.4 L879.6,462.8 L879.0,459.8 L875.1,458.0 L872.3,451.6 L864.8,452.4 L863.6,460.1 L865.3,463.9 L863.1,466.0 L851.0,466.0 L849.9,464.4 L848.3,468.3 L849.0,471.2 L849.2,470.2 L850.6,471.3 L848.0,471.9 L842.3,469.4 L832.7,471.1 L830.7,477.1 L831.8,485.7 L821.6,479.2 L816.5,479.5 L818.2,475.9 L814.9,474.3 L818.4,472.6 L819.6,470.4 L818.3,470.1 L820.1,469.5 L820.8,466.0 L819.5,462.9 L817.3,462.0 L815.3,463.2 L815.0,459.5 L812.7,458.2 L810.7,460.1 L807.6,459.2 L806.9,462.2 L803.9,461.2 L804.7,459.0 L800.8,457.3 L801.6,455.2 L798.9,453.9 L799.1,451.6 L792.9,450.4 L795.6,449.1 L795.7,444.6 L791.3,441.2 L790.8,438.7 L792.7,437.6 L795.1,430.3 L792.7,429.1 L791.2,431.8 L791.5,429.0 L789.1,429.4 L790.5,426.4 L789.4,425.6 L788.8,427.2 L787.2,424.3 L786.1,428.0 L787.6,430.8 L786.6,430.0 L784.9,435.8 L785.9,443.3 L783.7,448.2 L785.5,450.0 L783.2,456.2 L785.0,458.0 L787.6,456.8 L787.3,459.0 L789.9,459.4 L786.9,460.8 L787.4,467.1 L791.9,467.3 L793.1,470.5 L797.5,466.2 L797.9,472.3 L800.7,478.2 L811.3,474.7 L811.6,478.1 L810.6,477.3 L808.4,480.2 L805.8,490.7 L805.9,484.4 L801.0,481.8 L795.3,484.0 L791.7,490.1 L786.2,507.3 L787.1,530.3 L784.6,523.6 L784.5,515.7 L782.4,513.7 L778.8,513.6 L776.0,516.7 L773.9,534.8 L778.2,547.7 L768.6,547.6 L762.7,553.5 L762.3,561.6 L764.0,569.2 L767.1,576.1 L769.5,577.9 L747.9,585.2 L745.3,591.0 L744.9,597.4 L746.6,603.0 L748.0,603.3 L737.1,603.0 L730.9,605.9 L726.8,604.1 L718.5,612.4 L717.1,607.2 L716.0,611.3 L711.1,609.4 L709.6,610.9 L710.7,612.4 L706.1,615.5 L707.2,618.6 L703.4,620.1 L702.1,624.0 L699.1,641.9 L700.1,652.3 L697.3,663.8 L694.1,661.5 L696.1,659.6 L695.9,656.6 L697.8,657.1 L694.6,649.9 L695.9,646.7Z"/><path class="rs" d="M787.1,530.3 L788.8,539.0 L786.9,539.5 L788.2,536.9 L785.5,535.5 L783.7,534.5 L786.0,535.0 L787.1,530.3Z"/>
+          <g id="cities"><circle class="city on" cx="798.0" cy="428.7" r="18.5" data-c="Porto Alegre" data-n="9"><title>Porto Alegre: 9</title></circle><circle class="city on" cx="813.3" cy="423.0" r="16.0" data-c="Alvorada" data-n="6"><title>Alvorada: 6</title></circle><circle class="city on" cx="800.5" cy="411.8" r="17.7" data-c="Canoas" data-n="8"><title>Canoas: 8</title></circle><circle class="city on" cx="810.8" cy="416.7" r="16.0" data-c="Cachoeirinha" data-n="6"><title>Cachoeirinha: 6</title></circle><circle class="city on" cx="783.7" cy="439.5" r="11.4" data-c="Guaíba" data-n="2"><title>Guaíba: 2</title></circle><circle class="city on" cx="820.8" cy="435.8" r="16.0" data-c="Viamão" data-n="6"><title>Viamão: 6</title></circle><circle class="city on" cx="800.7" cy="403.2" r="14.0" data-c="Esteio" data-n="4"><title>Esteio: 4</title></circle><circle class="city on" cx="824.8" cy="415.9" r="16.9" data-c="Gravataí" data-n="7"><title>Gravataí: 7</title></circle><circle class="city on" cx="805.5" cy="399.8" r="16.9" data-c="Sapucaia do Sul" data-n="7"><title>Sapucaia do Sul: 7</title></circle><circle class="city on" cx="804.9" cy="389.5" r="15.1" data-c="São Leopoldo" data-n="5"><title>São Leopoldo: 5</title></circle><circle class="city on" cx="807.0" cy="380.0" r="16.9" data-c="Novo Hamburgo" data-n="7"><title>Novo Hamburgo: 7</title></circle><circle class="city on" cx="815.8" cy="378.2" r="11.4" data-c="Campo Bom" data-n="2"><title>Campo Bom: 2</title></circle><circle class="city on" cx="822.4" cy="372.5" r="11.4" data-c="Sapiranga" data-n="2"><title>Sapiranga: 2</title></circle><circle class="city on" cx="850.6" cy="374.8" r="9.5" data-c="Taquara" data-n="1"><title>Taquara: 1</title></circle><circle class="city on" cx="846.1" cy="333.1" r="11.4" data-c="Canela" data-n="2"><title>Canela: 2</title></circle><circle class="city on" cx="781.5" cy="314.3" r="12.8" data-c="Farroupilha" data-n="3"><title>Farroupilha: 3</title></circle><circle class="city on" cx="705.6" cy="347.7" r="12.8" data-c="Lajeado" data-n="3"><title>Lajeado: 3</title></circle><circle class="city on" cx="801.3" cy="305.8" r="17.7" data-c="Caxias do Sul" data-n="8"><title>Caxias do Sul: 8</title></circle><circle class="city on" cx="760.2" cy="306.3" r="16.0" data-c="Bento Gonçalves" data-n="6"><title>Bento Gonçalves: 6</title></circle><circle class="city on" cx="929.0" cy="421.9" r="11.4" data-c="Tramandaí" data-n="2"><title>Tramandaí: 2</title></circle><circle class="city on" cx="677.7" cy="369.6" r="9.5" data-c="Venâncio Aires" data-n="1"><title>Venâncio Aires: 1</title></circle><circle class="city on" cx="941.7" cy="390.8" r="11.4" data-c="Capão da Canoa" data-n="2"><title>Capão da Canoa: 2</title></circle><circle class="city on" cx="648.3" cy="384.9" r="15.1" data-c="Santa Cruz do Sul" data-n="5"><title>Santa Cruz do Sul: 5</title></circle><circle class="city on" cx="830.3" cy="213.2" r="9.5" data-c="Vacaria" data-n="1"><title>Vacaria: 1</title></circle><circle class="city on" cx="618.5" cy="621.6" r="9.5" data-c="Canguçu" data-n="1"><title>Canguçu: 1</title></circle><circle class="city on" cx="660.1" cy="673.7" r="12.8" data-c="Pelotas" data-n="3"><title>Pelotas: 3</title></circle><circle class="city on" cx="651.3" cy="177.8" r="14.0" data-c="Passo Fundo" data-n="4"><title>Passo Fundo: 4</title></circle><circle class="city on" cx="688.2" cy="711.9" r="9.5" data-c="Rio Grande" data-n="1"><title>Rio Grande: 1</title></circle><circle class="city on" cx="604.5" cy="183.2" r="9.5" data-c="Carazinho" data-n="1"><title>Carazinho: 1</title></circle><circle class="city on" cx="479.9" cy="379.9" r="15.1" data-c="Santa Maria" data-n="5"><title>Santa Maria: 5</title></circle><circle class="city on" cx="668.3" cy="90.0" r="16.0" data-c="Erechim" data-n="6"><title>Erechim: 6</title></circle><circle class="city on" cx="418.1" cy="471.4" r="9.5" data-c="São Gabriel" data-n="1"><title>São Gabriel: 1</title></circle><circle class="city on" cx="445.1" cy="612.2" r="12.8" data-c="Bagé" data-n="3"><title>Bagé: 3</title></circle><circle class="city on" cx="467.1" cy="196.2" r="12.8" data-c="Ijuí" data-n="3"><title>Ijuí: 3</title></circle><circle class="city on" cx="424.8" cy="183.8" r="11.4" data-c="Santo Ângelo" data-n="2"><title>Santo Ângelo: 2</title></circle><circle class="city on" cx="238.4" cy="394.5" r="11.4" data-c="Alegrete" data-n="2"><title>Alegrete: 2</title></circle><circle class="city on" cx="213.0" cy="234.4" r="11.4" data-c="São Borja" data-n="2"><title>São Borja: 2</title></circle><circle class="city on" cx="81.1" cy="390.4" r="12.8" data-c="Uruguaiana" data-n="3"><title>Uruguaiana: 3</title></circle></g>
+          <g id="polos"><g class="pol on"><circle class="pring" cx="798.0" cy="428.7" r="44"/><text class="plab" x="742.0" y="490.7" text-anchor="end">Polo 1 · Metro POA</text></g><g class="pol on"><circle class="pring cand" cx="801.3" cy="305.8" r="44"/><text class="plab cand" x="745.3" y="295.8" text-anchor="end">Caxias do Sul</text></g><g class="pol on"><circle class="pring cand" cx="651.3" cy="177.8" r="44"/><text class="plab cand" x="651.3" y="117.80000000000001" text-anchor="middle">Passo Fundo</text></g><g class="pol on"><circle class="pring cand" cx="660.1" cy="673.7" r="44"/><text class="plab cand" x="604.1" y="683.7" text-anchor="end">Pelotas</text></g></g>
+        </svg>
+      </div>
+      <div>
+        <p class="eyebrow">O território</p>
+        <h2 class="h2">Uma rede estadual desde o primeiro dia.</h2>
+        <p class="lead">Cada ponto é uma cidade com escolinhas no levantamento. Quanto maior, mais escolinhas. A rede começa na Região Metropolitana e chega ao interior pelos polos.</p>
+        <div class="tcount">
+          <div><div class="n" id="tCity">38</div><div class="l">cidades com escolinhas</div></div>
+          <div><div class="n" id="tPol">4</div><div class="l">polos possíveis</div></div>
+        </div>
+        <p class="tnow" id="tNow" aria-live="polite">Polos candidatos citados no Celeiro de Ases.<sup><a href="#n3">3</a></sup></p>
       </div>
     </div>
+  </div>
+</div>
 
-    <table class="mini" style="margin-top:44px">
-      <thead><tr><th>Funcionalidade</th><th>Maturidade</th><th>Situação</th></tr></thead>
-      <tbody>
-        <tr><td>Check-in / ingressos</td><td>6 / 10</td><td>Funciona, com falhas recorrentes em dia de jogo</td></tr>
-        <tr><td>Cashback (Zé Delivery)</td><td>3 / 10</td><td>Resgate ocorre fora do app do clube</td></tr>
-        <tr><td>Gamificação</td><td>1 / 10</td><td>Nunca lançada</td></tr>
-        <tr><td>CRM / personalização</td><td>3 / 10</td><td>Sem home dinâmica, sem oferta segmentada</td></tr>
-      </tbody>
-    </table>
+<!-- 3 · SISTEMA -->
+<div class="pin paper" id="sistema" data-ch data-pin="sistema" style="--len:3.2">
+  <div class="stage">
+    <div class="wrap">
+      <p class="eyebrow">O sistema</p>
+      <h2 class="h2 sis-h2">Três camadas. Uma relação.</h2>
+      <div class="lbars" aria-hidden="true"><div class="lbar"><i data-anim></i></div><div class="lbar"><i data-anim></i></div><div class="lbar"><i data-anim></i></div></div>
+      <div class="layers">
+        <div class="layer" data-anim><div class="lnum">Camada 1</div><h3>Rede</h3><p>Projetos que já existem mantêm nome e identidade e passam a ter uma relação recorrente com o clube, com contrapartida real.</p></div>
+        <div class="layer" data-anim><div class="lnum">Camada 2</div><h3>Competição</h3><p>Um calendário próprio em duas janelas por ano, com etapas nos polos regionais e finais no complexo do clube.</p></div>
+        <div class="layer" data-anim><div class="lnum">Camada 3</div><h3>Inteligência</h3><p>Uma ficha por projeto parceiro e um funil delimitado de atletas de interesse, a partir do Sub-11 e só com consentimento da família.</p></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 4 · REDE -->
+<div class="pin" id="rede" data-ch data-pin="rede" style="--len:3.6">
+  <div class="stage">
+    <div class="wrap">
+      <div class="rede-head">
+        <div>
+          <p class="eyebrow">A rede</p>
+          <h2 class="h2">Cada projeto continua sendo seu.</h2>
+        </div>
+        <div class="forms">
+          <span class="chip">Participação pontual</span><span class="chip">Relacionamento recorrente</span><span class="chip">Cooperação</span><span class="chip">Relação comercial</span>
+          <p class="forms-note">Cada forma é uma foto do momento, não um degrau. Parceiro não exige marca, receita nem exclusividade.</p>
+        </div>
+      </div>
+      <div class="track-wrap">
+        <div class="track" id="track" data-anim>
+          <div class="card"><span class="tag">O que o parceiro recebe</span><div class="big">Calendário</div><p>Vaga garantida nas competições do SACI.</p></div>
+          <div class="card"><span class="tag">O que o parceiro recebe</span><div class="big">Método</div><p>Capacitação dos treinadores na metodologia do Celeiro de Ases.</p></div>
+          <div class="card"><span class="tag">O que o parceiro recebe</span><div class="big">Selo</div><p>Parceiro SACI ou Polo Oficial, com visibilidade nos canais do clube.</p></div>
+          <div class="card"><span class="tag">O que o parceiro recebe</span><div class="big">Beira-Rio</div><p>Visita, jogo e final no estádio.</p></div>
+          <div class="card"><span class="tag">O que o parceiro recebe</span><div class="big">Canal direto</div><p>Contato com o clube e prioridade em eventos.</p></div>
+          <div class="card"><span class="tag">O que o parceiro recebe</span><div class="big">Reconhecimento</div><p>Registro formal da contribuição formativa, se um atleta assinar com o Inter.</p></div>
+          <div class="card lesson"><span class="tag">A lição do Athletic Club</span><div class="big">Rede sem contrapartida vira rede nominal.</div><p>166 clubes conveniados, com prazo, metodologia e eventos de coesão.<sup><a href="#n4">4</a></sup></p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 5 · COMPETIÇÃO -->
+<div class="pin" id="competicao" data-ch data-pin="competicao" style="--len:3">
+  <div class="stage">
+    <div class="wrap">
+      <div class="comp-head">
+        <div>
+          <p class="eyebrow">A competição</p>
+          <h2 class="h2">A competição é o motivo para a rede se encontrar.</h2>
+        </div>
+        <div class="legend"><span><i class="sw f"></i>Futsal</span><span><i class="sw c"></i>Campo</span><span><i class="sw x"></i>Final anual</span></div>
+      </div>
+      <div class="tiles" id="tiles">
+        <div class="tile f"><span class="t1">Janela 1 · Metro POA</span><span class="t2">Etapa futsal</span></div>
+        <div class="tile c"><span class="t1">Janela 1 · Metro POA</span><span class="t2">Etapa campo</span></div>
+        <div class="tile f"><span class="t1">Janela 1 · Interior</span><span class="t2">Etapa futsal</span></div>
+        <div class="tile c"><span class="t1">Janela 1 · Interior</span><span class="t2">Etapa campo</span></div>
+        <div class="tile x"><span class="t1">Fim de ano</span><span class="t2">Final futsal</span></div>
+        <div class="tile f"><span class="t1">Janela 2 · Metro POA</span><span class="t2">Etapa futsal</span></div>
+        <div class="tile c"><span class="t1">Janela 2 · Metro POA</span><span class="t2">Etapa campo</span></div>
+        <div class="tile f"><span class="t1">Janela 2 · Interior</span><span class="t2">Etapa futsal</span></div>
+        <div class="tile c"><span class="t1">Janela 2 · Interior</span><span class="t2">Etapa campo</span></div>
+        <div class="tile x"><span class="t1">Beira-Rio</span><span class="t2">Final campo</span></div>
+      </div>
+      <div class="comp-foot">
+        <div>
+          <div class="datas"><span class="n" id="datasN">10</span><span class="l">datas de competição no ano 1, com dois polos<sup><a href="#n5">5</a></sup></span></div>
+          <p class="cats">Futsal: Sub-7, 9, 11 e 13 · Campo: Sub-11 e 13</p>
+        </div>
+        <div class="pending"><b>Em discussão</b><span class="dash">Sub-14</span><span class="dash">Feminino</span><span class="dash">Copas extras</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 6 · METODOLOGIA -->
+<div class="pin paper" id="metodologia" data-ch data-pin="metodologia" style="--len:4">
+  <div class="stage">
+    <div class="wrap">
+      <p class="eyebrow">A metodologia</p>
+      <h2 class="h2 met-h2">O método vem do Celeiro de Ases. O SACI leva ele até os projetos de fora.</h2>
+      <div class="ruler" id="ruler" aria-label="Idades atendidas e camadas do SACI">
+        <div class="cursor" id="ageCursor" data-anim aria-hidden="true"></div>
+        <div class="age blank"></div>
+        <div class="age" data-age="6"><span class="s">Sub-</span>6</div><div class="age" data-age="7"><span class="s">Sub-</span>7</div><div class="age" data-age="8"><span class="s">Sub-</span>8</div><div class="age" data-age="9"><span class="s">Sub-</span>9</div><div class="age" data-age="10"><span class="s">Sub-</span>10</div><div class="age" data-age="11"><span class="s">Sub-</span>11</div><div class="age" data-age="12"><span class="s">Sub-</span>12</div><div class="age" data-age="13"><span class="s">Sub-</span>13</div>
+        <div class="rl r1" data-step="1">Celeiro de Ases</div>
+        <div class="bar p1 r1 a6 e8" data-step="1">Iniciação lúdica</div>
+        <div class="bar p2 r1 a9 e11" data-step="1">Desenvolvimento técnico</div>
+        <div class="bar p3 r1 a12 e13" data-step="1">Transição</div>
+        <div class="rl r2" data-step="2">Competição · futsal</div>
+        <div class="mk fut r2 a7 e7" data-step="2"></div><div class="mk fut r2 a9 e9" data-step="2"></div><div class="mk fut r2 a11 e11" data-step="2"></div><div class="mk fut r2 a13 e13" data-step="2"></div>
+        <div class="rl r3" data-step="3">Competição · campo</div>
+        <div class="mk ghost r3 a9 e9" data-step="3" title="O Celeiro inicia o campo no Sub-9"></div><div class="mk cam r3 a11 e11" data-step="3"></div><div class="mk cam r3 a13 e13" data-step="3"></div>
+        <div class="rl r4" data-step="4">Funil de interesse</div>
+        <div class="bar funil r4 a11 e13" data-step="4">A partir do Sub-11</div>
+        <div class="rl r5" data-step="5">Capacitação</div>
+        <div class="bar cap r5 a6 e13" data-step="5">Treinadores dos parceiros, todas as idades</div>
+      </div>
+      <div class="agecard" aria-live="polite">
+        <div class="ag" id="agN">Sub-6</div>
+        <div class="af" id="agF">Iniciação lúdica</div>
+        <p class="at" id="agT">2 treinos por semana, só quadra.</p>
+        <p class="ac" id="agC">No SACI: joga a categoria Sub-7 de futsal.</p>
+      </div>
+      <div class="static-caps">
+        <p><b>Três fases.</b>Sub-6 a 8: dois treinos por semana, só quadra. Sub-9 a 11: três treinos, dois de quadra e um de campo. Sub-12 e 13: quatro treinos, dois e dois.<sup><a href="#n3">3</a></sup></p>
+        <p><b>Campo no Sub-11 e no Sub-13.</b>O Celeiro começa o campo no Sub-9, marcado em tracejado. É um ponto para decidir.</p>
+        <p><b>Funil a partir do Sub-11.</b>Antes disso, a identificação precoce tem pouco poder de previsão.</p>
+        <p><b>Capacitação em todas as idades.</b>É a contrapartida que leva o método do clube até quem treina as crianças nos parceiros.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 7 · FUNIL -->
+<div class="pin" id="funil" data-ch data-pin="funil" style="--len:3.6">
+  <div class="stage">
+    <div class="wrap">
+      <p class="eyebrow">O funil e a proteção</p>
+      <h2 class="h2 fun-h2">Quatro papéis. Ninguém faz o papel do outro.</h2>
+      <div class="roleline" aria-hidden="true"><span>Parceiro</span><span>SACI</span><span>Formação</span><span>Família</span></div>
+      <div class="fun-stage">
+      <div class="verbs">
+        <div class="vb" data-anim><div class="who">Parceiro</div><div class="verb">sinaliza</div><p>Indica atletas a partir do Sub-11, com limite por categoria.</p></div>
+        <div class="vb" data-anim><div class="who">SACI</div><div class="verb">registra</div><p>Acompanha só depois do consentimento dos responsáveis.</p></div>
+        <div class="vb" data-anim><div class="who">Formação</div><div class="verb">avalia</div><p>A avaliação técnica é do departamento de formação do clube.</p></div>
+        <div class="vb" data-anim><div class="who">Família</div><div class="verb">decide</div><p>A escolha de ir para o Inter é sempre do atleta e da família.</p></div>
+      </div>
+      <div class="coda-box" id="codaBox" data-anim>
+        <div class="guards">
+          <span class="guard">Consentimento antes de qualquer registro (LGPD, art. 14)</span>
+          <span class="guard">Dados só em plataforma com login</span>
+          <span class="guard">Arquivar é excluir os dados</span>
+          <span class="guard">Contato com a família só no convite formal</span>
+        </div>
+        <p class="coda" id="coda">O atleta nunca é moeda da parceria.</p>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 8 · FASES -->
+<div class="pin" id="fases" data-ch data-pin="fases" style="--len:3.8">
+  <div class="stage">
+    <div class="wrap">
+      <div class="rede-head">
+        <div>
+          <p class="eyebrow">Implantação</p>
+          <h2 class="h2" style="max-width:none">Cresce por gatilho, nunca por calendário.</h2>
+        </div>
+        <div class="tabs" role="tablist" aria-label="Fases de implantação">
+          <button type="button" class="tab" role="tab" data-phase="1" aria-selected="true">Fase 1</button>
+          <button type="button" class="tab" role="tab" data-phase="2" aria-selected="false">Fase 2</button>
+          <button type="button" class="tab" role="tab" data-phase="3" aria-selected="false">Fase 3</button>
+        </div>
+      </div>
+      <div class="fz" aria-live="polite">
+        <div>
+          <p class="fz-title" id="fTitle">Rede e competição</p>
+          <p class="fz-desc" id="fDesc">Piloto a partir dos vínculos de futsal que já existem, com alcance estadual. O funil entra no segundo semestre.</p>
+          <div class="meta">
+            <div class="row"><span>Parceiros rumo à meta de 100 clubes do Celeiro</span><span id="fMetaPct">20%</span></div>
+            <div class="bartrack"><i id="fMeta" data-anim></i></div>
+          </div>
+          <div class="slots"><span class="l">Polos</span><span class="slot"><i></i></span><span class="slot"><i></i></span><span class="slot"><i></i></span><span class="slot"><i></i></span></div>
+        </div>
+        <div>
+          <div class="fbig">
+            <div><div class="n" id="fP">20</div><div class="l">parceiros</div></div>
+            <div><div class="n" id="fD">10</div><div class="l">datas no ano</div></div>
+            <div><div class="n" id="fE">2</div><div class="l">pessoas na equipe</div></div>
+          </div>
+          <div class="ceil"><b id="fF">20</b>atletas de interesse ativos, no máximo. É um teto, não uma meta.</div>
+          <p class="fine" style="margin-top:12px">Cenário piso do Modelo de Dimensionamento. Gatilho para avançar: retenção de 80%, participação de 75% e consentimento em 100% dos registros.<sup><a href="#n5">5</a></sup></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="band" id="escala" style="padding-top:56px">
+  <div class="wrap">
+    <div class="sim">
+      <h3>Teste a escala</h3>
+      <p class="sim-intro">Mexa nas alavancas e veja o efeito na equipe, no calendário e no funil. As contas são as mesmas do Modelo de Dimensionamento.</p>
+      <div class="sim-grid">
+        <div class="ctls">
+          <div class="ctl"><label for="sP">Parceiros na rede <output id="oP" for="sP">40</output></label><input type="range" id="sP" min="10" max="120" step="5" value="40"></div>
+          <div class="ctl"><label for="sPo">Polos regionais <output id="oPo" for="sPo">3</output></label><input type="range" id="sPo" min="1" max="6" step="1" value="3"></div>
+          <div class="ctl"><label for="sQ">Parceiros fora da Região Metropolitana <output id="oQ" for="sQ">50%</output></label><input type="range" id="sQ" min="0" max="100" step="10" value="50"><small>Visita no interior leva o dobro do tempo.</small></div>
+          <div class="ctl"><label for="sL">Atletas de interesse por parceiro, por categoria <output id="oL" for="sL">1</output></label><input type="range" id="sL" min="1" max="3" step="1" value="1"></div>
+        </div>
+        <div class="outs" aria-live="polite">
+          <div class="meter">
+            <div class="meter-top"><span class="l">Uso da capacidade da equipe</span><span class="pill" id="rState">Folga</span></div>
+            <div class="meter-n" id="rUso">62%</div>
+            <div class="mtrack"><i id="rBar" style="width:41%"></i><b></b></div>
+            <div class="scale"><span>0%</span><span>100%</span><span>150%</span></div>
+          </div>
+          <div class="out"><div class="n" id="rEq">3</div><div class="l">pessoas na equipe central</div></div>
+          <div class="out"><div class="n" id="rFun">80</div><div class="l">atletas de interesse, no máximo</div></div>
+          <div class="out"><div class="n" id="rDat">15</div><div class="l">datas de competição no ano</div></div>
+          <div class="out"><div class="n" id="rAtl">1.740</div><div class="l">atletas por janela</div></div>
+        </div>
+      </div>
+      <p class="fine">Premissas do cenário piso: um coordenador mais um analista a cada 35 parceiros, com metade do tempo em relacionamento; três contatos remotos por trimestre e uma visita por semestre por parceiro; funil ativo em toda a rede, no Sub-11 e no Sub-13; datas incluem o Dia do Futebol de Base Colorado. Acima de 100%, a equipe precisa ser revista.<sup><a href="#n5">5</a></sup></p>
+    </div>
   </div>
 </section>
 
-<section class="block" id="mercado">
-  <div class="wrap">
-    <p class="kicker">02 — Contextualização</p>
-    <h2 class="blocktitle">Escala nunca foi o obstáculo.</h2>
-    <p class="lede">Clubes na mesma faixa de sócios — e um clube menor — já entregaram exatamente o que o Mundo Colorado prometeu. A diferença é execução, não orçamento.</p>
+<!-- 9 · RECURSOS -->
+<div class="pin paper" id="recursos" data-ch data-pin="recursos" style="--len:3.8">
+  <div class="stage">
+    <div class="wrap" style="position:relative">
+      <div class="frames" id="recFrames">
+        <div class="frame" data-anim>
+          <p class="eyebrow">De onde vem o dinheiro</p>
+          <h2 class="h2">Três fontes, cada uma pagando o que faz melhor.</h2>
+          <div class="src-list">
+            <div class="src" data-step="1"><h3>Escolinhas</h3><div><p class="pays">Repasse interno de parte do que o Inter recebe da Escola do Inter. Paga a equipe central e a operação.</p><p class="cond">Depende do contrato com a Time Forte.</p></div></div>
+            <div class="src" data-step="2"><h3>Lei de Incentivo</h3><div><p class="pays">Patrocínio de grandes empresas por meio da FECI. Paga competições, eventos e capacitação.</p><p class="cond">Projetos de formação precisam de ao menos metade dos alunos da rede pública.<sup><a href="#n6">6</a></sup></p></div></div>
+            <div class="src" data-step="3"><h3>Inter, em espécie</h3><div><p class="pays">Estrutura, finais no Beira-Rio e comunicação, em vez de aporte em dinheiro.</p><p class="cond">A confirmar com o clube.</p></div></div>
+          </div>
+        </div>
+        <div class="frame" data-anim>
+          <div class="costs">
+            <h3>Para cada R$ 100 que uma empresa patrocina, quanto sai do caixa dela</h3>
+            <div class="crow"><div class="clab"><b>Lei federal · IRPJ</b><span class="cval" data-final="≈ R$ 0">≈ R$ 0</span></div><div class="ctrack"><span class="cost" data-anim style="--v:0"></span></div></div>
+            <div class="crow"><div class="clab"><b>Pró-Esporte RS · ICMS</b><span class="cval" data-final="R$ 10">R$ 10</span></div><div class="ctrack"><span class="cost" data-anim style="--v:10"></span></div></div>
+            <div class="crow"><div class="clab"><b>PROESPORTE Porto Alegre · ISS ou IPTU</b><span class="cval" data-final="R$ 30">R$ 30</span></div><div class="ctrack"><span class="cost" data-anim style="--v:30"></span></div></div>
+            <div class="ckey"><span><i class="ck a"></i>sai do caixa</span><span><i class="ck b"></i>coberto pelo imposto</span></div>
+            <p class="why-co">A empresa redireciona imposto que pagaria de qualquer forma e ganha marca, presença no interior e pauta social. A lei federal vale para empresas no lucro real, até 2% do IRPJ devido em 2027 e 3% a partir de 2028.<sup><a href="#n6">6</a></sup></p>
+          </div>
+        </div>
+      </div>
+      <div class="dots" aria-hidden="true"><i></i><i></i></div>
+    </div>
+  </div>
+</div>
 
-    <table class="mini">
-      <thead><tr><th>Referência</th><th>Base de sócios/usuários</th><th>O que já entrega</th></tr></thead>
-      <tbody>
-        <tr><td>GFPA (app "Meu Grêmio")</td><td>104.823 sócios adimplentes</td><td>Gamificação lançada e mantida desde 2022</td></tr>
-        <tr><td>Athletico-PR (Super App Furacão)</td><td>Base regional própria [dado não consolidado]</td><td>App nativo custom, recusando modelo white-label</td></tr>
-        <tr><td>Corinthians (Universo SCCP)</td><td>Programa Fiel Torcedor, uma das maiores bases do país</td><td>Gamificação via plataforma licenciada de terceiro</td></tr>
-        <tr><td>Starbucks Rewards</td><td>35,5 milhões de membros ativos (EUA)</td><td>Progressão por tiers sobre benefícios já existentes</td></tr>
-      </tbody>
-    </table>
+<!-- 10 · DECISÕES -->
+<section class="band" id="decisoes" data-ch>
+  <div class="wrap">
+    <p class="eyebrow">Para decidir juntos</p>
+    <h2 class="h2">O que precisamos decidir com você.</h2>
+    <p class="lead">Toque numa opção para marcar. As marcações ficam só nesta tela e podem ser copiadas no fim para virar ata.</p>
+    <div id="decs"></div>
+    <div class="dec-sum">
+      <p><strong id="decCount">0</strong>de <span id="decTotal">11</span> decisões marcadas</p>
+      <div class="sum-actions">
+        <button type="button" class="btn" id="copyBtn">Copiar as respostas</button>
+        <button type="button" class="btn btn-ghost" id="clearBtn">Limpar</button>
+        <span id="copyMsg" role="status"></span>
+      </div>
+      <textarea id="copyFallback" readonly hidden aria-label="Respostas para copiar"></textarea>
+    </div>
   </div>
 </section>
 
-<section class="block" id="decisao">
+<footer class="notes" id="notas">
   <div class="wrap">
-    <p class="kicker">03 — Recomendação</p>
-    <h2 class="blocktitle">Três fases, em sequência.</h2>
-    <p class="lede">Estabilizar antes de engajar. Engajar antes de monetizar. Nessa ordem — investir em gamificação sobre um app que trava em dia de jogo desperdiça o investimento.</p>
-
-    <div class="roadmap">
-      <div class="rstep">
-        <div class="phase">Fase 1</div>
-        <div class="desc">Corrigir login/sessão e check-in. Ativar Apple/Google Wallet. Corrigir o link de estacionamento (Estapar).</div>
-        <div class="kpi">0–6 meses · falhas de check-in &lt;1%</div>
+    <div class="notes-grid">
+      <div>
+        <h2>Fontes</h2>
+        <ol>
+          <li id="n1">[Verificado — levantamento de escolinhas do Projeto SACI, grupos 1 e 2, via Google Places e busca manual]. Contagem do mapeamento; não é censo do estado. No mapa, o tamanho de cada ponto segue os 142 registros com endereço nos arquivos do levantamento.</li>
+          <li id="n2">[Verificado — Dossiê de Pesquisa SACI BC-V1 e documento consolidado de escolinhas]. Os 315 núcleos do Genoma Colorado são o pico do programa, em 2017. Escala das redes de clubes é autodeclarada.</li>
+          <li id="n3">[Verificado — Celeiro de Ases, projeto de futebol de base do Inter, 2026]. Inclui o número de equipes da LGF 2026, a metodologia em três fases, os polos regionais citados e o Pacto de Formação. Metas do material (350 franquias, 100 clubes até 2028) são projeção.</li>
+          <li id="n4">[Verificado — athletic-club.eus, via Dossiê de Pesquisa]. 166 clubes conveniados em 2021, número oficial; a imprensa cita cerca de 175 a 180 em 2025.</li>
+          <li id="n5">[Inferência — Modelo de Dimensionamento SACI BC-V1, cenário piso]. Parceiros, polos, datas, atletas e equipe são premissas a recalibrar ao fim da Fase 1, não realizado.</li>
+          <li id="n6">[Verificado — LC 222/2025, Decreto 12.861/2026, Portaria 10/2026; Lei RS 13.924/2012 e SEL/RS; Decreto POA 23.525/2025]. Custo próximo de zero na lei federal depende do tratamento contábil de cada empresa [Inferência]. O repasse ao fundo estadual varia de 5% a 10%; usamos 10%.</li>
+          <li id="n7">Mapa: contorno do RS a partir de base pública do IBGE (projeto click_that_hood) e sedes municipais da base kelvins/municipios-brasileiros. Projeção simples, para leitura de distribuição, não para medir distâncias.</li>
+        </ol>
       </div>
-      <div class="rstep">
-        <div class="phase">Fase 2</div>
-        <div class="desc">Camada de engajamento white-label via API. CRM/segmentação. Gamificação contínua. Cashback nativo.</div>
-        <div class="kpi">6–18 meses · DAU/MAU ≥ 20%</div>
-      </div>
-      <div class="rstep">
-        <div class="phase">Fase 3</div>
-        <div class="desc">Cashless + pedido antecipado no estádio. Marketplace P2P de ingressos. Programa de pontos maduro.</div>
-        <div class="kpi">18–36 meses · +20% ticket médio de A&amp;B</div>
+      <div>
+        <h2>Limitações</h2>
+        <ul>
+          <li>Valores em reais por fonte de receita ainda não estão estimados. Dependem do contrato com a Time Forte e da decisão sobre repasse.</li>
+          <li>Governança e orçamento do SACI seguem em aberto.</li>
+          <li>Os polos além da Região Metropolitana não foram definidos; o mapa mostra candidatos.</li>
+          <li>Percentuais do Pró-Esporte RS dependem do regulamento do ICMS vigente; a reforma tributária pode alterar incentivos estaduais e municipais.</li>
+          <li>Sem imagens de atletas: fotos de crianças dos projetos parceiros exigem autorização dos responsáveis (ECA e LGPD).</li>
+        </ul>
       </div>
     </div>
-
-    <div style="margin-top:36px;">
-      <a href="documento-completo.html" style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--amber);text-decoration:none;border-bottom:1px solid var(--amber);padding-bottom:2px;">
-        Ver Business Case, tabela de priorização e roadmap operacional completo →
-      </a>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div class="wrap" style="flex-direction:column;align-items:flex-start;gap:6px;">
-    <span>Background completo · Contextualização completa · Business Case · Catálogo de 20+ oportunidades · Apêndice com fontes — tudo em <a href="documento-completo.html" style="color:var(--amber);text-decoration:underline;">Material completo →</a></span>
-    <span class="status">● home — visão condensada para leitura rápida</span>
-    <span>Outro documento neste repositório: <a href="recrutamento-expansao/index.html" style="color:var(--amber);text-decoration:underline;">Internacional — Recruitment &amp; Expansion →</a></span>
-    <span style="color:var(--paper-dim);font-size:11px;line-height:1.6;max-width:80ch;">Material de consulta independente, produzido a partir de pesquisa pública e não auditada — não deve ser tratado como fonte factual definitiva. Dados sem confirmação direta estão sinalizados ao longo do documento completo. Sujeito a revisão; críticas, correções e sugestões são bem-vindas.</span>
+    <p class="colophon">Projeto pessoal em desenvolvimento, para discussão. Não é documento oficial do Sport Club Internacional. Para apresentar, use <span class="kbd">→</span> e <span class="kbd">←</span> para pular entre capítulos.</p>
   </div>
 </footer>
+
+</main>
+
+<script>
+(function(){
+  'use strict';
+  var root=document.documentElement;
+  var rm=window.matchMedia?window.matchMedia('(prefers-reduced-motion: reduce)'):{matches:false};
+  var VH=window.innerHeight, VW=window.innerWidth, NAV=56, cine=false;
+  function $(s,c){return (c||document).querySelector(s);}
+  function $$(s,c){return Array.prototype.slice.call((c||document).querySelectorAll(s));}
+  function clamp(x,a,b){if(a==null)a=0;if(b==null)b=1;return x<a?a:(x>b?b:x);}
+  function ease(t){return 1-Math.pow(1-t,3);}
+  function smooth(t){return t*t*(3-2*t);}
+  function lerp(a,b,t){return a+(b-a)*t;}
+  function fmt(n){return Math.round(n).toLocaleString('pt-BR');}
+
+  var nav=$('#nav');
+  var pins={}; $$('.pin').forEach(function(p){pins[p.getAttribute('data-pin')]=p;});
+  var chapters=$$('[data-ch]');
+  var navLinks=$$('#navlinks a');
+
+  /* palavras para o efeito de preenchimento */
+  function splitWords(el){
+    var out=[];
+    (function walk(node){
+      Array.prototype.slice.call(node.childNodes).forEach(function(ch){
+        if(ch.nodeType===3){
+          var parts=ch.textContent.split(/(\s+)/), frag=document.createDocumentFragment();
+          parts.forEach(function(t){
+            if(!t)return;
+            if(/^\s+$/.test(t)){frag.appendChild(document.createTextNode(t));return;}
+            var s=document.createElement('span');s.className='w';s.textContent=t;frag.appendChild(s);out.push(s);
+          });
+          node.replaceChild(frag,ch);
+        } else if(ch.nodeType===1 && ch.tagName!=='SUP') walk(ch);
+      });
+    })(el);
+    return out;
+  }
+  var h1w=splitWords($('#heroH1')); h1w.forEach(function(w,k){w.style.animationDelay=(0.08*k)+'s';});
+  var heroBw=splitWords($('#heroB')), lacW=splitWords($('#lacStatement')), codaW=splitWords($('#coda'));
+  function fillWords(ws,f){var n=ws.length;ws.forEach(function(w,k){w.style.opacity=(0.14+0.86*clamp(f*n-k)).toFixed(3);});}
+  function clearWords(ws){ws.forEach(function(w){w.style.opacity='';});}
+
+  /* troca de quadros genérica */
+  function xfade(els,p,dist){
+    var n=els.length, seg=p*n, loc=[];
+    els.forEach(function(el,k){
+      var t=seg-k, fin=k===0?1:clamp((t+0.12)/0.24), fout=k===n-1?1:clamp((1.12-t)/0.24);
+      var op=Math.min(fin,fout), dy=t<0.5?(dist||50)*(1-fin):-(dist||50)*(1-fout);
+      el.style.opacity=op.toFixed(3);el.style.transform='translateY('+dy.toFixed(1)+'px)';el.style.pointerEvents=op>0.5?'auto':'none';
+      loc.push(clamp(t));
+    });
+    return loc;
+  }
+  function dotsOn(pin,idx){$$('.dots i',pin).forEach(function(d,k){d.classList.toggle('on',k===idx);});}
+
+  /* ---------- mecânica ---------- */
+  function setVars(){VH=window.innerHeight;VW=window.innerWidth;root.style.setProperty('--vh',VH+'px');NAV=nav.offsetHeight||56;root.style.setProperty('--navh',NAV+'px');}
+  function pinned(k){return !!(pins[k]&&pins[k].classList.contains('pinned'));}
+  function clearAnim(scope){$$('[data-anim]',scope).forEach(function(el){el.style.opacity='';el.style.transform='';el.style.width='';el.style.pointerEvents='';el.style.left='';});}
+  function stepsOn(scope,n){$$('[data-step]',scope).forEach(function(el){var s=+el.getAttribute('data-step');el.classList.toggle('on',s<=n);});}
+  function resetPin(k){
+    var p=pins[k]; clearAnim(p); stepsOn(p,99);
+    if(k==='hero')clearWords(heroBw);
+    if(k==='lacuna'){clearWords(lacW);$$('.num[data-to]',p).forEach(function(n){n.textContent=n.getAttribute('data-to');});}
+    if(k==='funil')clearWords(codaW);
+    if(k==='competicao'){$$('.tile',p).forEach(function(t){t.classList.add('on');});$('#datasN').textContent='10';}
+    if(k==='terr'){cities.forEach(function(c){c.classList.add('on');c.classList.remove('now');});polos.forEach(function(g){g.classList.add('on');});$('#tCity').textContent=cities.length;$('#tPol').textContent='4';}
+    if(k==='recursos')$$('.cval',p).forEach(function(v){v.textContent=v.getAttribute('data-final');});
+    if(k==='fases')phaseAt(lastPhaseT);
+  }
+  function layout(){
+    cine=!rm.matches && VH>=440 && VH<=1600;
+    root.classList.toggle('cine',cine);
+    Object.keys(pins).forEach(function(k){
+      var pin=pins[k];
+      if(!cine){pin.classList.remove('pinned');resetPin(k);return;}
+      pin.classList.add('pinned');
+      var st=pin.querySelector('.stage'), inner=st.firstElementChild;
+      if(k!=='hero' && k!=='lacuna' && k!=='recursos' && inner.scrollHeight+30>st.clientHeight){pin.classList.remove('pinned');resetPin(k);}
+    });
+    $$('.dec').forEach(function(d){if(cine&&d.getBoundingClientRect().top>VH)d.classList.add('wait');else d.classList.remove('wait');});
+    update();
+  }
+  function prog(k){var r=pins[k].getBoundingClientRect();var total=r.height-(VH-NAV);if(total<=0)return 0;return clamp((NAV-r.top)/total);}
+
+  /* 0 · abertura */
+  var heroA=$('#heroA'), heroB=$('#heroB'), disc=$('#disc');
+  function hero(p){
+    var a=clamp(p/0.38), d=clamp((p-0.18)/0.37), b=clamp((p-0.5)/0.12);
+    heroA.style.opacity=(1-a).toFixed(3);
+    heroA.style.transform='scale('+(1+0.55*ease(a)).toFixed(3)+')';
+    disc.style.transform='scale('+(ease(d)*2.6).toFixed(3)+')';
+    heroB.style.opacity=b.toFixed(3);
+    heroB.style.transform='translateY(calc(-50% + '+(30*(1-b)).toFixed(1)+'px))';
+    fillWords(heroBw,clamp((p-0.55)/0.38));
+  }
+  /* 1 · lacuna */
+  var lacFrames=$$('#lacFrames .frame');
+  function lacuna(p){
+    var loc=xfade(lacFrames,p,60);
+    fillWords(lacW,clamp(loc[0]/0.75));
+    for(var k=1;k<lacFrames.length;k++){
+      var n=$('.num',lacFrames[k]);n.textContent=String(Math.round(+n.getAttribute('data-to')*ease(clamp(loc[k]/0.55))));
+    }
+    dotsOn(pins.lacuna,Math.min(lacFrames.length-1,Math.floor(p*lacFrames.length)));
+  }
+  /* faixa de cidades */
+  var mq1=$('#mq1'),mq2=$('#mq2'),mq=$('#marquee');
+  function marquee(){
+    var r=mq.getBoundingClientRect(); if(r.bottom<0||r.top>VH)return;
+    var t=clamp((VH-r.top)/(VH+r.height));
+    var w1=mq1.scrollWidth-VW, w2=mq2.scrollWidth-VW;
+    mq1.style.transform='translateX('+(-t*Math.max(0,w1)*0.6).toFixed(1)+'px)';
+    mq2.style.transform='translateX('+(-(1-t)*Math.max(0,w2)*0.6).toFixed(1)+'px)';
+  }
+  /* 2 · território */
+  var cities=$$('#cities .city'), polos=$$('#polos .pol'), tNow=$('#tNow');
+  var lastCity=-1;
+  function terr(p){
+    var shown=Math.round(clamp(p/0.72)*cities.length);
+    cities.forEach(function(c,k){c.classList.toggle('on',k<shown);c.classList.toggle('now',k===shown-1&&p<0.74);});
+    $('#tCity').textContent=shown;
+    var np=p<0.76?0:Math.min(4,1+Math.floor((p-0.76)/0.05));
+    polos.forEach(function(g,k){g.classList.toggle('on',k<np);});
+    $('#tPol').textContent=np;
+    if(shown!==lastCity||np){
+      lastCity=shown;
+      if(np>0)tNow.innerHTML='Polo 1 na Região Metropolitana. Candidatos do interior citados no Celeiro de Ases.<sup><a href="#n3">3</a></sup>';
+      else if(shown>0){var c=cities[shown-1];tNow.innerHTML='<b>'+c.getAttribute('data-c')+'</b> · '+c.getAttribute('data-n')+(c.getAttribute('data-n')==='1'?' escolinha':' escolinhas')+' no levantamento';}
+      else tNow.textContent='Partindo de Porto Alegre.';
+    }
+  }
+  /* 3 · sistema */
+  var layers=$$('.layer'), lbars=$$('.lbar i');
+  function sistema(p){
+    var loc=xfade(layers,p,60);
+    loc.forEach(function(l,k){lbars[k].style.transform='scaleX('+l.toFixed(3)+')';});
+  }
+  /* 4 · rede */
+  var track=$('#track');
+  function rede(p){
+    var vis=track.parentNode.clientWidth, max=Math.max(0,track.scrollWidth-vis);
+    var g=smooth(clamp((p-0.08)/0.86));
+    track.style.transform='translateX('+(-g*max).toFixed(1)+'px)';
+  }
+  /* 5 · competição */
+  var tiles=$$('#tiles .tile');
+  function compet(p){
+    var n=Math.round(clamp((p-0.06)/0.78)*tiles.length);
+    tiles.forEach(function(t,k){t.classList.toggle('on',k<n);});
+    $('#datasN').textContent=String(n);
+  }
+  /* 6 · metodologia */
+  var AGES={6:['Iniciação lúdica','2 treinos por semana, só quadra.','No SACI: joga a categoria Sub-7 de futsal.'],
+    7:['Iniciação lúdica','2 treinos por semana, só quadra.','No SACI: categoria Sub-7 de futsal.'],
+    8:['Iniciação lúdica','2 treinos por semana, só quadra.','No SACI: joga a categoria Sub-9 de futsal.'],
+    9:['Desenvolvimento técnico','3 treinos por semana: 2 de quadra e 1 de campo.','No SACI: Sub-9 de futsal. O Celeiro já treina campo; o calendário ainda não.'],
+    10:['Desenvolvimento técnico','3 treinos por semana: 2 de quadra e 1 de campo.','No SACI: joga as categorias Sub-11 de futsal e de campo.'],
+    11:['Desenvolvimento técnico','3 treinos por semana: 2 de quadra e 1 de campo.','No SACI: Sub-11 de futsal e de campo. Entra no funil de interesse.'],
+    12:['Transição quadra-campo','4 treinos por semana: 2 de quadra e 2 de campo.','No SACI: joga o Sub-13 de futsal e de campo. Segue no funil.'],
+    13:['Transição quadra-campo','4 treinos por semana: 2 de quadra e 2 de campo.','No SACI: Sub-13 de futsal e de campo. Último ano antes da base.']};
+  var cursor=$('#ageCursor'), ageCells=$$('.age[data-age]'), lastAge=0;
+  function metod(p){
+    stepsOn(pins.metodologia,Math.min(5,Math.floor(clamp(p/0.34)*6)));
+    var a=clamp((p-0.36)/0.6), age=6+Math.min(7,Math.floor(a*8));
+    var cell=ageCells[age-6], rr=$('#ruler').getBoundingClientRect(), cr=cell.getBoundingClientRect();
+    cursor.style.left=(cr.left-rr.left-2).toFixed(1)+'px';
+    cursor.style.width=(cr.width+4).toFixed(1)+'px';
+    cursor.style.opacity=p>0.34?'1':'0';
+    if(age!==lastAge){
+      lastAge=age; ageCells.forEach(function(c){c.classList.toggle('hot',+c.getAttribute('data-age')===age&&p>0.34);});
+      var d=AGES[age];$('#agN').textContent='Sub-'+age;$('#agF').textContent=d[0];$('#agT').textContent=d[1];$('#agC').textContent=d[2];
+    } else ageCells.forEach(function(c){c.classList.toggle('hot',+c.getAttribute('data-age')===age&&p>0.34);});
+  }
+  /* 7 · funil */
+  var vbs=$$('.vb'), roleSpans=$$('.roleline span'), codaBox=$('#codaBox');
+  function funil(p){
+    var q=clamp(p/0.74);
+    var loc=xfade(vbs,q,60);
+    var cur=Math.min(3,Math.floor(q*4));
+    roleSpans.forEach(function(s,k){s.classList.toggle('on',k<=cur);});
+    var c=clamp((p-0.74)/0.08);
+    vbs.forEach(function(v){v.style.opacity=(+v.style.opacity*(1-c)).toFixed(3);});
+    codaBox.style.opacity=c.toFixed(3);
+    fillWords(codaW,clamp((p-0.8)/0.17));
+  }
+  /* 8 · fases */
+  var PH=[
+    {title:'Rede e competição',desc:'Piloto a partir dos vínculos de futsal que já existem, com alcance estadual. O funil entra no segundo semestre.',p:20,d:10,e:2,po:2,f:20},
+    {title:'Inteligência esportiva',desc:'Funil ativo em toda a rede, terceiro polo e o primeiro Dia do Futebol de Base Colorado.',p:40,d:15,e:3,po:3,f:80},
+    {title:'Consolidação',desc:'Quatro polos e rede madura, a caminho da meta de 100 clubes do Celeiro de Ases.',p:60,d:19,e:3,po:4,f:120}
+  ];
+  var tabs=$$('.tab'), slots=$$('.slot i'), lastPhaseT=0, lastLabel=-1;
+  function phaseAt(t){
+    lastPhaseT=t;
+    var i=Math.min(1,Math.floor(t)), fr=t-i; if(t>=2){i=1;fr=1;}
+    var g=smooth(clamp((fr-0.55)/0.45)), A=PH[i], B=PH[i+1];
+    var P=lerp(A.p,B.p,g), D=lerp(A.d,B.d,g), E=lerp(A.e,B.e,g), PO=lerp(A.po,B.po,g), F=lerp(A.f,B.f,g);
+    $('#fP').textContent=Math.round(P);$('#fD').textContent=Math.round(D);$('#fE').textContent=Math.round(E);$('#fF').textContent=Math.round(F);
+    $('#fMeta').style.width=P.toFixed(1)+'%';$('#fMetaPct').textContent=Math.round(P)+'%';
+    slots.forEach(function(s,k){s.style.transform='scale('+clamp(PO-k).toFixed(3)+')';});
+    var lab=g>0.5?i+1:i;
+    if(lab!==lastLabel){lastLabel=lab;$('#fTitle').textContent=PH[lab].title;$('#fDesc').textContent=PH[lab].desc;
+      tabs.forEach(function(tb){tb.setAttribute('aria-selected',+tb.getAttribute('data-phase')===lab+1?'true':'false');});}
+  }
+  phaseAt(0);
+  function fases(p){phaseAt(clamp(p/0.88)*2);}
+  tabs.forEach(function(tb){
+    tb.addEventListener('click',function(){
+      var n=+tb.getAttribute('data-phase');
+      if(pinned('fases')){
+        var pin=pins.fases, top=pin.getBoundingClientRect().top+window.scrollY, total=pin.offsetHeight-(VH-NAV);
+        var target=[0.1,0.5,0.92][n-1];
+        window.scrollTo({top:top-NAV+total*target,behavior:rm.matches?'auto':'smooth'});
+      } else phaseAt(n-1);
+    });
+  });
+  /* 9 · recursos */
+  var recFrames=$$('#recFrames .frame'), costs=$$('.cost');
+  function recursos(p){
+    var loc=xfade(recFrames,p,60);
+    stepsOn(recFrames[0],Math.min(3,Math.floor(clamp(loc[0]/0.7)*4)));
+    var g=ease(clamp((loc[1]-0.1)/0.6));
+    costs.forEach(function(c){
+      var v=+c.style.getPropertyValue('--v'), w=100-(100-v)*g;
+      c.style.width=w.toFixed(1)+'%';
+      var lab=c.parentNode.parentNode.querySelector('.cval');
+      lab.textContent=g>=0.999?lab.getAttribute('data-final'):'R$ '+Math.round(w);
+    });
+    dotsOn(pins.recursos,p<0.5?0:1);
+  }
+
+  /* progresso, navegação e laço */
+  var progBar=$('#prog');
+  function activeIdx(offset){var y=window.scrollY+NAV+offset, idx=0;chapters.forEach(function(c,k){if(c.getBoundingClientRect().top+window.scrollY<=y)idx=k;});return idx;}
+  var lastActive=-1;
+  function activeNav(){
+    var idx=activeIdx(VH*0.3); if(idx===lastActive)return; lastActive=idx;
+    var id=chapters[idx].id;
+    navLinks.forEach(function(a){
+      var on=a.getAttribute('href')==='#'+id; a.classList.toggle('active',on);
+      if(on){var box=a.parentNode,l=a.offsetLeft-box.offsetLeft;if(l<box.scrollLeft||l+a.offsetWidth>box.scrollLeft+box.clientWidth)box.scrollTo({left:Math.max(0,l-20),behavior:'smooth'});}
+    });
+  }
+  var decIO=null;
+  function update(){
+    var max=document.documentElement.scrollHeight-VH;
+    progBar.style.transform='scaleX('+(max>0?clamp(window.scrollY/max):0).toFixed(4)+')';
+    activeNav();
+    if(cine)marquee();
+    if(pinned('hero'))hero(prog('hero'));
+    if(pinned('lacuna'))lacuna(prog('lacuna'));
+    if(pinned('terr'))terr(prog('terr'));
+    if(pinned('sistema'))sistema(prog('sistema'));
+    if(pinned('rede'))rede(prog('rede'));
+    if(pinned('competicao'))compet(prog('competicao'));
+    if(pinned('metodologia'))metod(prog('metodologia'));
+    if(pinned('funil'))funil(prog('funil'));
+    if(pinned('fases'))fases(prog('fases'));
+    if(pinned('recursos'))recursos(prog('recursos'));
+    if(cine){var vis=VH*0.92;$$('.dec.wait').forEach(function(d,k){if(d.getBoundingClientRect().top<vis){d.style.transitionDelay=(k%3*0.08)+'s';d.classList.remove('wait');}});}
+  }
+  var ticking=false;
+  window.addEventListener('scroll',function(){if(ticking)return;ticking=true;requestAnimationFrame(function(){ticking=false;update();});},{passive:true});
+  var rt=null;
+  window.addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(function(){var dw=Math.abs(window.innerWidth-VW),dh=Math.abs(window.innerHeight-VH);if(dw>0||dh>150){setVars();layout();}else update();},120);});
+  if(rm.addEventListener)rm.addEventListener('change',function(){layout();});
+
+  /* teclado para apresentar */
+  function chapterTop(k){return chapters[k].getBoundingClientRect().top+window.scrollY-NAV;}
+  document.addEventListener('keydown',function(e){
+    if(e.altKey||e.ctrlKey||e.metaKey||e.shiftKey)return;
+    if(e.key!=='ArrowRight'&&e.key!=='ArrowLeft')return;
+    var tg=e.target; if(tg&&(tg.tagName==='INPUT'||tg.tagName==='TEXTAREA'||tg.isContentEditable))return;
+    e.preventDefault();
+    var idx=activeIdx(4), target;
+    if(e.key==='ArrowRight')target=Math.min(chapters.length-1,idx+1);
+    else target=(window.scrollY-chapterTop(idx)>40)?idx:Math.max(0,idx-1);
+    window.scrollTo({top:Math.max(0,chapterTop(target)+1),behavior:rm.matches?'auto':'smooth'});
+  });
+
+  /* simulador */
+  var sP=$('#sP'),sPo=$('#sPo'),sQ=$('#sQ'),sL=$('#sL');
+  function sim(){
+    var P=+sP.value, Po=+sPo.value, q=+sQ.value/100, L=+sL.value;
+    var an=Math.max(1,Math.ceil(P/35)), eq=1+an;
+    var hRem=P*3*0.5/3, hVis=P*1*(q*8+(1-q)*4)/6, fun=P*L*2, hFun=fun/3;
+    var uso=(hRem+hVis+hFun)/(an*140*0.5);
+    var datas=2*2*Po+2+1, atl=Math.round(P*0.75)*4*10+Math.round(P*0.5*0.75)*2*18;
+    $('#oP').textContent=P;$('#oPo').textContent=Po;$('#oQ').textContent=Math.round(q*100)+'%';$('#oL').textContent=L;
+    $('#rEq').textContent=eq;$('#rFun').textContent=fmt(fun);$('#rDat').textContent=datas;$('#rAtl').textContent=fmt(atl);
+    $('#rUso').textContent=Math.round(uso*100)+'%';
+    var bar=$('#rBar'), st=$('#rState'), cls=uso>1?'bad':uso>0.85?'warn':'ok';
+    bar.style.width=(Math.min(uso,1.5)/1.5*100).toFixed(1)+'%'; bar.className=cls==='ok'?'':cls; st.className='pill '+cls;
+    st.textContent=cls==='bad'?'Rever equipe':cls==='warn'?'Perto do limite':'Folga';
+  }
+  [sP,sPo,sQ,sL].forEach(function(el){el.addEventListener('input',sim);}); sim();
+
+  /* decisões */
+  var DEC=[
+    {g:'Metodologia e competição',items:[
+      {id:'polo',q:'Qual polo do interior acompanha a Região Metropolitana no ano 1?',o:['Passo Fundo','Pelotas','Caxias do Sul','Outro'],why:'Os três já aparecem como polos regionais no material do Celeiro de Ases.'},
+      {id:'sub79',q:'Qual o formato das competições Sub-7 e Sub-9?',o:['Competitivo adaptado','Festival lúdico'],rec:0,why:'Jogos curtos, rodízio de todos e sem eliminação precoce. O festival só vale se for de fato sem classificação.'},
+      {id:'campo',q:'Em que categoria o campo entra no calendário?',o:['Sub-9, como no Celeiro','Sub-11, como no BC V1'],why:'O Celeiro inicia o campo no Sub-9; o calendário do BC V1 começa no Sub-11.'},
+      {id:'novas',q:'Quando entram o Sub-14 e o feminino?',o:['Já no ano 1','A partir da Fase 2','Ainda não'],why:'As duas categorias mudam o volume de equipes, atletas e datas.'},
+      {id:'prod',q:'Quem produz os eventos?',o:['Equipe do SACI','Produtora contratada','Polos-sede, com apoio','Apoio a federações e ligas'],why:'É o maior esforço operacional do SACI e muda o tamanho da equipe.'}
+    ]},
+    {g:'Funil e dados',items:[
+      {id:'lim',q:'Quantos atletas de interesse cada parceiro pode sinalizar?',o:['1 por categoria','2 por categoria','Sem limite fixo'],rec:0,why:'O limite mantém o funil delimitado e reduz o incentivo a sinalizar em excesso.'},
+      {id:'crit',q:'Quem define os critérios de perfil do atleta?',o:['Departamento de formação','Formação e SACI juntos'],why:'O SACI registra e acompanha; a avaliação técnica é da formação.'},
+      {id:'gami',q:'A gamificação é voltada a quem?',o:['Ao parceiro','Ao atleta'],rec:0,why:'O Celeiro prevê uma plataforma com IA como olheiro e um Medidor de Paixão. Com dados de crianças, isso exige consentimento específico e em destaque dos responsáveis (LGPD, art. 14).'}
+    ]},
+    {g:'Dinheiro e governança',items:[
+      {id:'tf',q:'O contrato com a Time Forte permite repassar receita ao SACI?',o:['Sim','Não','Preciso ver o contrato'],why:'É a variável de bloqueio da principal fonte de receita.'},
+      {id:'pacto',q:'Como conciliar o reconhecimento formativo do SACI com o mecanismo de solidariedade do Pacto de Formação?',o:['Unificar no Pacto','Manter separados','Levar ao jurídico'],why:'O Pacto prevê ao clube parceiro um percentual dos direitos econômicos do atleta.'},
+      {id:'gov',q:'A quem o SACI responde?',o:['Futebol de base','Área institucional','Ainda em aberto'],why:'Define orçamento, autonomia e quem aprova a versão para o board.'}
+    ]}
+  ];
+  var answers={}, total=0, host=$('#decs');
+  DEC.forEach(function(grp){
+    var gEl=document.createElement('div');gEl.className='dec-group';
+    var h=document.createElement('h3');h.textContent=grp.g;gEl.appendChild(h);
+    var grid=document.createElement('div');grid.className='dec-grid';gEl.appendChild(grid);
+    grp.items.forEach(function(it){
+      total++;
+      var card=document.createElement('div');card.className='dec';
+      var q=document.createElement('h4');q.textContent=it.q;card.appendChild(q);
+      var opts=document.createElement('div');opts.className='opts';opts.setAttribute('role','group');opts.setAttribute('aria-label',it.q);
+      it.o.forEach(function(label,k){
+        var b=document.createElement('button');b.type='button';b.className='opt';b.setAttribute('aria-pressed','false');
+        b.appendChild(document.createTextNode(label));
+        if(it.rec===k){var r=document.createElement('span');r.className='rec';r.textContent='Recomendação do BC';b.appendChild(r);}
+        b.addEventListener('click',function(){
+          var was=answers[it.id]===label;
+          $$('.opt',opts).forEach(function(x){x.setAttribute('aria-pressed','false');});
+          if(was){delete answers[it.id];card.classList.remove('done');}
+          else{answers[it.id]=label;b.setAttribute('aria-pressed','true');card.classList.add('done');}
+          $('#decCount').textContent=Object.keys(answers).length;$('#copyMsg').textContent='';
+        });
+        opts.appendChild(b);
+      });
+      card.appendChild(opts);
+      var w=document.createElement('p');w.className='why';w.textContent=it.why;card.appendChild(w);
+      grid.appendChild(card);
+    });
+    host.appendChild(gEl);
+  });
+  $('#decTotal').textContent=total;
+  function summary(){
+    var lines=['Projeto SACI v1 · decisões marcadas em '+new Date().toLocaleDateString('pt-BR'),''];
+    DEC.forEach(function(grp){lines.push(grp.g.toUpperCase());grp.items.forEach(function(it){lines.push('- '+it.q+' → '+(answers[it.id]||'(em aberto)'));});lines.push('');});
+    return lines.join('\n');
+  }
+  $('#copyBtn').addEventListener('click',function(){
+    var txt=summary(), ta=$('#copyFallback'), msg=$('#copyMsg');
+    function fallback(){ta.value=txt;ta.hidden=false;ta.focus();ta.select();msg.textContent='Selecionado abaixo. Use Cmd+C ou Ctrl+C.';}
+    try{if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(function(){msg.textContent='Copiado.';ta.hidden=true;},fallback);}else fallback();}catch(err){fallback();}
+  });
+  $('#clearBtn').addEventListener('click',function(){
+    answers={};$$('.opt').forEach(function(x){x.setAttribute('aria-pressed','false');});$$('.dec').forEach(function(c){c.classList.remove('done');});
+    $('#copyFallback').hidden=true;$('#decCount').textContent='0';$('#copyMsg').textContent='';
+  });
+
+  setVars(); layout();
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(function(){setVars();layout();});
+})();
+</script>
 
 </body>
 </html>

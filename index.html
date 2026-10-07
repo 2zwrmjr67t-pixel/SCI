@@ -160,6 +160,33 @@ sup a{color:var(--red-soft);text-decoration:none;font-family:var(--mono);font-si
 .pinned .layer h3{font-weight:850;font-stretch:72%;font-size:clamp(68px,min(15vw,24vh),230px);line-height:.84;letter-spacing:-.02em;margin:6px 0 20px}
 .pinned .layer p{font-size:clamp(17px,1.8vw,23px);max-width:44ch}
 
+/* 3b · estrutura */
+.org{display:grid;grid-template-columns:minmax(0,1fr) 220px;gap:22px;margin-top:26px;align-items:stretch}
+@media (max-width:820px){.org{grid-template-columns:minmax(0,1fr);gap:12px}}
+.org-main{display:flex;flex-direction:column;gap:8px}
+.onode{background:var(--ink-2);border:1px solid var(--line);border-radius:14px;padding:10px 16px;text-align:center}
+.onode b{display:block;font-family:var(--display);font-weight:800;font-stretch:84%;font-size:clamp(18px,min(2vw,3.2vh),26px);line-height:1.05}
+.onode span{display:block;font-size:13px;color:var(--fg-2);margin-top:2px}
+.onode.top{background:var(--red);border-color:var(--red);color:var(--on-red)}
+.onode.top span{color:var(--on-red)}
+.onode.idn{background:transparent;border-style:dashed;border-color:var(--fg-3)}
+.onode.sel{background:var(--red-deep);border-color:var(--red)}
+.onode.base{background:var(--fg);border-color:var(--fg);color:var(--ink)}
+.onode.base span{color:var(--ink-3)}
+.org-row{display:grid;gap:8px}
+.org-row.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+.org-row.polos{grid-template-columns:repeat(5,minmax(0,1fr))}
+@media (max-width:640px){.org-row.polos{grid-template-columns:repeat(3,minmax(0,1fr))}.org-row.two{grid-template-columns:minmax(0,1fr)}.org-row.polos .pchip{white-space:normal;font-size:11px;padding:5px 6px;line-height:1.2}}
+.pchip{font-family:var(--mono);font-size:12px;letter-spacing:.04em;text-align:center;border:1px solid var(--red);border-radius:999px;padding:6px 8px;color:var(--fg);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.org-side{display:flex;flex-direction:column;gap:8px}
+.org-side .onode{flex:1;display:flex;flex-direction:column;justify-content:center;background:transparent;border-style:dashed;border-color:var(--fg-3)}
+.side-lab{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--fg-3);margin:0}
+@media (max-width:820px){.org-side{flex-direction:row;flex-wrap:wrap}.org-side .side-lab{flex-basis:100%}.org-side .onode{flex:1 1 28%;padding:8px}}
+.org-cap{display:none;margin:16px 0 0;font-size:clamp(16px,1.6vw,20px);color:var(--fg-2);max-width:60ch;min-height:2.8em}
+.pinned .org-cap{display:block}
+.pinned .org-h2{font-size:clamp(28px,min(4vw,6.5vh),56px);max-width:none}
+.tight .org-cap,.tight .side-lab{display:none}
+
 /* 4 · rede: galeria horizontal */
 .rede-head{display:flex;flex-wrap:wrap;gap:12px 40px;align-items:flex-end;justify-content:space-between}
 .rede-head .h2{max-width:13ch}
@@ -402,7 +429,6 @@ sup a{color:var(--red-soft);text-decoration:none;font-family:var(--mono);font-si
 </head>
 <body>
 
-
 <div class="progress" aria-hidden="true"><i id="prog"></i></div>
 
 <nav class="nav" id="nav" aria-label="Capítulos">
@@ -412,6 +438,7 @@ sup a{color:var(--red-soft);text-decoration:none;font-family:var(--mono);font-si
       <a href="#lacuna">Lacuna</a>
       <a href="#territorio">Território</a>
       <a href="#sistema">Sistema</a>
+      <a href="#estrutura">Estrutura</a>
       <a href="#rede">Rede</a>
       <a href="#competicao">Competição</a>
       <a href="#metodologia">Metodologia</a>
@@ -420,7 +447,7 @@ sup a{color:var(--red-soft);text-decoration:none;font-family:var(--mono);font-si
       <a href="#recursos">Recursos</a>
       <a href="#decisoes">Decisões</a>
     </div>
-    <span class="badge">v1 · para validação</span>
+    <span class="badge">v2 · para validação</span>
   </div>
 </nav>
 
@@ -434,8 +461,8 @@ sup a{color:var(--red-soft);text-decoration:none;font-family:var(--mono);font-si
       <div id="heroA" data-anim>
         <p class="hero-eyebrow">Sistema de Acompanhamento e Captação Integrado</p>
         <h1 id="heroH1">O Inter de volta a cada campinho do Rio Grande.</h1>
-        <p class="hero-sub">Rede, competição e inteligência para o ecossistema pré-base, com a Escola do Inter como porta de entrada e o material do clube como referência.</p>
-        <p class="hero-meta">Projeto SACI · v1 para validação · outubro de 2026</p>
+        <p class="hero-sub">Escolinhas e parceiros com a identidade do Inter, competições regionais e uma Seleção antes da base.</p>
+        <p class="hero-meta">Projeto SACI · v2 para validação · outubro de 2026</p>
         <div class="scroll-cue" aria-hidden="true"></div>
       </div>
       <p class="hero-b" id="heroB" data-anim>Antes da base, existe um território inteiro.</p>
@@ -444,7 +471,7 @@ sup a{color:var(--red-soft);text-decoration:none;font-family:var(--mono);font-si
 </div>
 
 <!-- 1 · LACUNA -->
-<div class="pin" id="lacuna" data-ch data-pin="lacuna" style="--len:5">
+<div class="pin" id="lacuna" data-ch data-pin="lacuna" style="--len:7.5">
   <div class="stage">
     <div class="wrap" style="position:relative">
       <div class="frames" id="lacFrames">
@@ -484,35 +511,63 @@ sup a{color:var(--red-soft);text-decoration:none;font-family:var(--mono);font-si
         <svg class="map" viewBox="0 0 1000 961.5" role="img" aria-label="Mapa do Rio Grande do Sul com as 38 cidades do levantamento de escolinhas e os polos candidatos">
           <path class="rs" d="M695.9,646.7 L696.4,644.7 L687.8,643.8 L687.1,647.9 L688.8,654.0 L692.2,653.8 L694.3,650.2 L694.6,655.6 L691.3,659.7 L692.9,661.2 L683.0,664.2 L676.8,668.5 L673.8,671.8 L675.3,680.0 L673.0,680.0 L674.1,684.7 L672.0,684.0 L670.0,685.5 L672.7,692.0 L672.3,689.9 L674.3,688.9 L677.3,692.3 L685.1,696.1 L687.5,698.8 L687.5,703.8 L690.3,710.1 L688.0,709.6 L688.0,710.8 L692.9,711.1 L693.5,713.5 L690.7,715.2 L688.5,722.1 L689.2,729.8 L682.2,733.8 L673.0,743.2 L663.9,758.0 L650.5,792.7 L644.2,819.8 L638.8,834.6 L624.6,864.7 L611.2,883.7 L604.2,891.0 L560.8,931.6 L533.8,953.6 L528.5,954.2 L526.5,952.7 L525.4,946.6 L514.8,945.5 L515.2,936.8 L514.0,935.1 L514.6,933.2 L515.3,935.1 L516.8,932.8 L517.1,924.0 L520.6,925.5 L520.7,927.8 L519.7,927.2 L520.9,929.3 L524.4,928.9 L523.5,926.2 L522.6,926.8 L526.3,919.0 L527.2,909.7 L522.0,885.0 L526.8,870.3 L529.0,871.4 L531.5,869.7 L540.3,856.1 L540.5,860.8 L545.5,863.7 L548.1,862.8 L559.8,844.0 L559.2,831.3 L561.8,821.3 L564.3,818.8 L570.4,824.7 L581.4,810.8 L579.2,819.1 L592.2,833.1 L599.6,836.1 L604.0,834.4 L609.8,828.8 L625.7,797.1 L629.8,781.4 L624.6,766.0 L616.7,751.9 L618.5,743.4 L625.4,727.2 L619.2,730.2 L613.6,731.5 L611.3,730.5 L610.4,731.7 L612.1,734.6 L607.7,735.8 L611.4,735.5 L612.4,737.0 L611.0,738.0 L609.3,736.9 L606.8,739.9 L605.8,744.8 L604.3,745.2 L605.2,746.5 L601.6,755.1 L602.7,756.8 L604.7,756.2 L603.6,757.6 L605.1,760.4 L609.8,757.9 L613.2,759.4 L613.0,761.7 L605.0,769.9 L589.5,773.2 L584.9,775.6 L581.5,779.0 L579.2,791.4 L576.9,793.5 L571.9,794.4 L570.0,799.7 L563.7,797.1 L558.1,799.7 L549.8,795.4 L548.9,792.3 L544.3,794.8 L538.8,789.8 L536.1,790.5 L534.2,787.6 L532.0,789.8 L528.3,786.2 L526.7,786.9 L522.8,775.5 L515.1,775.8 L511.3,773.5 L504.6,765.9 L504.1,762.9 L500.8,761.1 L502.2,756.4 L499.4,751.9 L500.9,748.9 L496.8,743.6 L494.6,735.7 L492.7,735.1 L493.4,733.9 L491.1,731.4 L491.9,728.6 L489.8,728.4 L490.7,726.4 L488.7,723.3 L490.9,720.7 L488.6,719.9 L488.4,718.0 L477.7,714.6 L477.2,711.6 L475.4,711.1 L475.7,707.1 L470.7,706.0 L468.0,702.2 L462.4,700.6 L460.8,695.4 L452.6,692.4 L446.9,697.4 L445.1,696.7 L444.2,694.2 L402.0,657.8 L400.4,652.1 L402.0,650.4 L397.2,644.6 L394.7,638.2 L387.3,633.7 L386.0,630.3 L375.7,629.8 L364.9,625.7 L355.5,628.0 L348.8,618.7 L342.9,619.4 L343.5,615.8 L340.4,615.2 L340.6,611.3 L338.1,610.4 L334.6,603.4 L331.6,603.7 L330.3,608.8 L328.4,610.0 L328.1,612.4 L326.4,612.5 L322.3,609.3 L320.6,609.7 L314.2,603.5 L306.4,602.3 L305.0,594.7 L301.1,592.9 L302.4,590.5 L300.2,588.7 L300.0,585.8 L297.6,586.2 L294.2,584.3 L295.6,578.0 L291.8,575.0 L292.7,570.8 L290.6,570.4 L289.9,568.2 L286.1,569.4 L282.2,566.1 L283.5,563.5 L281.7,560.0 L276.2,558.0 L276.1,555.2 L273.9,554.5 L273.4,551.7 L269.0,550.0 L265.1,542.0 L261.8,544.2 L257.8,544.0 L254.9,547.0 L257.1,552.9 L254.3,558.8 L251.0,557.6 L248.9,559.1 L247.4,557.5 L246.6,562.6 L244.7,562.8 L243.6,565.3 L241.4,565.2 L241.0,567.5 L236.5,567.7 L234.2,571.7 L231.2,571.9 L229.4,575.4 L226.8,576.4 L225.8,574.9 L221.3,577.6 L216.1,575.9 L212.3,577.0 L211.7,557.6 L214.8,545.5 L210.7,535.3 L205.9,533.5 L205.4,530.0 L202.5,531.1 L200.3,527.8 L197.8,528.5 L197.4,524.9 L195.1,523.9 L196.7,521.2 L193.2,517.9 L193.3,514.8 L191.2,512.5 L192.7,511.1 L190.2,509.6 L186.7,510.0 L185.1,508.1 L185.9,505.9 L184.4,505.3 L181.8,507.0 L182.0,503.6 L179.2,503.4 L177.8,497.8 L173.5,499.0 L170.4,493.9 L168.9,495.2 L166.7,494.5 L164.0,490.4 L165.0,487.9 L162.8,485.1 L158.3,483.8 L159.3,482.8 L157.5,478.6 L153.9,480.5 L151.7,476.2 L147.0,474.8 L147.6,468.6 L145.6,469.2 L143.3,464.9 L138.3,466.7 L139.6,464.1 L138.7,461.1 L137.0,461.9 L135.8,460.3 L137.3,459.3 L134.4,455.5 L132.1,454.9 L134.8,453.1 L130.4,451.8 L128.7,453.1 L127.4,449.1 L118.8,447.3 L118.4,442.1 L115.8,441.1 L115.0,438.8 L105.6,436.6 L103.3,440.0 L101.6,437.8 L96.9,438.5 L92.4,436.3 L88.8,436.6 L86.1,439.0 L83.3,438.4 L83.1,436.4 L80.7,441.1 L77.5,440.3 L78.7,443.3 L75.9,444.1 L71.1,452.3 L71.9,458.4 L67.8,461.5 L66.9,464.4 L64.5,465.2 L61.3,465.2 L59.8,461.9 L57.4,465.7 L53.7,460.5 L48.8,464.3 L46.5,462.7 L43.4,467.2 L40.5,466.7 L40.9,463.7 L34.8,461.6 L31.9,462.3 L30.8,464.8 L27.6,464.5 L22.4,460.5 L23.6,454.2 L17.2,450.9 L13.2,451.3 L14.3,448.8 L21.4,448.7 L32.7,441.6 L39.1,431.6 L49.4,424.6 L51.7,418.8 L51.6,407.2 L57.6,398.3 L63.8,392.9 L70.8,393.1 L76.7,390.9 L87.0,381.4 L90.9,375.3 L95.4,373.1 L95.2,368.4 L97.1,365.2 L106.6,355.5 L114.6,350.1 L118.7,343.8 L120.0,336.1 L127.4,333.9 L134.6,319.4 L135.0,310.6 L141.6,299.7 L147.4,298.8 L151.6,295.4 L163.0,292.8 L165.2,285.3 L162.9,282.8 L163.5,279.5 L167.0,275.6 L172.8,273.3 L176.4,268.6 L176.9,256.4 L179.0,252.8 L191.1,250.0 L198.2,238.5 L213.2,226.1 L213.2,222.7 L210.4,217.6 L212.1,213.1 L227.4,209.2 L225.5,198.9 L229.1,192.1 L244.5,193.9 L247.7,200.3 L250.1,201.6 L254.0,188.5 L246.2,181.8 L241.2,179.9 L241.1,176.0 L250.2,172.7 L258.4,166.3 L261.2,157.8 L264.1,158.6 L263.9,162.1 L267.4,164.3 L269.5,158.9 L273.0,157.3 L275.2,152.3 L281.2,155.0 L284.8,149.3 L289.7,146.5 L290.6,143.6 L288.6,139.0 L293.6,137.2 L296.4,131.0 L303.2,131.7 L311.5,121.1 L315.7,123.1 L319.3,126.7 L320.1,121.6 L322.4,119.7 L324.7,118.9 L330.5,121.1 L332.2,120.1 L332.0,117.0 L325.6,112.8 L326.7,109.3 L329.4,108.6 L334.1,112.7 L336.7,109.2 L343.2,109.2 L347.1,102.6 L347.1,90.0 L348.8,88.5 L353.7,88.1 L358.3,74.8 L360.3,75.2 L362.9,82.7 L366.9,79.4 L374.2,81.2 L375.4,80.0 L375.3,71.3 L377.7,72.8 L378.9,76.7 L381.5,76.5 L386.0,64.2 L388.2,64.7 L392.7,71.5 L396.0,67.9 L403.1,66.8 L403.5,65.1 L400.2,60.6 L407.3,57.2 L415.1,66.0 L416.7,64.5 L416.4,56.7 L423.2,63.0 L425.0,61.5 L425.6,56.2 L431.6,53.5 L434.9,37.4 L437.9,36.1 L438.5,41.8 L447.9,42.0 L450.7,37.4 L454.4,35.4 L455.2,28.4 L462.2,27.4 L463.1,21.5 L469.2,24.6 L472.1,18.3 L474.4,18.1 L477.6,23.9 L480.5,24.4 L485.0,20.9 L488.0,26.9 L489.5,27.0 L498.0,22.9 L500.0,24.9 L501.0,31.2 L503.8,26.6 L510.6,24.5 L517.2,28.7 L519.3,28.5 L517.6,19.5 L520.7,19.1 L523.5,22.0 L529.2,19.8 L533.9,12.8 L536.9,16.5 L541.5,16.7 L543.4,18.9 L540.5,27.5 L541.5,30.7 L549.7,24.1 L556.3,27.0 L560.0,19.6 L563.1,25.1 L570.5,22.2 L570.0,14.6 L572.2,12.1 L575.8,11.3 L577.1,12.8 L574.1,20.6 L576.1,22.2 L578.9,18.8 L580.1,19.5 L581.3,23.2 L579.0,26.8 L580.5,30.7 L583.0,30.6 L584.4,23.1 L586.9,24.1 L587.0,28.0 L588.4,28.5 L597.6,23.8 L598.3,29.1 L606.9,29.2 L608.7,30.4 L609.2,36.3 L614.1,33.4 L615.1,38.5 L616.9,40.0 L619.9,33.6 L624.3,37.4 L634.3,33.7 L635.9,36.7 L642.8,37.4 L642.9,33.2 L648.3,30.9 L647.5,36.7 L650.1,39.9 L653.0,41.3 L653.4,35.6 L654.8,36.7 L655.5,43.0 L659.0,40.7 L664.9,44.8 L664.5,36.7 L670.3,36.3 L672.6,38.2 L668.9,39.9 L667.8,42.8 L672.0,43.4 L675.3,46.7 L678.8,40.0 L681.0,38.7 L680.9,44.0 L688.1,43.7 L689.3,49.2 L692.4,47.8 L696.3,48.7 L699.1,46.8 L700.2,48.5 L698.8,51.1 L701.6,53.4 L707.3,53.8 L706.8,55.8 L702.3,55.1 L700.3,56.8 L706.7,58.6 L709.3,61.1 L705.8,65.3 L706.7,67.0 L711.5,64.9 L713.4,65.6 L714.8,73.5 L716.7,72.5 L716.4,68.3 L718.7,67.2 L720.5,68.7 L719.9,74.3 L723.1,72.4 L726.2,74.9 L727.4,73.7 L725.9,69.4 L731.4,68.8 L734.9,72.5 L739.4,67.7 L743.1,73.5 L744.9,69.5 L747.4,69.9 L746.2,76.0 L747.3,77.2 L752.5,74.1 L751.7,79.2 L753.8,82.5 L756.4,79.1 L763.4,79.1 L765.3,84.5 L770.1,89.4 L770.5,92.5 L776.1,88.1 L778.1,90.1 L778.2,95.0 L784.6,95.3 L786.4,99.3 L785.6,101.7 L789.6,102.3 L789.9,105.9 L794.5,110.1 L796.1,108.8 L800.0,109.8 L803.9,113.5 L806.9,114.0 L807.2,117.3 L813.2,118.0 L813.5,121.3 L816.6,122.6 L816.4,127.4 L821.1,130.8 L821.9,136.1 L825.1,133.2 L831.9,137.0 L832.6,143.0 L836.3,144.3 L838.2,147.2 L837.6,150.9 L835.2,153.7 L838.3,154.7 L839.2,160.8 L844.1,158.2 L845.4,161.2 L849.3,161.6 L849.0,169.4 L851.8,168.0 L853.8,176.3 L860.0,179.0 L860.5,182.1 L864.8,186.9 L864.1,189.1 L868.6,192.8 L868.9,196.7 L873.0,195.4 L878.8,201.7 L880.7,201.6 L880.8,198.5 L889.6,199.4 L892.3,202.3 L896.8,202.5 L898.9,204.4 L901.6,200.8 L903.0,206.8 L905.2,202.7 L912.1,205.9 L914.5,204.8 L913.0,204.0 L915.1,202.0 L918.0,206.8 L920.7,204.2 L923.6,205.3 L926.0,211.7 L928.2,211.2 L925.7,206.4 L927.2,206.3 L929.7,202.0 L931.6,204.3 L930.0,208.4 L932.0,208.2 L933.0,209.9 L934.6,208.2 L940.8,208.9 L942.9,205.3 L946.7,205.8 L946.6,204.4 L948.7,203.4 L949.2,205.6 L951.1,205.0 L952.1,209.5 L954.0,205.2 L957.6,206.8 L958.8,206.1 L957.8,204.0 L962.5,204.0 L960.1,205.6 L961.8,206.7 L961.1,209.3 L964.4,209.8 L964.7,211.5 L966.4,208.9 L968.2,209.7 L968.4,207.5 L971.6,211.5 L971.8,208.1 L973.8,206.4 L973.2,211.2 L974.1,212.3 L976.3,211.2 L978.3,214.6 L975.9,218.6 L978.1,219.4 L979.3,222.9 L980.4,222.4 L980.6,226.8 L982.7,229.7 L975.1,230.3 L974.7,228.4 L971.9,230.4 L971.7,227.8 L967.5,231.9 L968.0,234.4 L965.0,235.6 L965.4,238.6 L967.0,239.4 L964.4,242.3 L962.2,240.3 L960.8,240.9 L960.3,246.6 L958.8,246.9 L959.5,243.1 L958.1,243.8 L956.9,241.3 L953.1,244.3 L954.7,246.8 L950.8,248.8 L951.7,255.3 L950.1,254.6 L949.6,257.6 L950.8,258.2 L950.2,261.9 L951.8,261.4 L949.2,264.9 L953.8,264.5 L949.4,271.7 L952.0,271.9 L950.5,277.3 L954.9,279.7 L952.7,279.7 L952.3,282.9 L951.1,282.6 L949.5,285.9 L952.7,286.0 L950.2,289.7 L944.3,292.9 L949.6,291.9 L950.7,294.8 L949.1,294.6 L949.1,299.1 L946.3,299.6 L946.8,302.0 L943.5,300.8 L944.5,304.0 L941.8,306.9 L943.1,308.4 L941.0,307.7 L937.2,309.8 L937.8,307.7 L935.8,309.6 L933.9,306.4 L935.5,304.8 L933.1,305.9 L934.7,310.1 L933.8,314.1 L931.6,316.3 L931.6,314.4 L933.7,312.9 L928.1,310.1 L926.7,311.4 L928.9,312.2 L926.8,315.1 L928.2,315.9 L924.9,317.8 L926.9,318.0 L927.2,323.5 L929.4,325.6 L930.1,322.6 L934.6,328.4 L938.1,329.0 L937.3,331.0 L940.6,332.4 L937.5,326.8 L932.0,322.4 L931.2,319.4 L945.1,314.8 L949.7,310.8 L951.7,311.1 L961.2,314.4 L964.6,322.0 L975.8,324.7 L978.1,327.6 L976.3,329.1 L980.3,328.8 L954.6,368.5 L943.0,391.9 L930.8,420.7 L904.5,494.9 L851.4,581.1 L837.0,598.9 L802.0,632.3 L792.7,645.7 L765.9,668.2 L735.6,686.4 L715.3,701.0 L691.3,729.1 L690.5,725.1 L695.3,717.2 L696.3,712.1 L694.6,704.4 L698.5,702.6 L699.6,698.3 L690.0,687.3 L689.3,683.7 L693.7,680.9 L700.8,681.3 L712.4,688.4 L719.3,688.2 L724.7,684.1 L724.1,681.0 L727.2,679.5 L725.9,680.7 L724.1,679.9 L724.1,681.0 L717.7,678.5 L738.7,676.1 L742.2,674.5 L750.9,665.3 L763.3,646.0 L765.4,644.6 L765.9,648.9 L770.0,653.8 L766.5,645.3 L768.3,641.8 L768.5,640.1 L766.8,642.5 L767.2,640.3 L770.9,633.5 L772.5,632.4 L773.2,638.0 L779.3,640.3 L794.2,630.3 L801.4,616.9 L803.8,605.3 L801.3,584.5 L802.7,575.0 L806.0,578.5 L810.6,579.5 L817.3,574.2 L825.6,571.3 L828.8,565.9 L827.3,550.8 L834.1,552.2 L845.3,542.9 L853.3,539.9 L859.6,529.6 L862.3,510.2 L861.5,494.9 L859.8,484.2 L856.2,476.2 L859.9,473.0 L866.2,480.0 L867.0,478.8 L869.1,479.5 L867.4,477.7 L868.7,470.5 L872.8,480.7 L866.1,482.4 L865.4,486.7 L870.7,492.8 L874.1,493.4 L875.1,492.2 L876.0,480.0 L878.7,474.4 L877.5,469.4 L879.6,462.8 L879.0,459.8 L875.1,458.0 L872.3,451.6 L864.8,452.4 L863.6,460.1 L865.3,463.9 L863.1,466.0 L851.0,466.0 L849.9,464.4 L848.3,468.3 L849.0,471.2 L849.2,470.2 L850.6,471.3 L848.0,471.9 L842.3,469.4 L832.7,471.1 L830.7,477.1 L831.8,485.7 L821.6,479.2 L816.5,479.5 L818.2,475.9 L814.9,474.3 L818.4,472.6 L819.6,470.4 L818.3,470.1 L820.1,469.5 L820.8,466.0 L819.5,462.9 L817.3,462.0 L815.3,463.2 L815.0,459.5 L812.7,458.2 L810.7,460.1 L807.6,459.2 L806.9,462.2 L803.9,461.2 L804.7,459.0 L800.8,457.3 L801.6,455.2 L798.9,453.9 L799.1,451.6 L792.9,450.4 L795.6,449.1 L795.7,444.6 L791.3,441.2 L790.8,438.7 L792.7,437.6 L795.1,430.3 L792.7,429.1 L791.2,431.8 L791.5,429.0 L789.1,429.4 L790.5,426.4 L789.4,425.6 L788.8,427.2 L787.2,424.3 L786.1,428.0 L787.6,430.8 L786.6,430.0 L784.9,435.8 L785.9,443.3 L783.7,448.2 L785.5,450.0 L783.2,456.2 L785.0,458.0 L787.6,456.8 L787.3,459.0 L789.9,459.4 L786.9,460.8 L787.4,467.1 L791.9,467.3 L793.1,470.5 L797.5,466.2 L797.9,472.3 L800.7,478.2 L811.3,474.7 L811.6,478.1 L810.6,477.3 L808.4,480.2 L805.8,490.7 L805.9,484.4 L801.0,481.8 L795.3,484.0 L791.7,490.1 L786.2,507.3 L787.1,530.3 L784.6,523.6 L784.5,515.7 L782.4,513.7 L778.8,513.6 L776.0,516.7 L773.9,534.8 L778.2,547.7 L768.6,547.6 L762.7,553.5 L762.3,561.6 L764.0,569.2 L767.1,576.1 L769.5,577.9 L747.9,585.2 L745.3,591.0 L744.9,597.4 L746.6,603.0 L748.0,603.3 L737.1,603.0 L730.9,605.9 L726.8,604.1 L718.5,612.4 L717.1,607.2 L716.0,611.3 L711.1,609.4 L709.6,610.9 L710.7,612.4 L706.1,615.5 L707.2,618.6 L703.4,620.1 L702.1,624.0 L699.1,641.9 L700.1,652.3 L697.3,663.8 L694.1,661.5 L696.1,659.6 L695.9,656.6 L697.8,657.1 L694.6,649.9 L695.9,646.7Z"/><path class="rs" d="M787.1,530.3 L788.8,539.0 L786.9,539.5 L788.2,536.9 L785.5,535.5 L783.7,534.5 L786.0,535.0 L787.1,530.3Z"/>
           <g id="cities"><circle class="city on" cx="798.0" cy="428.7" r="18.5" data-c="Porto Alegre" data-n="9"><title>Porto Alegre: 9</title></circle><circle class="city on" cx="813.3" cy="423.0" r="16.0" data-c="Alvorada" data-n="6"><title>Alvorada: 6</title></circle><circle class="city on" cx="800.5" cy="411.8" r="17.7" data-c="Canoas" data-n="8"><title>Canoas: 8</title></circle><circle class="city on" cx="810.8" cy="416.7" r="16.0" data-c="Cachoeirinha" data-n="6"><title>Cachoeirinha: 6</title></circle><circle class="city on" cx="783.7" cy="439.5" r="11.4" data-c="Guaíba" data-n="2"><title>Guaíba: 2</title></circle><circle class="city on" cx="820.8" cy="435.8" r="16.0" data-c="Viamão" data-n="6"><title>Viamão: 6</title></circle><circle class="city on" cx="800.7" cy="403.2" r="14.0" data-c="Esteio" data-n="4"><title>Esteio: 4</title></circle><circle class="city on" cx="824.8" cy="415.9" r="16.9" data-c="Gravataí" data-n="7"><title>Gravataí: 7</title></circle><circle class="city on" cx="805.5" cy="399.8" r="16.9" data-c="Sapucaia do Sul" data-n="7"><title>Sapucaia do Sul: 7</title></circle><circle class="city on" cx="804.9" cy="389.5" r="15.1" data-c="São Leopoldo" data-n="5"><title>São Leopoldo: 5</title></circle><circle class="city on" cx="807.0" cy="380.0" r="16.9" data-c="Novo Hamburgo" data-n="7"><title>Novo Hamburgo: 7</title></circle><circle class="city on" cx="815.8" cy="378.2" r="11.4" data-c="Campo Bom" data-n="2"><title>Campo Bom: 2</title></circle><circle class="city on" cx="822.4" cy="372.5" r="11.4" data-c="Sapiranga" data-n="2"><title>Sapiranga: 2</title></circle><circle class="city on" cx="850.6" cy="374.8" r="9.5" data-c="Taquara" data-n="1"><title>Taquara: 1</title></circle><circle class="city on" cx="846.1" cy="333.1" r="11.4" data-c="Canela" data-n="2"><title>Canela: 2</title></circle><circle class="city on" cx="781.5" cy="314.3" r="12.8" data-c="Farroupilha" data-n="3"><title>Farroupilha: 3</title></circle><circle class="city on" cx="705.6" cy="347.7" r="12.8" data-c="Lajeado" data-n="3"><title>Lajeado: 3</title></circle><circle class="city on" cx="801.3" cy="305.8" r="17.7" data-c="Caxias do Sul" data-n="8"><title>Caxias do Sul: 8</title></circle><circle class="city on" cx="760.2" cy="306.3" r="16.0" data-c="Bento Gonçalves" data-n="6"><title>Bento Gonçalves: 6</title></circle><circle class="city on" cx="929.0" cy="421.9" r="11.4" data-c="Tramandaí" data-n="2"><title>Tramandaí: 2</title></circle><circle class="city on" cx="677.7" cy="369.6" r="9.5" data-c="Venâncio Aires" data-n="1"><title>Venâncio Aires: 1</title></circle><circle class="city on" cx="941.7" cy="390.8" r="11.4" data-c="Capão da Canoa" data-n="2"><title>Capão da Canoa: 2</title></circle><circle class="city on" cx="648.3" cy="384.9" r="15.1" data-c="Santa Cruz do Sul" data-n="5"><title>Santa Cruz do Sul: 5</title></circle><circle class="city on" cx="830.3" cy="213.2" r="9.5" data-c="Vacaria" data-n="1"><title>Vacaria: 1</title></circle><circle class="city on" cx="618.5" cy="621.6" r="9.5" data-c="Canguçu" data-n="1"><title>Canguçu: 1</title></circle><circle class="city on" cx="660.1" cy="673.7" r="12.8" data-c="Pelotas" data-n="3"><title>Pelotas: 3</title></circle><circle class="city on" cx="651.3" cy="177.8" r="14.0" data-c="Passo Fundo" data-n="4"><title>Passo Fundo: 4</title></circle><circle class="city on" cx="688.2" cy="711.9" r="9.5" data-c="Rio Grande" data-n="1"><title>Rio Grande: 1</title></circle><circle class="city on" cx="604.5" cy="183.2" r="9.5" data-c="Carazinho" data-n="1"><title>Carazinho: 1</title></circle><circle class="city on" cx="479.9" cy="379.9" r="15.1" data-c="Santa Maria" data-n="5"><title>Santa Maria: 5</title></circle><circle class="city on" cx="668.3" cy="90.0" r="16.0" data-c="Erechim" data-n="6"><title>Erechim: 6</title></circle><circle class="city on" cx="418.1" cy="471.4" r="9.5" data-c="São Gabriel" data-n="1"><title>São Gabriel: 1</title></circle><circle class="city on" cx="445.1" cy="612.2" r="12.8" data-c="Bagé" data-n="3"><title>Bagé: 3</title></circle><circle class="city on" cx="467.1" cy="196.2" r="12.8" data-c="Ijuí" data-n="3"><title>Ijuí: 3</title></circle><circle class="city on" cx="424.8" cy="183.8" r="11.4" data-c="Santo Ângelo" data-n="2"><title>Santo Ângelo: 2</title></circle><circle class="city on" cx="238.4" cy="394.5" r="11.4" data-c="Alegrete" data-n="2"><title>Alegrete: 2</title></circle><circle class="city on" cx="213.0" cy="234.4" r="11.4" data-c="São Borja" data-n="2"><title>São Borja: 2</title></circle><circle class="city on" cx="81.1" cy="390.4" r="12.8" data-c="Uruguaiana" data-n="3"><title>Uruguaiana: 3</title></circle></g>
-          <g id="polos"><g class="pol on"><circle class="pring" cx="798.0" cy="428.7" r="44"/><text class="plab" x="742.0" y="490.7" text-anchor="end">Polo 1 · Metro POA</text></g><g class="pol on"><circle class="pring cand" cx="801.3" cy="305.8" r="44"/><text class="plab cand" x="745.3" y="295.8" text-anchor="end">Caxias do Sul</text></g><g class="pol on"><circle class="pring cand" cx="651.3" cy="177.8" r="44"/><text class="plab cand" x="651.3" y="117.80000000000001" text-anchor="middle">Passo Fundo</text></g><g class="pol on"><circle class="pring cand" cx="660.1" cy="673.7" r="44"/><text class="plab cand" x="604.1" y="683.7" text-anchor="end">Pelotas</text></g></g>
+          <g id="polos"><g class="pol on"><circle class="pring" cx="798.0" cy="428.7" r="44"/><text class="plab" x="742.0" y="490.7" text-anchor="end">Polo 1 · Metro POA</text></g><g class="pol on"><circle class="pring cand" cx="801.3" cy="305.8" r="44"/><text class="plab cand" x="745.3" y="295.8" text-anchor="end">Caxias do Sul</text></g><g class="pol on"><circle class="pring cand" cx="651.3" cy="177.8" r="44"/><text class="plab cand" x="651.3" y="117.80000000000001" text-anchor="middle">Passo Fundo</text></g><g class="pol on"><circle class="pring cand" cx="660.1" cy="673.7" r="44"/><text class="plab cand" x="604.1" y="683.7" text-anchor="end">Pelotas</text></g><g class="pol on"><circle class="pring cand" cx="445.1" cy="612.2" r="44"/><text class="plab cand" x="389.1" y="622.2" text-anchor="end">Campanha gaúcha</text></g></g>
         </svg>
       </div>
       <div>
         <p class="eyebrow">O território</p>
         <h2 class="h2">Uma rede estadual desde o primeiro dia.</h2>
-        <p class="lead">Cada ponto é uma cidade com escolinhas no levantamento. Quanto maior, mais escolinhas. A rede começa na Região Metropolitana e chega ao interior pelos polos.</p>
+        <p class="lead">Cada ponto é uma cidade com escolinhas no levantamento. Quanto maior, mais escolinhas. A rede começa na Região Metropolitana e chega ao interior pelos polos, até a Campanha gaúcha.</p>
         <div class="tcount">
           <div><div class="n" id="tCity">38</div><div class="l">cidades com escolinhas</div></div>
-          <div><div class="n" id="tPol">4</div><div class="l">polos possíveis</div></div>
+          <div><div class="n" id="tPol">5</div><div class="l">polos possíveis</div></div>
         </div>
-        <p class="tnow" id="tNow" aria-live="polite">Polos candidatos citados no Celeiro de Ases.<sup><a href="#n3">3</a></sup></p>
+        <p class="tnow" id="tNow" aria-live="polite">Polos do interior citados no Celeiro de Ases<sup><a href="#n3">3</a></sup> e a Campanha gaúcha.</p>
       </div>
     </div>
   </div>
 </div>
 
 <!-- 3 · SISTEMA -->
-<div class="pin paper" id="sistema" data-ch data-pin="sistema" style="--len:3.2">
+<div class="pin paper" id="sistema" data-ch data-pin="sistema" style="--len:4">
   <div class="stage">
     <div class="wrap">
       <p class="eyebrow">O sistema</p>
       <h2 class="h2 sis-h2">Três camadas. Uma relação.</h2>
       <div class="lbars" aria-hidden="true"><div class="lbar"><i data-anim></i></div><div class="lbar"><i data-anim></i></div><div class="lbar"><i data-anim></i></div></div>
       <div class="layers">
-        <div class="layer" data-anim><div class="lnum">Camada 1</div><h3>Rede</h3><p>Projetos que já existem passam a carregar a identidade do Inter, como Escola do Inter ou com material oficial do clube, numa relação recorrente e com contrapartida real.</p></div>
+        <div class="layer" data-anim><div class="lnum">Camada 1</div><h3>Rede</h3><p>Escolinhas e projetos parceiros de futebol e futsal passam a carregar a identidade do Inter, numa relação recorrente e com contrapartida real.</p></div>
         <div class="layer" data-anim><div class="lnum">Camada 2</div><h3>Competição</h3><p>Um calendário próprio em duas janelas por ano, com etapas nos polos regionais e finais no complexo do clube.</p></div>
-        <div class="layer" data-anim><div class="lnum">Camada 3</div><h3>Inteligência</h3><p>Uma ficha por projeto parceiro e um funil delimitado de atletas de interesse, a partir do Sub-11 e só com consentimento da família.</p></div>
+        <div class="layer" data-anim><div class="lnum">Camada 3</div><h3>Inteligência</h3><p>Uma ficha por escolinha e parceiro, um funil delimitado a partir do Sub-11 e a Seleção dos destaques, sempre com consentimento da família.</p></div>
       </div>
+    </div>
+  </div>
+</div>
+
+<!-- 3b · ESTRUTURA -->
+<div class="pin" id="estrutura" data-ch data-pin="estrutura" style="--len:4.2">
+  <div class="stage">
+    <div class="wrap">
+      <p class="eyebrow">A estrutura</p>
+      <h2 class="h2 org-h2">Um projeto. Do campinho à base.</h2>
+      <div class="org">
+        <div class="org-main">
+          <div class="onode top" data-step="1"><b>Projeto SACI</b><span>relacionamento · competição · inteligência</span></div>
+          <div class="org-row polos" data-step="2"><span class="pchip">Metro POA</span><span class="pchip">Caxias do Sul</span><span class="pchip">Passo Fundo</span><span class="pchip">Pelotas</span><span class="pchip">Campanha gaúcha</span></div>
+          <div class="org-row two" data-step="3"><div class="onode"><b>Escolinhas</b><span>Escola do Inter · futebol e futsal</span></div><div class="onode"><b>Parceiros</b><span>projetos que já existem · futebol e futsal</span></div></div>
+          <div class="onode idn" data-step="4"><b>Identidade Inter</b><span>em escala, conforme a relação</span></div>
+          <div class="onode" data-step="5"><b>Competições regionais</b><span>etapas nos polos · finais no Beira-Rio</span></div>
+          <div class="onode sel" data-step="6"><b>Seleção</b><span>os destaques de escolinhas e parceiros</span></div>
+          <div class="onode base" data-step="7"><b>Base do Inter</b><span>departamento de formação</span></div>
+        </div>
+        <div class="org-side" data-step="8">
+          <p class="side-lab">Atravessa tudo</p>
+          <div class="onode"><b>Receita e apoio</b></div>
+          <div class="onode"><b>Inteligência</b></div>
+          <div class="onode"><b>Governança</b></div>
+        </div>
+      </div>
+      <p class="org-cap" id="orgCap" aria-live="polite">O SACI é um projeto do clube para o ecossistema antes da base.</p>
     </div>
   </div>
 </div>
@@ -527,8 +582,8 @@ sup a{color:var(--red-soft);text-decoration:none;font-family:var(--mono);font-si
           <h2 class="h2">Cada projeto passa a vestir o Inter.</h2>
         </div>
         <div class="forms">
-          <span class="chip">Participação pontual</span><span class="chip">Relacionamento recorrente</span><span class="chip">Cooperação</span><span class="chip">Relação comercial</span>
-          <p class="forms-note">Cada forma é uma foto do momento, não um degrau. Em todas, o projeto joga com a identidade do clube: selo, material oficial ou a bandeira da Escola do Inter.</p>
+          <span class="chip">Participante de evento</span><span class="chip">Parceiro identificado</span><span class="chip">Escola do Inter</span><span class="chip">Sede de polo</span>
+          <p class="forms-note">Os níveis não são degraus obrigatórios. Em todos, o projeto joga com a identidade do clube; a Escola do Inter é o nível mais forte.</p>
         </div>
       </div>
       <div class="track-wrap">
@@ -541,6 +596,7 @@ sup a{color:var(--red-soft);text-decoration:none;font-family:var(--mono);font-si
           <div class="card"><span class="tag">O que o parceiro recebe</span><div class="big">Beira-Rio</div><p>Visita, jogo e final no estádio.</p></div>
           <div class="card"><span class="tag">O que o parceiro recebe</span><div class="big">Canal direto</div><p>Contato com o clube e prioridade em eventos.</p></div>
           <div class="card"><span class="tag">O que o parceiro recebe</span><div class="big">Reconhecimento</div><p>Registro formal da contribuição formativa, se um atleta assinar com o Inter.</p></div>
+          <div class="card"><span class="tag">O que o parceiro recebe</span><div class="big">Seleção</div><p>Os destaques do projeto chegam à Seleção, com o nome de quem os formou.</p></div>
           <div class="card lesson"><span class="tag">A lição do Athletic Club</span><div class="big">Rede sem contrapartida vira rede nominal.</div><p>166 clubes conveniados, com prazo, metodologia e eventos de coesão.<sup><a href="#n4">4</a></sup></p></div>
         </div>
       </div>
@@ -573,7 +629,7 @@ sup a{color:var(--red-soft);text-decoration:none;font-family:var(--mono);font-si
       </div>
       <div class="comp-foot">
         <div>
-          <div class="datas"><span class="n" id="datasN">10</span><span class="l">datas de competição no ano 1, com dois polos<sup><a href="#n5">5</a></sup></span></div>
+          <div class="datas"><span class="n" id="datasN">10</span><span class="l">datas de competição na Fase 1, com dois polos<sup><a href="#n5">5</a></sup></span></div>
           <p class="cats">Futsal: Sub-7, 9, 11 e 13 · Campo: Sub-11 e 13</p>
         </div>
         <div class="pending"><b>Em discussão</b><span class="dash">Sub-14</span><span class="dash">Feminino</span><span class="dash">Copas extras</span></div>
@@ -627,20 +683,20 @@ sup a{color:var(--red-soft);text-decoration:none;font-family:var(--mono);font-si
     <div class="wrap">
       <p class="eyebrow">O funil e a proteção</p>
       <h2 class="h2 fun-h2">Quatro papéis. Ninguém faz o papel do outro.</h2>
-      <div class="roleline" aria-hidden="true"><span>Parceiro</span><span>SACI</span><span>Formação</span><span>Família</span></div>
+      <div class="roleline" aria-hidden="true"><span>Parceiro</span><span>SACI</span><span>Seleção</span><span>Formação</span></div>
       <div class="fun-stage">
       <div class="verbs">
         <div class="vb" data-anim><div class="who">Parceiro</div><div class="verb">sinaliza</div><p>Indica atletas a partir do Sub-11, com limite por categoria.</p></div>
         <div class="vb" data-anim><div class="who">SACI</div><div class="verb">registra</div><p>Acompanha só depois do consentimento dos responsáveis.</p></div>
+        <div class="vb" data-anim><div class="who">Seleção</div><div class="verb">reúne</div><p>Os destaques de escolinhas e parceiros ganham uma vitrine antes da base.</p></div>
         <div class="vb" data-anim><div class="who">Formação</div><div class="verb">avalia</div><p>A avaliação técnica é do departamento de formação do clube.</p></div>
-        <div class="vb" data-anim><div class="who">Família</div><div class="verb">decide</div><p>A escolha de ir para o Inter é sempre do atleta e da família.</p></div>
       </div>
       <div class="coda-box" id="codaBox" data-anim>
         <div class="guards">
           <span class="guard">Consentimento antes de qualquer registro (LGPD, art. 14)</span>
           <span class="guard">Dados só em plataforma com login</span>
           <span class="guard">Arquivar é excluir os dados</span>
-          <span class="guard">Contato com a família só no convite formal</span>
+          <span class="guard">Contato com a família só na convocação ou no convite formal</span>
         </div>
         <p class="coda" id="coda">O atleta nunca é moeda da parceria.</p>
       </div>
@@ -656,7 +712,7 @@ sup a{color:var(--red-soft);text-decoration:none;font-family:var(--mono);font-si
       <div class="rede-head">
         <div>
           <p class="eyebrow">Implantação</p>
-          <h2 class="h2" style="max-width:none">Cresce por gatilho, nunca por calendário.</h2>
+          <h2 class="h2" style="max-width:none">24 meses. Cresce por gatilho, nunca por calendário.</h2>
         </div>
         <div class="tabs" role="tablist" aria-label="Fases de implantação">
           <button type="button" class="tab" role="tab" data-phase="1" aria-selected="true">Fase 1</button>
@@ -667,21 +723,21 @@ sup a{color:var(--red-soft);text-decoration:none;font-family:var(--mono);font-si
       <div class="fz" aria-live="polite">
         <div>
           <p class="fz-title" id="fTitle">Rede e competição</p>
-          <p class="fz-desc" id="fDesc">Piloto a partir dos vínculos de futsal que já existem, com alcance estadual. O funil entra no segundo semestre.</p>
+          <p class="fz-desc" id="fDesc">Meses 4 a 12. Piloto a partir dos vínculos de futsal que já existem, com alcance estadual, e o formato da Seleção definido.</p>
           <div class="meta">
             <div class="row"><span>Parceiros rumo à meta de 100 clubes do Celeiro</span><span id="fMetaPct">20%</span></div>
             <div class="bartrack"><i id="fMeta" data-anim></i></div>
           </div>
-          <div class="slots"><span class="l">Polos</span><span class="slot"><i></i></span><span class="slot"><i></i></span><span class="slot"><i></i></span><span class="slot"><i></i></span></div>
+          <div class="slots"><span class="l">Polos</span><span class="slot"><i></i></span><span class="slot"><i></i></span><span class="slot"><i></i></span><span class="slot"><i></i></span><span class="slot"><i></i></span></div>
         </div>
         <div>
           <div class="fbig">
             <div><div class="n" id="fP">20</div><div class="l">parceiros</div></div>
-            <div><div class="n" id="fD">10</div><div class="l">datas no ano</div></div>
+            <div><div class="n" id="fD">10</div><div class="l">datas na fase</div></div>
             <div><div class="n" id="fE">2</div><div class="l">pessoas na equipe</div></div>
           </div>
           <div class="ceil"><b id="fF">20</b>atletas de interesse ativos, no máximo. É um teto, não uma meta.</div>
-          <p class="fine" style="margin-top:12px">Cenário piso do Modelo de Dimensionamento. Gatilho para avançar: retenção de 80%, participação de 75% e consentimento em 100% dos registros.<sup><a href="#n5">5</a></sup></p>
+          <p class="fine" style="margin-top:12px">Cenário piso do Modelo de Dimensionamento v2, com o quinto polo na Fase 3. Gatilho para avançar: retenção de 80%, participação de 75% e consentimento em 100% dos registros.<sup><a href="#n5">5</a></sup></p>
         </div>
       </div>
     </div>
@@ -692,28 +748,28 @@ sup a{color:var(--red-soft);text-decoration:none;font-family:var(--mono);font-si
   <div class="wrap">
     <div class="sim">
       <h3>Teste a escala</h3>
-      <p class="sim-intro">Mexa nas alavancas e veja o efeito na equipe, no calendário e no funil. As contas são as mesmas do Modelo de Dimensionamento.</p>
+      <p class="sim-intro">Mexa nas alavancas e veja o efeito na equipe, no calendário e no funil. As contas são as mesmas do Modelo de Dimensionamento v2.</p>
       <div class="sim-grid">
         <div class="ctls">
           <div class="ctl"><label for="sP">Parceiros na rede <output id="oP" for="sP">40</output></label><input type="range" id="sP" min="10" max="120" step="5" value="40"></div>
-          <div class="ctl"><label for="sPo">Polos regionais <output id="oPo" for="sPo">3</output></label><input type="range" id="sPo" min="1" max="6" step="1" value="3"></div>
+          <div class="ctl"><label for="sPo">Polos regionais <output id="oPo" for="sPo">4</output></label><input type="range" id="sPo" min="1" max="6" step="1" value="4"><small>A partir do quinto polo, entra a Campanha gaúcha: visita leva o triplo do tempo.</small></div>
           <div class="ctl"><label for="sQ">Parceiros fora da Região Metropolitana <output id="oQ" for="sQ">50%</output></label><input type="range" id="sQ" min="0" max="100" step="10" value="50"><small>Visita no interior leva o dobro do tempo.</small></div>
           <div class="ctl"><label for="sL">Atletas de interesse por parceiro, por categoria <output id="oL" for="sL">1</output></label><input type="range" id="sL" min="1" max="3" step="1" value="1"></div>
         </div>
         <div class="outs" aria-live="polite">
           <div class="meter">
             <div class="meter-top"><span class="l">Uso da capacidade da equipe</span><span class="pill" id="rState">Folga</span></div>
-            <div class="meter-n" id="rUso">62%</div>
-            <div class="mtrack"><i id="rBar" style="width:41%"></i><b></b></div>
+            <div class="meter-n" id="rUso">67%</div>
+            <div class="mtrack"><i id="rBar" style="width:44%"></i><b></b></div>
             <div class="scale"><span>0%</span><span>100%</span><span>150%</span></div>
           </div>
           <div class="out"><div class="n" id="rEq">3</div><div class="l">pessoas na equipe central</div></div>
           <div class="out"><div class="n" id="rFun">80</div><div class="l">atletas de interesse, no máximo</div></div>
-          <div class="out"><div class="n" id="rDat">15</div><div class="l">datas de competição no ano</div></div>
+          <div class="out"><div class="n" id="rDat">19</div><div class="l">datas de competição no ano</div></div>
           <div class="out"><div class="n" id="rAtl">1.740</div><div class="l">atletas por janela</div></div>
         </div>
       </div>
-      <p class="fine">Premissas do cenário piso: um coordenador mais um analista a cada 35 parceiros, com metade do tempo em relacionamento; três contatos remotos por trimestre e uma visita por semestre por parceiro; funil ativo em toda a rede, no Sub-11 e no Sub-13; datas incluem o Dia do Futebol de Base Colorado. Acima de 100%, a equipe precisa ser revista.<sup><a href="#n5">5</a></sup></p>
+      <p class="fine">Premissas do cenário piso: um coordenador mais um analista a cada 35 parceiros, com metade do tempo em relacionamento; três contatos remotos por trimestre e uma visita por semestre por parceiro; funil ativo em toda a rede, no Sub-11 e no Sub-13; datas incluem o Dia do Futebol de Base Colorado; duas edições da Seleção por ano, com 40 horas de organização cada. Acima de 100%, a equipe precisa ser revista.<sup><a href="#n5">5</a></sup></p>
     </div>
   </div>
 </section>
@@ -725,11 +781,12 @@ sup a{color:var(--red-soft);text-decoration:none;font-family:var(--mono);font-si
       <div class="frames" id="recFrames">
         <div class="frame" data-anim>
           <p class="eyebrow">De onde vem o dinheiro</p>
-          <h2 class="h2">Três fontes, cada uma pagando o que faz melhor.</h2>
+          <h2 class="h2">Quatro fontes, cada uma pagando o que faz melhor.</h2>
           <div class="src-list">
-            <div class="src" data-step="1"><h3>Escolinhas</h3><div><p class="pays">Repasse interno de parte do que o Inter recebe da Escola do Inter. Paga a equipe central e a operação.</p><p class="cond">Depende do contrato com a Time Forte.</p></div></div>
-            <div class="src" data-step="2"><h3>Lei de Incentivo</h3><div><p class="pays">Patrocínio de grandes empresas por meio da FECI. Paga competições, eventos e capacitação.</p><p class="cond">Projetos de formação precisam de ao menos metade dos alunos da rede pública.<sup><a href="#n6">6</a></sup></p></div></div>
-            <div class="src" data-step="3"><h3>Inter, em espécie</h3><div><p class="pays">Estrutura, finais no Beira-Rio e comunicação, em vez de aporte em dinheiro.</p><p class="cond">A confirmar com o clube.</p></div></div>
+            <div class="src" data-step="1"><h3>Escolinhas</h3><div><p class="pays">A Escola do Inter remunera o clube pelo licenciamento. É a fonte direta mais madura.</p><p class="cond">Valores dependem do contrato com a Time Forte.</p></div></div>
+            <div class="src" data-step="2"><h3>Parceiros</h3><div><p class="pays">Não pagam mensalidade. Geram receita com material oficial e cursos elaborados pelo Inter.</p><p class="cond">Receita indireta; o objetivo é fortalecer o ecossistema.</p></div></div>
+            <div class="src" data-step="3"><h3>Lei de Incentivo</h3><div><p class="pays">Patrocínio de grandes empresas por meio da FECI. Paga competições, eventos e capacitação.</p><p class="cond">Projetos de formação precisam de ao menos metade dos alunos da rede pública.<sup><a href="#n6">6</a></sup></p></div></div>
+            <div class="src" data-step="4"><h3>Apoio em espécie</h3><div><p class="pays">O Inter entra com estrutura, finais no Beira-Rio e comunicação; prefeituras cedem campos em troca de vagas.</p><p class="cond">A confirmar com o clube e os municípios.</p></div></div>
           </div>
         </div>
         <div class="frame" data-anim>
@@ -756,7 +813,7 @@ sup a{color:var(--red-soft);text-decoration:none;font-family:var(--mono);font-si
     <p class="lead">Toque numa opção para marcar. As marcações ficam só nesta tela e podem ser copiadas no fim para virar ata.</p>
     <div id="decs"></div>
     <div class="dec-sum">
-      <p><strong id="decCount">0</strong>de <span id="decTotal">11</span> decisões marcadas</p>
+      <p><strong id="decCount">0</strong>de <span id="decTotal">15</span> decisões marcadas</p>
       <div class="sum-actions">
         <button type="button" class="btn" id="copyBtn">Copiar as respostas</button>
         <button type="button" class="btn btn-ghost" id="clearBtn">Limpar</button>
@@ -777,7 +834,7 @@ sup a{color:var(--red-soft);text-decoration:none;font-family:var(--mono);font-si
           <li id="n2">[Verificado — Dossiê de Pesquisa SACI BC-V1 e documento consolidado de escolinhas]. Os 315 núcleos do Genoma Colorado são o pico do programa, em 2017. Escala das redes de clubes é autodeclarada.</li>
           <li id="n3">[Verificado — Celeiro de Ases, projeto de futebol de base do Inter, 2026]. Inclui o número de equipes da LGF 2026, a metodologia em três fases, os polos regionais citados e o Pacto de Formação. Metas do material (350 franquias, 100 clubes até 2028) são projeção.</li>
           <li id="n4">[Verificado — athletic-club.eus, via Dossiê de Pesquisa]. 166 clubes conveniados em 2021, número oficial; a imprensa cita cerca de 175 a 180 em 2025.</li>
-          <li id="n5">[Inferência — Modelo de Dimensionamento SACI BC-V1, cenário piso]. Parceiros, polos, datas, atletas e equipe são premissas a recalibrar ao fim da Fase 1, não realizado.</li>
+          <li id="n5">[Inferência — Modelo de Dimensionamento SACI BC-V2, 24 meses, cenário piso]. Parceiros, polos, datas, atletas e equipe são premissas a recalibrar ao fim da Fase 1, não realizado.</li>
           <li id="n6">[Verificado — LC 222/2025, Decreto 12.861/2026, Portaria 10/2026; Lei RS 13.924/2012 e SEL/RS; Decreto POA 23.525/2025]. Custo próximo de zero na lei federal depende do tratamento contábil de cada empresa [Inferência]. O repasse ao fundo estadual varia de 5% a 10%; usamos 10%.</li>
           <li id="n7">Mapa: contorno do RS a partir de base pública do IBGE (projeto click_that_hood) e sedes municipais da base kelvins/municipios-brasileiros. Projeção simples, para leitura de distribuição, não para medir distâncias.</li>
         </ol>
@@ -785,10 +842,11 @@ sup a{color:var(--red-soft);text-decoration:none;font-family:var(--mono);font-si
       <div>
         <h2>Limitações</h2>
         <ul>
-          <li>Valores em reais por fonte de receita ainda não estão estimados. Dependem do contrato com a Time Forte e da decisão sobre repasse.</li>
+          <li>Valores em reais por fonte de receita ainda não estão estimados. Dependem do contrato com a Time Forte.</li>
+          <li>O calendário de 24 meses é comprimido: na Fase 3, a equipe opera perto do limite de capacidade.</li>
           <li>Governança e orçamento do SACI seguem em aberto.</li>
           <li>Uso da marca e do material oficial pelos parceiros depende de licenciamento e do contrato com a Time Forte [Não verificado]; custo do material não está no modelo.</li>
-          <li>Os polos além da Região Metropolitana não foram definidos; o mapa mostra candidatos.</li>
+          <li>Os polos do interior não foram definidos; o mapa mostra candidatos e a Campanha gaúcha.</li>
           <li>Percentuais do Pró-Esporte RS dependem do regulamento do ICMS vigente; a reforma tributária pode alterar incentivos estaduais e municipais.</li>
           <li>Sem imagens de atletas: fotos de crianças dos projetos parceiros exigem autorização dos responsáveis (ECA e LGPD).</li>
         </ul>
@@ -846,7 +904,7 @@ sup a{color:var(--red-soft);text-decoration:none;font-family:var(--mono);font-si
   function xfade(els,p,dist){
     var n=els.length, seg=p*n, loc=[];
     els.forEach(function(el,k){
-      var t=seg-k, fin=k===0?1:clamp((t+0.12)/0.24), fout=k===n-1?1:clamp((1.12-t)/0.24);
+      var t=seg-k, fin=k===0?1:clamp((t+0.07)/0.14), fout=k===n-1?1:clamp((1.07-t)/0.14);
       var op=Math.min(fin,fout), dy=t<0.5?(dist||50)*(1-fin):-(dist||50)*(1-fout);
       el.style.opacity=op.toFixed(3);el.style.transform='translateY('+dy.toFixed(1)+'px)';el.style.pointerEvents=op>0.5?'auto':'none';
       loc.push(clamp(t));
@@ -866,7 +924,7 @@ sup a{color:var(--red-soft);text-decoration:none;font-family:var(--mono);font-si
     if(k==='lacuna'){clearWords(lacW);$$('.num[data-to]',p).forEach(function(n){n.textContent=n.getAttribute('data-to');});}
     if(k==='funil')clearWords(codaW);
     if(k==='competicao'){$$('.tile',p).forEach(function(t){t.classList.add('on');});$('#datasN').textContent='10';}
-    if(k==='terr'){cities.forEach(function(c){c.classList.add('on');c.classList.remove('now');});polos.forEach(function(g){g.classList.add('on');});$('#tCity').textContent=cities.length;$('#tPol').textContent='4';}
+    if(k==='terr'){cities.forEach(function(c){c.classList.add('on');c.classList.remove('now');});polos.forEach(function(g){g.classList.add('on');});$('#tCity').textContent=cities.length;$('#tPol').textContent='5';}
     if(k==='recursos')$$('.cval',p).forEach(function(v){v.textContent=v.getAttribute('data-final');});
     if(k==='fases')phaseAt(lastPhaseT);
   }
@@ -923,9 +981,9 @@ sup a{color:var(--red-soft);text-decoration:none;font-family:var(--mono);font-si
   var lacFrames=$$('#lacFrames .frame');
   function lacuna(p){
     var loc=xfade(lacFrames,p,60);
-    fillWords(lacW,clamp(loc[0]/0.75));
+    fillWords(lacW,clamp(loc[0]/0.5));
     for(var k=1;k<lacFrames.length;k++){
-      var n=$('.num',lacFrames[k]);n.textContent=String(Math.round(+n.getAttribute('data-to')*ease(clamp(loc[k]/0.55))));
+      var n=$('.num',lacFrames[k]);n.textContent=String(Math.round(+n.getAttribute('data-to')*ease(clamp(loc[k]/0.3))));
     }
     dotsOn(pins.lacuna,Math.min(lacFrames.length-1,Math.floor(p*lacFrames.length)));
   }
@@ -945,12 +1003,12 @@ sup a{color:var(--red-soft);text-decoration:none;font-family:var(--mono);font-si
     var shown=Math.round(clamp(p/0.72)*cities.length);
     cities.forEach(function(c,k){c.classList.toggle('on',k<shown);c.classList.toggle('now',k===shown-1&&p<0.74);});
     $('#tCity').textContent=shown;
-    var np=p<0.76?0:Math.min(4,1+Math.floor((p-0.76)/0.05));
+    var np=p<0.76?0:Math.min(5,1+Math.floor((p-0.76)/0.04));
     polos.forEach(function(g,k){g.classList.toggle('on',k<np);});
     $('#tPol').textContent=np;
     if(shown!==lastCity||np){
       lastCity=shown;
-      if(np>0)tNow.innerHTML='Polo 1 na Região Metropolitana. Candidatos do interior citados no Celeiro de Ases.<sup><a href="#n3">3</a></sup>';
+      if(np>0)tNow.innerHTML='Polo 1 na Região Metropolitana. Polos do interior citados no Celeiro de Ases<sup><a href="#n3">3</a></sup> e a Campanha gaúcha.';
       else if(shown>0){var c=cities[shown-1];tNow.innerHTML='<b>'+c.getAttribute('data-c')+'</b> · '+c.getAttribute('data-n')+(c.getAttribute('data-n')==='1'?' escolinha':' escolinhas')+' no levantamento';}
       else tNow.textContent='Partindo de Porto Alegre.';
     }
@@ -960,6 +1018,21 @@ sup a{color:var(--red-soft);text-decoration:none;font-family:var(--mono);font-si
   function sistema(p){
     var loc=xfade(layers,p,60);
     loc.forEach(function(l,k){lbars[k].style.transform='scaleX('+l.toFixed(3)+')';});
+  }
+  /* 3b · estrutura */
+  var ORG=['O SACI é um projeto do clube para o ecossistema antes da base.',
+    'Cinco polos organizam o território, da Região Metropolitana à Campanha gaúcha.',
+    'Escolinhas, incluindo a Escola do Inter, e parceiros que já existem, no futebol e no futsal.',
+    'Todos jogam com a identidade do Inter, em escala conforme a relação.',
+    'As competições regionais dão o motivo para a rede se encontrar.',
+    'Os destaques de escolinhas e parceiros chegam à Seleção: ganho para o atleta, para quem formou e para o clube.',
+    'A Seleção é o passo antes da base.',
+    'Receita, inteligência e governança atravessam toda a estrutura.'];
+  var orgCap=$('#orgCap'), lastOrg=0;
+  function estrutura(p){
+    var n=1+Math.min(7,Math.floor(clamp(p/0.9)*8));
+    stepsOn(pins.estrutura,n);
+    if(n!==lastOrg){lastOrg=n;orgCap.textContent=ORG[n-1];}
   }
   /* 4 · rede */
   var track=$('#track');
@@ -1011,9 +1084,9 @@ sup a{color:var(--red-soft);text-decoration:none;font-family:var(--mono);font-si
   }
   /* 8 · fases */
   var PH=[
-    {title:'Rede e competição',desc:'Piloto a partir dos vínculos de futsal que já existem, com alcance estadual. O funil entra no segundo semestre.',p:20,d:10,e:2,po:2,f:20},
-    {title:'Inteligência esportiva',desc:'Funil ativo em toda a rede, terceiro polo e o primeiro Dia do Futebol de Base Colorado.',p:40,d:15,e:3,po:3,f:80},
-    {title:'Consolidação',desc:'Quatro polos e rede madura, a caminho da meta de 100 clubes do Celeiro de Ases.',p:60,d:19,e:3,po:4,f:120}
+    {title:'Rede e competição',desc:'Meses 4 a 12. Piloto a partir dos vínculos de futsal que já existem, com alcance estadual, e o formato da Seleção definido.',p:20,d:10,e:2,po:2,f:20},
+    {title:'Inteligência e Seleção',desc:'Meses 13 a 18. Quatro polos, funil em toda a rede e a primeira edição da Seleção.',p:40,d:9,e:3,po:4,f:80},
+    {title:'Integração dos polos',desc:'Meses 19 a 24. Cinco polos, com a Campanha gaúcha, a caminho da meta de 100 clubes do Celeiro de Ases.',p:60,d:12,e:4,po:5,f:120}
   ];
   var tabs=$$('.tab'), slots=$$('.slot i'), lastPhaseT=0, lastLabel=-1;
   function phaseAt(t){
@@ -1044,7 +1117,7 @@ sup a{color:var(--red-soft);text-decoration:none;font-family:var(--mono);font-si
   var recFrames=$$('#recFrames .frame'), costs=$$('.cost');
   function recursos(p){
     var loc=xfade(recFrames,p,60);
-    stepsOn(recFrames[0],Math.min(3,Math.floor(clamp(loc[0]/0.7)*4)));
+    stepsOn(recFrames[0],Math.min(4,Math.floor(clamp(loc[0]/0.6)*5)));
     var g=ease(clamp((loc[1]-0.1)/0.6));
     costs.forEach(function(c){
       var v=+c.style.getPropertyValue('--v'), w=100-(100-v)*g;
@@ -1077,6 +1150,7 @@ sup a{color:var(--red-soft);text-decoration:none;font-family:var(--mono);font-si
     if(pinned('lacuna'))lacuna(prog('lacuna'));
     if(pinned('terr'))terr(prog('terr'));
     if(pinned('sistema'))sistema(prog('sistema'));
+    if(pinned('estrutura'))estrutura(prog('estrutura'));
     if(pinned('rede'))rede(prog('rede'));
     if(pinned('competicao'))compet(prog('competicao'));
     if(pinned('metodologia'))metod(prog('metodologia'));
@@ -1109,8 +1183,9 @@ sup a{color:var(--red-soft);text-decoration:none;font-family:var(--mono);font-si
   function sim(){
     var P=+sP.value, Po=+sPo.value, q=+sQ.value/100, L=+sL.value;
     var an=Math.max(1,Math.ceil(P/35)), eq=1+an;
-    var hRem=P*3*0.5/3, hVis=P*1*(q*8+(1-q)*4)/6, fun=P*L*2, hFun=fun/3;
-    var uso=(hRem+hVis+hFun)/(an*140*0.5);
+    var pc=Po>=5?Math.min(q,0.1):0;
+    var hRem=P*3*0.5/3, hVis=P*1*((1-q)*4+(q-pc)*8+pc*12)/6, fun=P*L*2, hFun=fun/3, hSel=2*40/12;
+    var uso=(hRem+hVis+hFun+hSel)/(an*140*0.5);
     var datas=2*2*Po+2+1, atl=Math.round(P*0.75)*4*10+Math.round(P*0.5*0.75)*2*18;
     $('#oP').textContent=P;$('#oPo').textContent=Po;$('#oQ').textContent=Math.round(q*100)+'%';$('#oL').textContent=L;
     $('#rEq').textContent=eq;$('#rFun').textContent=fmt(fun);$('#rDat').textContent=datas;$('#rAtl').textContent=fmt(atl);
@@ -1123,21 +1198,26 @@ sup a{color:var(--red-soft);text-decoration:none;font-family:var(--mono);font-si
 
   /* decisões */
   var DEC=[
-    {g:'Metodologia e competição',items:[
-      {id:'polo',q:'Qual polo do interior acompanha a Região Metropolitana no ano 1?',o:['Passo Fundo','Pelotas','Caxias do Sul','Outro'],why:'Os três já aparecem como polos regionais no material do Celeiro de Ases.'},
+    {g:'Rede e identidade',items:[
+      {id:'ident',q:'Que identidade Inter o parceiro carrega?',o:['Selo de parceiro','Material oficial de competição','Os dois'],why:'A forma concreta da identificação ainda está em aberto e depende de licença de marca.'},
+      {id:'tf',q:'O contrato com a Time Forte limita parceiros com a identidade Inter?',o:['Não limita','Limita por marca ou raio','Preciso ver o contrato'],why:'É a variável de bloqueio do modelo: exclusividade de marca ou proteção territorial das franquias.'},
+      {id:'escola',q:'As unidades da Escola do Inter contam na meta de 60 a 80 parceiros?',o:['Contam e entram no calendário','Entram só no calendário','Não contam'],why:'A Time Forte tem cronograma próprio de expansão; contar ou não muda a meta e o calendário.'},
+      {id:'polo',q:'Qual polo do interior acompanha a Região Metropolitana na Fase 1?',o:['Caxias do Sul','Passo Fundo','Pelotas','Outro'],why:'Os três aparecem como polos regionais no material do Celeiro de Ases.'}
+    ]},
+    {g:'Competição e Seleção',items:[
+      {id:'sel',q:'Qual o formato da Seleção?',o:['Evento periódico','Competição própria','Avaliação contínua','Decidir depois'],why:'Ganho para o atleta, para quem formou e para o clube. Convocação não promete vaga na base.'},
       {id:'sub79',q:'Qual o formato das competições Sub-7 e Sub-9?',o:['Competitivo adaptado','Festival lúdico'],rec:0,why:'Jogos curtos, rodízio de todos e sem eliminação precoce. O festival só vale se for de fato sem classificação.'},
-      {id:'campo',q:'Em que categoria o campo entra no calendário?',o:['Sub-9, como no Celeiro','Sub-11, como no BC V1'],why:'O Celeiro inicia o campo no Sub-9; o calendário do BC V1 começa no Sub-11.'},
-      {id:'novas',q:'Quando entram o Sub-14 e o feminino?',o:['Já no ano 1','A partir da Fase 2','Ainda não'],why:'As duas categorias mudam o volume de equipes, atletas e datas.'},
+      {id:'campo',q:'Em que categoria o campo entra no calendário?',o:['Sub-9, como no Celeiro','Sub-11, como no Business Case'],why:'O Celeiro inicia o campo no Sub-9; o calendário do Business Case começa no Sub-11.'},
+      {id:'novas',q:'Quando entram o Sub-14 e o feminino?',o:['Já na Fase 1','A partir da Fase 2','Ainda não'],why:'As duas categorias mudam o volume de equipes, atletas e datas.'},
       {id:'prod',q:'Quem produz os eventos?',o:['Equipe do SACI','Produtora contratada','Polos-sede, com apoio','Apoio a federações e ligas'],why:'É o maior esforço operacional do SACI e muda o tamanho da equipe.'}
     ]},
     {g:'Funil e dados',items:[
       {id:'lim',q:'Quantos atletas de interesse cada parceiro pode sinalizar?',o:['1 por categoria','2 por categoria','Sem limite fixo'],rec:0,why:'O limite mantém o funil delimitado e reduz o incentivo a sinalizar em excesso.'},
       {id:'crit',q:'Quem define os critérios de perfil do atleta?',o:['Departamento de formação','Formação e SACI juntos'],why:'O SACI registra e acompanha; a avaliação técnica é da formação.'},
-      {id:'gami',q:'A gamificação é voltada a quem?',o:['Ao parceiro','Ao atleta'],rec:0,why:'O Celeiro prevê uma plataforma com IA como olheiro e um Medidor de Paixão. Com dados de crianças, isso exige consentimento específico e em destaque dos responsáveis (LGPD, art. 14).'}
+      {id:'gami',q:'A gamificação é voltada a quem?',o:['A escolinhas e parceiros','Ao atleta'],rec:0,why:'Com a Seleção como marco para quem forma. Dados de crianças exigem consentimento específico e em destaque dos responsáveis (LGPD, art. 14).'}
     ]},
-    {g:'Dinheiro e governança',items:[
-      {id:'ident',q:'Qual a identidade Inter de entrada para o parceiro?',o:['Material oficial do clube','Conversão em Escola do Inter','Os dois, conforme a relação'],why:'Material e marca dependem de licenciamento e do contrato com a Time Forte; também define quem paga o uniforme.'},
-      {id:'tf',q:'O contrato com a Time Forte permite repassar receita ao SACI?',o:['Sim','Não','Preciso ver o contrato'],why:'É a variável de bloqueio da principal fonte de receita.'},
+    {g:'Receita e governança',items:[
+      {id:'rec',q:'Qual fonte de receita priorizar?',o:['Licenciamento da Escola do Inter','Material e cursos','Lei de Incentivo via FECI'],why:'Hoje só as escolinhas remuneram o clube; parceiros geram receita indireta.'},
       {id:'pacto',q:'Como conciliar o reconhecimento formativo do SACI com o mecanismo de solidariedade do Pacto de Formação?',o:['Unificar no Pacto','Manter separados','Levar ao jurídico'],why:'O Pacto prevê ao clube parceiro um percentual dos direitos econômicos do atleta.'},
       {id:'gov',q:'A quem o SACI responde?',o:['Futebol de base','Área institucional','Ainda em aberto'],why:'Define orçamento, autonomia e quem aprova a versão para o board.'}
     ]}
@@ -1173,7 +1253,7 @@ sup a{color:var(--red-soft);text-decoration:none;font-family:var(--mono);font-si
   });
   $('#decTotal').textContent=total;
   function summary(){
-    var lines=['Projeto SACI v1 · decisões marcadas em '+new Date().toLocaleDateString('pt-BR'),''];
+    var lines=['Projeto SACI v2 · decisões marcadas em '+new Date().toLocaleDateString('pt-BR'),''];
     DEC.forEach(function(grp){lines.push(grp.g.toUpperCase());grp.items.forEach(function(it){lines.push('- '+it.q+' → '+(answers[it.id]||'(em aberto)'));});lines.push('');});
     return lines.join('\n');
   }

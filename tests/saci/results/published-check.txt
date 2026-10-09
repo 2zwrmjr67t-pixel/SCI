@@ -1,0 +1,82 @@
+URL: https://2zwrmjr67t-pixel.github.io/SCI/
+Data: 2026-10-09T11:42:59Z
+Commit do repo: 19fbef0b497efa935f916777fc9224f0181d7c2e
+
+== Cabeçalhos HTTP
+HTTP/2 200 
+server: GitHub.com
+content-type: text/html; charset=utf-8
+last-modified: Fri, 09 Oct 2026 11:34:16 GMT
+access-control-allow-origin: *
+strict-transport-security: max-age=31556952
+etag: "6ac8d138-1a973"
+expires: Fri, 09 Oct 2026 11:52:59 GMT
+cache-control: max-age=600
+x-proxy-cache: MISS
+x-github-request-id: 7522:1BA178:0FF9:213C:6AC8D342
+x-github-edge-region: westus2
+accept-ranges: bytes
+age: 0
+date: Fri, 09 Oct 2026 11:42:59 GMT
+via: 1.1 varnish
+x-served-by: cache-bfi-krnt7300081-BFI
+x-cache: MISS
+x-cache-hits: 0
+x-timer: S1791546179.348376,VS0,VE272
+vary: Accept-Encoding
+x-fastly-request-id: 44e9ebc07b3a4ff39dbf1b6c78a807575b183cdc
+content-length: 108915
+
+
+== Hashes
+25a00e73020c05d8ad0a88714faefef9e2150139e37371a31ac0007d0b2b58cb  published.html
+25a00e73020c05d8ad0a88714faefef9e2150139e37371a31ac0007d0b2b58cb  ../index.html
+108915 published.html
+108915 ../index.html
+217830 total
+
+IDENTICOS
+
+== Metadados (publicada)
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Projeto SACI</title>
+<title>Porto Alegre: 9</title>
+<title>Alvorada: 6</title>
+<title>Canoas: 8</title>
+<title>Cachoeirinha: 6</title>
+<title>Guaíba: 2</title>
+<title>Viamão: 6</title>
+<title>Esteio: 4</title>
+<title>Gravataí: 7</title>
+<title>Sapucaia do Sul: 7</title>
+<title>São Leopoldo: 5</title>
+<title>Novo Hamburgo: 7</title>
+<title>Campo Bom: 2</title>
+<title>Sapiranga: 2</title>
+<title>Taquara: 1</title>
+<title>Canela: 2</title>
+<title>Farroupilha: 3</title>
+<title>Lajeado: 3</title>
+<title>Caxias do Sul: 8</title>
+<title>Bento Gonçalves: 6</title>
+<title>Tramandaí: 2</title>
+<title>Venâncio Aires: 1</title>
+<title>Capão da Canoa: 2</title>
+<title>Santa Cruz do Sul: 5</title>
+<title>Vacaria: 1</title>
+<title>Canguçu: 1</title>
+<title>Pelotas: 3</title>
+<title>Passo Fundo: 4</title>
+<title>Rio Grande: 1</title>
+<title>Carazinho: 1</title>
+<title>Santa Maria: 5</title>
+<title>Erechim: 6</title>
+<title>São Gabriel: 1</title>
+<title>Bagé: 3</title>
+<title>Ijuí: 3</title>
+<title>Santo Ângelo: 2</title>
+<title>Alegrete: 2</title>
+<title>São Borja: 2</title>
+<title>Uruguaiana: 3</title>
+og: 0 tags

@@ -1312,7 +1312,7 @@
       "gapAt760": 0
      },
      "errors": [],
-     "ms": 28469
+     "ms": 26822
     },
     "no-preference": {
      "status": 200,
@@ -2608,7 +2608,7 @@
       "gapAt760": 0
      },
      "errors": [],
-     "ms": 27863
+     "ms": 26363
     }
    },
    "fontsBlocked": {
@@ -4189,7 +4189,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 17661
+     "ms": 17072
     },
     "no-preference": {
      "status": 200,
@@ -4355,7 +4355,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 17738
+     "ms": 16863
     }
    },
    "fontsBlocked": {
@@ -5796,7 +5796,7 @@
       "gapAt760": 101
      },
      "errors": [],
-     "ms": 39069
+     "ms": 37360
     },
     "no-preference": {
      "status": 200,
@@ -6999,7 +6999,7 @@
       "gapAt760": 101
      },
      "errors": [],
-     "ms": 43108
+     "ms": 41567
     }
    },
    "fontsBlocked": {
@@ -8530,7 +8530,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 26891
+     "ms": 25635
     },
     "no-preference": {
      "status": 200,
@@ -8696,7 +8696,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 29543
+     "ms": 28322
     }
    },
    "fontsBlocked": {
@@ -10095,7 +10095,7 @@
       "gapAt760": 14
      },
      "errors": [],
-     "ms": 48352
+     "ms": 47281
     },
     "no-preference": {
      "status": 200,
@@ -11256,7 +11256,7 @@
       "gapAt760": 14
      },
      "errors": [],
-     "ms": 47103
+     "ms": 46105
     }
    },
    "fontsBlocked": {
@@ -13829,7 +13829,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 45763
+     "ms": 44789
     },
     "no-preference": {
      "status": 200,
@@ -15149,7 +15149,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 49706
+     "ms": 47609
     }
    },
    "fontsBlocked": {
@@ -17724,7 +17724,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 40918
+     "ms": 40072
     },
     "no-preference": {
      "status": 200,
@@ -18928,7 +18928,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 44085
+     "ms": 42178
     }
    },
    "fontsBlocked": {
@@ -21545,7 +21545,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 40452
+     "ms": 39484
     },
     "no-preference": {
      "status": 200,
@@ -22865,7 +22865,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 41079
+     "ms": 40594
     }
    },
    "fontsBlocked": {
@@ -25463,7 +25463,7 @@
       "gapAt760": 68
      },
      "errors": [],
-     "ms": 41854
+     "ms": 41672
     },
     "no-preference": {
      "status": 200,
@@ -26666,7 +26666,7 @@
       "gapAt760": 68
      },
      "errors": [],
-     "ms": 44170
+     "ms": 44300
     }
    },
    "fontsBlocked": {
@@ -28158,7 +28158,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 27409
+     "ms": 26772
     },
     "no-preference": {
      "status": 200,
@@ -28324,7 +28324,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 29324
+     "ms": 29229
     }
    },
    "fontsBlocked": {
@@ -29673,7 +29673,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 41982
+     "ms": 41008
     },
     "no-preference": {
      "status": 200,
@@ -30784,7 +30784,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 43461
+     "ms": 42209
     }
    },
    "fontsBlocked": {
@@ -33003,7 +33003,7 @@
       "gapAt760": 90
      },
      "errors": [],
-     "ms": 47237
+     "ms": 46544
     },
     "no-preference": {
      "status": 200,
@@ -34039,7 +34039,7 @@
       "gapAt760": 90
      },
      "errors": [],
-     "ms": 49451
+     "ms": 47347
     }
    },
    "fontsBlocked": {
@@ -36189,7 +36189,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 45794
+     "ms": 44093
     },
     "no-preference": {
      "status": 200,
@@ -37236,7 +37236,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 50658
+     "ms": 48035
     }
    },
    "fontsBlocked": {
@@ -39369,7 +39369,7 @@
       "gapAt760": 14
      },
      "errors": [],
-     "ms": 52379
+     "ms": 50363
     },
     "no-preference": {
      "status": 200,
@@ -40383,7 +40383,7 @@
       "gapAt760": 14
      },
      "errors": [],
-     "ms": 54807
+     "ms": 53689
     }
    },
    "fontsBlocked": {
@@ -42501,7 +42501,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 55247
+     "ms": 53994
     },
     "no-preference": {
      "status": 200,
@@ -43538,7 +43538,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 58266
+     "ms": 56538
     }
    },
    "fontsBlocked": {
@@ -45589,7 +45589,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 61326
+     "ms": 59880
     },
     "no-preference": {
      "status": 200,
@@ -46531,7 +46531,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 60593
+     "ms": 65232
     }
    },
    "fontsBlocked": {
@@ -48632,7 +48632,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 51081
+     "ms": 48855
     },
     "no-preference": {
      "status": 200,
@@ -49722,7 +49722,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 50105
+     "ms": 50331
     }
    },
    "fontsBlocked": {
@@ -51875,7 +51875,7 @@
       "gapAt760": 34
      },
      "errors": [],
-     "ms": 52522
+     "ms": 52280
     },
     "no-preference": {
      "status": 200,
@@ -52866,7 +52866,7 @@
       "gapAt760": 34
      },
      "errors": [],
-     "ms": 52292
+     "ms": 50540
     }
    },
    "fontsBlocked": {
@@ -55131,7 +55131,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 28628
+     "ms": 28616
     },
     "no-preference": {
      "status": 200,
@@ -56338,7 +56338,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 31559
+     "ms": 30634
     }
    },
    "fontsBlocked": {
@@ -58821,7 +58821,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 34410
+     "ms": 33479
     },
     "no-preference": {
      "status": 200,
@@ -59981,7 +59981,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 33962
+     "ms": 33370
     }
    },
    "fontsBlocked": {
@@ -62326,7 +62326,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 39173
+     "ms": 36633
     },
     "no-preference": {
      "status": 200,
@@ -63438,7 +63438,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 39363
+     "ms": 39813
     }
    },
    "fontsBlocked": {
@@ -65850,7 +65850,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 27138
+     "ms": 27449
     },
     "no-preference": {
      "status": 200,
@@ -67057,7 +67057,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 30312
+     "ms": 30290
     }
    },
    "fontsBlocked": {
@@ -69491,7 +69491,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 41259
+     "ms": 40396
     },
     "no-preference": {
      "status": 200,
@@ -70602,7 +70602,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 43635
+     "ms": 42933
     }
    },
    "fontsBlocked": {
@@ -72821,7 +72821,7 @@
       "gapAt760": 90
      },
      "errors": [],
-     "ms": 48039
+     "ms": 46057
     },
     "no-preference": {
      "status": 200,
@@ -73857,7 +73857,7 @@
       "gapAt760": 90
      },
      "errors": [],
-     "ms": 50791
+     "ms": 48764
     }
    },
    "fontsBlocked": {
@@ -76007,7 +76007,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 45487
+     "ms": 44152
     },
     "no-preference": {
      "status": 200,
@@ -77054,7 +77054,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 49799
+     "ms": 48086
     }
    },
    "fontsBlocked": {
@@ -79187,7 +79187,7 @@
       "gapAt760": 14
      },
      "errors": [],
-     "ms": 51517
+     "ms": 49536
     },
     "no-preference": {
      "status": 200,
@@ -80201,7 +80201,7 @@
       "gapAt760": 14
      },
      "errors": [],
-     "ms": 54588
+     "ms": 52871
     }
    },
    "fontsBlocked": {
@@ -82319,7 +82319,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 55488
+     "ms": 53784
     },
     "no-preference": {
      "status": 200,
@@ -83356,7 +83356,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 58808
+     "ms": 57767
     }
    },
    "fontsBlocked": {
@@ -85407,7 +85407,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 60443
+     "ms": 60350
     },
     "no-preference": {
      "status": 200,
@@ -86349,7 +86349,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 64362
+     "ms": 61608
     }
    },
    "fontsBlocked": {
@@ -88567,7 +88567,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 29683
+     "ms": 29087
     },
     "no-preference": {
      "status": 200,
@@ -89774,7 +89774,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 32543
+     "ms": 31527
     }
    },
    "fontsBlocked": {
@@ -92257,7 +92257,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 33907
+     "ms": 32920
     },
     "no-preference": {
      "status": 200,
@@ -93417,7 +93417,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 36346
+     "ms": 32376
     }
    },
    "fontsBlocked": {
@@ -95762,7 +95762,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 41585
+     "ms": 35835
     },
     "no-preference": {
      "status": 200,
@@ -96874,7 +96874,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 39715
+     "ms": 37893
     }
    },
    "fontsBlocked": {
@@ -99286,7 +99286,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 31010
+     "ms": 27715
     },
     "no-preference": {
      "status": 200,
@@ -100493,7 +100493,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 29400
+     "ms": 29410
     }
    },
    "fontsBlocked": {
@@ -102807,7 +102807,7 @@
       "gapAt760": 40
      },
      "errors": [],
-     "ms": 21748
+     "ms": 21280
     },
     "no-preference": {
      "status": 200,
@@ -103798,7 +103798,7 @@
       "gapAt760": 40
      },
      "errors": [],
-     "ms": 23199
+     "ms": 23185
     }
    },
    "fontsBlocked": {
@@ -105821,7 +105821,7 @@
       "gapAt760": 60
      },
      "errors": [],
-     "ms": 21810
+     "ms": 21578
     },
     "no-preference": {
      "status": 200,
@@ -106786,7 +106786,7 @@
       "gapAt760": 60
      },
      "errors": [],
-     "ms": 21159
+     "ms": 22322
     }
    },
    "fontsBlocked": {
@@ -108737,7 +108737,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 21645
+     "ms": 21862
     },
     "no-preference": {
      "status": 200,
@@ -109676,7 +109676,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 25694
+     "ms": 24403
     }
    },
    "fontsBlocked": {
@@ -111585,7 +111585,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 26213
+     "ms": 25428
     },
     "no-preference": {
      "status": 200,
@@ -112488,7 +112488,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 30522
+     "ms": 29959
     }
    },
    "fontsBlocked": {
@@ -114261,7 +114261,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 33460
+     "ms": 32783
     },
     "no-preference": {
      "status": 200,
@@ -115064,7 +115064,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 38834
+     "ms": 39466
     }
    },
    "fontsBlocked": {
@@ -116099,7 +116099,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 11646
+     "ms": 11441
     },
     "no-preference": {
      "status": 200,
@@ -116265,7 +116265,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 16544
+     "ms": 16814
     }
    },
    "fontsBlocked": {
@@ -117434,7 +117434,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 38216
+     "ms": 36972
     },
     "no-preference": {
      "status": 200,
@@ -118369,7 +118369,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 35720
+     "ms": 35447
     }
    },
    "fontsBlocked": {
@@ -120363,7 +120363,7 @@
       "gapAt760": 40
      },
      "errors": [],
-     "ms": 36180
+     "ms": 36431
     },
     "no-preference": {
      "status": 200,
@@ -121354,7 +121354,7 @@
       "gapAt760": 40
      },
      "errors": [],
-     "ms": 35221
+     "ms": 33658
     }
    },
    "fontsBlocked": {
@@ -123473,7 +123473,7 @@
       "gapAt760": 0
      },
      "errors": [],
-     "ms": 25695
+     "ms": 25782
     },
     "no-preference": {
      "status": 200,
@@ -124533,7 +124533,7 @@
       "gapAt760": 0
      },
      "errors": [],
-     "ms": 26098
+     "ms": 27562
     }
    },
    "fontsBlocked": {
@@ -126988,7 +126988,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 16121
+     "ms": 19519
     },
     "no-preference": {
      "status": 200,
@@ -128294,7 +128294,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 16412
+     "ms": 16347
     }
    },
    "fontsBlocked": {
@@ -128354,7 +128354,7 @@
        "key": "competicao",
        "pinned": true,
        "tight": true,
-       "scale": "0.8617"
+       "scale": "0.9337"
       },
       {
        "id": "metodologia",

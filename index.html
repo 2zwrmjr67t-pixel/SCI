@@ -25,7 +25,7 @@
   color-scheme:dark;
 }
 html{scroll-behavior:smooth}
-@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto} *,*::before,*::after{transition:none!important;animation:none!important}}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
 body{margin:0;background:var(--ink);color:var(--fg);font-family:var(--body);font-size:18px;line-height:1.55;-webkit-font-smoothing:antialiased}
 main{overflow-x:clip}
 a{color:var(--red-soft)}
@@ -929,7 +929,7 @@ sup a{color:var(--red-soft);text-decoration:none;font-family:var(--mono);font-si
     if(k==='fases')phaseAt(lastPhaseT);
   }
   function layout(){
-    cine=!rm.matches && VH>=440 && VH<=1600;
+    cine=!/[?&]estatico\b/.test(location.search) && VH>=360 && VH<=1600;
     root.classList.toggle('cine',cine);
     Object.keys(pins).forEach(function(k){
       var pin=pins[k];

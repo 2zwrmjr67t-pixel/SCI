@@ -9,8 +9,9 @@ const SOURCE = process.env.SOURCE || 'local';
 const OUT = process.env.OUT || 'results';
 const ONLY = process.env.ONLY ? process.env.ONLY.split(',') : null;
 const POOL = +(process.env.POOL || 3);
-const URL = SOURCE === 'published'
-  ? 'https://2zwrmjr67t-pixel.github.io/SCI/'
+// local = index.html do checkout; published = GitHub Pages; anterior = commit 2de5fb9 (no ar de 07/10 a 09/10)
+const URL = SOURCE === 'published' ? 'https://2zwrmjr67t-pixel.github.io/SCI/'
+  : SOURCE === 'anterior' ? (process.env.PREV_URL || 'http://127.0.0.1:8080/_anterior/index.html')
   : (process.env.LOCAL_URL || 'http://127.0.0.1:8080/index.html');
 
 const UA = {

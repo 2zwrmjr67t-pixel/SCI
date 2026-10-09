@@ -44,8 +44,12 @@ jobs:
       matrix:
         engine: [chromium, firefox, webkit]
         source: [local, published]
+        include:
+          - { engine: chromium, source: anterior }
+          - { engine: webkit, source: anterior }
     steps:
       - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
       - uses: actions/setup-node@v4
         with: { node-version: 20 }
       - name: Instala Playwright
@@ -62,6 +66,7 @@ jobs:
           OUT: out/${{ matrix.engine }}-${{ matrix.source }}
           POOL: '3'
         run: |
+          mkdir -p ../../_anterior && git show 2de5fb9:index.html > ../../_anterior/index.html
           (cd ../.. && python3 -m http.server 8080 >/dev/null 2>&1 &)
           sleep 1
           node matrix.mjs

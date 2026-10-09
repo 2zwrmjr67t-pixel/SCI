@@ -1,0 +1,93 @@
+name: SACI · bateria de teste
+
+on:
+  push:
+    branches: [claude/brave-brahmagupta-xu0kfi]
+    paths: ['tests/saci/**', '.github/workflows/saci-matrix.yml', '!tests/saci/results/**']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: saci-matrix
+  cancel-in-progress: true
+
+jobs:
+  published:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Compara versão publicada com a do repositório
+        run: |
+          mkdir -p out && cd out
+          URL=https://2zwrmjr67t-pixel.github.io/SCI/
+          curl -sS -D headers.txt -o published.html "$URL"
+          {
+            echo "URL: $URL"; echo "Data: $(date -u +%FT%TZ)"; echo "Commit do repo: $GITHUB_SHA"; echo
+            echo "== Cabeçalhos HTTP"; cat headers.txt; echo
+            echo "== Hashes"; sha256sum published.html ../index.html; wc -c published.html ../index.html; echo
+            if cmp -s published.html ../index.html; then echo "IDENTICOS"; else echo "DIFERENTES"; diff <(tr '>' '\n' < ../index.html) <(tr '>' '\n' < published.html) | head -80; fi; echo
+            echo "== Metadados (publicada)"
+            grep -o -iE '<meta name="viewport"[^>]*>|<meta name="robots"[^>]*>|<title>[^<]*</title>|<meta[^>]*property="og:[^"]*"[^>]*>|<meta[^>]*name="twitter:[^"]*"[^>]*>|<link rel="icon"[^>]*>' published.html || true
+            echo "og: $(grep -c 'property="og:' published.html || true) tags"
+          } > published-check.txt
+          cat published-check.txt
+      - uses: actions/upload-artifact@v4
+        with: { name: published-check, path: out/published-check.txt }
+
+  matrix:
+    runs-on: ubuntu-latest
+    timeout-minutes: 75
+    strategy:
+      fail-fast: false
+      matrix:
+        engine: [chromium, firefox, webkit]
+        source: [local, published]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - name: Instala Playwright
+        working-directory: tests/saci
+        run: |
+          npm init -y >/dev/null
+          npm i playwright@1.56.1
+          npx playwright install --with-deps ${{ matrix.engine }}
+      - name: Roda a matriz
+        working-directory: tests/saci
+        env:
+          ENGINE: ${{ matrix.engine }}
+          SOURCE: ${{ matrix.source }}
+          OUT: out/${{ matrix.engine }}-${{ matrix.source }}
+          POOL: '3'
+        run: |
+          (cd ../.. && python3 -m http.server 8080 >/dev/null 2>&1 &)
+          sleep 1
+          node matrix.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: res-${{ matrix.engine }}-${{ matrix.source }}
+          path: tests/saci/out
+
+  collect:
+    needs: [published, matrix]
+    if: always()
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with: { path: dl }
+      - name: Publica resultados no branch
+        run: |
+          rm -rf tests/saci/results && mkdir -p tests/saci/results
+          cp dl/published-check/published-check.txt tests/saci/results/ || true
+          for d in dl/res-*; do cp -r "$d"/* tests/saci/results/ 2>/dev/null || true; done
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add tests/saci/results
+          git commit -m "Resultados da bateria SACI (run ${{ github.run_id }})" || exit 0
+          git push origin HEAD:${{ github.ref_name }}

@@ -43,10 +43,7 @@ jobs:
       fail-fast: false
       matrix:
         engine: [chromium, firefox, webkit]
-        source: [local, published]
-        include:
-          - { engine: chromium, source: anterior }
-          - { engine: webkit, source: anterior }
+        source: [candidata]
     steps:
       - uses: actions/checkout@v4
         with: { fetch-depth: 0 }
@@ -64,7 +61,7 @@ jobs:
           ENGINE: ${{ matrix.engine }}
           SOURCE: ${{ matrix.source }}
           OUT: out/${{ matrix.engine }}-${{ matrix.source }}
-          POOL: '3'
+          POOL: '4'
         run: |
           mkdir -p ../../_anterior && git show 2de5fb9:index.html > ../../_anterior/index.html
           (cd ../.. && python3 -m http.server 8080 >/dev/null 2>&1 &)
@@ -88,9 +85,9 @@ jobs:
         with: { path: dl }
       - name: Publica resultados no branch
         run: |
-          rm -rf tests/saci/results && mkdir -p tests/saci/results
+          mkdir -p tests/saci/results
           cp dl/published-check/published-check.txt tests/saci/results/ || true
-          for d in dl/res-*; do cp -r "$d"/* tests/saci/results/ 2>/dev/null || true; done
+          for d in dl/res-*; do for r in "$d"/*; do rm -rf "tests/saci/results/$(basename "$r")"; cp -r "$r" tests/saci/results/; done; done
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add tests/saci/results

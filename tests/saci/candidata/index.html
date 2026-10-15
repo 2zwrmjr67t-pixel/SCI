@@ -261,7 +261,7 @@ sup a{color:var(--red-soft);text-decoration:none;font-family:var(--mono);font-si
 .age.hot{color:var(--red-on-paper);font-weight:500}
 .age.blank{border:0}
 .rl{grid-column:1;font-size:14px;font-weight:600;line-height:1.25;padding-right:10px}
-.bar{height:34px;border-radius:9px;display:flex;align-items:center;padding:0 10px;font-size:13px;line-height:1.15;overflow:hidden;min-width:0;white-space:nowrap}
+.bar{min-height:34px;box-sizing:border-box;border-radius:9px;display:flex;align-items:center;padding:5px 10px;font-size:13px;line-height:1.15;overflow:hidden;min-width:0;overflow-wrap:break-word;-webkit-hyphens:auto;hyphens:auto}
 .bar.p1{background:var(--ph1);color:var(--paper)}
 .bar.p2{background:var(--ph2);color:var(--paper)}
 .bar.p3{background:var(--ph3);color:var(--paper)}
@@ -294,7 +294,7 @@ sup a{color:var(--red-soft);text-decoration:none;font-family:var(--mono);font-si
   .e7{grid-column-end:3}.e8{grid-column-end:4}.e9{grid-column-end:5}.e11{grid-column-end:7}.e13{grid-column-end:9}
   .r1,.r2,.r3,.r4,.r5{grid-row:auto}
   .age .s{display:none}
-  .bar{height:26px;font-size:11px;padding:0 6px}
+  .bar{min-height:26px;font-size:11px;padding:4px 6px}
   .mk{width:14px;height:14px}
   .agecard{min-height:7.5em}
   .agecard .at,.agecard .ac{font-size:13px}

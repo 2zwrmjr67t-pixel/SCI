@@ -162,6 +162,13 @@ async function overflowAt(page, key) {
         if (r.left < sr.left - 2) why.push('à esquerda da cena');
         if (r.right > sr.right + 2) why.push('à direita da cena');
       }
+      // texto cortado dentro da própria caixa (overflow hidden + conteúdo maior que a caixa)
+      for (let a = el; a && a !== stage && a !== pin; a = a.parentElement) {
+        const cs = getComputedStyle(a);
+        if (!/hidden|clip/.test(cs.overflowX + cs.overflowY) || a.closest('#track,#marquee')) continue;
+        const ar = a.getBoundingClientRect();
+        if (r.right > ar.right + 2 || r.left < ar.left - 2 || r.bottom > ar.bottom + 2 || r.top < ar.top - 2) { why.push('cortado dentro de ' + (a.id ? '#' + a.id : a.className.toString().split(' ')[0] || a.tagName.toLowerCase())); break; }
+      }
       if (r.left < -1) why.push('sai da tela à esquerda');
       if (r.right > VW + 1) why.push('sai da tela à direita');
       if (!why.length) continue;

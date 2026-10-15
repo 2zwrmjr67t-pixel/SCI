@@ -143,12 +143,12 @@ sup a{color:var(--red-soft);text-decoration:none;font-family:var(--mono);font-si
 .tight .eyebrow{margin-bottom:8px}
 .map{display:block;width:100%;height:auto}
 .map .rs{fill:var(--ink-2);stroke:var(--off-lab);stroke-width:1.6}
-.map .city{fill:var(--fg);opacity:.9;transform-box:fill-box;transform-origin:center;transition:transform .45s cubic-bezier(.2,.9,.3,1.4),opacity .45s}
+.map .city{fill:var(--fg);opacity:.9;transform-box:fill-box;transform-origin:center;transition:transform .6s cubic-bezier(.2,.9,.3,1.3),opacity .6s,fill .4s}
 .pinned .map .city:not(.on){transform:scale(0);opacity:0}
 .map .city.now{fill:var(--red)}
-.map .pring{fill:none;stroke:var(--red);stroke-width:3;transform-box:fill-box;transform-origin:center;transition:transform .7s cubic-bezier(.2,.8,.2,1),opacity .7s}
+.map .pring{fill:none;stroke:var(--red);stroke-width:3;transform-box:fill-box;transform-origin:center;transition:transform .9s cubic-bezier(.2,.8,.2,1),opacity .9s}
 .map .pring.cand{stroke:var(--fg-2);stroke-dasharray:8 7;stroke-width:2.4}
-.map .plab{font-family:var(--mono);font-size:30px;fill:var(--fg);transition:opacity .7s}
+.map .plab{font-family:var(--mono);font-size:30px;fill:var(--fg);transition:opacity .9s}
 .map .plab.cand{fill:var(--fg-2)}
 .pinned .map .pol:not(.on) .pring{transform:scale(.3);opacity:0}
 .pinned .map .pol:not(.on) .plab{opacity:0}
@@ -261,7 +261,7 @@ sup a{color:var(--red-soft);text-decoration:none;font-family:var(--mono);font-si
 .age.hot{color:var(--red-on-paper);font-weight:500}
 .age.blank{border:0}
 .rl{grid-column:1;font-size:14px;font-weight:600;line-height:1.25;padding-right:10px}
-.bar{height:34px;border-radius:9px;display:flex;align-items:center;padding:0 10px;font-size:13px;line-height:1.15;overflow:hidden;min-width:0;white-space:nowrap}
+.bar{min-height:34px;box-sizing:border-box;border-radius:9px;display:flex;align-items:center;padding:5px 10px;font-size:13px;line-height:1.15;overflow:hidden;min-width:0;overflow-wrap:break-word;-webkit-hyphens:auto;hyphens:auto}
 .bar.p1{background:var(--ph1);color:var(--paper)}
 .bar.p2{background:var(--ph2);color:var(--paper)}
 .bar.p3{background:var(--ph3);color:var(--paper)}
@@ -294,7 +294,7 @@ sup a{color:var(--red-soft);text-decoration:none;font-family:var(--mono);font-si
   .e7{grid-column-end:3}.e8{grid-column-end:4}.e9{grid-column-end:5}.e11{grid-column-end:7}.e13{grid-column-end:9}
   .r1,.r2,.r3,.r4,.r5{grid-row:auto}
   .age .s{display:none}
-  .bar{height:26px;font-size:11px;padding:0 6px}
+  .bar{min-height:26px;font-size:11px;padding:4px 6px}
   .mk{width:14px;height:14px}
   .agecard{min-height:7.5em}
   .agecard .at,.agecard .ac{font-size:13px}
@@ -461,6 +461,158 @@ sup a{color:var(--red-soft);text-decoration:none;font-family:var(--mono);font-si
 @media (max-width:900px){.notes-grid{grid-template-columns:minmax(0,1fr)}}
 .colophon{margin-top:48px;font-size:13px;color:var(--fg-3);max-width:90ch}
 .kbd{font-family:var(--mono);font-size:12px;border:1px solid var(--line);border-radius:5px;padding:1px 6px}
+
+/* ---- v3: O norte, guia de sinais, Rodada Colorada ---- */
+.nor-h2{max-width:18ch}
+.pinned .nor-h2{font-size:clamp(30px,min(4.6vw,7vh),64px)}
+.pinned .nor-lead{font-size:clamp(15px,1.4vw,18px);margin-top:10px}
+.ladder{margin-top:30px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--line)}
+.rung{appearance:none;background:transparent;border:0;border-right:1px solid var(--line);padding:16px 20px 18px;text-align:left;cursor:pointer;position:relative;color:var(--fg);font:inherit;transition:background .3s}
+.rung:last-child{border-right:0}
+.rung:hover{background:var(--ink-2)}
+.rung[aria-pressed="true"]{background:var(--ink-3)}
+.rung[aria-pressed="true"]::before{content:"";position:absolute;left:0;right:0;top:-1px;height:3px;background:var(--red)}
+.rung .ra{display:block;font-family:var(--display);font-weight:850;font-stretch:72%;font-size:clamp(40px,min(5.4vw,8vh),72px);line-height:.9;color:var(--fg-3);transition:color .3s;font-variant-numeric:tabular-nums}
+.rung[aria-pressed="true"] .ra{color:var(--fg)}
+.rung .rw{display:block;font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--red-soft);margin-top:8px}
+.rung .rm{display:block;font-size:15px;color:var(--fg-2);margin-top:6px}
+@media (max-width:720px){.ladder{grid-template-columns:repeat(3,minmax(0,1fr))}.rung{padding:12px 10px}.rung .rm{display:none}.rung .rw{font-size:10px;letter-spacing:.06em}}
+.ndetail{background:var(--ink-3);padding:22px 24px;display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:28px;align-items:start}
+@media (max-width:820px){.ndetail{grid-template-columns:minmax(0,1fr);gap:14px;padding:18px}}
+.nd-what{font-family:var(--display);font-weight:800;font-stretch:85%;font-size:clamp(20px,2.3vw,30px);line-height:1.12;margin:0;text-wrap:balance}
+.pitch{width:100%;max-width:440px;height:auto;display:block;margin-top:16px}
+.pitch .pf{fill:var(--grass);stroke:var(--grass-line)}
+.pitch .pl{fill:none;stroke:var(--grass-line)}
+.pitch .opp{fill:var(--fg-3);transition:opacity .4s}
+.pitch .zone{fill:var(--red-a);transition:opacity .4s}
+.pitch .dash{stroke-dasharray:4 4}
+.pitch .press{fill:none;stroke:var(--red-soft);stroke-width:2.5}
+.pitch .pass,.pitch .arr,.pitch .zl{transition:opacity .4s}
+.pitch .pass{fill:none;stroke:var(--red-soft);stroke-width:2.5;stroke-dasharray:6 5}
+.pitch .arr{fill:var(--red-soft)}
+.pitch .me{fill:var(--red)}
+.pitch .mate{fill:var(--fg)}
+.pitch .lab{fill:var(--mint);font-family:var(--mono);font-size:11px}
+.nd-dl{margin:0;display:grid;gap:12px}
+.nd-dl dt{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--fg-3)}
+.nd-dl dd{margin:3px 0 0;color:var(--fg-2);font-size:15px}
+.thesis{margin:26px 0 0;font-family:var(--display);font-weight:850;font-stretch:80%;font-size:clamp(22px,min(2.8vw,4.6vh),38px);line-height:1.1;max-width:30ch;text-wrap:balance}
+.thesis em{font-style:normal;color:var(--red-soft)}
+.tight .nor-lead,.tight .rung .rm{display:none}
+.pinned .pitch{max-width:320px;margin-top:12px}
+.rung .ra{white-space:nowrap}
+@media (max-width:720px){.rung .ra{font-size:clamp(26px,8vw,40px)}}
+.fun-sub{margin:12px 0 0;font-family:var(--mono);font-size:14px;letter-spacing:.06em;color:var(--red-soft)}
+
+.vb .tool{margin-top:12px;font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--red-soft)}
+.pinned .vb .tool{font-size:13px}
+
+.guide{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:48px;align-items:start}
+@media (max-width:900px){.guide{grid-template-columns:minmax(0,1fr);gap:28px}}
+.guide .h2{font-size:clamp(34px,min(5vw,8vh),64px)}
+.verdict{margin-top:24px;border-radius:14px;padding:18px 20px;background:var(--card);border:1px solid var(--rule-paper);transition:background .3s,border-color .3s}
+.verdict .vs{font-family:var(--display);font-weight:800;font-stretch:85%;font-size:24px;margin:0}
+.verdict .vr{margin:6px 0 0;font-size:14.5px;color:var(--on-paper-2)}
+.verdict.ok{background:var(--grass);border-color:var(--grass-line);color:var(--fg)}
+.verdict.ok .vr{color:var(--mint)}
+.nonote{margin:14px 0 0;font-family:var(--mono);font-size:12px;color:var(--on-paper-2)}
+.sigs{display:grid;gap:20px}
+.axis h3{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--on-paper-2);margin:0 0 8px;font-weight:500}
+.sigset{display:flex;flex-wrap:wrap;gap:8px}
+.sig{appearance:none;font:inherit;font-size:14.5px;border:1px solid var(--rule-paper);background:var(--card);color:var(--on-paper);border-radius:999px;padding:9px 15px;cursor:pointer;display:inline-flex;gap:8px;align-items:center;transition:background .2s,border-color .2s,color .2s}
+.sig code{font-family:var(--mono);font-size:11px;color:var(--on-paper-2)}
+.sig:hover{border-color:var(--on-paper-2)}
+.sig[aria-pressed="true"]{background:var(--on-paper);color:var(--paper);border-color:var(--on-paper)}
+.sig[aria-pressed="true"] code{color:var(--red-soft)}
+.sig-foot{margin-top:28px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.sig-foot p{margin:0;font-size:15px;color:var(--on-paper-2);border-top:1px solid var(--rule-paper);padding-top:10px}
+.sig-foot b{display:block;color:var(--on-paper)}
+
+.rod{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:center}
+@media (max-width:900px){.rod{grid-template-columns:minmax(0,1fr);gap:18px}}
+.pinned .rod-h2{font-size:clamp(30px,min(4.4vw,7vh),62px)}
+.quad{width:100%;max-width:440px;height:auto;display:block;margin-top:22px}
+.pinned .quad{max-height:calc(var(--sh) * .42)}
+.quad .edge{stroke:var(--fg-3);stroke-width:1.5;fill:none}
+.quad .elab{fill:var(--fg-3);font-family:var(--mono);font-size:11px}
+.quad .tm{fill:var(--ink-3);stroke:var(--red-soft)}
+.quad .tm.sel{fill:var(--red-deep);stroke:var(--red)}
+.quad .tm.base{fill:var(--red);stroke:var(--red)}
+.quad .tt{fill:var(--fg);font-family:var(--display);font-weight:800;font-size:15px}
+.facts{border-top:1px solid var(--line)}
+.fact{display:grid;grid-template-columns:110px minmax(0,1fr);gap:16px;padding:13px 0;border-bottom:1px solid var(--line)}
+.fact b{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--fg-3);font-weight:500;padding-top:3px}
+.fact span{color:var(--fg-2);font-size:15.5px}
+@media (max-width:480px){.fact{grid-template-columns:minmax(0,1fr);gap:2px}}
+.score{margin-top:20px;display:flex;flex-wrap:wrap;gap:8px}
+.score span{font-family:var(--mono);font-size:12px;border:1px dashed var(--line);border-radius:6px;padding:7px 10px;color:var(--fg-3)}
+.tight .rod-lead,.tight .score{display:none}
+@media (max-width:900px){.pinned .rod-lead{display:none}.pinned .quad{max-height:calc(var(--sh) * .3);margin-top:12px}}
+
+/* v3.1 · guia de sinais compacto, com sinal no fim */
+.guide{grid-template-areas:"head sigs" "light sigs";grid-template-rows:auto 1fr;row-gap:24px}
+.g-head{grid-area:head}.sigs{grid-area:sigs}.g-light{grid-area:light;align-self:start}
+.g-do{display:flex;gap:10px;align-items:center;margin:18px 0 0;font-weight:600;font-size:16px}
+.g-do span{flex:none;width:26px;height:26px;border-radius:50%;background:var(--red-on-paper);color:#fff;display:grid;place-items:center;font-family:var(--mono);font-size:13px}
+.axis h3 em{font-style:normal;margin-left:8px;padding:2px 8px;border-radius:999px;border:1px solid var(--rule-paper);color:var(--on-paper-2);letter-spacing:.04em;text-transform:none}
+.axis h3 em.done{background:var(--grass);border-color:var(--grass-line);color:var(--mint)}
+.axis .sigset+.sigset{margin-top:8px}
+.lamp{display:flex;gap:14px;align-items:center;border-radius:16px;padding:16px 18px;background:var(--card);border:1px solid var(--rule-paper);transition:background .3s,border-color .3s,color .3s}
+.bulb{flex:none;width:30px;height:30px;border-radius:50%;background:var(--rule-paper);box-shadow:inset 0 0 0 4px rgba(0,0,0,.06);transition:background .3s,box-shadow .3s}
+.lamp.mid .bulb{background:var(--amber)}
+.lamp.ok{background:var(--grass);border-color:var(--grass-line);color:var(--fg)}
+.lamp.ok .bulb{background:#3FD17A;box-shadow:0 0 0 6px rgba(63,209,122,.22),0 0 22px rgba(63,209,122,.55)}
+.lamp .vs{font-family:var(--display);font-weight:800;font-stretch:85%;font-size:22px;line-height:1.1;margin:0}
+.lamp .vr{margin:4px 0 0;font-size:14px;color:var(--on-paper-2)}
+.lamp.ok .vr{color:var(--mint)}
+@media (max-width:900px){
+  .guide{grid-template-areas:"head" "sigs" "light";grid-template-rows:auto;row-gap:18px}
+  .g-lead{display:none}
+  .guide .h2{font-size:clamp(30px,8.5vw,40px)}
+  .sigset{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}
+  .sig{font-size:12.5px;line-height:1.25;padding:7px 9px;border-radius:12px;text-align:left;align-items:flex-start}
+  .sig code{font-size:10px;padding-top:1px}
+  .g-light{position:sticky;bottom:calc(10px + env(safe-area-inset-bottom,0px));z-index:3}
+  .lamp{box-shadow:0 10px 28px rgba(20,18,18,.18)}
+  .lamp .vs{font-size:19px}.lamp .vr{font-size:13px}
+  .nonote{margin-top:8px;font-size:11px}
+  .sig-foot{grid-template-columns:minmax(0,1fr);gap:8px;margin-top:18px}
+  .sig-foot p{font-size:13.5px;padding-top:8px}
+}
+
+/* v3.1 · Rodada Colorada horizontal */
+.board{margin-top:8px}
+.pinned .rod{align-items:start}
+.teams{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:24px}
+.team{border:1px solid var(--red-soft);background:var(--ink-3);border-radius:14px;padding:12px 12px 14px;min-width:0}
+.team .tk{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--fg-3)}
+.team b{display:block;font-family:var(--display);font-weight:850;font-stretch:72%;font-size:clamp(22px,2.6vw,38px);line-height:1;margin-top:6px;white-space:nowrap}
+.team.sel{background:var(--red-deep);border-color:var(--red)}
+.team.base{background:var(--red);border-color:var(--red)}
+.team.base .tk{color:rgba(255,255,255,.8)}
+.rounds{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:10px}
+.round{border-top:2px solid var(--line);padding-top:8px;display:flex;flex-direction:column;gap:4px;min-width:0}
+.round .rl{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--red-soft)}
+.round .m{font-size:14.5px;color:var(--fg-2)}
+@media (max-width:900px){
+  .team{padding:10px 8px 11px;border-radius:12px}
+  .team .tk{font-size:9.5px;letter-spacing:.06em}
+  .team b{font-size:clamp(13px,3.9vw,22px)}
+  #rodada .wrap{display:flex;flex-direction:column}
+  #rodada .rod{display:contents}
+  #rodada .rod>div:first-child{order:1}
+  #rodada .board{order:2}
+  #rodada .rod>div:last-child{order:3;margin-top:14px}
+  .round .m{font-size:13px}
+  .round .rl{font-size:10px}
+  .facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:14px;border-top:0}
+  .fact{grid-template-columns:minmax(0,1fr);gap:2px;padding:9px 0;border-bottom:0;border-top:1px solid var(--line)}
+  .fact span{font-size:13.5px}
+}
+@media (max-width:820px){.pinned .coda-box .guards{gap:6px}.pinned .coda-box .guard{font-size:12px;padding:5px 10px}.coda-sub{font-size:12px;margin-top:12px}}
+.coda-sub{margin:18px 0 0;font-family:var(--mono);font-size:14px;letter-spacing:.04em;color:var(--red-soft);max-width:48ch}
+.ndetail>*{transition:opacity .22s ease,transform .22s ease}
+.ndetail.swap>*{opacity:0;transform:translateY(8px)}
 </style>
 </head>
 <body>
@@ -484,12 +636,14 @@ sup a{color:var(--red-soft);text-decoration:none;font-family:var(--mono);font-si
       <a href="#rede">Rede</a>
       <a href="#competicao">Competição</a>
       <a href="#metodologia">Metodologia</a>
+      <a href="#norte">Método</a>
+      <a href="#sinais">Sinais</a>
       <a href="#funil">Funil</a>
       <a href="#fases">Fases</a>
       <a href="#recursos">Recursos</a>
       <a href="#decisoes">Decisões</a>
     </div>
-    <span class="badge">v2 · para validação</span>
+    <span class="badge">v3 · para validação</span>
   </div>
 </nav>
 
@@ -504,7 +658,7 @@ sup a{color:var(--red-soft);text-decoration:none;font-family:var(--mono);font-si
         <p class="hero-eyebrow">Sistema de Acompanhamento e Captação Integrado</p>
         <h1 id="heroH1">O Inter de volta a cada campinho do Rio Grande.</h1>
         <p class="hero-sub">Escolinhas e parceiros com a identidade do Inter, competições regionais e uma Seleção antes da base.</p>
-        <p class="hero-meta">Projeto SACI · v2 para validação · outubro de 2026</p>
+        <p class="hero-meta">Projeto SACI · v3 para validação · outubro de 2026</p>
         <div class="scroll-cue" aria-hidden="true"></div>
         <p class="kb-hint">Role a página, aperte <span class="kbd">Enter</span> ou use as setas no canto</p>
       </div>
@@ -565,7 +719,7 @@ sup a{color:var(--red-soft);text-decoration:none;font-family:var(--mono);font-si
           <div><div class="n" id="tCity">38</div><div class="l">cidades com escolinhas</div></div>
           <div><div class="n" id="tPol">5</div><div class="l">polos possíveis</div></div>
         </div>
-        <p class="tnow" id="tNow" aria-live="polite">Polos do interior citados no Celeiro de Ases<sup><a href="#n3">3</a></sup> e a Campanha gaúcha.</p>
+        <p class="tnow" id="tNow" aria-live="polite" style="transition:opacity .4s">Polos do interior citados no Celeiro de Ases<sup><a href="#n3">3</a></sup> e a Campanha gaúcha.</p>
       </div>
     </div>
   </div>
@@ -700,7 +854,7 @@ sup a{color:var(--red-soft);text-decoration:none;font-family:var(--mono);font-si
         <div class="rl r3" data-step="3">Competição · campo</div>
         <div class="mk ghost r3 a9 e9" data-step="3" title="O Celeiro inicia o campo no Sub-9"></div><div class="mk cam r3 a11 e11" data-step="3"></div><div class="mk cam r3 a13 e13" data-step="3"></div>
         <div class="rl r4" data-step="4">Funil de interesse</div>
-        <div class="bar funil r4 a11 e13" data-step="4">A partir do Sub-11</div>
+        <div class="bar funil r4 a11 e13" data-step="4">A partir do Sub-11, com o guia de sinais</div>
         <div class="rl r5" data-step="5">Capacitação</div>
         <div class="bar cap r5 a6 e13" data-step="5">Treinadores dos parceiros, todas as idades</div>
       </div>
@@ -720,6 +874,91 @@ sup a{color:var(--red-soft);text-decoration:none;font-family:var(--mono);font-si
   </div>
 </div>
 
+<!-- 6b · O MÉTODO -->
+<div class="pin" id="norte" data-ch data-pin="norte" style="--len:4.4">
+  <div class="stage">
+    <div class="wrap">
+      <p class="eyebrow">O método</p>
+      <h2 class="h2 nor-h2">O mesmo jogador, visto em três idades.</h2>
+      <p class="lead nor-lead">O clube sabe que atleta quer ter aos 16 anos: um jogo de imposição, que ganha território, disputa e transição. O SACI leva essa referência até o campinho, traduzida para o que dá para enxergar aos 12. É direção, não régua.<sup><a href="#n8">8</a></sup></p>
+      <div class="ladder" role="group" aria-label="O mesmo perfil em três idades">
+        <button type="button" class="rung" data-i="0" aria-pressed="true"><span class="ra">11–13</span><span class="rw">SACI · rede</span><span class="rm">O sinal aparece.</span></button>
+        <button type="button" class="rung" data-i="1" aria-pressed="false"><span class="ra">14–15</span><span class="rw">Base</span><span class="rm">O sinal vira ação.</span></button>
+        <button type="button" class="rung" data-i="2" aria-pressed="false"><span class="ra">16+</span><span class="rw">Perfil do clube</span><span class="rm">A ação vira função.</span></button>
+      </div>
+      <div class="ndetail" aria-live="polite">
+        <div>
+          <p class="nd-what" id="nWhat">Perdeu a bola, vai buscar na hora. Recuperou, já olha para frente.</p>
+          <svg class="pitch" viewBox="0 0 400 210" role="img" aria-label="Transição: o atleta pressiona logo após a perda, recupera e acelera o jogo até o terço final">
+            <rect class="pf" x="1" y="1" width="398" height="208" rx="6"/>
+            <rect class="zone" id="nZone" x="267" y="1" width="132" height="208"/>
+            <line class="pl" x1="200" y1="1" x2="200" y2="209"/>
+            <line class="pl dash" x1="267" y1="1" x2="267" y2="209"/>
+            <circle class="pl" cx="200" cy="105" r="30"/>
+            <rect class="pl" x="1" y="55" width="50" height="100"/>
+            <rect class="pl" x="349" y="55" width="50" height="100"/>
+            <circle class="opp" cx="196" cy="120" r="7"/><circle class="opp" id="nOpp2" cx="236" cy="70" r="7"/>
+            <path class="press" d="M150 130 L 186 122"/>
+            <polygon class="arr" points="186,122 176,117 177,127"/>
+            <path class="pass" id="nGo" d="M196 120 L 318 92"/>
+            <polygon class="arr" id="nGoA" points="318,92 306,90 310,100"/>
+            <circle class="me" cx="150" cy="130" r="9"/>
+            <circle class="mate" cx="326" cy="90" r="7"/>
+            <text class="lab" x="12" y="200">exemplo: transição</text>
+            <text class="lab zl" id="nClock" x="333" y="22" text-anchor="middle">terço final</text>
+          </svg>
+        </div>
+        <dl class="nd-dl">
+          <div><dt>Como se olha</dt><dd id="nHow">Guia de sinais: visto ou não visto, com a evidência do jogo. Sem nota.</dd></div>
+          <div><dt>Quem decide</dt><dd id="nWho">O parceiro sinaliza, o SACI confirma e a formação decide na Rodada Colorada.</dd></div>
+          <div><dt>Lente do modelo</dt><dd>Transição, uma das três formas de imposição, ao lado de território e disputa.<sup><a href="#n8">8</a></sup></dd></div>
+          <div><dt>O que não pesa</dt><dd id="nNot">Tamanho e velocidade. Aos 12 anos, dizem mais sobre quem cresceu antes do que sobre quem vai jogar.</dd></div>
+        </dl>
+      </div>
+      <p class="thesis" id="nThesis">Do campinho ao profissional, <em>a mesma linguagem</em>. O parceiro aprende a enxergar o que o clube vai cobrar aos 16.</p>
+    </div>
+  </div>
+</div>
+
+<!-- 7b · GUIA DE SINAIS -->
+<section class="band paper" id="sinais" data-ch>
+  <div class="wrap">
+    <div class="guide">
+      <div class="g-head">
+        <p class="eyebrow">Guia de sinais</p>
+        <h2 class="h2">O que você viu? Não o que você acha.</h2>
+        <p class="lead g-lead">É o que o treinador do parceiro preenche ao indicar um atleta.</p>
+        <p class="g-do"><span>1</span>Toque nos sinais que apareceram no jogo.</p>
+      </div>
+      <div class="sigs">
+        <div class="axis"><h3>Jogo <em id="cJ">0 de 2</em></h3><div class="sigset" data-ax="J">
+          <button type="button" class="sig" aria-pressed="false"><code>J1</code>Protege a bola sob pressão</button>
+          <button type="button" class="sig" aria-pressed="false"><code>J2</code>Olha antes de receber</button>
+          <button type="button" class="sig" aria-pressed="false"><code>J3</code>Procura jogar para frente</button>
+          <button type="button" class="sig" aria-pressed="false"><code>J4</code>Tenta o 1x1 no momento certo</button>
+          <button type="button" class="sig" aria-pressed="false"><code>J5</code>Se posiciona para receber</button>
+          <button type="button" class="sig" aria-pressed="false"><code>J6</code>Reage à perda na hora</button>
+        </div></div>
+        <div class="axis"><h3>Aprendizagem ou atitude <em id="cAT">0 de 1</em></h3><div class="sigset" data-ax="A">
+          <button type="button" class="sig" aria-pressed="false"><code>A1</code>Muda depois de uma orientação</button>
+          <button type="button" class="sig" aria-pressed="false"><code>A2</code>Arrisca soluções novas</button>
+        </div><div class="sigset" data-ax="T">
+          <button type="button" class="sig" aria-pressed="false"><code>T1</code>Pede a bola no momento difícil</button>
+          <button type="button" class="sig" aria-pressed="false"><code>T2</code>Mantém o esforço no jogo difícil</button>
+          <button type="button" class="sig" aria-pressed="false"><code>T3</code>Convive bem com o grupo</button>
+        </div></div>
+      </div>
+      <div class="g-light">
+        <div class="lamp" id="verdict" aria-live="polite">
+          <span class="bulb" aria-hidden="true"></span>
+          <div><p class="vs" id="vState">Aguardando os sinais</p><p class="vr" id="vRule">Faltam 2 sinais de jogo e 1 de aprendizagem ou atitude.</p></div>
+        </div>
+        <p class="nonote">Sem nota, sem ranking e sem limite por parceiro. Altura e velocidade não são sinais.<sup><a href="#n8">8</a></sup></p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- 7 · FUNIL -->
 <div class="pin" id="funil" data-ch data-pin="funil" style="--len:3.6">
   <div class="stage">
@@ -729,10 +968,10 @@ sup a{color:var(--red-soft);text-decoration:none;font-family:var(--mono);font-si
       <div class="roleline" aria-hidden="true"><span>Parceiro</span><span>SACI</span><span>Seleção</span><span>Formação</span></div>
       <div class="fun-stage">
       <div class="verbs">
-        <div class="vb" data-anim><div class="who">Parceiro</div><div class="verb">sinaliza</div><p>Indica atletas a partir do Sub-11, com limite por categoria.</p></div>
-        <div class="vb" data-anim><div class="who">SACI</div><div class="verb">registra</div><p>Acompanha só depois do consentimento dos responsáveis.</p></div>
-        <div class="vb" data-anim><div class="who">Seleção</div><div class="verb">reúne</div><p>Os destaques de escolinhas e parceiros ganham uma vitrine antes da base.</p></div>
-        <div class="vb" data-anim><div class="who">Formação</div><div class="verb">avalia</div><p>A avaliação técnica é do departamento de formação do clube.</p></div>
+        <div class="vb" data-anim><div class="who">Parceiro</div><div class="verb">sinaliza</div><p>Indica atletas a partir do Sub-11 marcando os sinais que viu, cada um com a evidência do jogo.</p><p class="tool">Instrumento · guia de sinais</p></div>
+        <div class="vb" data-anim><div class="who">SACI</div><div class="verb">registra</div><p>Acompanha só depois do consentimento dos responsáveis, confirma os sinais no evento seguinte e monta as seleções de polo.</p><p class="tool">Instrumento · ficha com contexto de cada jogo</p></div>
+        <div class="vb" data-anim><div class="who">Seleção</div><div class="verb">reúne</div><p>Os destaques de escolinhas e parceiros se reúnem antes da base, nas seleções de polo e na Seleção SACI.</p></div>
+        <div class="vb" data-anim><div class="who">Formação</div><div class="verb">avalia</div><p>A formação do clube avalia na Rodada Colorada: seleções de polo e Seleção SACI jogam contra a base do Inter.</p><p class="tool">Sem tabela nem campeão · decisão registrada</p></div>
       </div>
       <div class="coda-box" id="codaBox" data-anim>
         <div class="guards">
@@ -740,8 +979,10 @@ sup a{color:var(--red-soft);text-decoration:none;font-family:var(--mono);font-si
           <span class="guard">Dados só em plataforma com login</span>
           <span class="guard">Arquivar é excluir os dados</span>
           <span class="guard">Contato com a família só na convocação ou no convite formal</span>
+          <span class="guard">Manter na rede é continuidade, não recusa</span>
         </div>
         <p class="coda" id="coda">O atleta nunca é moeda da parceria.</p>
+        <p class="coda-sub">Parceiro, SACI e formação olham para o mesmo perfil de atleta.</p>
       </div>
       </div>
     </div>
@@ -766,7 +1007,7 @@ sup a{color:var(--red-soft);text-decoration:none;font-family:var(--mono);font-si
       <div class="fz" aria-live="polite">
         <div>
           <p class="fz-title" id="fTitle">Rede e competição</p>
-          <p class="fz-desc" id="fDesc">Meses 4 a 12. Piloto a partir dos vínculos de futsal que já existem, com alcance estadual, e o formato da Seleção definido.</p>
+          <p class="fz-desc" id="fDesc">Meses 4 a 12. Piloto a partir dos vínculos de futsal que já existem, com alcance estadual, guia de sinais em uso e a Rodada Colorada combinada com a base.</p>
           <div class="meta">
             <div class="row"><span>Parceiros rumo à meta de 100 clubes do Celeiro</span><span id="fMetaPct">20%</span></div>
             <div class="bartrack"><i id="fMeta" data-anim></i></div>
@@ -779,7 +1020,7 @@ sup a{color:var(--red-soft);text-decoration:none;font-family:var(--mono);font-si
             <div><div class="n" id="fD">10</div><div class="l">datas na fase</div></div>
             <div><div class="n" id="fE">2</div><div class="l">pessoas na equipe</div></div>
           </div>
-          <div class="ceil"><b id="fF">20</b>atletas de interesse ativos, no máximo. É um teto, não uma meta.</div>
+          <div class="ceil"><b id="fF">20</b>atletas de interesse ativos, em estimativa. Não há limite por parceiro; o que se mede é quantas indicações viram convocação.</div>
           <p class="fine" style="margin-top:12px">Cenário piso do Modelo de Dimensionamento v2, com o quinto polo na Fase 3. Gatilho para avançar: retenção de 80%, participação de 75% e consentimento em 100% dos registros.<sup><a href="#n5">5</a></sup></p>
         </div>
       </div>
@@ -797,7 +1038,7 @@ sup a{color:var(--red-soft);text-decoration:none;font-family:var(--mono);font-si
           <div class="ctl"><label for="sP">Parceiros na rede <output id="oP" for="sP">40</output></label><input type="range" id="sP" min="10" max="120" step="5" value="40"></div>
           <div class="ctl"><label for="sPo">Polos regionais <output id="oPo" for="sPo">4</output></label><input type="range" id="sPo" min="1" max="6" step="1" value="4"><small>A partir do quinto polo, entra a Campanha gaúcha: visita leva o triplo do tempo.</small></div>
           <div class="ctl"><label for="sQ">Parceiros fora da Região Metropolitana <output id="oQ" for="sQ">50%</output></label><input type="range" id="sQ" min="0" max="100" step="10" value="50"><small>Visita no interior leva o dobro do tempo.</small></div>
-          <div class="ctl"><label for="sL">Atletas de interesse por parceiro, por categoria <output id="oL" for="sL">1</output></label><input type="range" id="sL" min="1" max="3" step="1" value="1"></div>
+          <div class="ctl"><label for="sL">Atletas indicados por parceiro, por categoria (média) <output id="oL" for="sL">1</output></label><input type="range" id="sL" min="1" max="5" step="1" value="1"><small>Não há limite por parceiro; o valor é uma estimativa para dimensionar a equipe.</small></div>
         </div>
         <div class="outs" aria-live="polite">
           <div class="meter">
@@ -807,12 +1048,12 @@ sup a{color:var(--red-soft);text-decoration:none;font-family:var(--mono);font-si
             <div class="scale"><span>0%</span><span>100%</span><span>150%</span></div>
           </div>
           <div class="out"><div class="n" id="rEq">3</div><div class="l">pessoas na equipe central</div></div>
-          <div class="out"><div class="n" id="rFun">80</div><div class="l">atletas de interesse, no máximo</div></div>
+          <div class="out"><div class="n" id="rFun">80</div><div class="l">atletas de interesse, em estimativa</div></div>
           <div class="out"><div class="n" id="rDat">19</div><div class="l">datas de competição no ano</div></div>
           <div class="out"><div class="n" id="rAtl">1.740</div><div class="l">atletas por janela</div></div>
         </div>
       </div>
-      <p class="fine">Premissas do cenário piso: um coordenador mais um analista a cada 35 parceiros, com metade do tempo em relacionamento; três contatos remotos por trimestre e uma visita por semestre por parceiro; funil ativo em toda a rede, no Sub-11 e no Sub-13; datas incluem o Dia do Futebol de Base Colorado; duas edições da Seleção por ano, com 40 horas de organização cada. Acima de 100%, a equipe precisa ser revista.<sup><a href="#n5">5</a></sup></p>
+      <p class="fine">Premissas do cenário piso: um coordenador mais um analista a cada 35 parceiros, com metade do tempo em relacionamento; três contatos remotos por trimestre e uma visita por semestre por parceiro; funil ativo em toda a rede, no Sub-11 e no Sub-13; datas incluem o Dia do Futebol de Base Colorado; duas edições da Seleção (Rodada Colorada) por ano, com 40 horas de organização cada. Acima de 100%, a equipe precisa ser revista.<sup><a href="#n5">5</a></sup></p>
     </div>
   </div>
 </section>
@@ -883,6 +1124,7 @@ sup a{color:var(--red-soft);text-decoration:none;font-family:var(--mono);font-si
           <li id="n4">[Verificado — athletic-club.eus, via Dossiê de Pesquisa]. 166 clubes conveniados em 2021, número oficial; a imprensa cita cerca de 175 a 180 em 2025.</li>
           <li id="n5">[Inferência — Modelo de Dimensionamento SACI BC-V2, 24 meses, cenário piso]. Parceiros, polos, datas, atletas e equipe são premissas a recalibrar ao fim da Fase 1, não realizado.</li>
           <li id="n6">[Verificado — LC 222/2025, Decreto 12.861/2026, Portaria 10/2026; Lei RS 13.924/2012 e SEL/RS; Decreto POA 23.525/2025]. Custo próximo de zero na lei federal depende do tratamento contábil de cada empresa [Inferência]. O repasse ao fundo estadual varia de 5% a 10%; usamos 10%.</li>
+          <li id="n8">[Inferência — adaptação do SACI a partir do perfil de atleta do clube]. A escada por idade, os sinais e o roteiro da Rodada Colorada são leitura nossa, a validar com a formação. Tamanho e velocidade entram só como contexto por causa do viés de maturação, documentado em consensos sobre desenvolvimento juvenil.</li>
           <li id="n7">Mapa: contorno do RS a partir de base pública do IBGE (projeto click_that_hood) e sedes municipais da base kelvins/municipios-brasileiros. Projeção simples, para leitura de distribuição, não para medir distâncias.</li>
         </ol>
       </div>
@@ -895,6 +1137,8 @@ sup a{color:var(--red-soft);text-decoration:none;font-family:var(--mono);font-si
           <li>Uso da marca e do material oficial pelos parceiros depende de licenciamento e do contrato com a Time Forte [Não verificado]; custo do material não está no modelo.</li>
           <li>Os polos do interior não foram definidos; o mapa mostra candidatos e a Campanha gaúcha.</li>
           <li>Percentuais do Pró-Esporte RS dependem do regulamento do ICMS vigente; a reforma tributária pode alterar incentivos estaduais e municipais.</li>
+          <li>Os sinais e a Rodada Colorada ainda não foram validados pela formação nem testados em campo; a Rodada depende da adesão da comissão da base.</li>
+          <li>Aos 11 a 13 anos, prever quem se firma na base é difícil: o funil vai errar nos dois sentidos, e manter o atleta na rede é parte do desenho.</li>
           <li>Sem imagens de atletas: fotos de crianças dos projetos parceiros exigem autorização dos responsáveis (ECA e LGPD).</li>
         </ul>
       </div>
@@ -970,8 +1214,9 @@ sup a{color:var(--red-soft);text-decoration:none;font-family:var(--mono);font-si
     if(k==='hero')clearWords(heroBw);
     if(k==='lacuna'){clearWords(lacW);$$('.num[data-to]',p).forEach(function(n){n.textContent=n.getAttribute('data-to');});}
     if(k==='funil')clearWords(codaW);
+    if(k==='norte'){thesisOn=-1;clearWords(norW);}
     if(k==='competicao'){$$('.tile',p).forEach(function(t){t.classList.add('on');});$('#datasN').textContent='10';}
-    if(k==='terr'){cities.forEach(function(c){c.classList.add('on');c.classList.remove('now');});polos.forEach(function(g){g.classList.add('on');});$('#tCity').textContent=cities.length;$('#tPol').textContent='5';}
+    if(k==='terr'){terrStage=-1;cities.forEach(function(c){c.style.transitionDelay='0ms';c.classList.add('on');c.classList.remove('now');});polos.forEach(function(g){g.classList.add('on');});$('#tCity').textContent=cities.length;$('#tPol').textContent='5';}
     if(k==='recursos')$$('.cval',p).forEach(function(v){v.textContent=v.getAttribute('data-final');});
     if(k==='fases')phaseAt(lastPhaseT);
   }
@@ -1078,21 +1323,37 @@ sup a{color:var(--red-soft);text-decoration:none;font-family:var(--mono);font-si
   }
   /* 2 · território */
   var cities=$$('#cities .city'), polos=$$('#polos .pol'), tNow=$('#tNow');
-  var lastCity=-1;
-  function terr(p){
-    var shown=Math.round(clamp(p/0.72)*cities.length);
-    cities.forEach(function(c,k){c.classList.toggle('on',k<shown);c.classList.toggle('now',k===shown-1&&p<0.74);});
-    $('#tCity').textContent=shown;
-    var np=p<0.76?0:Math.min(5,1+Math.floor((p-0.76)/0.04));
-    polos.forEach(function(g,k){g.classList.toggle('on',k<np);});
-    $('#tPol').textContent=np;
-    if(shown!==lastCity||np){
-      lastCity=shown;
-      if(np>0)tNow.innerHTML='Polo 1 na Região Metropolitana. Polos do interior citados no Celeiro de Ases<sup><a href="#n3">3</a></sup> e a Campanha gaúcha.';
-      else if(shown>0){var c=cities[shown-1];tNow.innerHTML='<b>'+c.getAttribute('data-c')+'</b> · '+c.getAttribute('data-n')+(c.getAttribute('data-n')==='1'?' escolinha':' escolinhas')+' no levantamento';}
-      else tNow.textContent='Partindo de Porto Alegre.';
-    }
+  var terrStage=-1, cityGap=Math.min(45,1600/cities.length), polGap=520;
+  var TNOW=['Partindo de Porto Alegre.',
+    'Do Guaíba à fronteira: '+cities.length+' cidades com escolinhas no levantamento.',
+    'Polo 1 na Região Metropolitana. Polos do interior citados no Celeiro de Ases<sup><a href="#n3">3</a></sup> e a Campanha gaúcha.'];
+  function countTo(el,to,ms,delay){
+    var from=+el.textContent||0; if(from===to){return;}
+    var t0=null; clearTimeout(el._t); cancelAnimationFrame(el._r);
+    el._t=setTimeout(function(){
+      function tick(ts){if(t0===null)t0=ts;var f=clamp((ts-t0)/ms);el.textContent=String(Math.round(from+(to-from)*ease(f)));if(f<1)el._r=requestAnimationFrame(tick);}
+      el._r=requestAnimationFrame(tick);
+    },delay||0);
   }
+  function terrSet(st){
+    if(st===terrStage)return;
+    var up=st>terrStage; terrStage=st;
+    cities.forEach(function(c,k){
+      var on=k===0||st>=1;
+      c.style.transitionDelay=(up&&on&&k>0&&st===1)?(k*cityGap)+'ms':'0ms';
+      c.classList.toggle('on',on);c.classList.remove('now');
+    });
+    cities[0].classList.toggle('now',st===0);
+    polos.forEach(function(g,k){
+      var on=st>=2;
+      $$('.pring,.plab',g).forEach(function(e){e.style.transitionDelay=(up&&on)?(k*polGap)+'ms':'0ms';});
+      g.classList.toggle('on',on);
+    });
+    countTo($('#tCity'),st>=1?cities.length:1,st===1&&up?cities.length*cityGap:300,0);
+    countTo($('#tPol'),st>=2?polos.length:0,st===2&&up?polos.length*polGap:300,st===2&&up?200:0);
+    tNow.innerHTML=TNOW[st];
+  }
+  function terr(p){terrSet(p<0.28?0:(p<0.62?1:2));}
   /* 3 · sistema */
   var layers=$$('.layer'), lbars=$$('.lbar i');
   function sistema(p){
@@ -1105,7 +1366,7 @@ sup a{color:var(--red-soft);text-decoration:none;font-family:var(--mono);font-si
     'Escolinhas, incluindo a Escola do Inter, e parceiros que já existem, no futebol e no futsal.',
     'Todos jogam com a identidade do Inter, em escala conforme a relação.',
     'As competições regionais dão o motivo para a rede se encontrar.',
-    'Os destaques de escolinhas e parceiros chegam à Seleção: ganho para o atleta, para quem formou e para o clube.',
+    'Os destaques de escolinhas e parceiros chegam à Seleção e jogam a Rodada Colorada: ganho para o atleta, para quem formou e para o clube.',
     'A Seleção é o passo antes da base.',
     'Receita, inteligência e governança atravessam toda a estrutura.'];
   var orgCap=$('#orgCap'), lastOrg=0;
@@ -1164,8 +1425,8 @@ sup a{color:var(--red-soft);text-decoration:none;font-family:var(--mono);font-si
   }
   /* 8 · fases */
   var PH=[
-    {title:'Rede e competição',desc:'Meses 4 a 12. Piloto a partir dos vínculos de futsal que já existem, com alcance estadual, e o formato da Seleção definido.',p:20,d:10,e:2,po:2,f:20},
-    {title:'Inteligência e Seleção',desc:'Meses 13 a 18. Quatro polos, funil em toda a rede e a primeira edição da Seleção.',p:40,d:9,e:3,po:4,f:80},
+    {title:'Rede e competição',desc:'Meses 4 a 12. Piloto a partir dos vínculos de futsal que já existem, com alcance estadual, guia de sinais em uso e a Rodada Colorada combinada com a base.',p:20,d:10,e:2,po:2,f:20},
+    {title:'Inteligência e Seleção',desc:'Meses 13 a 18. Quatro polos, funil em toda a rede e a primeira Rodada Colorada.',p:40,d:9,e:3,po:4,f:80},
     {title:'Integração dos polos',desc:'Meses 19 a 24. Cinco polos, com a Campanha gaúcha, a caminho da meta de 100 clubes do Celeiro de Ases.',p:60,d:12,e:4,po:5,f:120}
   ];
   var tabs=$$('.tab'), slots=$$('.slot i'), lastPhaseT=0, lastLabel=-1;
@@ -1208,6 +1469,45 @@ sup a{color:var(--red-soft);text-decoration:none;font-family:var(--mono);font-si
     dotsOn(pins.recursos,p<0.5?0:1);
   }
 
+  /* 7b · método (id norte) */
+  var NOR=[
+    {what:'Perdeu a bola, vai buscar na hora. Recuperou, já olha para frente.',how:'Guia de sinais (J6, J3): visto ou não visto, com a evidência do jogo. Sem nota.',who:'O parceiro sinaliza, o SACI confirma e a formação decide na Rodada Colorada.',not:'Ganhar a dividida no corpo. Aos 12 anos, tamanho e velocidade dizem mais sobre quem cresceu antes do que sobre quem vai jogar.',go:.35,zone:0},
+    {what:'Pressiona logo depois da perda e, ao recuperar, acelera o jogo para frente.',how:'Vídeo e observação em contexto de jogo, sem métrica.',who:'Formação.',not:'Ranking entre atletas. A comparação só vale com posição, minutos e adversário ao lado.',go:1,zone:.35},
+    {what:'Contrapressão que recupera a bola e chega ao terço final em poucos segundos, jogo após jogo.',how:'Recuperações após perda e posses que chegam ao terço final em poucos segundos, por 90 minutos, com vídeo e janela de quatro a seis jogos.',who:'Comissão técnica e desenvolvimento individual.',not:'Um jogo isolado. A leitura é sempre de uma sequência.',go:1,zone:1}];
+  var rungs=$$('.rung'), norW=splitWords($('#nThesis')), lastNor=-1;
+  var nDet=$('.ndetail'), nSwapT=null, thesisOn=-1, thesisR=null;
+  function norPaint(i){
+    var d=NOR[i];$('#nWhat').textContent=d.what;$('#nHow').textContent=d.how;$('#nWho').textContent=d.who;$('#nNot').textContent=d.not;
+    $('#nGo').style.opacity=d.go;$('#nGoA').style.opacity=d.go;$('#nZone').style.opacity=d.zone;$('#nClock').style.opacity=d.zone?1:0;
+  }
+  function norSet(i,instant){
+    if(i===lastNor)return; var first=lastNor<0; lastNor=i;
+    rungs.forEach(function(r,k){r.setAttribute('aria-pressed',k===i?'true':'false');});
+    clearTimeout(nSwapT);
+    if(first||instant){norPaint(i);nDet.classList.remove('swap');return;}
+    nDet.classList.add('swap');
+    nSwapT=setTimeout(function(){norPaint(i);nDet.classList.remove('swap');},220);
+  }
+  norSet(0,true);
+  function thesis(on){
+    if(on===thesisOn)return; thesisOn=on; cancelAnimationFrame(thesisR);
+    if(!on){fillWords(norW,0);return;}
+    var t0=null;(function tick(ts){if(!ts){thesisR=requestAnimationFrame(tick);return;}if(t0===null)t0=ts;var f=clamp((ts-t0)/1400);fillWords(norW,f);if(f<1)thesisR=requestAnimationFrame(tick);})();
+  }
+  var nLock=0;
+  function norte(p){
+    if(Date.now()<nLock)return;
+    norSet(p<0.27?0:(p<0.54?1:2));
+    thesis(p>=0.8);
+  }
+  rungs.forEach(function(r,k){r.addEventListener('click',function(){
+    if(pinned('norte')){
+      var pin=pins.norte, top=pin.getBoundingClientRect().top+window.scrollY, total=pin.offsetHeight-(VH-NAV);
+      window.scrollTo({top:top-NAV+total*STOPS.norte[k],behavior:rm.matches?'auto':'smooth'});
+    } else norSet(k);
+    nLock=Date.now()+1200; norSet(k);
+  });});
+
   /* progresso, navegação e laço */
   var progBar=$('#prog');
   function activeIdx(offset){var y=window.scrollY+NAV+offset, idx=0;chapters.forEach(function(c,k){if(c.getBoundingClientRect().top+window.scrollY<=y)idx=k;});return idx;}
@@ -1226,7 +1526,7 @@ sup a{color:var(--red-soft);text-decoration:none;font-family:var(--mono);font-si
     progBar.style.transform='scaleX('+(max>0?clamp(window.scrollY/max):0).toFixed(4)+')';
     activeNav();
     if(cine)marquee();
-    [['hero',hero],['lacuna',lacuna],['terr',terr],['sistema',sistema],['estrutura',estrutura],['rede',rede],['competicao',compet],['metodologia',metod],['funil',funil],['fases',fases],['recursos',recursos]].forEach(function(c){
+    [['hero',hero],['lacuna',lacuna],['terr',terr],['sistema',sistema],['estrutura',estrutura],['rede',rede],['competicao',compet],['metodologia',metod],['norte',norte],['funil',funil],['fases',fases],['recursos',recursos]].forEach(function(c){
       if(pinned(c[0])){try{c[1](prog(c[0]));}catch(err){if(window.console)console.error(err);}}
     });
     if(cine){var vis=VH*0.92;$$('.dec.wait').forEach(function(d,k){if(d.getBoundingClientRect().top<vis){d.style.transitionDelay=(k%3*0.08)+'s';d.classList.remove('wait');}});}
@@ -1238,11 +1538,12 @@ sup a{color:var(--red-soft);text-decoration:none;font-family:var(--mono);font-si
   if(rm.addEventListener)rm.addEventListener('change',function(){relayout();});
 
   /* navegação por passos: cada cena tem pontos de parada em que o quadro está completo */
-  var STOPS={hero:[0,0.97],lacuna:[.1,.3,.5,.7,.9],terr:[.03,.73,.95],sistema:[1/6,.5,5/6],
+  var STOPS={hero:[0,0.97],lacuna:[.1,.3,.5,.7,.9],terr:[.1,.45,.9],sistema:[1/6,.5,5/6],
     estrutura:[0,1,2,3,4,5,6,7].map(function(k){return k*0.1125+0.05;}),
     competicao:[.02,.45,.92],
     metodologia:[1,2,3,4,5].map(function(k){return 0.34*k/6+0.012;}).concat([0,1,2,3,4,5,6,7].map(function(i){return 0.36+0.6*(i+0.5)/8;})),
-    funil:[.0925,.2775,.4625,.6475,.985],fases:[.1,.5,.92],recursos:[.0675,.1275,.1875,.2475,.875]};
+    funil:[.0925,.2775,.4625,.6475,.985],fases:[.1,.5,.92],recursos:[.0675,.1275,.1875,.2475,.875],
+    norte:[.12,.4,.67,.95]};
   function invSmooth(g){var a=0,b=1;for(var i=0;i<30;i++){var m=(a+b)/2;if(smooth(m)<g)a=m;else b=m;}return (a+b)/2;}
   function redeStops(){
     var vis=track.parentNode.clientWidth,max=Math.max(0,track.scrollWidth-vis),n=Math.max(1,Math.ceil(max/(vis*0.75))),out=[0.04];
@@ -1324,6 +1625,21 @@ sup a{color:var(--red-soft);text-decoration:none;font-family:var(--mono);font-si
   }
   window.addEventListener('scroll',function(){clearTimeout(settleT);settleT=setTimeout(settle,240);},{passive:true});
 
+  /* guia de sinais */
+  var sigs=$$('.sig');
+  function verdict(){
+    var c={J:0,A:0,T:0};
+    $$('.sigset').forEach(function(g){c[g.getAttribute('data-ax')]=$$('[aria-pressed="true"]',g).length;});
+    var at=c.A+c.T, fj=Math.max(0,2-c.J), fa=Math.max(0,1-at), ok=!fj&&!fa, v=$('#verdict');
+    $('#cJ').textContent=Math.min(c.J,2)+' de 2';$('#cAT').textContent=Math.min(at,1)+' de 1';
+    $('#cJ').classList.toggle('done',!fj);$('#cAT').classList.toggle('done',!fa);
+    v.classList.toggle('ok',ok);v.classList.toggle('mid',!ok&&(c.J+at)>0);
+    if(ok){$('#vState').textContent='Sinal verde: pode indicar';$('#vRule').textContent='Na ficha, escreva em que jogo e contra quem viu cada sinal. O SACI confere no próximo evento.';}
+    else{var f=[];if(fj)f.push(fj+(fj===1?' sinal':' sinais')+' de jogo');if(fa)f.push('1 de aprendizagem ou atitude');
+      $('#vState').textContent=(c.J+at)?'Ainda não':'Aguardando os sinais';$('#vRule').textContent='Falta'+(fj+fa>1?'m ':' ')+f.join(' e ')+'. Se não apareceu, o atleta segue jogando e pode ser visto de novo.';}
+  }
+  sigs.forEach(function(b){b.addEventListener('click',function(){b.setAttribute('aria-pressed',b.getAttribute('aria-pressed')==='true'?'false':'true');verdict();});});
+
   /* simulador */
   var sP=$('#sP'),sPo=$('#sPo'),sQ=$('#sQ'),sL=$('#sL');
   function sim(){
@@ -1351,15 +1667,17 @@ sup a{color:var(--red-soft);text-decoration:none;font-family:var(--mono);font-si
       {id:'polo',q:'Qual polo do interior acompanha a Região Metropolitana na Fase 1?',o:['Caxias do Sul','Passo Fundo','Pelotas','Outro'],why:'Os três aparecem como polos regionais no material do Celeiro de Ases.'}
     ]},
     {g:'Competição e Seleção',items:[
-      {id:'sel',q:'Qual o formato da Seleção?',o:['Evento periódico','Competição própria','Avaliação contínua','Decidir depois'],why:'Ganho para o atleta, para quem formou e para o clube. Convocação não promete vaga na base.'},
+      {id:'sel',q:'Quais categorias da base jogam a Rodada Colorada?',o:['Sub-11 e Sub-12','Sub-11, Sub-12 e Sub-13','Definir com a formação'],why:'O formato da Seleção passa a ser a Rodada Colorada. Os jogos só são equilibrados se as categorias seguirem as da base.'},
+      {id:'rodbase',q:'Como a comissão da base entra no calendário da Rodada?',o:['Já combinado','Precisa ser apresentado antes','Ainda não sei'],why:'A Rodada só funciona dentro do planejamento da base, nunca por fora dele.'},
       {id:'sub79',q:'Qual o formato das competições Sub-7 e Sub-9?',o:['Competitivo adaptado','Festival lúdico'],rec:0,why:'Jogos curtos, rodízio de todos e sem eliminação precoce. O festival só vale se for de fato sem classificação.'},
       {id:'campo',q:'Em que categoria o campo entra no calendário?',o:['Sub-9, como no Celeiro','Sub-11, como no Business Case'],why:'O Celeiro inicia o campo no Sub-9; o calendário do Business Case começa no Sub-11.'},
       {id:'novas',q:'Quando entram o Sub-14 e o feminino?',o:['Já na Fase 1','A partir da Fase 2','Ainda não'],why:'As duas categorias mudam o volume de equipes, atletas e datas.'},
       {id:'prod',q:'Quem produz os eventos?',o:['Equipe do SACI','Produtora contratada','Polos-sede, com apoio','Apoio a federações e ligas'],why:'É o maior esforço operacional do SACI e muda o tamanho da equipe.'}
     ]},
     {g:'Funil e dados',items:[
-      {id:'lim',q:'Quantos atletas de interesse cada parceiro pode sinalizar?',o:['1 por categoria','2 por categoria','Sem limite fixo'],rec:0,why:'O limite mantém o funil delimitado e reduz o incentivo a sinalizar em excesso.'},
-      {id:'crit',q:'Quem define os critérios de perfil do atleta?',o:['Departamento de formação','Formação e SACI juntos'],why:'O SACI registra e acompanha; a avaliação técnica é da formação.'},
+      {id:'crit',q:'Quem define os critérios de perfil do atleta?',o:['Departamento de formação','Formação e SACI juntos'],rec:0,why:'A formação define, a partir do perfil de atleta do clube; o SACI leva o critério à rede e registra.'},
+      {id:'sinais',q:'Os sinais do guia refletem o que a formação espera aos 11 a 13 anos?',o:['Sim','Ajustar com a formação'],why:'Os sinais são leitura nossa do perfil do clube e definem o que toda a rede vai aprender a enxergar.'},
+      {id:'lac',q:'Quem acompanha o atleta encaminhado entre os 14 e os 15 anos?',o:['A própria base','Núcleo de desenvolvimento individual','Definir com a formação'],why:'Entre a Seleção e o perfil completo dos 16 anos há dois anos sem dono definido.'},
       {id:'gami',q:'A gamificação é voltada a quem?',o:['A escolinhas e parceiros','Ao atleta'],rec:0,why:'Com a Seleção como marco para quem forma. Dados de crianças exigem consentimento específico e em destaque dos responsáveis (LGPD, art. 14).'}
     ]},
     {g:'Receita e governança',items:[
@@ -1399,7 +1717,7 @@ sup a{color:var(--red-soft);text-decoration:none;font-family:var(--mono);font-si
   });
   $('#decTotal').textContent=total;
   function summary(){
-    var lines=['Projeto SACI v2 · decisões marcadas em '+new Date().toLocaleDateString('pt-BR'),''];
+    var lines=['Projeto SACI v3 · decisões marcadas em '+new Date().toLocaleDateString('pt-BR'),''];
     DEC.forEach(function(grp){lines.push(grp.g.toUpperCase());grp.items.forEach(function(it){lines.push('- '+it.q+' → '+(answers[it.id]||'(em aberto)'));});lines.push('');});
     return lines.join('\n');
   }

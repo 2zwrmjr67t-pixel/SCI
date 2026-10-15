@@ -83,7 +83,7 @@
         "key": "metodologia",
         "pinned": true,
         "tight": true,
-        "scale": "0.8034"
+        "scale": "0.7858"
        },
        {
         "id": "norte",
@@ -1139,17 +1139,840 @@
        }
       ],
       "competicao": [],
-      "metodologia": [
+      "metodologia": [],
+      "norte": [],
+      "funil": [],
+      "fases": [],
+      "recursos": []
+     },
+     "scroll": {
+      "steps": 182,
+      "progStart": 0,
+      "progEnd": 1,
+      "backwards": 0,
+      "activeDistinct": 13,
+      "navCount": 13,
+      "actives": [
+       "#lacuna",
+       "#territorio",
+       "#sistema",
+       "#estrutura",
+       "#rede",
+       "#competicao",
+       "#metodologia",
+       "#norte",
+       "#sinais",
+       "#funil",
+       "#fases",
+       "#recursos",
+       "#decisoes"
+      ]
+     },
+     "resize": {
+      "target": "competicao",
+      "a": {
+       "sig": "5|38|5|Sub-6|Rede e competição|scaleX(0.3839)",
+       "y": 13338,
+       "ih": 664,
+       "scene": "competicao",
+       "prog": 0.4519346570107615,
+       "stageBottom": 553,
+       "vhVar": "553px",
+       "pinned": 10
+      },
+      "b": {
+       "sig": "5|38|5|Sub-6|Rede e competição|scaleX(0.4283)",
+       "y": 20069,
+       "ih": 760,
+       "scene": "competicao",
+       "prog": 0.45187062497522984,
+       "stageBottom": 760,
+       "vhVar": "760px",
+       "pinned": 12
+      },
+      "c": {
+       "sig": "5|38|5|Sub-6|Rede e competição|scaleX(0.4283)",
+       "y": 20069,
+       "ih": 664,
+       "scene": "competicao",
+       "prog": 0.45187062497522984,
+       "stageBottom": 760,
+       "vhVar": "760px",
+       "pinned": 12
+      },
+      "sigChangedAB": true,
+      "sigRestoredAC": false,
+      "jumpAB": 0.00006403203553168035,
+      "jumpAC": 0.00006403203553168035,
+      "dyAC": 6731,
+      "gapAt760": 0
+     },
+     "errors": [],
+     "ms": 14916
+    },
+    "no-preference": {
+     "status": 200,
+     "state": {
+      "cine": true,
+      "iw": 375,
+      "ih": 553,
+      "cw": 375,
+      "hscroll": false,
+      "scrollWidth": 375,
+      "fontsOk": 6,
+      "pins": [
        {
-        "el": "#ruler > div.bar.funil",
-        "text": "A partir do Sub-11, com o guia de sinais",
-        "why": "à direita da cena, sai da tela à direita",
+        "id": "topo",
+        "key": "hero",
+        "pinned": true,
+        "tight": false,
+        "scale": "0"
+       },
+       {
+        "id": "lacuna",
+        "key": "lacuna",
+        "pinned": true,
+        "tight": false,
+        "scale": null
+       },
+       {
+        "id": "territorio",
+        "key": "terr",
+        "pinned": true,
+        "tight": true,
+        "scale": "0.8694"
+       },
+       {
+        "id": "sistema",
+        "key": "sistema",
+        "pinned": true,
+        "tight": false,
+        "scale": null
+       },
+       {
+        "id": "estrutura",
+        "key": "estrutura",
+        "pinned": false,
+        "tight": false,
+        "scale": null
+       },
+       {
+        "id": "rede",
+        "key": "rede",
+        "pinned": true,
+        "tight": false,
+        "scale": null
+       },
+       {
+        "id": "competicao",
+        "key": "competicao",
+        "pinned": true,
+        "tight": true,
+        "scale": "0.8427"
+       },
+       {
+        "id": "metodologia",
+        "key": "metodologia",
+        "pinned": true,
+        "tight": true,
+        "scale": "0.7858"
+       },
+       {
+        "id": "norte",
+        "key": "norte",
+        "pinned": false,
+        "tight": false,
+        "scale": null
+       },
+       {
+        "id": "funil",
+        "key": "funil",
+        "pinned": true,
+        "tight": true,
+        "scale": "0.9936"
+       },
+       {
+        "id": "fases",
+        "key": "fases",
+        "pinned": true,
+        "tight": true,
+        "scale": "0.7115"
+       },
+       {
+        "id": "recursos",
+        "key": "recursos",
+        "pinned": true,
+        "tight": true,
+        "scale": null
+       }
+      ]
+     },
+     "scenes": {
+      "hero": [
+       {
+        "el": "#heroA > p.hero-eyebrow",
+        "text": "Sistema de Acompanhamento e Captação Integrado",
+        "why": "acima da cena",
         "carousel": false,
         "r": [
-         238,
-         347,
-         395,
-         359
+         29,
+         43,
+         346,
+         87
+        ],
+        "stage": [
+         0,
+         57,
+         375,
+         553
+        ],
+        "at": [
+         "5%"
+        ]
+       },
+       {
+        "el": "#heroA > p.hero-sub",
+        "text": "Escolinhas e parceiros com a identidade do Inter, ",
+        "why": "à esquerda da cena, à direita da cena, sai da tela à esquerda, sai da tela à direita",
+        "carousel": false,
+        "r": [
+         -5,
+         314,
+         380,
+         407
+        ],
+        "stage": [
+         0,
+         57,
+         375,
+         553
+        ],
+        "at": [
+         "5%"
+        ]
+       }
+      ],
+      "lacuna": [],
+      "terr": [],
+      "sistema": [],
+      "estrutura": [],
+      "rede": [
+       {
+        "el": ".card > span.tag",
+        "text": "O que o parceiro recebe",
+        "why": "à direita da cena, sai da tela à direita",
+        "carousel": true,
+        "r": [
+         355,
+         293,
+         548,
+         308
+        ],
+        "stage": [
+         0,
+         57,
+         375,
+         553
+        ],
+        "at": [
+         "5%",
+         "5%",
+         "5%",
+         "5%",
+         "5%",
+         "5%",
+         "5%",
+         "5%",
+         "20%",
+         "20%",
+         "20%",
+         "20%",
+         "20%",
+         "20%",
+         "20%",
+         "20%",
+         "40%",
+         "40%",
+         "40%",
+         "40%",
+         "40%",
+         "60%",
+         "60%"
+        ]
+       },
+       {
+        "el": ".card > div.big",
+        "text": "Escola do Inter",
+        "why": "à direita da cena, sai da tela à direita",
+        "carousel": true,
+        "r": [
+         355,
+         364,
+         555,
+         401
+        ],
+        "stage": [
+         0,
+         57,
+         375,
+         553
+        ],
+        "at": [
+         "5%",
+         "20%"
+        ]
+       },
+       {
+        "el": ".card > p",
+        "text": "Caminho para se tornar unidade oficial, conforme o",
+        "why": "à direita da cena, sai da tela à direita",
+        "carousel": true,
+        "r": [
+         355,
+         410,
+         586,
+         480
+        ],
+        "stage": [
+         0,
+         57,
+         375,
+         553
+        ],
+        "at": [
+         "5%",
+         "20%"
+        ]
+       },
+       {
+        "el": ".card > div.big",
+        "text": "Calendário",
+        "why": "à direita da cena, sai da tela à direita",
+        "carousel": true,
+        "r": [
+         665,
+         388,
+         814,
+         425
+        ],
+        "stage": [
+         0,
+         57,
+         375,
+         553
+        ],
+        "at": [
+         "5%",
+         "20%"
+        ]
+       },
+       {
+        "el": ".card > p",
+        "text": "Vaga garantida nas competições do SACI.",
+        "why": "à direita da cena, sai da tela à direita",
+        "carousel": true,
+        "r": [
+         665,
+         435,
+         896,
+         480
+        ],
+        "stage": [
+         0,
+         57,
+         375,
+         553
+        ],
+        "at": [
+         "5%",
+         "20%"
+        ]
+       },
+       {
+        "el": ".card > div.big",
+        "text": "Método",
+        "why": "à direita da cena, sai da tela à direita",
+        "carousel": true,
+        "r": [
+         976,
+         388,
+         1080,
+         425
+        ],
+        "stage": [
+         0,
+         57,
+         375,
+         553
+        ],
+        "at": [
+         "5%",
+         "20%"
+        ]
+       },
+       {
+        "el": ".card > p",
+        "text": "Capacitação dos treinadores na metodologia do Cele",
+        "why": "à direita da cena, sai da tela à direita",
+        "carousel": true,
+        "r": [
+         976,
+         435,
+         1206,
+         480
+        ],
+        "stage": [
+         0,
+         57,
+         375,
+         553
+        ],
+        "at": [
+         "5%",
+         "20%"
+        ]
+       },
+       {
+        "el": ".card > div.big",
+        "text": "Selo",
+        "why": "à direita da cena, sai da tela à direita",
+        "carousel": true,
+        "r": [
+         1286,
+         364,
+         1346,
+         401
+        ],
+        "stage": [
+         0,
+         57,
+         375,
+         553
+        ],
+        "at": [
+         "5%",
+         "20%",
+         "40%"
+        ]
+       },
+       {
+        "el": ".card > p",
+        "text": "Parceiro Inter ou Polo Oficial, com visibilidade n",
+        "why": "à direita da cena, sai da tela à direita",
+        "carousel": true,
+        "r": [
+         1286,
+         410,
+         1503,
+         480
+        ],
+        "stage": [
+         0,
+         57,
+         375,
+         553
+        ],
+        "at": [
+         "5%",
+         "20%",
+         "40%"
+        ]
+       },
+       {
+        "el": ".card > div.big",
+        "text": "Beira-Rio",
+        "why": "à direita da cena, sai da tela à direita",
+        "carousel": true,
+        "r": [
+         1597,
+         413,
+         1723,
+         450
+        ],
+        "stage": [
+         0,
+         57,
+         375,
+         553
+        ],
+        "at": [
+         "5%",
+         "20%",
+         "40%"
+        ]
+       },
+       {
+        "el": ".card > p",
+        "text": "Visita, jogo e final no estádio.",
+        "why": "à direita da cena, sai da tela à direita",
+        "carousel": true,
+        "r": [
+         1597,
+         460,
+         1805,
+         480
+        ],
+        "stage": [
+         0,
+         57,
+         375,
+         553
+        ],
+        "at": [
+         "5%",
+         "20%",
+         "40%"
+        ]
+       },
+       {
+        "el": ".card > div.big",
+        "text": "Canal direto",
+        "why": "à direita da cena, sai da tela à direita",
+        "carousel": true,
+        "r": [
+         1907,
+         388,
+         2072,
+         425
+        ],
+        "stage": [
+         0,
+         57,
+         375,
+         553
+        ],
+        "at": [
+         "5%",
+         "20%",
+         "40%"
+        ]
+       },
+       {
+        "el": ".card > p",
+        "text": "Contato com o clube e prioridade em eventos.",
+        "why": "à direita da cena, sai da tela à direita",
+        "carousel": true,
+        "r": [
+         1907,
+         435,
+         2145,
+         480
+        ],
+        "stage": [
+         0,
+         57,
+         375,
+         553
+        ],
+        "at": [
+         "5%",
+         "20%",
+         "40%"
+        ]
+       },
+       {
+        "el": ".card > div.big",
+        "text": "Reconhecimento",
+        "why": "à direita da cena, sai da tela à direita",
+        "carousel": true,
+        "r": [
+         2218,
+         364,
+         2449,
+         401
+        ],
+        "stage": [
+         0,
+         57,
+         375,
+         553
+        ],
+        "at": [
+         "5%",
+         "20%",
+         "40%",
+         "60%"
+        ]
+       },
+       {
+        "el": ".card > p",
+        "text": "Registro formal da contribuição formativa, se um a",
+        "why": "à direita da cena, sai da tela à direita",
+        "carousel": true,
+        "r": [
+         2218,
+         410,
+         2442,
+         480
+        ],
+        "stage": [
+         0,
+         57,
+         375,
+         553
+        ],
+        "at": [
+         "5%",
+         "20%",
+         "40%",
+         "60%"
+        ]
+       },
+       {
+        "el": ".card > div.big",
+        "text": "Seleção",
+        "why": "à direita da cena, sai da tela à direita",
+        "carousel": true,
+        "r": [
+         2528,
+         364,
+         2638,
+         401
+        ],
+        "stage": [
+         0,
+         57,
+         375,
+         553
+        ],
+        "at": [
+         "5%",
+         "20%",
+         "40%",
+         "60%"
+        ]
+       },
+       {
+        "el": ".card > p",
+        "text": "Os destaques do projeto chegam à Seleção, com o no",
+        "why": "à direita da cena, sai da tela à direita",
+        "carousel": true,
+        "r": [
+         2528,
+         410,
+         2764,
+         480
+        ],
+        "stage": [
+         0,
+         57,
+         375,
+         553
+        ],
+        "at": [
+         "5%",
+         "20%",
+         "40%",
+         "60%"
+        ]
+       },
+       {
+        "el": ".card > span.tag",
+        "text": "A lição do Athletic Club",
+        "why": "à direita da cena, sai da tela à direita",
+        "carousel": true,
+        "r": [
+         2839,
+         293,
+         3040,
+         308
+        ],
+        "stage": [
+         0,
+         57,
+         375,
+         553
+        ],
+        "at": [
+         "5%",
+         "20%",
+         "40%",
+         "60%",
+         "80%"
+        ]
+       },
+       {
+        "el": ".card > div.big",
+        "text": "Rede sem contrapartida vira rede nominal.",
+        "why": "à direita da cena, sai da tela à direita",
+        "carousel": true,
+        "r": [
+         2839,
+         319,
+         3076,
+         399
+        ],
+        "stage": [
+         0,
+         57,
+         375,
+         553
+        ],
+        "at": [
+         "5%",
+         "20%",
+         "40%",
+         "60%",
+         "80%"
+        ]
+       },
+       {
+        "el": ".card > p",
+        "text": "166 clubes conveniados, com prazo, metodologia e e",
+        "why": "à direita da cena, sai da tela à direita",
+        "carousel": true,
+        "r": [
+         2839,
+         410,
+         3071,
+         480
+        ],
+        "stage": [
+         0,
+         57,
+         375,
+         553
+        ],
+        "at": [
+         "5%",
+         "20%",
+         "40%",
+         "60%",
+         "80%"
+        ]
+       },
+       {
+        "el": "sup > a",
+        "text": "4",
+        "why": "à direita da cena, sai da tela à direita",
+        "carousel": true,
+        "r": [
+         2896,
+         462,
+         2901,
+         472
+        ],
+        "stage": [
+         0,
+         57,
+         375,
+         553
+        ],
+        "at": [
+         "5%",
+         "20%",
+         "40%",
+         "60%"
+        ]
+       },
+       {
+        "el": ".card > span.tag",
+        "text": "O que o parceiro recebe",
+        "why": "à esquerda da cena, sai da tela à esquerda",
+        "carousel": true,
+        "r": [
+         -102,
+         293,
+         91,
+         308
+        ],
+        "stage": [
+         0,
+         57,
+         375,
+         553
+        ],
+        "at": [
+         "20%",
+         "40%",
+         "40%",
+         "40%",
+         "60%",
+         "60%",
+         "60%",
+         "60%",
+         "60%",
+         "60%",
+         "80%",
+         "80%",
+         "80%",
+         "80%",
+         "80%",
+         "80%",
+         "80%",
+         "80%",
+         "80%",
+         "95%",
+         "95%",
+         "95%",
+         "95%",
+         "95%",
+         "95%",
+         "95%",
+         "95%",
+         "95%"
+        ]
+       },
+       {
+        "el": ".card > div.big",
+        "text": "Identidade",
+        "why": "à esquerda da cena, sai da tela à esquerda",
+        "carousel": true,
+        "r": [
+         -102,
+         364,
+         45,
+         401
+        ],
+        "stage": [
+         0,
+         57,
+         375,
+         553
+        ],
+        "at": [
+         "20%",
+         "40%",
+         "60%",
+         "80%",
+         "95%"
+        ]
+       },
+       {
+        "el": ".card > p",
+        "text": "Uniforme e material oficial do clube. A criança tr",
+        "why": "à esquerda da cena, sai da tela à esquerda",
+        "carousel": true,
+        "r": [
+         -102,
+         410,
+         109,
+         480
+        ],
+        "stage": [
+         0,
+         57,
+         375,
+         553
+        ],
+        "at": [
+         "20%",
+         "40%",
+         "60%",
+         "80%",
+         "95%"
+        ]
+       },
+       {
+        "el": ".card > div.big",
+        "text": "Escola do Inter",
+        "why": "à esquerda da cena, sai da tela à esquerda",
+        "carousel": true,
+        "r": [
+         -505,
+         364,
+         -304,
+         401
         ],
         "stage": [
          0,
@@ -1163,8 +1986,352 @@
          "80%",
          "95%"
         ]
+       },
+       {
+        "el": ".card > p",
+        "text": "Caminho para se tornar unidade oficial, conforme o",
+        "why": "à esquerda da cena, sai da tela à esquerda",
+        "carousel": true,
+        "r": [
+         -505,
+         410,
+         -274,
+         480
+        ],
+        "stage": [
+         0,
+         57,
+         375,
+         553
+        ],
+        "at": [
+         "40%",
+         "60%",
+         "80%",
+         "95%"
+        ]
+       },
+       {
+        "el": ".card > div.big",
+        "text": "Calendário",
+        "why": "à esquerda da cena, sai da tela à esquerda",
+        "carousel": true,
+        "r": [
+         -195,
+         388,
+         -45,
+         425
+        ],
+        "stage": [
+         0,
+         57,
+         375,
+         553
+        ],
+        "at": [
+         "40%",
+         "60%",
+         "80%",
+         "95%"
+        ]
+       },
+       {
+        "el": ".card > p",
+        "text": "Vaga garantida nas competições do SACI.",
+        "why": "à esquerda da cena, sai da tela à esquerda",
+        "carousel": true,
+        "r": [
+         -195,
+         435,
+         37,
+         480
+        ],
+        "stage": [
+         0,
+         57,
+         375,
+         553
+        ],
+        "at": [
+         "40%",
+         "60%",
+         "80%",
+         "95%"
+        ]
+       },
+       {
+        "el": ".card > div.big",
+        "text": "Método",
+        "why": "à esquerda da cena, sai da tela à esquerda",
+        "carousel": true,
+        "r": [
+         -825,
+         388,
+         -721,
+         425
+        ],
+        "stage": [
+         0,
+         57,
+         375,
+         553
+        ],
+        "at": [
+         "60%",
+         "80%",
+         "95%"
+        ]
+       },
+       {
+        "el": ".card > p",
+        "text": "Capacitação dos treinadores na metodologia do Cele",
+        "why": "à esquerda da cena, sai da tela à esquerda",
+        "carousel": true,
+        "r": [
+         -825,
+         435,
+         -594,
+         480
+        ],
+        "stage": [
+         0,
+         57,
+         375,
+         553
+        ],
+        "at": [
+         "60%",
+         "80%",
+         "95%"
+        ]
+       },
+       {
+        "el": ".card > div.big",
+        "text": "Selo",
+        "why": "à esquerda da cena, sai da tela à esquerda",
+        "carousel": true,
+        "r": [
+         -515,
+         364,
+         -454,
+         401
+        ],
+        "stage": [
+         0,
+         57,
+         375,
+         553
+        ],
+        "at": [
+         "60%",
+         "80%",
+         "95%"
+        ]
+       },
+       {
+        "el": ".card > p",
+        "text": "Parceiro Inter ou Polo Oficial, com visibilidade n",
+        "why": "à esquerda da cena, sai da tela à esquerda",
+        "carousel": true,
+        "r": [
+         -515,
+         410,
+         -297,
+         480
+        ],
+        "stage": [
+         0,
+         57,
+         375,
+         553
+        ],
+        "at": [
+         "60%",
+         "80%",
+         "95%"
+        ]
+       },
+       {
+        "el": ".card > div.big",
+        "text": "Beira-Rio",
+        "why": "à esquerda da cena, sai da tela à esquerda",
+        "carousel": true,
+        "r": [
+         -204,
+         413,
+         -77,
+         450
+        ],
+        "stage": [
+         0,
+         57,
+         375,
+         553
+        ],
+        "at": [
+         "60%",
+         "80%",
+         "95%"
+        ]
+       },
+       {
+        "el": ".card > p",
+        "text": "Visita, jogo e final no estádio.",
+        "why": "à esquerda da cena, sai da tela à esquerda",
+        "carousel": true,
+        "r": [
+         -204,
+         460,
+         4,
+         480
+        ],
+        "stage": [
+         0,
+         57,
+         375,
+         553
+        ],
+        "at": [
+         "60%",
+         "80%",
+         "95%"
+        ]
+       },
+       {
+        "el": ".card > div.big",
+        "text": "Canal direto",
+        "why": "à esquerda da cena, sai da tela à esquerda",
+        "carousel": true,
+        "r": [
+         -647,
+         388,
+         -482,
+         425
+        ],
+        "stage": [
+         0,
+         57,
+         375,
+         553
+        ],
+        "at": [
+         "80%",
+         "95%"
+        ]
+       },
+       {
+        "el": ".card > p",
+        "text": "Contato com o clube e prioridade em eventos.",
+        "why": "à esquerda da cena, sai da tela à esquerda",
+        "carousel": true,
+        "r": [
+         -647,
+         435,
+         -410,
+         480
+        ],
+        "stage": [
+         0,
+         57,
+         375,
+         553
+        ],
+        "at": [
+         "80%",
+         "95%"
+        ]
+       },
+       {
+        "el": ".card > div.big",
+        "text": "Reconhecimento",
+        "why": "à esquerda da cena, sai da tela à esquerda",
+        "carousel": true,
+        "r": [
+         -337,
+         364,
+         -105,
+         401
+        ],
+        "stage": [
+         0,
+         57,
+         375,
+         553
+        ],
+        "at": [
+         "80%",
+         "95%"
+        ]
+       },
+       {
+        "el": ".card > p",
+        "text": "Registro formal da contribuição formativa, se um a",
+        "why": "à esquerda da cena, sai da tela à esquerda",
+        "carousel": true,
+        "r": [
+         -337,
+         410,
+         -112,
+         480
+        ],
+        "stage": [
+         0,
+         57,
+         375,
+         553
+        ],
+        "at": [
+         "80%",
+         "95%"
+        ]
+       },
+       {
+        "el": ".card > div.big",
+        "text": "Seleção",
+        "why": "à esquerda da cena, sai da tela à esquerda",
+        "carousel": true,
+        "r": [
+         -26,
+         364,
+         84,
+         401
+        ],
+        "stage": [
+         0,
+         57,
+         375,
+         553
+        ],
+        "at": [
+         "80%",
+         "95%"
+        ]
+       },
+       {
+        "el": ".card > p",
+        "text": "Os destaques do projeto chegam à Seleção, com o no",
+        "why": "à esquerda da cena, sai da tela à esquerda",
+        "carousel": true,
+        "r": [
+         -26,
+         410,
+         209,
+         480
+        ],
+        "stage": [
+         0,
+         57,
+         375,
+         553
+        ],
+        "at": [
+         "80%",
+         "95%"
+        ]
        }
       ],
+      "competicao": [],
+      "metodologia": [],
       "norte": [],
       "funil": [],
       "fases": [],
@@ -1234,1223 +2401,6 @@
      },
      "errors": [],
      "ms": 15109
-    },
-    "no-preference": {
-     "status": 200,
-     "state": {
-      "cine": true,
-      "iw": 375,
-      "ih": 553,
-      "cw": 375,
-      "hscroll": false,
-      "scrollWidth": 375,
-      "fontsOk": 6,
-      "pins": [
-       {
-        "id": "topo",
-        "key": "hero",
-        "pinned": true,
-        "tight": false,
-        "scale": "0"
-       },
-       {
-        "id": "lacuna",
-        "key": "lacuna",
-        "pinned": true,
-        "tight": false,
-        "scale": null
-       },
-       {
-        "id": "territorio",
-        "key": "terr",
-        "pinned": true,
-        "tight": true,
-        "scale": "0.8694"
-       },
-       {
-        "id": "sistema",
-        "key": "sistema",
-        "pinned": true,
-        "tight": false,
-        "scale": null
-       },
-       {
-        "id": "estrutura",
-        "key": "estrutura",
-        "pinned": false,
-        "tight": false,
-        "scale": null
-       },
-       {
-        "id": "rede",
-        "key": "rede",
-        "pinned": true,
-        "tight": false,
-        "scale": null
-       },
-       {
-        "id": "competicao",
-        "key": "competicao",
-        "pinned": true,
-        "tight": true,
-        "scale": "0.8427"
-       },
-       {
-        "id": "metodologia",
-        "key": "metodologia",
-        "pinned": true,
-        "tight": true,
-        "scale": "0.8034"
-       },
-       {
-        "id": "norte",
-        "key": "norte",
-        "pinned": false,
-        "tight": false,
-        "scale": null
-       },
-       {
-        "id": "funil",
-        "key": "funil",
-        "pinned": true,
-        "tight": true,
-        "scale": "0.9936"
-       },
-       {
-        "id": "fases",
-        "key": "fases",
-        "pinned": true,
-        "tight": true,
-        "scale": "0.7115"
-       },
-       {
-        "id": "recursos",
-        "key": "recursos",
-        "pinned": true,
-        "tight": true,
-        "scale": null
-       }
-      ]
-     },
-     "scenes": {
-      "hero": [
-       {
-        "el": "#heroA > p.hero-eyebrow",
-        "text": "Sistema de Acompanhamento e Captação Integrado",
-        "why": "acima da cena",
-        "carousel": false,
-        "r": [
-         29,
-         43,
-         346,
-         87
-        ],
-        "stage": [
-         0,
-         57,
-         375,
-         553
-        ],
-        "at": [
-         "5%"
-        ]
-       },
-       {
-        "el": "#heroA > p.hero-sub",
-        "text": "Escolinhas e parceiros com a identidade do Inter, ",
-        "why": "à esquerda da cena, à direita da cena, sai da tela à esquerda, sai da tela à direita",
-        "carousel": false,
-        "r": [
-         -5,
-         314,
-         380,
-         407
-        ],
-        "stage": [
-         0,
-         57,
-         375,
-         553
-        ],
-        "at": [
-         "5%"
-        ]
-       }
-      ],
-      "lacuna": [],
-      "terr": [],
-      "sistema": [],
-      "estrutura": [],
-      "rede": [
-       {
-        "el": ".card > span.tag",
-        "text": "O que o parceiro recebe",
-        "why": "à direita da cena, sai da tela à direita",
-        "carousel": true,
-        "r": [
-         355,
-         293,
-         548,
-         308
-        ],
-        "stage": [
-         0,
-         57,
-         375,
-         553
-        ],
-        "at": [
-         "5%",
-         "5%",
-         "5%",
-         "5%",
-         "5%",
-         "5%",
-         "5%",
-         "5%",
-         "20%",
-         "20%",
-         "20%",
-         "20%",
-         "20%",
-         "20%",
-         "20%",
-         "20%",
-         "40%",
-         "40%",
-         "40%",
-         "40%",
-         "40%",
-         "60%",
-         "60%"
-        ]
-       },
-       {
-        "el": ".card > div.big",
-        "text": "Escola do Inter",
-        "why": "à direita da cena, sai da tela à direita",
-        "carousel": true,
-        "r": [
-         355,
-         364,
-         555,
-         401
-        ],
-        "stage": [
-         0,
-         57,
-         375,
-         553
-        ],
-        "at": [
-         "5%",
-         "20%"
-        ]
-       },
-       {
-        "el": ".card > p",
-        "text": "Caminho para se tornar unidade oficial, conforme o",
-        "why": "à direita da cena, sai da tela à direita",
-        "carousel": true,
-        "r": [
-         355,
-         410,
-         586,
-         480
-        ],
-        "stage": [
-         0,
-         57,
-         375,
-         553
-        ],
-        "at": [
-         "5%",
-         "20%"
-        ]
-       },
-       {
-        "el": ".card > div.big",
-        "text": "Calendário",
-        "why": "à direita da cena, sai da tela à direita",
-        "carousel": true,
-        "r": [
-         665,
-         388,
-         814,
-         425
-        ],
-        "stage": [
-         0,
-         57,
-         375,
-         553
-        ],
-        "at": [
-         "5%",
-         "20%"
-        ]
-       },
-       {
-        "el": ".card > p",
-        "text": "Vaga garantida nas competições do SACI.",
-        "why": "à direita da cena, sai da tela à direita",
-        "carousel": true,
-        "r": [
-         665,
-         435,
-         896,
-         480
-        ],
-        "stage": [
-         0,
-         57,
-         375,
-         553
-        ],
-        "at": [
-         "5%",
-         "20%"
-        ]
-       },
-       {
-        "el": ".card > div.big",
-        "text": "Método",
-        "why": "à direita da cena, sai da tela à direita",
-        "carousel": true,
-        "r": [
-         976,
-         388,
-         1080,
-         425
-        ],
-        "stage": [
-         0,
-         57,
-         375,
-         553
-        ],
-        "at": [
-         "5%",
-         "20%"
-        ]
-       },
-       {
-        "el": ".card > p",
-        "text": "Capacitação dos treinadores na metodologia do Cele",
-        "why": "à direita da cena, sai da tela à direita",
-        "carousel": true,
-        "r": [
-         976,
-         435,
-         1206,
-         480
-        ],
-        "stage": [
-         0,
-         57,
-         375,
-         553
-        ],
-        "at": [
-         "5%",
-         "20%"
-        ]
-       },
-       {
-        "el": ".card > div.big",
-        "text": "Selo",
-        "why": "à direita da cena, sai da tela à direita",
-        "carousel": true,
-        "r": [
-         1286,
-         364,
-         1346,
-         401
-        ],
-        "stage": [
-         0,
-         57,
-         375,
-         553
-        ],
-        "at": [
-         "5%",
-         "20%",
-         "40%"
-        ]
-       },
-       {
-        "el": ".card > p",
-        "text": "Parceiro Inter ou Polo Oficial, com visibilidade n",
-        "why": "à direita da cena, sai da tela à direita",
-        "carousel": true,
-        "r": [
-         1286,
-         410,
-         1503,
-         480
-        ],
-        "stage": [
-         0,
-         57,
-         375,
-         553
-        ],
-        "at": [
-         "5%",
-         "20%",
-         "40%"
-        ]
-       },
-       {
-        "el": ".card > div.big",
-        "text": "Beira-Rio",
-        "why": "à direita da cena, sai da tela à direita",
-        "carousel": true,
-        "r": [
-         1597,
-         413,
-         1723,
-         450
-        ],
-        "stage": [
-         0,
-         57,
-         375,
-         553
-        ],
-        "at": [
-         "5%",
-         "20%",
-         "40%"
-        ]
-       },
-       {
-        "el": ".card > p",
-        "text": "Visita, jogo e final no estádio.",
-        "why": "à direita da cena, sai da tela à direita",
-        "carousel": true,
-        "r": [
-         1597,
-         460,
-         1805,
-         480
-        ],
-        "stage": [
-         0,
-         57,
-         375,
-         553
-        ],
-        "at": [
-         "5%",
-         "20%",
-         "40%"
-        ]
-       },
-       {
-        "el": ".card > div.big",
-        "text": "Canal direto",
-        "why": "à direita da cena, sai da tela à direita",
-        "carousel": true,
-        "r": [
-         1907,
-         388,
-         2072,
-         425
-        ],
-        "stage": [
-         0,
-         57,
-         375,
-         553
-        ],
-        "at": [
-         "5%",
-         "20%",
-         "40%"
-        ]
-       },
-       {
-        "el": ".card > p",
-        "text": "Contato com o clube e prioridade em eventos.",
-        "why": "à direita da cena, sai da tela à direita",
-        "carousel": true,
-        "r": [
-         1907,
-         435,
-         2145,
-         480
-        ],
-        "stage": [
-         0,
-         57,
-         375,
-         553
-        ],
-        "at": [
-         "5%",
-         "20%",
-         "40%"
-        ]
-       },
-       {
-        "el": ".card > div.big",
-        "text": "Reconhecimento",
-        "why": "à direita da cena, sai da tela à direita",
-        "carousel": true,
-        "r": [
-         2218,
-         364,
-         2449,
-         401
-        ],
-        "stage": [
-         0,
-         57,
-         375,
-         553
-        ],
-        "at": [
-         "5%",
-         "20%",
-         "40%",
-         "60%"
-        ]
-       },
-       {
-        "el": ".card > p",
-        "text": "Registro formal da contribuição formativa, se um a",
-        "why": "à direita da cena, sai da tela à direita",
-        "carousel": true,
-        "r": [
-         2218,
-         410,
-         2442,
-         480
-        ],
-        "stage": [
-         0,
-         57,
-         375,
-         553
-        ],
-        "at": [
-         "5%",
-         "20%",
-         "40%",
-         "60%"
-        ]
-       },
-       {
-        "el": ".card > div.big",
-        "text": "Seleção",
-        "why": "à direita da cena, sai da tela à direita",
-        "carousel": true,
-        "r": [
-         2528,
-         364,
-         2638,
-         401
-        ],
-        "stage": [
-         0,
-         57,
-         375,
-         553
-        ],
-        "at": [
-         "5%",
-         "20%",
-         "40%",
-         "60%"
-        ]
-       },
-       {
-        "el": ".card > p",
-        "text": "Os destaques do projeto chegam à Seleção, com o no",
-        "why": "à direita da cena, sai da tela à direita",
-        "carousel": true,
-        "r": [
-         2528,
-         410,
-         2764,
-         480
-        ],
-        "stage": [
-         0,
-         57,
-         375,
-         553
-        ],
-        "at": [
-         "5%",
-         "20%",
-         "40%",
-         "60%"
-        ]
-       },
-       {
-        "el": ".card > span.tag",
-        "text": "A lição do Athletic Club",
-        "why": "à direita da cena, sai da tela à direita",
-        "carousel": true,
-        "r": [
-         2839,
-         293,
-         3040,
-         308
-        ],
-        "stage": [
-         0,
-         57,
-         375,
-         553
-        ],
-        "at": [
-         "5%",
-         "20%",
-         "40%",
-         "60%",
-         "80%"
-        ]
-       },
-       {
-        "el": ".card > div.big",
-        "text": "Rede sem contrapartida vira rede nominal.",
-        "why": "à direita da cena, sai da tela à direita",
-        "carousel": true,
-        "r": [
-         2839,
-         319,
-         3076,
-         399
-        ],
-        "stage": [
-         0,
-         57,
-         375,
-         553
-        ],
-        "at": [
-         "5%",
-         "20%",
-         "40%",
-         "60%",
-         "80%"
-        ]
-       },
-       {
-        "el": ".card > p",
-        "text": "166 clubes conveniados, com prazo, metodologia e e",
-        "why": "à direita da cena, sai da tela à direita",
-        "carousel": true,
-        "r": [
-         2839,
-         410,
-         3071,
-         480
-        ],
-        "stage": [
-         0,
-         57,
-         375,
-         553
-        ],
-        "at": [
-         "5%",
-         "20%",
-         "40%",
-         "60%",
-         "80%"
-        ]
-       },
-       {
-        "el": "sup > a",
-        "text": "4",
-        "why": "à direita da cena, sai da tela à direita",
-        "carousel": true,
-        "r": [
-         2896,
-         462,
-         2901,
-         472
-        ],
-        "stage": [
-         0,
-         57,
-         375,
-         553
-        ],
-        "at": [
-         "5%",
-         "20%",
-         "40%",
-         "60%"
-        ]
-       },
-       {
-        "el": ".card > span.tag",
-        "text": "O que o parceiro recebe",
-        "why": "à esquerda da cena, sai da tela à esquerda",
-        "carousel": true,
-        "r": [
-         -102,
-         293,
-         91,
-         308
-        ],
-        "stage": [
-         0,
-         57,
-         375,
-         553
-        ],
-        "at": [
-         "20%",
-         "40%",
-         "40%",
-         "40%",
-         "60%",
-         "60%",
-         "60%",
-         "60%",
-         "60%",
-         "60%",
-         "80%",
-         "80%",
-         "80%",
-         "80%",
-         "80%",
-         "80%",
-         "80%",
-         "80%",
-         "80%",
-         "95%",
-         "95%",
-         "95%",
-         "95%",
-         "95%",
-         "95%",
-         "95%",
-         "95%",
-         "95%"
-        ]
-       },
-       {
-        "el": ".card > div.big",
-        "text": "Identidade",
-        "why": "à esquerda da cena, sai da tela à esquerda",
-        "carousel": true,
-        "r": [
-         -102,
-         364,
-         45,
-         401
-        ],
-        "stage": [
-         0,
-         57,
-         375,
-         553
-        ],
-        "at": [
-         "20%",
-         "40%",
-         "60%",
-         "80%",
-         "95%"
-        ]
-       },
-       {
-        "el": ".card > p",
-        "text": "Uniforme e material oficial do clube. A criança tr",
-        "why": "à esquerda da cena, sai da tela à esquerda",
-        "carousel": true,
-        "r": [
-         -102,
-         410,
-         109,
-         480
-        ],
-        "stage": [
-         0,
-         57,
-         375,
-         553
-        ],
-        "at": [
-         "20%",
-         "40%",
-         "60%",
-         "80%",
-         "95%"
-        ]
-       },
-       {
-        "el": ".card > div.big",
-        "text": "Escola do Inter",
-        "why": "à esquerda da cena, sai da tela à esquerda",
-        "carousel": true,
-        "r": [
-         -505,
-         364,
-         -304,
-         401
-        ],
-        "stage": [
-         0,
-         57,
-         375,
-         553
-        ],
-        "at": [
-         "40%",
-         "60%",
-         "80%",
-         "95%"
-        ]
-       },
-       {
-        "el": ".card > p",
-        "text": "Caminho para se tornar unidade oficial, conforme o",
-        "why": "à esquerda da cena, sai da tela à esquerda",
-        "carousel": true,
-        "r": [
-         -505,
-         410,
-         -274,
-         480
-        ],
-        "stage": [
-         0,
-         57,
-         375,
-         553
-        ],
-        "at": [
-         "40%",
-         "60%",
-         "80%",
-         "95%"
-        ]
-       },
-       {
-        "el": ".card > div.big",
-        "text": "Calendário",
-        "why": "à esquerda da cena, sai da tela à esquerda",
-        "carousel": true,
-        "r": [
-         -195,
-         388,
-         -45,
-         425
-        ],
-        "stage": [
-         0,
-         57,
-         375,
-         553
-        ],
-        "at": [
-         "40%",
-         "60%",
-         "80%",
-         "95%"
-        ]
-       },
-       {
-        "el": ".card > p",
-        "text": "Vaga garantida nas competições do SACI.",
-        "why": "à esquerda da cena, sai da tela à esquerda",
-        "carousel": true,
-        "r": [
-         -195,
-         435,
-         37,
-         480
-        ],
-        "stage": [
-         0,
-         57,
-         375,
-         553
-        ],
-        "at": [
-         "40%",
-         "60%",
-         "80%",
-         "95%"
-        ]
-       },
-       {
-        "el": ".card > div.big",
-        "text": "Método",
-        "why": "à esquerda da cena, sai da tela à esquerda",
-        "carousel": true,
-        "r": [
-         -825,
-         388,
-         -721,
-         425
-        ],
-        "stage": [
-         0,
-         57,
-         375,
-         553
-        ],
-        "at": [
-         "60%",
-         "80%",
-         "95%"
-        ]
-       },
-       {
-        "el": ".card > p",
-        "text": "Capacitação dos treinadores na metodologia do Cele",
-        "why": "à esquerda da cena, sai da tela à esquerda",
-        "carousel": true,
-        "r": [
-         -825,
-         435,
-         -594,
-         480
-        ],
-        "stage": [
-         0,
-         57,
-         375,
-         553
-        ],
-        "at": [
-         "60%",
-         "80%",
-         "95%"
-        ]
-       },
-       {
-        "el": ".card > div.big",
-        "text": "Selo",
-        "why": "à esquerda da cena, sai da tela à esquerda",
-        "carousel": true,
-        "r": [
-         -515,
-         364,
-         -454,
-         401
-        ],
-        "stage": [
-         0,
-         57,
-         375,
-         553
-        ],
-        "at": [
-         "60%",
-         "80%",
-         "95%"
-        ]
-       },
-       {
-        "el": ".card > p",
-        "text": "Parceiro Inter ou Polo Oficial, com visibilidade n",
-        "why": "à esquerda da cena, sai da tela à esquerda",
-        "carousel": true,
-        "r": [
-         -515,
-         410,
-         -297,
-         480
-        ],
-        "stage": [
-         0,
-         57,
-         375,
-         553
-        ],
-        "at": [
-         "60%",
-         "80%",
-         "95%"
-        ]
-       },
-       {
-        "el": ".card > div.big",
-        "text": "Beira-Rio",
-        "why": "à esquerda da cena, sai da tela à esquerda",
-        "carousel": true,
-        "r": [
-         -204,
-         413,
-         -77,
-         450
-        ],
-        "stage": [
-         0,
-         57,
-         375,
-         553
-        ],
-        "at": [
-         "60%",
-         "80%",
-         "95%"
-        ]
-       },
-       {
-        "el": ".card > p",
-        "text": "Visita, jogo e final no estádio.",
-        "why": "à esquerda da cena, sai da tela à esquerda",
-        "carousel": true,
-        "r": [
-         -204,
-         460,
-         4,
-         480
-        ],
-        "stage": [
-         0,
-         57,
-         375,
-         553
-        ],
-        "at": [
-         "60%",
-         "80%",
-         "95%"
-        ]
-       },
-       {
-        "el": ".card > div.big",
-        "text": "Canal direto",
-        "why": "à esquerda da cena, sai da tela à esquerda",
-        "carousel": true,
-        "r": [
-         -647,
-         388,
-         -482,
-         425
-        ],
-        "stage": [
-         0,
-         57,
-         375,
-         553
-        ],
-        "at": [
-         "80%",
-         "95%"
-        ]
-       },
-       {
-        "el": ".card > p",
-        "text": "Contato com o clube e prioridade em eventos.",
-        "why": "à esquerda da cena, sai da tela à esquerda",
-        "carousel": true,
-        "r": [
-         -647,
-         435,
-         -410,
-         480
-        ],
-        "stage": [
-         0,
-         57,
-         375,
-         553
-        ],
-        "at": [
-         "80%",
-         "95%"
-        ]
-       },
-       {
-        "el": ".card > div.big",
-        "text": "Reconhecimento",
-        "why": "à esquerda da cena, sai da tela à esquerda",
-        "carousel": true,
-        "r": [
-         -337,
-         364,
-         -105,
-         401
-        ],
-        "stage": [
-         0,
-         57,
-         375,
-         553
-        ],
-        "at": [
-         "80%",
-         "95%"
-        ]
-       },
-       {
-        "el": ".card > p",
-        "text": "Registro formal da contribuição formativa, se um a",
-        "why": "à esquerda da cena, sai da tela à esquerda",
-        "carousel": true,
-        "r": [
-         -337,
-         410,
-         -112,
-         480
-        ],
-        "stage": [
-         0,
-         57,
-         375,
-         553
-        ],
-        "at": [
-         "80%",
-         "95%"
-        ]
-       },
-       {
-        "el": ".card > div.big",
-        "text": "Seleção",
-        "why": "à esquerda da cena, sai da tela à esquerda",
-        "carousel": true,
-        "r": [
-         -26,
-         364,
-         84,
-         401
-        ],
-        "stage": [
-         0,
-         57,
-         375,
-         553
-        ],
-        "at": [
-         "80%",
-         "95%"
-        ]
-       },
-       {
-        "el": ".card > p",
-        "text": "Os destaques do projeto chegam à Seleção, com o no",
-        "why": "à esquerda da cena, sai da tela à esquerda",
-        "carousel": true,
-        "r": [
-         -26,
-         410,
-         209,
-         480
-        ],
-        "stage": [
-         0,
-         57,
-         375,
-         553
-        ],
-        "at": [
-         "80%",
-         "95%"
-        ]
-       }
-      ],
-      "competicao": [],
-      "metodologia": [
-       {
-        "el": "#ruler > div.bar.funil",
-        "text": "A partir do Sub-11, com o guia de sinais",
-        "why": "à direita da cena, sai da tela à direita",
-        "carousel": false,
-        "r": [
-         238,
-         347,
-         395,
-         359
-        ],
-        "stage": [
-         0,
-         57,
-         375,
-         553
-        ],
-        "at": [
-         "40%",
-         "60%",
-         "80%",
-         "95%"
-        ]
-       }
-      ],
-      "norte": [],
-      "funil": [],
-      "fases": [],
-      "recursos": []
-     },
-     "scroll": {
-      "steps": 182,
-      "progStart": 0,
-      "progEnd": 1,
-      "backwards": 0,
-      "activeDistinct": 13,
-      "navCount": 13,
-      "actives": [
-       "#lacuna",
-       "#territorio",
-       "#sistema",
-       "#estrutura",
-       "#rede",
-       "#competicao",
-       "#metodologia",
-       "#norte",
-       "#sinais",
-       "#funil",
-       "#fases",
-       "#recursos",
-       "#decisoes"
-      ]
-     },
-     "resize": {
-      "target": "competicao",
-      "a": {
-       "sig": "5|38|5|Sub-6|Rede e competição|scaleX(0.3839)",
-       "y": 13338,
-       "ih": 664,
-       "scene": "competicao",
-       "prog": 0.4519346570107615,
-       "stageBottom": 553,
-       "vhVar": "553px",
-       "pinned": 10
-      },
-      "b": {
-       "sig": "5|38|5|Sub-6|Rede e competição|scaleX(0.4283)",
-       "y": 20069,
-       "ih": 760,
-       "scene": "competicao",
-       "prog": 0.45187062497522984,
-       "stageBottom": 760,
-       "vhVar": "760px",
-       "pinned": 12
-      },
-      "c": {
-       "sig": "5|38|5|Sub-6|Rede e competição|scaleX(0.4283)",
-       "y": 20069,
-       "ih": 664,
-       "scene": "competicao",
-       "prog": 0.45187062497522984,
-       "stageBottom": 760,
-       "vhVar": "760px",
-       "pinned": 12
-      },
-      "sigChangedAB": true,
-      "sigRestoredAC": false,
-      "jumpAB": 0.00006403203553168035,
-      "jumpAC": 0.00006403203553168035,
-      "dyAC": 6731,
-      "gapAt760": 0
-     },
-     "errors": [],
-     "ms": 15234
     }
    },
    "fontsBlocked": {
@@ -2517,7 +2467,7 @@
        "key": "metodologia",
        "pinned": true,
        "tight": true,
-       "scale": "0.8034"
+       "scale": "0.7702"
       },
       {
        "id": "norte",
@@ -3552,32 +3502,7 @@
       }
      ],
      "competicao": [],
-     "metodologia": [
-      {
-       "el": "#ruler > div.bar.funil",
-       "text": "A partir do Sub-11, com o guia de sinais",
-       "why": "à direita da cena, sai da tela à direita",
-       "carousel": false,
-       "r": [
-        238,
-        347,
-        415,
-        359
-       ],
-       "stage": [
-        0,
-        57,
-        375,
-        553
-       ],
-       "at": [
-        "40%",
-        "60%",
-        "80%",
-        "95%"
-       ]
-      }
-     ],
+     "metodologia": [],
      "norte": [],
      "funil": [],
      "fases": [],
@@ -3649,7 +3574,7 @@
        "key": "metodologia",
        "pinned": true,
        "tight": true,
-       "scale": "0.8034"
+       "scale": "0.7858"
       },
       {
        "id": "norte",
@@ -3824,20 +3749,17 @@
       "lacuna": [],
       "terr": [],
       "sistema": [],
-      "estrutura": [],
-      "rede": [],
-      "competicao": [],
-      "metodologia": [
+      "estrutura": [
        {
-        "el": "#ruler > div.bar.funil",
-        "text": "A partir do Sub-11, com o guia de sinais",
-        "why": "sai da tela à direita",
+        "el": ".org-row > span.pchip",
+        "text": "Campanha gaúcha",
+        "why": "cortado dentro de pchip",
         "carousel": false,
         "r": [
-         481,
-         208,
-         713,
-         225
+         535,
+         102,
+         650,
+         117
         ],
         "stage": null,
         "at": [
@@ -3845,6 +3767,9 @@
         ]
        }
       ],
+      "rede": [],
+      "competicao": [],
+      "metodologia": [],
       "norte": [],
       "funil": [],
       "fases": [],
@@ -3877,30 +3802,30 @@
       "target": "competicao",
       "a": {
        "sig": "6|38|5|Sub-6|Rede e competição|scaleX(0.4488)",
-       "y": 17620,
+       "y": 17621,
        "ih": 664,
        "scene": "competicao",
-       "prog": 0.5002647647788808,
+       "prog": 0.5003008570481724,
        "stageBottom": 664,
        "vhVar": "664px",
        "pinned": 12
       },
       "b": {
        "sig": "6|38|5|Sub-6|Rede e competição|scaleX(0.4488)",
-       "y": 17620,
+       "y": 17621,
        "ih": 760,
        "scene": "competicao",
-       "prog": 0.5002647647788808,
+       "prog": 0.5003008570481724,
        "stageBottom": 664,
        "vhVar": "664px",
        "pinned": 12
       },
       "c": {
        "sig": "6|38|5|Sub-6|Rede e competição|scaleX(0.4488)",
-       "y": 17620,
+       "y": 17621,
        "ih": 664,
        "scene": "competicao",
-       "prog": 0.5002647647788808,
+       "prog": 0.5003008570481724,
        "stageBottom": 664,
        "vhVar": "664px",
        "pinned": 12
@@ -3913,7 +3838,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 13095
+     "ms": 12682
     },
     "no-preference": {
      "status": 200,
@@ -4017,20 +3942,17 @@
       "lacuna": [],
       "terr": [],
       "sistema": [],
-      "estrutura": [],
-      "rede": [],
-      "competicao": [],
-      "metodologia": [
+      "estrutura": [
        {
-        "el": "#ruler > div.bar.funil",
-        "text": "A partir do Sub-11, com o guia de sinais",
-        "why": "sai da tela à direita",
+        "el": ".org-row > span.pchip",
+        "text": "Campanha gaúcha",
+        "why": "cortado dentro de pchip",
         "carousel": false,
         "r": [
-         481,
-         208,
-         713,
-         225
+         535,
+         102,
+         650,
+         117
         ],
         "stage": null,
         "at": [
@@ -4038,6 +3960,9 @@
         ]
        }
       ],
+      "rede": [],
+      "competicao": [],
+      "metodologia": [],
       "norte": [],
       "funil": [],
       "fases": [],
@@ -4070,30 +3995,30 @@
       "target": "competicao",
       "a": {
        "sig": "6|38|5|Sub-6|Rede e competição|scaleX(0.4488)",
-       "y": 17620,
+       "y": 17621,
        "ih": 664,
        "scene": "competicao",
-       "prog": 0.5002647647788808,
+       "prog": 0.5003008570481724,
        "stageBottom": 664,
        "vhVar": "664px",
        "pinned": 12
       },
       "b": {
        "sig": "6|38|5|Sub-6|Rede e competição|scaleX(0.4488)",
-       "y": 17620,
+       "y": 17621,
        "ih": 760,
        "scene": "competicao",
-       "prog": 0.5002647647788808,
+       "prog": 0.5003008570481724,
        "stageBottom": 664,
        "vhVar": "664px",
        "pinned": 12
       },
       "c": {
        "sig": "6|38|5|Sub-6|Rede e competição|scaleX(0.4488)",
-       "y": 17620,
+       "y": 17621,
        "ih": 664,
        "scene": "competicao",
-       "prog": 0.5002647647788808,
+       "prog": 0.5003008570481724,
        "stageBottom": 664,
        "vhVar": "664px",
        "pinned": 12
@@ -4106,7 +4031,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 13007
+     "ms": 12943
     }
    },
    "fontsBlocked": {
@@ -4210,20 +4135,17 @@
      "lacuna": [],
      "terr": [],
      "sistema": [],
-     "estrutura": [],
-     "rede": [],
-     "competicao": [],
-     "metodologia": [
+     "estrutura": [
       {
-       "el": "#ruler > div.bar.funil",
-       "text": "A partir do Sub-11, com o guia de sinais",
-       "why": "sai da tela à direita",
+       "el": ".org-row > span.pchip",
+       "text": "Campanha gaúcha",
+       "why": "cortado dentro de pchip",
        "carousel": false,
        "r": [
-        481,
-        224,
-        742,
-        241
+        535,
+        103,
+        650,
+        118
        ],
        "stage": null,
        "at": [
@@ -4231,6 +4153,9 @@
        ]
       }
      ],
+     "rede": [],
+     "competicao": [],
+     "metodologia": [],
      "norte": [],
      "funil": [],
      "fases": [],
@@ -4440,7 +4365,7 @@
         "key": "metodologia",
         "pinned": true,
         "tight": true,
-        "scale": "0.9862"
+        "scale": "0.9646"
        },
        {
         "id": "norte",
@@ -5517,32 +5442,7 @@
        }
       ],
       "competicao": [],
-      "metodologia": [
-       {
-        "el": "#ruler > div.bar.funil",
-        "text": "A partir do Sub-11, com o guia de sinais",
-        "why": "à direita da cena, sai da tela à direita",
-        "carousel": false,
-        "r": [
-         250,
-         410,
-         443,
-         424
-        ],
-        "stage": [
-         0,
-         57,
-         393,
-         659
-        ],
-        "at": [
-         "40%",
-         "60%",
-         "80%",
-         "95%"
-        ]
-       }
-      ],
+      "metodologia": [],
       "norte": [],
       "funil": [],
       "fases": [],
@@ -5611,7 +5511,7 @@
       "gapAt760": 101
      },
      "errors": [],
-     "ms": 15385
+     "ms": 14915
     },
     "no-preference": {
      "status": 200,
@@ -5678,7 +5578,7 @@
         "key": "metodologia",
         "pinned": true,
         "tight": true,
-        "scale": "0.9862"
+        "scale": "0.9646"
        },
        {
         "id": "norte",
@@ -6755,32 +6655,7 @@
        }
       ],
       "competicao": [],
-      "metodologia": [
-       {
-        "el": "#ruler > div.bar.funil",
-        "text": "A partir do Sub-11, com o guia de sinais",
-        "why": "à direita da cena, sai da tela à direita",
-        "carousel": false,
-        "r": [
-         250,
-         410,
-         443,
-         424
-        ],
-        "stage": [
-         0,
-         57,
-         393,
-         659
-        ],
-        "at": [
-         "40%",
-         "60%",
-         "80%",
-         "95%"
-        ]
-       }
-      ],
+      "metodologia": [],
       "norte": [],
       "funil": [],
       "fases": [],
@@ -6849,7 +6724,7 @@
       "gapAt760": 101
      },
      "errors": [],
-     "ms": 15133
+     "ms": 15099
     }
    },
    "fontsBlocked": {
@@ -6916,7 +6791,7 @@
        "key": "metodologia",
        "pinned": true,
        "tight": true,
-       "scale": "0.9862"
+       "scale": "0.9646"
       },
       {
        "id": "norte",
@@ -8013,32 +7888,7 @@
       }
      ],
      "competicao": [],
-     "metodologia": [
-      {
-       "el": "#ruler > div.bar.funil",
-       "text": "A partir do Sub-11, com o guia de sinais",
-       "why": "à direita da cena, sai da tela à direita",
-       "carousel": false,
-       "r": [
-        250,
-        410,
-        467,
-        424
-       ],
-       "stage": [
-        0,
-        57,
-        393,
-        659
-       ],
-       "at": [
-        "40%",
-        "60%",
-        "80%",
-        "95%"
-       ]
-      }
-     ],
+     "metodologia": [],
      "norte": [],
      "funil": [],
      "fases": [],
@@ -8110,7 +7960,7 @@
        "key": "metodologia",
        "pinned": true,
        "tight": true,
-       "scale": "0.9862"
+       "scale": "0.9646"
       },
       {
        "id": "norte",
@@ -8285,7 +8135,40 @@
       "lacuna": [],
       "terr": [],
       "sistema": [],
-      "estrutura": [],
+      "estrutura": [
+       {
+        "el": ".org-row > span.pchip",
+        "text": "Caxias do Sul",
+        "why": "cortado dentro de pchip",
+        "carousel": false,
+        "r": [
+         147,
+         146,
+         247,
+         161
+        ],
+        "stage": null,
+        "at": [
+         "50%"
+        ]
+       },
+       {
+        "el": ".org-row > span.pchip",
+        "text": "Campanha gaúcha",
+        "why": "cortado dentro de pchip",
+        "carousel": false,
+        "r": [
+         489,
+         146,
+         604,
+         161
+        ],
+        "stage": null,
+        "at": [
+         "50%"
+        ]
+       }
+      ],
       "rede": [],
       "competicao": [],
       "metodologia": [],
@@ -8357,7 +8240,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 12327
+     "ms": 11980
     },
     "no-preference": {
      "status": 200,
@@ -8461,7 +8344,40 @@
       "lacuna": [],
       "terr": [],
       "sistema": [],
-      "estrutura": [],
+      "estrutura": [
+       {
+        "el": ".org-row > span.pchip",
+        "text": "Caxias do Sul",
+        "why": "cortado dentro de pchip",
+        "carousel": false,
+        "r": [
+         147,
+         146,
+         247,
+         161
+        ],
+        "stage": null,
+        "at": [
+         "50%"
+        ]
+       },
+       {
+        "el": ".org-row > span.pchip",
+        "text": "Campanha gaúcha",
+        "why": "cortado dentro de pchip",
+        "carousel": false,
+        "r": [
+         489,
+         146,
+         604,
+         161
+        ],
+        "stage": null,
+        "at": [
+         "50%"
+        ]
+       }
+      ],
       "rede": [],
       "competicao": [],
       "metodologia": [],
@@ -8533,7 +8449,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 12255
+     "ms": 11972
     }
    },
    "fontsBlocked": {
@@ -8637,20 +8553,33 @@
      "lacuna": [],
      "terr": [],
      "sistema": [],
-     "estrutura": [],
-     "rede": [],
-     "competicao": [],
-     "metodologia": [
+     "estrutura": [
       {
-       "el": "#ruler > div.bar.funil",
-       "text": "A partir do Sub-11, com o guia de sinais",
-       "why": "sai da tela à direita",
+       "el": ".org-row > span.pchip",
+       "text": "Caxias do Sul",
+       "why": "cortado dentro de pchip",
        "carousel": false,
        "r": [
-        597,
-        205,
-        858,
-        222
+        147,
+        135,
+        247,
+        150
+       ],
+       "stage": null,
+       "at": [
+        "50%"
+       ]
+      },
+      {
+       "el": ".org-row > span.pchip",
+       "text": "Campanha gaúcha",
+       "why": "cortado dentro de pchip",
+       "carousel": false,
+       "r": [
+        489,
+        135,
+        605,
+        150
        ],
        "stage": null,
        "at": [
@@ -8658,6 +8587,9 @@
        ]
       }
      ],
+     "rede": [],
+     "competicao": [],
+     "metodologia": [],
      "norte": [],
      "funil": [],
      "fases": [],
@@ -9902,32 +9834,7 @@
        }
       ],
       "competicao": [],
-      "metodologia": [
-       {
-        "el": "#ruler > div.bar.funil",
-        "text": "A partir do Sub-11, com o guia de sinais",
-        "why": "à direita da cena, sai da tela à direita",
-        "carousel": false,
-        "r": [
-         273,
-         458,
-         469,
-         472
-        ],
-        "stage": [
-         0,
-         57,
-         430,
-         746
-        ],
-        "at": [
-         "40%",
-         "60%",
-         "80%",
-         "95%"
-        ]
-       }
-      ],
+      "metodologia": [],
       "norte": [],
       "funil": [],
       "fases": [],
@@ -9996,7 +9903,7 @@
       "gapAt760": 14
      },
      "errors": [],
-     "ms": 14582
+     "ms": 14134
     },
     "no-preference": {
      "status": 200,
@@ -11098,32 +11005,7 @@
        }
       ],
       "competicao": [],
-      "metodologia": [
-       {
-        "el": "#ruler > div.bar.funil",
-        "text": "A partir do Sub-11, com o guia de sinais",
-        "why": "à direita da cena, sai da tela à direita",
-        "carousel": false,
-        "r": [
-         273,
-         458,
-         469,
-         472
-        ],
-        "stage": [
-         0,
-         57,
-         430,
-         746
-        ],
-        "at": [
-         "40%",
-         "60%",
-         "80%",
-         "95%"
-        ]
-       }
-      ],
+      "metodologia": [],
       "norte": [],
       "funil": [],
       "fases": [],
@@ -11192,7 +11074,7 @@
       "gapAt760": 14
      },
      "errors": [],
-     "ms": 15294
+     "ms": 15045
     }
    },
    "fontsBlocked": {
@@ -12314,32 +12196,7 @@
       }
      ],
      "competicao": [],
-     "metodologia": [
-      {
-       "el": "#ruler > div.bar.funil",
-       "text": "A partir do Sub-11, com o guia de sinais",
-       "why": "à direita da cena, sai da tela à direita",
-       "carousel": false,
-       "r": [
-        273,
-        458,
-        493,
-        472
-       ],
-       "stage": [
-        0,
-        57,
-        430,
-        746
-       ],
-       "at": [
-        "40%",
-        "60%",
-        "80%",
-        "95%"
-       ]
-      }
-     ],
+     "metodologia": [],
      "norte": [],
      "funil": [],
      "fases": [],
@@ -12692,7 +12549,25 @@
       "lacuna": [],
       "terr": [],
       "sistema": [],
-      "estrutura": [],
+      "estrutura": [
+       {
+        "el": ".org-row > span.pchip",
+        "text": "Campanha gaúcha",
+        "why": "cortado dentro de pchip",
+        "carousel": false,
+        "r": [
+         553,
+         367,
+         668,
+         382
+        ],
+        "stage": null,
+        "at": [
+         "0%",
+         "50%"
+        ]
+       }
+      ],
       "rede": [
        {
         "el": ".card > span.tag",
@@ -13591,7 +13466,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 12992
+     "ms": 12665
     },
     "no-preference": {
      "status": 200,
@@ -13801,7 +13676,25 @@
       "lacuna": [],
       "terr": [],
       "sistema": [],
-      "estrutura": [],
+      "estrutura": [
+       {
+        "el": ".org-row > span.pchip",
+        "text": "Campanha gaúcha",
+        "why": "cortado dentro de pchip",
+        "carousel": false,
+        "r": [
+         553,
+         367,
+         668,
+         382
+        ],
+        "stage": null,
+        "at": [
+         "0%",
+         "50%"
+        ]
+       }
+      ],
       "rede": [
        {
         "el": ".card > span.tag",
@@ -14700,7 +14593,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 14305
+     "ms": 13893
     }
    },
    "fontsBlocked": {
@@ -14910,7 +14803,25 @@
      "lacuna": [],
      "terr": [],
      "sistema": [],
-     "estrutura": [],
+     "estrutura": [
+      {
+       "el": ".org-row > span.pchip",
+       "text": "Campanha gaúcha",
+       "why": "cortado dentro de pchip",
+       "carousel": false,
+       "r": [
+        553,
+        368,
+        669,
+        383
+       ],
+       "stage": null,
+       "at": [
+        "0%",
+        "50%"
+       ]
+      }
+     ],
      "rede": [
       {
        "el": ".card > p",
@@ -17049,32 +16960,7 @@
        }
       ],
       "competicao": [],
-      "metodologia": [
-       {
-        "el": "#ruler > div.bar.funil",
-        "text": "A partir do Sub-11, com o guia de sinais",
-        "why": "à direita da cena, sai da tela à direita",
-        "carousel": false,
-        "r": [
-         262,
-         505,
-         457,
-         519
-        ],
-        "stage": [
-         0,
-         57,
-         412,
-         839
-        ],
-        "at": [
-         "40%",
-         "60%",
-         "80%",
-         "95%"
-        ]
-       }
-      ],
+      "metodologia": [],
       "norte": [],
       "funil": [],
       "fases": [],
@@ -17143,7 +17029,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 14179
+     "ms": 14105
     },
     "no-preference": {
      "status": 200,
@@ -18288,32 +18174,7 @@
        }
       ],
       "competicao": [],
-      "metodologia": [
-       {
-        "el": "#ruler > div.bar.funil",
-        "text": "A partir do Sub-11, com o guia de sinais",
-        "why": "à direita da cena, sai da tela à direita",
-        "carousel": false,
-        "r": [
-         262,
-         505,
-         457,
-         519
-        ],
-        "stage": [
-         0,
-         57,
-         412,
-         839
-        ],
-        "at": [
-         "40%",
-         "60%",
-         "80%",
-         "95%"
-        ]
-       }
-      ],
+      "metodologia": [],
       "norte": [],
       "funil": [],
       "fases": [],
@@ -18382,7 +18243,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 15791
+     "ms": 15443
     }
    },
    "fontsBlocked": {
@@ -19568,32 +19429,7 @@
       }
      ],
      "competicao": [],
-     "metodologia": [
-      {
-       "el": "#ruler > div.bar.funil",
-       "text": "A partir do Sub-11, com o guia de sinais",
-       "why": "à direita da cena, sai da tela à direita",
-       "carousel": false,
-       "r": [
-        262,
-        505,
-        482,
-        519
-       ],
-       "stage": [
-        0,
-        57,
-        412,
-        839
-       ],
-       "at": [
-        "40%",
-        "60%",
-        "80%",
-        "95%"
-       ]
-      }
-     ],
+     "metodologia": [],
      "norte": [],
      "funil": [],
      "fases": [],
@@ -19946,7 +19782,24 @@
       "lacuna": [],
       "terr": [],
       "sistema": [],
-      "estrutura": [],
+      "estrutura": [
+       {
+        "el": ".org-row > span.pchip",
+        "text": "Campanha gaúcha",
+        "why": "cortado dentro de pchip",
+        "carousel": false,
+        "r": [
+         498,
+         154,
+         613,
+         169
+        ],
+        "stage": null,
+        "at": [
+         "50%"
+        ]
+       }
+      ],
       "rede": [
        {
         "el": ".card > p",
@@ -20833,7 +20686,7 @@
        "y": 17635,
        "ih": 664,
        "scene": "competicao",
-       "prog": 0.49992781546141696,
+       "prog": 0.4997713715591155,
        "stageBottom": 664,
        "vhVar": "664px",
        "pinned": 12
@@ -20843,7 +20696,7 @@
        "y": 17635,
        "ih": 760,
        "scene": "competicao",
-       "prog": 0.49992781546141696,
+       "prog": 0.4997713715591155,
        "stageBottom": 664,
        "vhVar": "664px",
        "pinned": 12
@@ -20853,7 +20706,7 @@
        "y": 17635,
        "ih": 664,
        "scene": "competicao",
-       "prog": 0.49992781546141696,
+       "prog": 0.4997713715591155,
        "stageBottom": 664,
        "vhVar": "664px",
        "pinned": 12
@@ -20866,7 +20719,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 12259
+     "ms": 12368
     },
     "no-preference": {
      "status": 200,
@@ -21076,7 +20929,24 @@
       "lacuna": [],
       "terr": [],
       "sistema": [],
-      "estrutura": [],
+      "estrutura": [
+       {
+        "el": ".org-row > span.pchip",
+        "text": "Campanha gaúcha",
+        "why": "cortado dentro de pchip",
+        "carousel": false,
+        "r": [
+         498,
+         154,
+         613,
+         169
+        ],
+        "stage": null,
+        "at": [
+         "50%"
+        ]
+       }
+      ],
       "rede": [
        {
         "el": ".card > p",
@@ -21963,7 +21833,7 @@
        "y": 17635,
        "ih": 664,
        "scene": "competicao",
-       "prog": 0.49992781546141696,
+       "prog": 0.4997713715591155,
        "stageBottom": 664,
        "vhVar": "664px",
        "pinned": 12
@@ -21973,7 +21843,7 @@
        "y": 17635,
        "ih": 760,
        "scene": "competicao",
-       "prog": 0.49992781546141696,
+       "prog": 0.4997713715591155,
        "stageBottom": 664,
        "vhVar": "664px",
        "pinned": 12
@@ -21983,7 +21853,7 @@
        "y": 17635,
        "ih": 664,
        "scene": "competicao",
-       "prog": 0.49992781546141696,
+       "prog": 0.4997713715591155,
        "stageBottom": 664,
        "vhVar": "664px",
        "pinned": 12
@@ -21996,7 +21866,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 13603
+     "ms": 13395
     }
    },
    "fontsBlocked": {
@@ -22206,20 +22076,17 @@
      "lacuna": [],
      "terr": [],
      "sistema": [],
-     "estrutura": [],
-     "rede": [],
-     "competicao": [],
-     "metodologia": [
+     "estrutura": [
       {
-       "el": "#ruler > div.bar.funil",
-       "text": "A partir do Sub-11, com o guia de sinais",
-       "why": "sai da tela à direita",
+       "el": ".org-row > span.pchip",
+       "text": "Campanha gaúcha",
+       "why": "cortado dentro de pchip",
        "carousel": false,
        "r": [
-        604,
-        215,
-        865,
-        232
+        498,
+        145,
+        613,
+        160
        ],
        "stage": null,
        "at": [
@@ -22227,6 +22094,9 @@
        ]
       }
      ],
+     "rede": [],
+     "competicao": [],
+     "metodologia": [],
      "norte": [],
      "funil": [],
      "fases": [],
@@ -23513,32 +23383,7 @@
        }
       ],
       "competicao": [],
-      "metodologia": [
-       {
-        "el": "#ruler > div.bar.funil",
-        "text": "A partir do Sub-11, com o guia de sinais",
-        "why": "à direita da cena, sai da tela à direita",
-        "carousel": false,
-        "r": [
-         229,
-         431,
-         425,
-         445
-        ],
-        "stage": [
-         0,
-         57,
-         360,
-         692
-        ],
-        "at": [
-         "40%",
-         "60%",
-         "80%",
-         "95%"
-        ]
-       }
-      ],
+      "metodologia": [],
       "norte": [],
       "funil": [],
       "fases": [],
@@ -23607,7 +23452,7 @@
       "gapAt760": 68
      },
      "errors": [],
-     "ms": 14150
+     "ms": 14157
     },
     "no-preference": {
      "status": 200,
@@ -24751,32 +24596,7 @@
        }
       ],
       "competicao": [],
-      "metodologia": [
-       {
-        "el": "#ruler > div.bar.funil",
-        "text": "A partir do Sub-11, com o guia de sinais",
-        "why": "à direita da cena, sai da tela à direita",
-        "carousel": false,
-        "r": [
-         229,
-         431,
-         425,
-         445
-        ],
-        "stage": [
-         0,
-         57,
-         360,
-         692
-        ],
-        "at": [
-         "40%",
-         "60%",
-         "80%",
-         "95%"
-        ]
-       }
-      ],
+      "metodologia": [],
       "norte": [],
       "funil": [],
       "fases": [],
@@ -24845,7 +24665,7 @@
       "gapAt760": 68
      },
      "errors": [],
-     "ms": 15140
+     "ms": 14971
     }
    },
    "fontsBlocked": {
@@ -24912,7 +24732,7 @@
        "key": "metodologia",
        "pinned": true,
        "tight": true,
-       "scale": null
+       "scale": "0.9603"
       },
       {
        "id": "norte",
@@ -25948,54 +25768,7 @@
       }
      ],
      "competicao": [],
-     "metodologia": [
-      {
-       "el": "#ruler > div.bar.funil",
-       "text": "A partir do Sub-11, com o guia de sinais",
-       "why": "à direita da cena, sai da tela à direita",
-       "carousel": false,
-       "r": [
-        229,
-        440,
-        450,
-        454
-       ],
-       "stage": [
-        0,
-        57,
-        360,
-        692
-       ],
-       "at": [
-        "40%",
-        "60%",
-        "80%",
-        "95%"
-       ]
-      },
-      {
-       "el": ".wrap > p.eyebrow",
-       "text": "A metodologia",
-       "why": "acima da cena",
-       "carousel": false,
-       "r": [
-        18,
-        53,
-        143,
-        70
-       ],
-       "stage": [
-        0,
-        57,
-        360,
-        692
-       ],
-       "at": [
-        "80%",
-        "95%"
-       ]
-      }
-     ],
+     "metodologia": [],
      "norte": [],
      "funil": [],
      "fases": [],
@@ -26245,31 +26018,14 @@
       "estrutura": [],
       "rede": [],
       "competicao": [],
-      "metodologia": [
-       {
-        "el": "#ruler > div.bar.funil",
-        "text": "A partir do Sub-11, com o guia de sinais",
-        "why": "sai da tela à direita",
-        "carousel": false,
-        "r": [
-         552,
-         187,
-         783,
-         204
-        ],
-        "stage": null,
-        "at": [
-         "50%"
-        ]
-       }
-      ],
+      "metodologia": [],
       "norte": [],
       "funil": [],
       "fases": [],
       "recursos": []
      },
      "scroll": {
-      "steps": 184,
+      "steps": 185,
       "progStart": 0,
       "progEnd": 1,
       "backwards": 0,
@@ -26298,7 +26054,7 @@
        "y": 17627,
        "ih": 664,
        "scene": "competicao",
-       "prog": 0.4998916791234206,
+       "prog": 0.4999157406362816,
        "stageBottom": 664,
        "vhVar": "664px",
        "pinned": 12
@@ -26308,7 +26064,7 @@
        "y": 17627,
        "ih": 760,
        "scene": "competicao",
-       "prog": 0.4998916791234206,
+       "prog": 0.4999157406362816,
        "stageBottom": 664,
        "vhVar": "664px",
        "pinned": 12
@@ -26318,7 +26074,7 @@
        "y": 17627,
        "ih": 664,
        "scene": "competicao",
-       "prog": 0.4998916791234206,
+       "prog": 0.4999157406362816,
        "stageBottom": 664,
        "vhVar": "664px",
        "pinned": 12
@@ -26331,7 +26087,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 11652
+     "ms": 11499
     },
     "no-preference": {
      "status": 200,
@@ -26438,31 +26194,14 @@
       "estrutura": [],
       "rede": [],
       "competicao": [],
-      "metodologia": [
-       {
-        "el": "#ruler > div.bar.funil",
-        "text": "A partir do Sub-11, com o guia de sinais",
-        "why": "sai da tela à direita",
-        "carousel": false,
-        "r": [
-         552,
-         187,
-         783,
-         204
-        ],
-        "stage": null,
-        "at": [
-         "50%"
-        ]
-       }
-      ],
+      "metodologia": [],
       "norte": [],
       "funil": [],
       "fases": [],
       "recursos": []
      },
      "scroll": {
-      "steps": 184,
+      "steps": 185,
       "progStart": 0,
       "progEnd": 1,
       "backwards": 0,
@@ -26491,7 +26230,7 @@
        "y": 17627,
        "ih": 664,
        "scene": "competicao",
-       "prog": 0.4998916791234206,
+       "prog": 0.4999157406362816,
        "stageBottom": 664,
        "vhVar": "664px",
        "pinned": 12
@@ -26501,7 +26240,7 @@
        "y": 17627,
        "ih": 760,
        "scene": "competicao",
-       "prog": 0.4998916791234206,
+       "prog": 0.4999157406362816,
        "stageBottom": 664,
        "vhVar": "664px",
        "pinned": 12
@@ -26511,7 +26250,7 @@
        "y": 17627,
        "ih": 664,
        "scene": "competicao",
-       "prog": 0.4998916791234206,
+       "prog": 0.4999157406362816,
        "stageBottom": 664,
        "vhVar": "664px",
        "pinned": 12
@@ -26524,7 +26263,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 12955
+     "ms": 12778
     }
    },
    "fontsBlocked": {
@@ -26631,24 +26370,7 @@
      "estrutura": [],
      "rede": [],
      "competicao": [],
-     "metodologia": [
-      {
-       "el": "#ruler > div.bar.funil",
-       "text": "A partir do Sub-11, com o guia de sinais",
-       "why": "sai da tela à direita",
-       "carousel": false,
-       "r": [
-        552,
-        168,
-        813,
-        185
-       ],
-       "stage": null,
-       "at": [
-        "50%"
-       ]
-      }
-     ],
+     "metodologia": [],
      "norte": [],
      "funil": [],
      "fases": [],
@@ -26753,7 +26475,7 @@
      ]
     },
     "scroll": {
-     "steps": 184,
+     "steps": 185,
      "progStart": 0,
      "progEnd": 1,
      "backwards": 0,
@@ -27843,32 +27565,7 @@
        }
       ],
       "competicao": [],
-      "metodologia": [
-       {
-        "el": "#ruler > div.bar.funil",
-        "text": "A partir do Sub-11, com o guia de sinais",
-        "why": "à direita da cena, sai da tela à direita",
-        "carousel": false,
-        "r": [
-         529,
-         599,
-         761,
-         616
-        ],
-        "stage": [
-         0,
-         57,
-         744,
-         1059
-        ],
-        "at": [
-         "40%",
-         "60%",
-         "80%",
-         "95%"
-        ]
-       }
-      ],
+      "metodologia": [],
       "norte": [],
       "funil": [],
       "fases": [],
@@ -27937,7 +27634,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 13703
+     "ms": 13236
     },
     "no-preference": {
      "status": 200,
@@ -28989,32 +28686,7 @@
        }
       ],
       "competicao": [],
-      "metodologia": [
-       {
-        "el": "#ruler > div.bar.funil",
-        "text": "A partir do Sub-11, com o guia de sinais",
-        "why": "à direita da cena, sai da tela à direita",
-        "carousel": false,
-        "r": [
-         529,
-         599,
-         761,
-         616
-        ],
-        "stage": [
-         0,
-         57,
-         744,
-         1059
-        ],
-        "at": [
-         "40%",
-         "60%",
-         "80%",
-         "95%"
-        ]
-       }
-      ],
+      "metodologia": [],
       "norte": [],
       "funil": [],
       "fases": [],
@@ -29083,7 +28755,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 15725
+     "ms": 14761
     }
    },
    "fontsBlocked": {
@@ -30135,32 +29807,7 @@
       }
      ],
      "competicao": [],
-     "metodologia": [
-      {
-       "el": "#ruler > div.bar.funil",
-       "text": "A partir do Sub-11, com o guia de sinais",
-       "why": "à direita da cena, sai da tela à direita",
-       "carousel": false,
-       "r": [
-        529,
-        614,
-        790,
-        631
-       ],
-       "stage": [
-        0,
-        57,
-        744,
-        1059
-       ],
-       "at": [
-        "40%",
-        "60%",
-        "80%",
-        "95%"
-       ]
-      }
-     ],
+     "metodologia": [],
      "norte": [],
      "funil": [],
      "fases": [],
@@ -31349,7 +30996,7 @@
       "gapAt760": 90
      },
      "errors": [],
-     "ms": 13779
+     "ms": 13531
     },
     "no-preference": {
      "status": 200,
@@ -32395,7 +32042,7 @@
       "gapAt760": 90
      },
      "errors": [],
-     "ms": 15776
+     "ms": 15111
     }
    },
    "fontsBlocked": {
@@ -34572,7 +34219,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 14119
+     "ms": 14082
     },
     "no-preference": {
      "status": 200,
@@ -35629,7 +35276,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 15173
+     "ms": 14807
     }
    },
    "fontsBlocked": {
@@ -36617,32 +36264,7 @@
       }
      ],
      "competicao": [],
-     "metodologia": [
-      {
-       "el": "#ruler > div.bar.funil",
-       "text": "A partir do Sub-11, com o guia de sinais",
-       "why": "à direita da cena, sai da tela à direita",
-       "carousel": false,
-       "r": [
-        577,
-        641,
-        838,
-        658
-       ],
-       "stage": [
-        0,
-        57,
-        820,
-        1106
-       ],
-       "at": [
-        "40%",
-        "60%",
-        "80%",
-        "95%"
-       ]
-      }
-     ],
+     "metodologia": [],
      "norte": [],
      "funil": [],
      "fases": [],
@@ -37809,7 +37431,7 @@
       "gapAt760": 14
      },
      "errors": [],
-     "ms": 14170
+     "ms": 13770
     },
     "no-preference": {
      "status": 200,
@@ -38833,7 +38455,7 @@
       "gapAt760": 14
      },
      "errors": [],
-     "ms": 15165
+     "ms": 15189
     }
    },
    "fontsBlocked": {
@@ -40978,7 +40600,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 13746
+     "ms": 13115
     },
     "no-preference": {
      "status": 200,
@@ -42025,7 +41647,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 15044
+     "ms": 14994
     }
    },
    "fontsBlocked": {
@@ -44098,7 +43720,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 13485
+     "ms": 13416
     },
     "no-preference": {
      "status": 200,
@@ -45050,7 +44672,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 15272
+     "ms": 15194
     }
    },
    "fontsBlocked": {
@@ -47178,7 +46800,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 14274
+     "ms": 14015
     },
     "no-preference": {
      "status": 200,
@@ -48278,7 +47900,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 15089
+     "ms": 14593
     }
    },
    "fontsBlocked": {
@@ -49309,32 +48931,7 @@
       }
      ],
      "competicao": [],
-     "metodologia": [
-      {
-       "el": "#ruler > div.bar.funil",
-       "text": "A partir do Sub-11, com o guia de sinais",
-       "why": "à direita da cena, sai da tela à direita",
-       "carousel": false,
-       "r": [
-        564,
-        690,
-        825,
-        707
-       ],
-       "stage": [
-        0,
-        57,
-        800,
-        1206
-       ],
-       "at": [
-        "40%",
-        "60%",
-        "80%",
-        "95%"
-       ]
-      }
-     ],
+     "metodologia": [],
      "norte": [],
      "funil": [],
      "fases": [],
@@ -50478,7 +50075,7 @@
       "gapAt760": 34
      },
      "errors": [],
-     "ms": 14030
+     "ms": 13797
     },
     "no-preference": {
      "status": 200,
@@ -51479,7 +51076,7 @@
       "gapAt760": 34
      },
      "errors": [],
-     "ms": 15060
+     "ms": 14677
     }
    },
    "fontsBlocked": {
@@ -53698,32 +53295,7 @@
        }
       ],
       "competicao": [],
-      "metodologia": [
-       {
-        "el": "#ruler > div.bar.funil",
-        "text": "A partir do Sub-11, com o guia de sinais",
-        "why": "à direita da cena, sai da tela à direita",
-        "carousel": false,
-        "r": [
-         204,
-         541,
-         400,
-         555
-        ],
-        "stage": [
-         0,
-         57,
-         320,
-         950
-        ],
-        "at": [
-         "40%",
-         "60%",
-         "80%",
-         "95%"
-        ]
-       }
-      ],
+      "metodologia": [],
       "norte": [],
       "funil": [],
       "fases": [],
@@ -53792,7 +53364,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 14659
+     "ms": 14034
     },
     "no-preference": {
      "status": 200,
@@ -54936,32 +54508,7 @@
        }
       ],
       "competicao": [],
-      "metodologia": [
-       {
-        "el": "#ruler > div.bar.funil",
-        "text": "A partir do Sub-11, com o guia de sinais",
-        "why": "à direita da cena, sai da tela à direita",
-        "carousel": false,
-        "r": [
-         204,
-         541,
-         400,
-         555
-        ],
-        "stage": [
-         0,
-         57,
-         320,
-         950
-        ],
-        "at": [
-         "40%",
-         "60%",
-         "80%",
-         "95%"
-        ]
-       }
-      ],
+      "metodologia": [],
       "norte": [],
       "funil": [],
       "fases": [],
@@ -55030,7 +54577,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 15892
+     "ms": 15291
     }
    },
    "fontsBlocked": {
@@ -56135,15 +55682,15 @@
      "competicao": [],
      "metodologia": [
       {
-       "el": "#ruler > div.bar.funil",
-       "text": "A partir do Sub-11, com o guia de sinais",
-       "why": "à direita da cena, sai da tela à direita",
+       "el": ".wrap > p.eyebrow",
+       "text": "A metodologia",
+       "why": "acima da cena",
        "carousel": false,
        "r": [
-        204,
-        543,
-        425,
-        557
+        18,
+        53,
+        143,
+        70
        ],
        "stage": [
         0,
@@ -56152,9 +55699,49 @@
         950
        ],
        "at": [
-        "40%",
-        "60%",
         "80%",
+        "95%"
+       ]
+      },
+      {
+       "el": "p#agC",
+       "text": "No SACI: Sub-11 de futsal e de campo. Entra no fun",
+       "why": "abaixo da cena",
+       "carousel": false,
+       "r": [
+        227,
+        817,
+        296,
+        954
+       ],
+       "stage": [
+        0,
+        57,
+        320,
+        950
+       ],
+       "at": [
+        "80%"
+       ]
+      },
+      {
+       "el": "p#agC",
+       "text": "No SACI: Sub-13 de futsal e de campo. Último ano a",
+       "why": "abaixo da cena",
+       "carousel": false,
+       "r": [
+        227,
+        817,
+        298,
+        954
+       ],
+       "stage": [
+        0,
+        57,
+        320,
+        950
+       ],
+       "at": [
         "95%"
        ]
       }
@@ -57402,32 +56989,7 @@
        }
       ],
       "competicao": [],
-      "metodologia": [
-       {
-        "el": "#ruler > div.bar.funil",
-        "text": "A partir do Sub-11, com o guia de sinais",
-        "why": "à direita da cena, sai da tela à direita",
-        "carousel": false,
-        "r": [
-         319,
-         560,
-         515,
-         574
-        ],
-        "stage": [
-         0,
-         57,
-         507,
-         950
-        ],
-        "at": [
-         "40%",
-         "60%",
-         "80%",
-         "95%"
-        ]
-       }
-      ],
+      "metodologia": [],
       "norte": [],
       "funil": [],
       "fases": [],
@@ -57496,7 +57058,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 14183
+     "ms": 13647
     },
     "no-preference": {
      "status": 200,
@@ -58597,32 +58159,7 @@
        }
       ],
       "competicao": [],
-      "metodologia": [
-       {
-        "el": "#ruler > div.bar.funil",
-        "text": "A partir do Sub-11, com o guia de sinais",
-        "why": "à direita da cena, sai da tela à direita",
-        "carousel": false,
-        "r": [
-         319,
-         560,
-         515,
-         574
-        ],
-        "stage": [
-         0,
-         57,
-         507,
-         950
-        ],
-        "at": [
-         "40%",
-         "60%",
-         "80%",
-         "95%"
-        ]
-       }
-      ],
+      "metodologia": [],
       "norte": [],
       "funil": [],
       "fases": [],
@@ -58691,7 +58228,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 15403
+     "ms": 15335
     }
    },
    "fontsBlocked": {
@@ -59793,32 +59330,7 @@
       }
      ],
      "competicao": [],
-     "metodologia": [
-      {
-       "el": "#ruler > div.bar.funil",
-       "text": "A partir do Sub-11, com o guia de sinais",
-       "why": "à direita da cena, sai da tela à direita",
-       "carousel": false,
-       "r": [
-        319,
-        560,
-        540,
-        574
-       ],
-       "stage": [
-        0,
-        57,
-        507,
-        950
-       ],
-       "at": [
-        "40%",
-        "60%",
-        "80%",
-        "95%"
-       ]
-      }
-     ],
+     "metodologia": [],
      "norte": [],
      "funil": [],
      "fases": [],
@@ -60065,7 +59577,33 @@
       "lacuna": [],
       "terr": [],
       "sistema": [],
-      "estrutura": [],
+      "estrutura": [
+       {
+        "el": ".org-row > span.pchip",
+        "text": "Campanha gaúcha",
+        "why": "cortado dentro de pchip",
+        "carousel": false,
+        "r": [
+         543,
+         328,
+         659,
+         343
+        ],
+        "stage": [
+         0,
+         57,
+         678,
+         950
+        ],
+        "at": [
+         "20%",
+         "40%",
+         "60%",
+         "80%",
+         "95%"
+        ]
+       }
+      ],
       "rede": [
        {
         "el": ".card > p",
@@ -61034,32 +60572,7 @@
        }
       ],
       "competicao": [],
-      "metodologia": [
-       {
-        "el": "#ruler > div.bar.funil",
-        "text": "A partir do Sub-11, com o guia de sinais",
-        "why": "à direita da cena, sai da tela à direita",
-        "carousel": false,
-        "r": [
-         488,
-         543,
-         719,
-         560
-        ],
-        "stage": [
-         0,
-         57,
-         678,
-         950
-        ],
-        "at": [
-         "40%",
-         "60%",
-         "80%",
-         "95%"
-        ]
-       }
-      ],
+      "metodologia": [],
       "norte": [],
       "funil": [],
       "fases": [],
@@ -61128,7 +60641,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 14553
+     "ms": 14152
     },
     "no-preference": {
      "status": 200,
@@ -61232,7 +60745,33 @@
       "lacuna": [],
       "terr": [],
       "sistema": [],
-      "estrutura": [],
+      "estrutura": [
+       {
+        "el": ".org-row > span.pchip",
+        "text": "Campanha gaúcha",
+        "why": "cortado dentro de pchip",
+        "carousel": false,
+        "r": [
+         543,
+         328,
+         659,
+         343
+        ],
+        "stage": [
+         0,
+         57,
+         678,
+         950
+        ],
+        "at": [
+         "20%",
+         "40%",
+         "60%",
+         "80%",
+         "95%"
+        ]
+       }
+      ],
       "rede": [
        {
         "el": ".card > p",
@@ -62201,32 +61740,7 @@
        }
       ],
       "competicao": [],
-      "metodologia": [
-       {
-        "el": "#ruler > div.bar.funil",
-        "text": "A partir do Sub-11, com o guia de sinais",
-        "why": "à direita da cena, sai da tela à direita",
-        "carousel": false,
-        "r": [
-         488,
-         543,
-         719,
-         560
-        ],
-        "stage": [
-         0,
-         57,
-         678,
-         950
-        ],
-        "at": [
-         "40%",
-         "60%",
-         "80%",
-         "95%"
-        ]
-       }
-      ],
+      "metodologia": [],
       "norte": [],
       "funil": [],
       "fases": [],
@@ -62295,7 +61809,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 15209
+     "ms": 14838
     }
    },
    "fontsBlocked": {
@@ -62399,7 +61913,33 @@
      "lacuna": [],
      "terr": [],
      "sistema": [],
-     "estrutura": [],
+     "estrutura": [
+      {
+       "el": ".org-row > span.pchip",
+       "text": "Campanha gaúcha",
+       "why": "cortado dentro de pchip",
+       "carousel": false,
+       "r": [
+        543,
+        328,
+        659,
+        343
+       ],
+       "stage": [
+        0,
+        57,
+        678,
+        950
+       ],
+       "at": [
+        "20%",
+        "40%",
+        "60%",
+        "80%",
+        "95%"
+       ]
+      }
+     ],
      "rede": [
       {
        "el": ".card > div.big",
@@ -63369,32 +62909,7 @@
       }
      ],
      "competicao": [],
-     "metodologia": [
-      {
-       "el": "#ruler > div.bar.funil",
-       "text": "A partir do Sub-11, com o guia de sinais",
-       "why": "à direita da cena, sai da tela à direita",
-       "carousel": false,
-       "r": [
-        488,
-        558,
-        749,
-        575
-       ],
-       "stage": [
-        0,
-        57,
-        678,
-        950
-       ],
-       "at": [
-        "40%",
-        "60%",
-        "80%",
-        "95%"
-       ]
-      }
-     ],
+     "metodologia": [],
      "norte": [],
      "funil": [],
      "fases": [],
@@ -64681,32 +64196,7 @@
        }
       ],
       "competicao": [],
-      "metodologia": [
-       {
-        "el": "#ruler > div.bar.funil",
-        "text": "A partir do Sub-11, com o guia de sinais",
-        "why": "à direita da cena, sai da tela à direita",
-        "carousel": false,
-        "r": [
-         204,
-         506,
-         400,
-         520
-        ],
-        "stage": [
-         0,
-         57,
-         320,
-         880
-        ],
-        "at": [
-         "40%",
-         "60%",
-         "80%",
-         "95%"
-        ]
-       }
-      ],
+      "metodologia": [],
       "norte": [],
       "funil": [],
       "fases": [],
@@ -64775,7 +64265,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 14177
+     "ms": 14231
     },
     "no-preference": {
      "status": 200,
@@ -65919,32 +65409,7 @@
        }
       ],
       "competicao": [],
-      "metodologia": [
-       {
-        "el": "#ruler > div.bar.funil",
-        "text": "A partir do Sub-11, com o guia de sinais",
-        "why": "à direita da cena, sai da tela à direita",
-        "carousel": false,
-        "r": [
-         204,
-         506,
-         400,
-         520
-        ],
-        "stage": [
-         0,
-         57,
-         320,
-         880
-        ],
-        "at": [
-         "40%",
-         "60%",
-         "80%",
-         "95%"
-        ]
-       }
-      ],
+      "metodologia": [],
       "norte": [],
       "funil": [],
       "fases": [],
@@ -66013,7 +65478,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 15476
+     "ms": 15357
     }
    },
    "fontsBlocked": {
@@ -67118,15 +66583,15 @@
      "competicao": [],
      "metodologia": [
       {
-       "el": "#ruler > div.bar.funil",
-       "text": "A partir do Sub-11, com o guia de sinais",
-       "why": "à direita da cena, sai da tela à direita",
+       "el": ".wrap > p.eyebrow",
+       "text": "A metodologia",
+       "why": "acima da cena",
        "carousel": false,
        "r": [
-        204,
-        508,
-        425,
-        522
+        18,
+        18,
+        143,
+        35
        ],
        "stage": [
         0,
@@ -67135,22 +66600,20 @@
         880
        ],
        "at": [
-        "40%",
-        "60%",
         "80%",
         "95%"
        ]
       },
       {
-       "el": ".wrap > p.eyebrow",
-       "text": "A metodologia",
+       "el": ".wrap > h2.h2.met-h2",
+       "text": "O método vem do Celeiro de Ases. O SACI leva ele a",
        "why": "acima da cena",
        "carousel": false,
        "r": [
         18,
-        30,
-        143,
-        47
+        48,
+        272,
+        155
        ],
        "stage": [
         0,
@@ -67170,9 +66633,9 @@
        "carousel": false,
        "r": [
         227,
-        769,
+        782,
         296,
-        907
+        919
        ],
        "stage": [
         0,
@@ -67191,9 +66654,9 @@
        "carousel": false,
        "r": [
         227,
-        769,
+        782,
         298,
-        907
+        919
        ],
        "stage": [
         0,
@@ -68400,32 +67863,7 @@
        }
       ],
       "competicao": [],
-      "metodologia": [
-       {
-        "el": "#ruler > div.bar.funil",
-        "text": "A partir do Sub-11, com o guia de sinais",
-        "why": "à direita da cena, sai da tela à direita",
-        "carousel": false,
-        "r": [
-         529,
-         599,
-         761,
-         616
-        ],
-        "stage": [
-         0,
-         57,
-         744,
-         1059
-        ],
-        "at": [
-         "40%",
-         "60%",
-         "80%",
-         "95%"
-        ]
-       }
-      ],
+      "metodologia": [],
       "norte": [],
       "funil": [],
       "fases": [],
@@ -68494,7 +67932,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 13693
+     "ms": 13224
     },
     "no-preference": {
      "status": 200,
@@ -69546,32 +68984,7 @@
        }
       ],
       "competicao": [],
-      "metodologia": [
-       {
-        "el": "#ruler > div.bar.funil",
-        "text": "A partir do Sub-11, com o guia de sinais",
-        "why": "à direita da cena, sai da tela à direita",
-        "carousel": false,
-        "r": [
-         529,
-         599,
-         761,
-         616
-        ],
-        "stage": [
-         0,
-         57,
-         744,
-         1059
-        ],
-        "at": [
-         "40%",
-         "60%",
-         "80%",
-         "95%"
-        ]
-       }
-      ],
+      "metodologia": [],
       "norte": [],
       "funil": [],
       "fases": [],
@@ -69640,7 +69053,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 15407
+     "ms": 14759
     }
    },
    "fontsBlocked": {
@@ -70692,32 +70105,7 @@
       }
      ],
      "competicao": [],
-     "metodologia": [
-      {
-       "el": "#ruler > div.bar.funil",
-       "text": "A partir do Sub-11, com o guia de sinais",
-       "why": "à direita da cena, sai da tela à direita",
-       "carousel": false,
-       "r": [
-        529,
-        614,
-        790,
-        631
-       ],
-       "stage": [
-        0,
-        57,
-        744,
-        1059
-       ],
-       "at": [
-        "40%",
-        "60%",
-        "80%",
-        "95%"
-       ]
-      }
-     ],
+     "metodologia": [],
      "norte": [],
      "funil": [],
      "fases": [],
@@ -71906,7 +71294,7 @@
       "gapAt760": 90
      },
      "errors": [],
-     "ms": 13965
+     "ms": 13614
     },
     "no-preference": {
      "status": 200,
@@ -72952,7 +72340,7 @@
       "gapAt760": 90
      },
      "errors": [],
-     "ms": 15506
+     "ms": 15262
     }
    },
    "fontsBlocked": {
@@ -75129,7 +74517,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 14122
+     "ms": 13756
     },
     "no-preference": {
      "status": 200,
@@ -76186,7 +75574,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 15024
+     "ms": 14825
     }
    },
    "fontsBlocked": {
@@ -77174,32 +76562,7 @@
       }
      ],
      "competicao": [],
-     "metodologia": [
-      {
-       "el": "#ruler > div.bar.funil",
-       "text": "A partir do Sub-11, com o guia de sinais",
-       "why": "à direita da cena, sai da tela à direita",
-       "carousel": false,
-       "r": [
-        577,
-        641,
-        838,
-        658
-       ],
-       "stage": [
-        0,
-        57,
-        820,
-        1106
-       ],
-       "at": [
-        "40%",
-        "60%",
-        "80%",
-        "95%"
-       ]
-      }
-     ],
+     "metodologia": [],
      "norte": [],
      "funil": [],
      "fases": [],
@@ -78366,7 +77729,7 @@
       "gapAt760": 14
      },
      "errors": [],
-     "ms": 14216
+     "ms": 13880
     },
     "no-preference": {
      "status": 200,
@@ -79390,7 +78753,7 @@
       "gapAt760": 14
      },
      "errors": [],
-     "ms": 14974
+     "ms": 15226
     }
    },
    "fontsBlocked": {
@@ -81535,7 +80898,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 13862
+     "ms": 13334
     },
     "no-preference": {
      "status": 200,
@@ -82582,7 +81945,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 15159
+     "ms": 14839
     }
    },
    "fontsBlocked": {
@@ -84655,7 +84018,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 13740
+     "ms": 13476
     },
     "no-preference": {
      "status": 200,
@@ -85607,7 +84970,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 15491
+     "ms": 15184
     }
    },
    "fontsBlocked": {
@@ -87779,32 +87142,7 @@
        }
       ],
       "competicao": [],
-      "metodologia": [
-       {
-        "el": "#ruler > div.bar.funil",
-        "text": "A partir do Sub-11, com o guia de sinais",
-        "why": "à direita da cena, sai da tela à direita",
-        "carousel": false,
-        "r": [
-         204,
-         541,
-         400,
-         555
-        ],
-        "stage": [
-         0,
-         57,
-         320,
-         950
-        ],
-        "at": [
-         "40%",
-         "60%",
-         "80%",
-         "95%"
-        ]
-       }
-      ],
+      "metodologia": [],
       "norte": [],
       "funil": [],
       "fases": [],
@@ -87873,7 +87211,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 14753
+     "ms": 14315
     },
     "no-preference": {
      "status": 200,
@@ -89017,32 +88355,7 @@
        }
       ],
       "competicao": [],
-      "metodologia": [
-       {
-        "el": "#ruler > div.bar.funil",
-        "text": "A partir do Sub-11, com o guia de sinais",
-        "why": "à direita da cena, sai da tela à direita",
-        "carousel": false,
-        "r": [
-         204,
-         541,
-         400,
-         555
-        ],
-        "stage": [
-         0,
-         57,
-         320,
-         950
-        ],
-        "at": [
-         "40%",
-         "60%",
-         "80%",
-         "95%"
-        ]
-       }
-      ],
+      "metodologia": [],
       "norte": [],
       "funil": [],
       "fases": [],
@@ -89111,7 +88424,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 15388
+     "ms": 15126
     }
    },
    "fontsBlocked": {
@@ -90216,15 +89529,15 @@
      "competicao": [],
      "metodologia": [
       {
-       "el": "#ruler > div.bar.funil",
-       "text": "A partir do Sub-11, com o guia de sinais",
-       "why": "à direita da cena, sai da tela à direita",
+       "el": ".wrap > p.eyebrow",
+       "text": "A metodologia",
+       "why": "acima da cena",
        "carousel": false,
        "r": [
-        204,
-        543,
-        425,
-        557
+        18,
+        53,
+        143,
+        70
        ],
        "stage": [
         0,
@@ -90233,9 +89546,49 @@
         950
        ],
        "at": [
-        "40%",
-        "60%",
         "80%",
+        "95%"
+       ]
+      },
+      {
+       "el": "p#agC",
+       "text": "No SACI: Sub-11 de futsal e de campo. Entra no fun",
+       "why": "abaixo da cena",
+       "carousel": false,
+       "r": [
+        227,
+        817,
+        296,
+        954
+       ],
+       "stage": [
+        0,
+        57,
+        320,
+        950
+       ],
+       "at": [
+        "80%"
+       ]
+      },
+      {
+       "el": "p#agC",
+       "text": "No SACI: Sub-13 de futsal e de campo. Último ano a",
+       "why": "abaixo da cena",
+       "carousel": false,
+       "r": [
+        227,
+        817,
+        298,
+        954
+       ],
+       "stage": [
+        0,
+        57,
+        320,
+        950
+       ],
+       "at": [
         "95%"
        ]
       }
@@ -91483,32 +90836,7 @@
        }
       ],
       "competicao": [],
-      "metodologia": [
-       {
-        "el": "#ruler > div.bar.funil",
-        "text": "A partir do Sub-11, com o guia de sinais",
-        "why": "à direita da cena, sai da tela à direita",
-        "carousel": false,
-        "r": [
-         319,
-         560,
-         515,
-         574
-        ],
-        "stage": [
-         0,
-         57,
-         507,
-         950
-        ],
-        "at": [
-         "40%",
-         "60%",
-         "80%",
-         "95%"
-        ]
-       }
-      ],
+      "metodologia": [],
       "norte": [],
       "funil": [],
       "fases": [],
@@ -91577,7 +90905,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 14229
+     "ms": 13839
     },
     "no-preference": {
      "status": 200,
@@ -92678,32 +92006,7 @@
        }
       ],
       "competicao": [],
-      "metodologia": [
-       {
-        "el": "#ruler > div.bar.funil",
-        "text": "A partir do Sub-11, com o guia de sinais",
-        "why": "à direita da cena, sai da tela à direita",
-        "carousel": false,
-        "r": [
-         319,
-         560,
-         515,
-         574
-        ],
-        "stage": [
-         0,
-         57,
-         507,
-         950
-        ],
-        "at": [
-         "40%",
-         "60%",
-         "80%",
-         "95%"
-        ]
-       }
-      ],
+      "metodologia": [],
       "norte": [],
       "funil": [],
       "fases": [],
@@ -92772,7 +92075,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 14955
+     "ms": 14891
     }
    },
    "fontsBlocked": {
@@ -93874,32 +93177,7 @@
       }
      ],
      "competicao": [],
-     "metodologia": [
-      {
-       "el": "#ruler > div.bar.funil",
-       "text": "A partir do Sub-11, com o guia de sinais",
-       "why": "à direita da cena, sai da tela à direita",
-       "carousel": false,
-       "r": [
-        319,
-        560,
-        540,
-        574
-       ],
-       "stage": [
-        0,
-        57,
-        507,
-        950
-       ],
-       "at": [
-        "40%",
-        "60%",
-        "80%",
-        "95%"
-       ]
-      }
-     ],
+     "metodologia": [],
      "norte": [],
      "funil": [],
      "fases": [],
@@ -94146,7 +93424,33 @@
       "lacuna": [],
       "terr": [],
       "sistema": [],
-      "estrutura": [],
+      "estrutura": [
+       {
+        "el": ".org-row > span.pchip",
+        "text": "Campanha gaúcha",
+        "why": "cortado dentro de pchip",
+        "carousel": false,
+        "r": [
+         543,
+         328,
+         659,
+         343
+        ],
+        "stage": [
+         0,
+         57,
+         678,
+         950
+        ],
+        "at": [
+         "20%",
+         "40%",
+         "60%",
+         "80%",
+         "95%"
+        ]
+       }
+      ],
       "rede": [
        {
         "el": ".card > p",
@@ -95115,32 +94419,7 @@
        }
       ],
       "competicao": [],
-      "metodologia": [
-       {
-        "el": "#ruler > div.bar.funil",
-        "text": "A partir do Sub-11, com o guia de sinais",
-        "why": "à direita da cena, sai da tela à direita",
-        "carousel": false,
-        "r": [
-         488,
-         543,
-         719,
-         560
-        ],
-        "stage": [
-         0,
-         57,
-         678,
-         950
-        ],
-        "at": [
-         "40%",
-         "60%",
-         "80%",
-         "95%"
-        ]
-       }
-      ],
+      "metodologia": [],
       "norte": [],
       "funil": [],
       "fases": [],
@@ -95209,7 +94488,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 14050
+     "ms": 13462
     },
     "no-preference": {
      "status": 200,
@@ -95313,7 +94592,33 @@
       "lacuna": [],
       "terr": [],
       "sistema": [],
-      "estrutura": [],
+      "estrutura": [
+       {
+        "el": ".org-row > span.pchip",
+        "text": "Campanha gaúcha",
+        "why": "cortado dentro de pchip",
+        "carousel": false,
+        "r": [
+         543,
+         328,
+         659,
+         343
+        ],
+        "stage": [
+         0,
+         57,
+         678,
+         950
+        ],
+        "at": [
+         "20%",
+         "40%",
+         "60%",
+         "80%",
+         "95%"
+        ]
+       }
+      ],
       "rede": [
        {
         "el": ".card > p",
@@ -96282,32 +95587,7 @@
        }
       ],
       "competicao": [],
-      "metodologia": [
-       {
-        "el": "#ruler > div.bar.funil",
-        "text": "A partir do Sub-11, com o guia de sinais",
-        "why": "à direita da cena, sai da tela à direita",
-        "carousel": false,
-        "r": [
-         488,
-         543,
-         719,
-         560
-        ],
-        "stage": [
-         0,
-         57,
-         678,
-         950
-        ],
-        "at": [
-         "40%",
-         "60%",
-         "80%",
-         "95%"
-        ]
-       }
-      ],
+      "metodologia": [],
       "norte": [],
       "funil": [],
       "fases": [],
@@ -96376,7 +95656,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 15059
+     "ms": 14891
     }
    },
    "fontsBlocked": {
@@ -96480,7 +95760,33 @@
      "lacuna": [],
      "terr": [],
      "sistema": [],
-     "estrutura": [],
+     "estrutura": [
+      {
+       "el": ".org-row > span.pchip",
+       "text": "Campanha gaúcha",
+       "why": "cortado dentro de pchip",
+       "carousel": false,
+       "r": [
+        543,
+        328,
+        659,
+        343
+       ],
+       "stage": [
+        0,
+        57,
+        678,
+        950
+       ],
+       "at": [
+        "20%",
+        "40%",
+        "60%",
+        "80%",
+        "95%"
+       ]
+      }
+     ],
      "rede": [
       {
        "el": ".card > div.big",
@@ -97450,32 +96756,7 @@
       }
      ],
      "competicao": [],
-     "metodologia": [
-      {
-       "el": "#ruler > div.bar.funil",
-       "text": "A partir do Sub-11, com o guia de sinais",
-       "why": "à direita da cena, sai da tela à direita",
-       "carousel": false,
-       "r": [
-        488,
-        558,
-        749,
-        575
-       ],
-       "stage": [
-        0,
-        57,
-        678,
-        950
-       ],
-       "at": [
-        "40%",
-        "60%",
-        "80%",
-        "95%"
-       ]
-      }
-     ],
+     "metodologia": [],
      "norte": [],
      "funil": [],
      "fases": [],
@@ -98762,32 +98043,7 @@
        }
       ],
       "competicao": [],
-      "metodologia": [
-       {
-        "el": "#ruler > div.bar.funil",
-        "text": "A partir do Sub-11, com o guia de sinais",
-        "why": "à direita da cena, sai da tela à direita",
-        "carousel": false,
-        "r": [
-         204,
-         506,
-         400,
-         520
-        ],
-        "stage": [
-         0,
-         57,
-         320,
-         880
-        ],
-        "at": [
-         "40%",
-         "60%",
-         "80%",
-         "95%"
-        ]
-       }
-      ],
+      "metodologia": [],
       "norte": [],
       "funil": [],
       "fases": [],
@@ -98856,7 +98112,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 14162
+     "ms": 13996
     },
     "no-preference": {
      "status": 200,
@@ -100000,32 +99256,7 @@
        }
       ],
       "competicao": [],
-      "metodologia": [
-       {
-        "el": "#ruler > div.bar.funil",
-        "text": "A partir do Sub-11, com o guia de sinais",
-        "why": "à direita da cena, sai da tela à direita",
-        "carousel": false,
-        "r": [
-         204,
-         506,
-         400,
-         520
-        ],
-        "stage": [
-         0,
-         57,
-         320,
-         880
-        ],
-        "at": [
-         "40%",
-         "60%",
-         "80%",
-         "95%"
-        ]
-       }
-      ],
+      "metodologia": [],
       "norte": [],
       "funil": [],
       "fases": [],
@@ -100094,7 +99325,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 16055
+     "ms": 15723
     }
    },
    "fontsBlocked": {
@@ -101199,15 +100430,15 @@
      "competicao": [],
      "metodologia": [
       {
-       "el": "#ruler > div.bar.funil",
-       "text": "A partir do Sub-11, com o guia de sinais",
-       "why": "à direita da cena, sai da tela à direita",
+       "el": ".wrap > p.eyebrow",
+       "text": "A metodologia",
+       "why": "acima da cena",
        "carousel": false,
        "r": [
-        204,
-        508,
-        425,
-        522
+        18,
+        18,
+        143,
+        35
        ],
        "stage": [
         0,
@@ -101216,22 +100447,20 @@
         880
        ],
        "at": [
-        "40%",
-        "60%",
         "80%",
         "95%"
        ]
       },
       {
-       "el": ".wrap > p.eyebrow",
-       "text": "A metodologia",
+       "el": ".wrap > h2.h2.met-h2",
+       "text": "O método vem do Celeiro de Ases. O SACI leva ele a",
        "why": "acima da cena",
        "carousel": false,
        "r": [
         18,
-        30,
-        143,
-        47
+        48,
+        272,
+        155
        ],
        "stage": [
         0,
@@ -101251,9 +100480,9 @@
        "carousel": false,
        "r": [
         227,
-        769,
+        782,
         296,
-        907
+        919
        ],
        "stage": [
         0,
@@ -101272,9 +100501,9 @@
        "carousel": false,
        "r": [
         227,
-        769,
+        782,
         298,
-        907
+        919
        ],
        "stage": [
         0,
@@ -102430,7 +101659,7 @@
       "gapAt760": 40
      },
      "errors": [],
-     "ms": 14973
+     "ms": 13966
     },
     "no-preference": {
      "status": 200,
@@ -103431,7 +102660,7 @@
       "gapAt760": 40
      },
      "errors": [],
-     "ms": 15653
+     "ms": 14777
     }
    },
    "fontsBlocked": {
@@ -105481,7 +104710,7 @@
       "gapAt760": 60
      },
      "errors": [],
-     "ms": 13884
+     "ms": 13748
     },
     "no-preference": {
      "status": 200,
@@ -106456,7 +105685,7 @@
       "gapAt760": 60
      },
      "errors": [],
-     "ms": 15370
+     "ms": 15441
     }
    },
    "fontsBlocked": {
@@ -108456,7 +107685,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 14170
+     "ms": 13625
     },
     "no-preference": {
      "status": 200,
@@ -109405,7 +108634,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 15919
+     "ms": 15220
     }
    },
    "fontsBlocked": {
@@ -111341,7 +110570,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 13605
+     "ms": 13716
     },
     "no-preference": {
      "status": 200,
@@ -112254,7 +111483,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 15886
+     "ms": 15510
     }
    },
    "fontsBlocked": {
@@ -114054,7 +113283,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 15125
+     "ms": 15084
     },
     "no-preference": {
      "status": 200,
@@ -114867,7 +114096,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 16983
+     "ms": 16357
     }
    },
    "fontsBlocked": {
@@ -116393,7 +115622,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 15452
+     "ms": 15908
     },
     "no-preference": {
      "status": 200,
@@ -117033,7 +116262,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 16556
+     "ms": 17610
     }
    },
    "fontsBlocked": {
@@ -118693,7 +117922,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 15190
+     "ms": 15829
     },
     "no-preference": {
      "status": 200,
@@ -119638,7 +118867,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 16840
+     "ms": 17522
     }
    },
    "fontsBlocked": {
@@ -121659,7 +120888,7 @@
       "gapAt760": 40
      },
      "errors": [],
-     "ms": 15749
+     "ms": 15283
     },
     "no-preference": {
      "status": 200,
@@ -122660,7 +121889,7 @@
       "gapAt760": 40
      },
      "errors": [],
-     "ms": 17253
+     "ms": 16575
     }
    },
    "fontsBlocked": {
@@ -123803,7 +123032,7 @@
         "key": "metodologia",
         "pinned": true,
         "tight": true,
-        "scale": "0.9404"
+        "scale": "0.9441"
        },
        {
         "id": "norte",
@@ -124782,7 +124011,7 @@
       "gapAt760": 0
      },
      "errors": [],
-     "ms": 14349
+     "ms": 14844
     },
     "no-preference": {
      "status": 200,
@@ -124849,7 +124078,7 @@
         "key": "metodologia",
         "pinned": true,
         "tight": true,
-        "scale": "0.9404"
+        "scale": "0.9441"
        },
        {
         "id": "norte",
@@ -125828,7 +125057,7 @@
       "gapAt760": 0
      },
      "errors": [],
-     "ms": 14592
+     "ms": 14308
     }
    },
    "fontsBlocked": {
@@ -125895,7 +125124,7 @@
        "key": "metodologia",
        "pinned": true,
        "tight": true,
-       "scale": "0.8858"
+       "scale": "0.8891"
       },
       {
        "id": "norte",
@@ -126877,7 +126106,7 @@
        "key": "metodologia",
        "pinned": true,
        "tight": true,
-       "scale": "0.9404"
+       "scale": "0.9441"
       },
       {
        "id": "norte",
@@ -127016,7 +126245,7 @@
         "key": "metodologia",
         "pinned": true,
         "tight": true,
-        "scale": "0.7803"
+        "scale": "0.7835"
        },
        {
         "id": "norte",
@@ -128109,7 +127338,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 13976
+     "ms": 13674
     },
     "no-preference": {
      "status": 200,
@@ -128176,7 +127405,7 @@
         "key": "metodologia",
         "pinned": true,
         "tight": true,
-        "scale": "0.7803"
+        "scale": "0.7835"
        },
        {
         "id": "norte",
@@ -129269,7 +128498,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 14576
+     "ms": 14774
     }
    },
    "fontsBlocked": {
@@ -129336,7 +128565,7 @@
        "key": "metodologia",
        "pinned": true,
        "tight": true,
-       "scale": "0.7336"
+       "scale": "0.7294"
       },
       {
        "id": "norte",
@@ -130432,7 +129661,7 @@
        "key": "metodologia",
        "pinned": true,
        "tight": true,
-       "scale": "0.7803"
+       "scale": "0.7835"
       },
       {
        "id": "norte",

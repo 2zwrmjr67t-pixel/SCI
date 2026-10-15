@@ -83,7 +83,7 @@
         "key": "metodologia",
         "pinned": true,
         "tight": true,
-        "scale": "0.8076"
+        "scale": "0.8034"
        },
        {
         "id": "norte",
@@ -1139,32 +1139,7 @@
        }
       ],
       "competicao": [],
-      "metodologia": [
-       {
-        "el": "#ruler > div.bar.funil",
-        "text": "A partir do Sub-11, com o guia de sinais",
-        "why": "à direita da cena, sai da tela à direita",
-        "carousel": false,
-        "r": [
-         238,
-         346,
-         396,
-         357
-        ],
-        "stage": [
-         0,
-         57,
-         375,
-         553
-        ],
-        "at": [
-         "40%",
-         "60%",
-         "80%",
-         "95%"
-        ]
-       }
-      ],
+      "metodologia": [],
       "norte": [],
       "funil": [],
       "fases": [],
@@ -1233,7 +1208,7 @@
       "gapAt760": 0
      },
      "errors": [],
-     "ms": 36939
+     "ms": 47068
     },
     "no-preference": {
      "status": 200,
@@ -1300,7 +1275,7 @@
         "key": "metodologia",
         "pinned": true,
         "tight": true,
-        "scale": "0.8076"
+        "scale": "0.8034"
        },
        {
         "id": "norte",
@@ -2356,32 +2331,7 @@
        }
       ],
       "competicao": [],
-      "metodologia": [
-       {
-        "el": "#ruler > div.bar.funil",
-        "text": "A partir do Sub-11, com o guia de sinais",
-        "why": "à direita da cena, sai da tela à direita",
-        "carousel": false,
-        "r": [
-         238,
-         346,
-         396,
-         357
-        ],
-        "stage": [
-         0,
-         57,
-         375,
-         553
-        ],
-        "at": [
-         "40%",
-         "60%",
-         "80%",
-         "95%"
-        ]
-       }
-      ],
+      "metodologia": [],
       "norte": [],
       "funil": [],
       "fases": [],
@@ -2450,7 +2400,7 @@
       "gapAt760": 0
      },
      "errors": [],
-     "ms": 38767
+     "ms": 38330
     }
    },
    "fontsBlocked": {
@@ -2517,7 +2467,7 @@
        "key": "metodologia",
        "pinned": true,
        "tight": true,
-       "scale": "0.8076"
+       "scale": "0.7793"
       },
       {
        "id": "norte",
@@ -3552,32 +3502,7 @@
       }
      ],
      "competicao": [],
-     "metodologia": [
-      {
-       "el": "#ruler > div.bar.funil",
-       "text": "A partir do Sub-11, com o guia de sinais",
-       "why": "à direita da cena, sai da tela à direita",
-       "carousel": false,
-       "r": [
-        238,
-        346,
-        416,
-        356
-       ],
-       "stage": [
-        0,
-        57,
-        375,
-        553
-       ],
-       "at": [
-        "40%",
-        "60%",
-        "80%",
-        "95%"
-       ]
-      }
-     ],
+     "metodologia": [],
      "norte": [],
      "funil": [],
      "fases": [],
@@ -3649,7 +3574,7 @@
        "key": "metodologia",
        "pinned": true,
        "tight": true,
-       "scale": "0.8076"
+       "scale": "0.8034"
       },
       {
        "id": "norte",
@@ -3824,20 +3749,17 @@
       "lacuna": [],
       "terr": [],
       "sistema": [],
-      "estrutura": [],
-      "rede": [],
-      "competicao": [],
-      "metodologia": [
+      "estrutura": [
        {
-        "el": "#ruler > div.bar.funil",
-        "text": "A partir do Sub-11, com o guia de sinais",
-        "why": "sai da tela à direita",
+        "el": ".org-row > span.pchip",
+        "text": "Campanha gaúcha",
+        "why": "cortado dentro de pchip",
         "carousel": false,
         "r": [
-         481,
-         209,
-         713,
-         226
+         535,
+         105,
+         650,
+         120
         ],
         "stage": null,
         "at": [
@@ -3845,6 +3767,9 @@
         ]
        }
       ],
+      "rede": [],
+      "competicao": [],
+      "metodologia": [],
       "norte": [],
       "funil": [],
       "fases": [],
@@ -3913,7 +3838,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 32971
+     "ms": 40263
     },
     "no-preference": {
      "status": 200,
@@ -4017,20 +3942,17 @@
       "lacuna": [],
       "terr": [],
       "sistema": [],
-      "estrutura": [],
-      "rede": [],
-      "competicao": [],
-      "metodologia": [
+      "estrutura": [
        {
-        "el": "#ruler > div.bar.funil",
-        "text": "A partir do Sub-11, com o guia de sinais",
-        "why": "sai da tela à direita",
+        "el": ".org-row > span.pchip",
+        "text": "Campanha gaúcha",
+        "why": "cortado dentro de pchip",
         "carousel": false,
         "r": [
-         481,
-         209,
-         713,
-         226
+         535,
+         105,
+         650,
+         120
         ],
         "stage": null,
         "at": [
@@ -4038,6 +3960,9 @@
         ]
        }
       ],
+      "rede": [],
+      "competicao": [],
+      "metodologia": [],
       "norte": [],
       "funil": [],
       "fases": [],
@@ -4106,7 +4031,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 30321
+     "ms": 30908
     }
    },
    "fontsBlocked": {
@@ -4210,20 +4135,17 @@
      "lacuna": [],
      "terr": [],
      "sistema": [],
-     "estrutura": [],
-     "rede": [],
-     "competicao": [],
-     "metodologia": [
+     "estrutura": [
       {
-       "el": "#ruler > div.bar.funil",
-       "text": "A partir do Sub-11, com o guia de sinais",
-       "why": "sai da tela à direita",
+       "el": ".org-row > span.pchip",
+       "text": "Campanha gaúcha",
+       "why": "cortado dentro de pchip",
        "carousel": false,
        "r": [
-        481,
-        224,
-        742,
-        239
+        535,
+        106,
+        650,
+        120
        ],
        "stage": null,
        "at": [
@@ -4231,6 +4153,9 @@
        ]
       }
      ],
+     "rede": [],
+     "competicao": [],
+     "metodologia": [],
      "norte": [],
      "funil": [],
      "fases": [],
@@ -4440,7 +4365,7 @@
         "key": "metodologia",
         "pinned": true,
         "tight": true,
-        "scale": "0.9913"
+        "scale": "0.9761"
        },
        {
         "id": "norte",
@@ -5517,32 +5442,7 @@
        }
       ],
       "competicao": [],
-      "metodologia": [
-       {
-        "el": "#ruler > div.bar.funil",
-        "text": "A partir do Sub-11, com o guia de sinais",
-        "why": "à direita da cena, sai da tela à direita",
-        "carousel": false,
-        "r": [
-         250,
-         408,
-         444,
-         422
-        ],
-        "stage": [
-         0,
-         57,
-         393,
-         659
-        ],
-        "at": [
-         "40%",
-         "60%",
-         "80%",
-         "95%"
-        ]
-       }
-      ],
+      "metodologia": [],
       "norte": [],
       "funil": [],
       "fases": [],
@@ -5611,7 +5511,7 @@
       "gapAt760": 101
      },
      "errors": [],
-     "ms": 62733
+     "ms": 71592
     },
     "no-preference": {
      "status": 200,
@@ -5678,7 +5578,7 @@
         "key": "metodologia",
         "pinned": true,
         "tight": true,
-        "scale": "0.9913"
+        "scale": "0.9761"
        },
        {
         "id": "norte",
@@ -6755,32 +6655,7 @@
        }
       ],
       "competicao": [],
-      "metodologia": [
-       {
-        "el": "#ruler > div.bar.funil",
-        "text": "A partir do Sub-11, com o guia de sinais",
-        "why": "à direita da cena, sai da tela à direita",
-        "carousel": false,
-        "r": [
-         250,
-         408,
-         444,
-         422
-        ],
-        "stage": [
-         0,
-         57,
-         393,
-         659
-        ],
-        "at": [
-         "40%",
-         "60%",
-         "80%",
-         "95%"
-        ]
-       }
-      ],
+      "metodologia": [],
       "norte": [],
       "funil": [],
       "fases": [],
@@ -6849,7 +6724,7 @@
       "gapAt760": 101
      },
      "errors": [],
-     "ms": 66773
+     "ms": 67783
     }
    },
    "fontsBlocked": {
@@ -6916,7 +6791,7 @@
        "key": "metodologia",
        "pinned": true,
        "tight": true,
-       "scale": "0.9913"
+       "scale": "0.9761"
       },
       {
        "id": "norte",
@@ -7971,32 +7846,7 @@
       }
      ],
      "competicao": [],
-     "metodologia": [
-      {
-       "el": "#ruler > div.bar.funil",
-       "text": "A partir do Sub-11, com o guia de sinais",
-       "why": "à direita da cena, sai da tela à direita",
-       "carousel": false,
-       "r": [
-        250,
-        408,
-        468,
-        421
-       ],
-       "stage": [
-        0,
-        57,
-        393,
-        659
-       ],
-       "at": [
-        "40%",
-        "60%",
-        "80%",
-        "95%"
-       ]
-      }
-     ],
+     "metodologia": [],
      "norte": [],
      "funil": [],
      "fases": [],
@@ -8068,7 +7918,7 @@
        "key": "metodologia",
        "pinned": true,
        "tight": true,
-       "scale": "0.9913"
+       "scale": "0.9761"
       },
       {
        "id": "norte",
@@ -8243,7 +8093,40 @@
       "lacuna": [],
       "terr": [],
       "sistema": [],
-      "estrutura": [],
+      "estrutura": [
+       {
+        "el": ".org-row > span.pchip",
+        "text": "Caxias do Sul",
+        "why": "cortado dentro de pchip",
+        "carousel": false,
+        "r": [
+         147,
+         147,
+         247,
+         162
+        ],
+        "stage": null,
+        "at": [
+         "50%"
+        ]
+       },
+       {
+        "el": ".org-row > span.pchip",
+        "text": "Campanha gaúcha",
+        "why": "cortado dentro de pchip",
+        "carousel": false,
+        "r": [
+         489,
+         147,
+         604,
+         162
+        ],
+        "stage": null,
+        "at": [
+         "50%"
+        ]
+       }
+      ],
       "rede": [],
       "competicao": [],
       "metodologia": [],
@@ -8315,7 +8198,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 53958
+     "ms": 60568
     },
     "no-preference": {
      "status": 200,
@@ -8419,7 +8302,40 @@
       "lacuna": [],
       "terr": [],
       "sistema": [],
-      "estrutura": [],
+      "estrutura": [
+       {
+        "el": ".org-row > span.pchip",
+        "text": "Caxias do Sul",
+        "why": "cortado dentro de pchip",
+        "carousel": false,
+        "r": [
+         147,
+         147,
+         247,
+         162
+        ],
+        "stage": null,
+        "at": [
+         "50%"
+        ]
+       },
+       {
+        "el": ".org-row > span.pchip",
+        "text": "Campanha gaúcha",
+        "why": "cortado dentro de pchip",
+        "carousel": false,
+        "r": [
+         489,
+         147,
+         604,
+         162
+        ],
+        "stage": null,
+        "at": [
+         "50%"
+        ]
+       }
+      ],
       "rede": [],
       "competicao": [],
       "metodologia": [],
@@ -8491,7 +8407,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 52257
+     "ms": 53486
     }
    },
    "fontsBlocked": {
@@ -8595,20 +8511,33 @@
      "lacuna": [],
      "terr": [],
      "sistema": [],
-     "estrutura": [],
-     "rede": [],
-     "competicao": [],
-     "metodologia": [
+     "estrutura": [
       {
-       "el": "#ruler > div.bar.funil",
-       "text": "A partir do Sub-11, com o guia de sinais",
-       "why": "sai da tela à direita",
+       "el": ".org-row > span.pchip",
+       "text": "Caxias do Sul",
+       "why": "cortado dentro de pchip",
        "carousel": false,
        "r": [
-        597,
-        206,
-        858,
-        221
+        147,
+        138,
+        247,
+        152
+       ],
+       "stage": null,
+       "at": [
+        "50%"
+       ]
+      },
+      {
+       "el": ".org-row > span.pchip",
+       "text": "Campanha gaúcha",
+       "why": "cortado dentro de pchip",
+       "carousel": false,
+       "r": [
+        489,
+        138,
+        605,
+        152
        ],
        "stage": null,
        "at": [
@@ -8616,6 +8545,9 @@
        ]
       }
      ],
+     "rede": [],
+     "competicao": [],
+     "metodologia": [],
      "norte": [],
      "funil": [],
      "fases": [],
@@ -9860,32 +9792,7 @@
        }
       ],
       "competicao": [],
-      "metodologia": [
-       {
-        "el": "#ruler > div.bar.funil",
-        "text": "A partir do Sub-11, com o guia de sinais",
-        "why": "à direita da cena, sai da tela à direita",
-        "carousel": false,
-        "r": [
-         273,
-         456,
-         469,
-         470
-        ],
-        "stage": [
-         0,
-         57,
-         430,
-         746
-        ],
-        "at": [
-         "40%",
-         "60%",
-         "80%",
-         "95%"
-        ]
-       }
-      ],
+      "metodologia": [],
       "norte": [],
       "funil": [],
       "fases": [],
@@ -9954,7 +9861,7 @@
       "gapAt760": 14
      },
      "errors": [],
-     "ms": 77898
+     "ms": 79305
     },
     "no-preference": {
      "status": 200,
@@ -11056,32 +10963,7 @@
        }
       ],
       "competicao": [],
-      "metodologia": [
-       {
-        "el": "#ruler > div.bar.funil",
-        "text": "A partir do Sub-11, com o guia de sinais",
-        "why": "à direita da cena, sai da tela à direita",
-        "carousel": false,
-        "r": [
-         273,
-         456,
-         469,
-         470
-        ],
-        "stage": [
-         0,
-         57,
-         430,
-         746
-        ],
-        "at": [
-         "40%",
-         "60%",
-         "80%",
-         "95%"
-        ]
-       }
-      ],
+      "metodologia": [],
       "norte": [],
       "funil": [],
       "fases": [],
@@ -11150,7 +11032,7 @@
       "gapAt760": 14
      },
      "errors": [],
-     "ms": 76450
+     "ms": 80597
     }
    },
    "fontsBlocked": {
@@ -12272,32 +12154,7 @@
       }
      ],
      "competicao": [],
-     "metodologia": [
-      {
-       "el": "#ruler > div.bar.funil",
-       "text": "A partir do Sub-11, com o guia de sinais",
-       "why": "à direita da cena, sai da tela à direita",
-       "carousel": false,
-       "r": [
-        273,
-        456,
-        494,
-        469
-       ],
-       "stage": [
-        0,
-        57,
-        430,
-        746
-       ],
-       "at": [
-        "40%",
-        "60%",
-        "80%",
-        "95%"
-       ]
-      }
-     ],
+     "metodologia": [],
      "norte": [],
      "funil": [],
      "fases": [],
@@ -12671,7 +12528,25 @@
       "lacuna": [],
       "terr": [],
       "sistema": [],
-      "estrutura": [],
+      "estrutura": [
+       {
+        "el": ".org-row > span.pchip",
+        "text": "Campanha gaúcha",
+        "why": "cortado dentro de pchip",
+        "carousel": false,
+        "r": [
+         553,
+         365,
+         668,
+         380
+        ],
+        "stage": null,
+        "at": [
+         "0%",
+         "50%"
+        ]
+       }
+      ],
       "rede": [
        {
         "el": ".card > p",
@@ -13591,7 +13466,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 77708
+     "ms": 80106
     },
     "no-preference": {
      "status": 200,
@@ -13822,7 +13697,25 @@
       "lacuna": [],
       "terr": [],
       "sistema": [],
-      "estrutura": [],
+      "estrutura": [
+       {
+        "el": ".org-row > span.pchip",
+        "text": "Campanha gaúcha",
+        "why": "cortado dentro de pchip",
+        "carousel": false,
+        "r": [
+         553,
+         365,
+         668,
+         380
+        ],
+        "stage": null,
+        "at": [
+         "0%",
+         "50%"
+        ]
+       }
+      ],
       "rede": [
        {
         "el": ".card > p",
@@ -14742,7 +14635,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 77584
+     "ms": 81265
     }
    },
    "fontsBlocked": {
@@ -14952,7 +14845,25 @@
      "lacuna": [],
      "terr": [],
      "sistema": [],
-     "estrutura": [],
+     "estrutura": [
+      {
+       "el": ".org-row > span.pchip",
+       "text": "Campanha gaúcha",
+       "why": "cortado dentro de pchip",
+       "carousel": false,
+       "r": [
+        553,
+        366,
+        669,
+        380
+       ],
+       "stage": null,
+       "at": [
+        "0%",
+        "50%"
+       ]
+      }
+     ],
      "rede": [
       {
        "el": ".card > p",
@@ -17091,32 +17002,7 @@
        }
       ],
       "competicao": [],
-      "metodologia": [
-       {
-        "el": "#ruler > div.bar.funil",
-        "text": "A partir do Sub-11, com o guia de sinais",
-        "why": "à direita da cena, sai da tela à direita",
-        "carousel": false,
-        "r": [
-         262,
-         503,
-         457,
-         517
-        ],
-        "stage": [
-         0,
-         57,
-         412,
-         839
-        ],
-        "at": [
-         "40%",
-         "60%",
-         "80%",
-         "95%"
-        ]
-       }
-      ],
+      "metodologia": [],
       "norte": [],
       "funil": [],
       "fases": [],
@@ -17185,7 +17071,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 64460
+     "ms": 68145
     },
     "no-preference": {
      "status": 200,
@@ -18330,32 +18216,7 @@
        }
       ],
       "competicao": [],
-      "metodologia": [
-       {
-        "el": "#ruler > div.bar.funil",
-        "text": "A partir do Sub-11, com o guia de sinais",
-        "why": "à direita da cena, sai da tela à direita",
-        "carousel": false,
-        "r": [
-         262,
-         503,
-         457,
-         517
-        ],
-        "stage": [
-         0,
-         57,
-         412,
-         839
-        ],
-        "at": [
-         "40%",
-         "60%",
-         "80%",
-         "95%"
-        ]
-       }
-      ],
+      "metodologia": [],
       "norte": [],
       "funil": [],
       "fases": [],
@@ -18424,7 +18285,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 68049
+     "ms": 67157
     }
    },
    "fontsBlocked": {
@@ -19568,32 +19429,7 @@
       }
      ],
      "competicao": [],
-     "metodologia": [
-      {
-       "el": "#ruler > div.bar.funil",
-       "text": "A partir do Sub-11, com o guia de sinais",
-       "why": "à direita da cena, sai da tela à direita",
-       "carousel": false,
-       "r": [
-        262,
-        503,
-        482,
-        516
-       ],
-       "stage": [
-        0,
-        57,
-        412,
-        839
-       ],
-       "at": [
-        "40%",
-        "60%",
-        "80%",
-        "95%"
-       ]
-      }
-     ],
+     "metodologia": [],
      "norte": [],
      "funil": [],
      "fases": [],
@@ -19967,7 +19803,24 @@
       "lacuna": [],
       "terr": [],
       "sistema": [],
-      "estrutura": [],
+      "estrutura": [
+       {
+        "el": ".org-row > span.pchip",
+        "text": "Campanha gaúcha",
+        "why": "cortado dentro de pchip",
+        "carousel": false,
+        "r": [
+         498,
+         157,
+         613,
+         172
+        ],
+        "stage": null,
+        "at": [
+         "50%"
+        ]
+       }
+      ],
       "rede": [
        {
         "el": ".card > p",
@@ -20887,7 +20740,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 54188
+     "ms": 58091
     },
     "no-preference": {
      "status": 200,
@@ -21118,7 +20971,24 @@
       "lacuna": [],
       "terr": [],
       "sistema": [],
-      "estrutura": [],
+      "estrutura": [
+       {
+        "el": ".org-row > span.pchip",
+        "text": "Campanha gaúcha",
+        "why": "cortado dentro de pchip",
+        "carousel": false,
+        "r": [
+         498,
+         157,
+         613,
+         172
+        ],
+        "stage": null,
+        "at": [
+         "50%"
+        ]
+       }
+      ],
       "rede": [
        {
         "el": ".card > p",
@@ -22038,7 +21908,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 59418
+     "ms": 62365
     }
    },
    "fontsBlocked": {
@@ -22248,20 +22118,17 @@
      "lacuna": [],
      "terr": [],
      "sistema": [],
-     "estrutura": [],
-     "rede": [],
-     "competicao": [],
-     "metodologia": [
+     "estrutura": [
       {
-       "el": "#ruler > div.bar.funil",
-       "text": "A partir do Sub-11, com o guia de sinais",
-       "why": "sai da tela à direita",
+       "el": ".org-row > span.pchip",
+       "text": "Campanha gaúcha",
+       "why": "cortado dentro de pchip",
        "carousel": false,
        "r": [
-        604,
-        215,
-        865,
-        230
+        498,
+        148,
+        613,
+        162
        ],
        "stage": null,
        "at": [
@@ -22269,6 +22136,9 @@
        ]
       }
      ],
+     "rede": [],
+     "competicao": [],
+     "metodologia": [],
      "norte": [],
      "funil": [],
      "fases": [],
@@ -22477,7 +22347,7 @@
         "id": "metodologia",
         "key": "metodologia",
         "pinned": true,
-        "tight": false,
+        "tight": true,
         "scale": null
        },
        {
@@ -23555,32 +23425,7 @@
        }
       ],
       "competicao": [],
-      "metodologia": [
-       {
-        "el": "#ruler > div.bar.funil",
-        "text": "A partir do Sub-11, com o guia de sinais",
-        "why": "à direita da cena, sai da tela à direita",
-        "carousel": false,
-        "r": [
-         229,
-         420,
-         425,
-         434
-        ],
-        "stage": [
-         0,
-         57,
-         360,
-         692
-        ],
-        "at": [
-         "40%",
-         "60%",
-         "80%",
-         "95%"
-        ]
-       }
-      ],
+      "metodologia": [],
       "norte": [],
       "funil": [],
       "fases": [],
@@ -23649,7 +23494,7 @@
       "gapAt760": 68
      },
      "errors": [],
-     "ms": 61737
+     "ms": 63898
     },
     "no-preference": {
      "status": 200,
@@ -23715,7 +23560,7 @@
         "id": "metodologia",
         "key": "metodologia",
         "pinned": true,
-        "tight": false,
+        "tight": true,
         "scale": null
        },
        {
@@ -24793,32 +24638,7 @@
        }
       ],
       "competicao": [],
-      "metodologia": [
-       {
-        "el": "#ruler > div.bar.funil",
-        "text": "A partir do Sub-11, com o guia de sinais",
-        "why": "à direita da cena, sai da tela à direita",
-        "carousel": false,
-        "r": [
-         229,
-         429,
-         425,
-         443
-        ],
-        "stage": [
-         0,
-         57,
-         360,
-         692
-        ],
-        "at": [
-         "40%",
-         "60%",
-         "80%",
-         "95%"
-        ]
-       }
-      ],
+      "metodologia": [],
       "norte": [],
       "funil": [],
       "fases": [],
@@ -24887,7 +24707,7 @@
       "gapAt760": 68
      },
      "errors": [],
-     "ms": 65558
+     "ms": 65811
     }
    },
    "fontsBlocked": {
@@ -24954,7 +24774,7 @@
        "key": "metodologia",
        "pinned": true,
        "tight": true,
-       "scale": null
+       "scale": "0.9727"
       },
       {
        "id": "norte",
@@ -25990,32 +25810,7 @@
       }
      ],
      "competicao": [],
-     "metodologia": [
-      {
-       "el": "#ruler > div.bar.funil",
-       "text": "A partir do Sub-11, com o guia de sinais",
-       "why": "à direita da cena, sai da tela à direita",
-       "carousel": false,
-       "r": [
-        229,
-        437,
-        450,
-        450
-       ],
-       "stage": [
-        0,
-        57,
-        360,
-        692
-       ],
-       "at": [
-        "40%",
-        "60%",
-        "80%",
-        "95%"
-       ]
-      }
-     ],
+     "metodologia": [],
      "norte": [],
      "funil": [],
      "fases": [],
@@ -26086,7 +25881,7 @@
        "id": "metodologia",
        "key": "metodologia",
        "pinned": true,
-       "tight": false,
+       "tight": true,
        "scale": null
       },
       {
@@ -26265,24 +26060,7 @@
       "estrutura": [],
       "rede": [],
       "competicao": [],
-      "metodologia": [
-       {
-        "el": "#ruler > div.bar.funil",
-        "text": "A partir do Sub-11, com o guia de sinais",
-        "why": "sai da tela à direita",
-        "carousel": false,
-        "r": [
-         552,
-         187,
-         783,
-         204
-        ],
-        "stage": null,
-        "at": [
-         "50%"
-        ]
-       }
-      ],
+      "metodologia": [],
       "norte": [],
       "funil": [],
       "fases": [],
@@ -26351,7 +26129,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 50133
+     "ms": 54909
     },
     "no-preference": {
      "status": 200,
@@ -26458,24 +26236,7 @@
       "estrutura": [],
       "rede": [],
       "competicao": [],
-      "metodologia": [
-       {
-        "el": "#ruler > div.bar.funil",
-        "text": "A partir do Sub-11, com o guia de sinais",
-        "why": "sai da tela à direita",
-        "carousel": false,
-        "r": [
-         552,
-         187,
-         783,
-         204
-        ],
-        "stage": null,
-        "at": [
-         "50%"
-        ]
-       }
-      ],
+      "metodologia": [],
       "norte": [],
       "funil": [],
       "fases": [],
@@ -26544,7 +26305,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 55226
+     "ms": 57623
     }
    },
    "fontsBlocked": {
@@ -26651,24 +26412,7 @@
      "estrutura": [],
      "rede": [],
      "competicao": [],
-     "metodologia": [
-      {
-       "el": "#ruler > div.bar.funil",
-       "text": "A partir do Sub-11, com o guia de sinais",
-       "why": "sai da tela à direita",
-       "carousel": false,
-       "r": [
-        552,
-        168,
-        813,
-        183
-       ],
-       "stage": null,
-       "at": [
-        "50%"
-       ]
-      }
-     ],
+     "metodologia": [],
      "norte": [],
      "funil": [],
      "fases": [],
@@ -27863,32 +27607,7 @@
        }
       ],
       "competicao": [],
-      "metodologia": [
-       {
-        "el": "#ruler > div.bar.funil",
-        "text": "A partir do Sub-11, com o guia de sinais",
-        "why": "à direita da cena, sai da tela à direita",
-        "carousel": false,
-        "r": [
-         529,
-         597,
-         761,
-         614
-        ],
-        "stage": [
-         0,
-         57,
-         744,
-         1059
-        ],
-        "at": [
-         "40%",
-         "60%",
-         "80%",
-         "95%"
-        ]
-       }
-      ],
+      "metodologia": [],
       "norte": [],
       "funil": [],
       "fases": [],
@@ -27957,7 +27676,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 69638
+     "ms": 70029
     },
     "no-preference": {
      "status": 200,
@@ -29009,32 +28728,7 @@
        }
       ],
       "competicao": [],
-      "metodologia": [
-       {
-        "el": "#ruler > div.bar.funil",
-        "text": "A partir do Sub-11, com o guia de sinais",
-        "why": "à direita da cena, sai da tela à direita",
-        "carousel": false,
-        "r": [
-         529,
-         597,
-         761,
-         614
-        ],
-        "stage": [
-         0,
-         57,
-         744,
-         1059
-        ],
-        "at": [
-         "40%",
-         "60%",
-         "80%",
-         "95%"
-        ]
-       }
-      ],
+      "metodologia": [],
       "norte": [],
       "funil": [],
       "fases": [],
@@ -29103,7 +28797,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 70432
+     "ms": 72771
     }
    },
    "fontsBlocked": {
@@ -30155,32 +29849,7 @@
       }
      ],
      "competicao": [],
-     "metodologia": [
-      {
-       "el": "#ruler > div.bar.funil",
-       "text": "A partir do Sub-11, com o guia de sinais",
-       "why": "à direita da cena, sai da tela à direita",
-       "carousel": false,
-       "r": [
-        529,
-        612,
-        790,
-        627
-       ],
-       "stage": [
-        0,
-        57,
-        744,
-        1059
-       ],
-       "at": [
-        "40%",
-        "60%",
-        "80%",
-        "95%"
-       ]
-      }
-     ],
+     "metodologia": [],
      "norte": [],
      "funil": [],
      "fases": [],
@@ -31369,7 +31038,7 @@
       "gapAt760": 90
      },
      "errors": [],
-     "ms": 77129
+     "ms": 79403
     },
     "no-preference": {
      "status": 200,
@@ -32415,7 +32084,7 @@
       "gapAt760": 90
      },
      "errors": [],
-     "ms": 78912
+     "ms": 83109
     }
    },
    "fontsBlocked": {
@@ -34592,7 +34261,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 77988
+     "ms": 79811
     },
     "no-preference": {
      "status": 200,
@@ -35649,7 +35318,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 82215
+     "ms": 83781
     }
    },
    "fontsBlocked": {
@@ -36637,32 +36306,7 @@
       }
      ],
      "competicao": [],
-     "metodologia": [
-      {
-       "el": "#ruler > div.bar.funil",
-       "text": "A partir do Sub-11, com o guia de sinais",
-       "why": "à direita da cena, sai da tela à direita",
-       "carousel": false,
-       "r": [
-        577,
-        640,
-        838,
-        655
-       ],
-       "stage": [
-        0,
-        57,
-        820,
-        1106
-       ],
-       "at": [
-        "40%",
-        "60%",
-        "80%",
-        "95%"
-       ]
-      }
-     ],
+     "metodologia": [],
      "norte": [],
      "funil": [],
      "fases": [],
@@ -37829,7 +37473,7 @@
       "gapAt760": 14
      },
      "errors": [],
-     "ms": 86444
+     "ms": 86610
     },
     "no-preference": {
      "status": 200,
@@ -38853,7 +38497,7 @@
       "gapAt760": 14
      },
      "errors": [],
-     "ms": 86094
+     "ms": 89826
     }
    },
    "fontsBlocked": {
@@ -40998,7 +40642,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 93192
+     "ms": 93376
     },
     "no-preference": {
      "status": 200,
@@ -42045,7 +41689,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 94587
+     "ms": 98290
     }
    },
    "fontsBlocked": {
@@ -44118,7 +43762,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 99123
+     "ms": 101418
     },
     "no-preference": {
      "status": 200,
@@ -45070,7 +44714,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 105273
+     "ms": 107864
     }
    },
    "fontsBlocked": {
@@ -47198,7 +46842,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 79447
+     "ms": 80871
     },
     "no-preference": {
      "status": 200,
@@ -48298,7 +47942,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 82292
+     "ms": 83807
     }
    },
    "fontsBlocked": {
@@ -49329,32 +48973,7 @@
       }
      ],
      "competicao": [],
-     "metodologia": [
-      {
-       "el": "#ruler > div.bar.funil",
-       "text": "A partir do Sub-11, com o guia de sinais",
-       "why": "à direita da cena, sai da tela à direita",
-       "carousel": false,
-       "r": [
-        564,
-        688,
-        825,
-        703
-       ],
-       "stage": [
-        0,
-        57,
-        800,
-        1206
-       ],
-       "at": [
-        "40%",
-        "60%",
-        "80%",
-        "95%"
-       ]
-      }
-     ],
+     "metodologia": [],
      "norte": [],
      "funil": [],
      "fases": [],
@@ -50498,7 +50117,7 @@
       "gapAt760": 34
      },
      "errors": [],
-     "ms": 86053
+     "ms": 88136
     },
     "no-preference": {
      "status": 200,
@@ -51499,7 +51118,7 @@
       "gapAt760": 34
      },
      "errors": [],
-     "ms": 89250
+     "ms": 90253
     }
    },
    "fontsBlocked": {
@@ -53676,32 +53295,7 @@
        }
       ],
       "competicao": [],
-      "metodologia": [
-       {
-        "el": "#ruler > div.bar.funil",
-        "text": "A partir do Sub-11, com o guia de sinais",
-        "why": "à direita da cena, sai da tela à direita",
-        "carousel": false,
-        "r": [
-         204,
-         529,
-         400,
-         543
-        ],
-        "stage": [
-         0,
-         57,
-         320,
-         950
-        ],
-        "at": [
-         "40%",
-         "60%",
-         "80%",
-         "95%"
-        ]
-       }
-      ],
+      "metodologia": [],
       "norte": [],
       "funil": [],
       "fases": [],
@@ -53770,7 +53364,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 45621
+     "ms": 46772
     },
     "no-preference": {
      "status": 200,
@@ -54872,32 +54466,7 @@
        }
       ],
       "competicao": [],
-      "metodologia": [
-       {
-        "el": "#ruler > div.bar.funil",
-        "text": "A partir do Sub-11, com o guia de sinais",
-        "why": "à direita da cena, sai da tela à direita",
-        "carousel": false,
-        "r": [
-         204,
-         539,
-         400,
-         553
-        ],
-        "stage": [
-         0,
-         57,
-         320,
-         950
-        ],
-        "at": [
-         "40%",
-         "60%",
-         "80%",
-         "95%"
-        ]
-       }
-      ],
+      "metodologia": [],
       "norte": [],
       "funil": [],
       "fases": [],
@@ -54966,7 +54535,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 47158
+     "ms": 48884
     }
    },
    "fontsBlocked": {
@@ -56069,32 +55638,7 @@
       }
      ],
      "competicao": [],
-     "metodologia": [
-      {
-       "el": "#ruler > div.bar.funil",
-       "text": "A partir do Sub-11, com o guia de sinais",
-       "why": "à direita da cena, sai da tela à direita",
-       "carousel": false,
-       "r": [
-        204,
-        541,
-        425,
-        554
-       ],
-       "stage": [
-        0,
-        57,
-        320,
-        950
-       ],
-       "at": [
-        "40%",
-        "60%",
-        "80%",
-        "95%"
-       ]
-      }
-     ],
+     "metodologia": [],
      "norte": [],
      "funil": [],
      "fases": [],
@@ -57338,32 +56882,7 @@
        }
       ],
       "competicao": [],
-      "metodologia": [
-       {
-        "el": "#ruler > div.bar.funil",
-        "text": "A partir do Sub-11, com o guia de sinais",
-        "why": "à direita da cena, sai da tela à direita",
-        "carousel": false,
-        "r": [
-         319,
-         558,
-         515,
-         572
-        ],
-        "stage": [
-         0,
-         57,
-         507,
-         950
-        ],
-        "at": [
-         "40%",
-         "60%",
-         "80%",
-         "95%"
-        ]
-       }
-      ],
+      "metodologia": [],
       "norte": [],
       "funil": [],
       "fases": [],
@@ -57432,7 +56951,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 53095
+     "ms": 52535
     },
     "no-preference": {
      "status": 200,
@@ -58533,32 +58052,7 @@
        }
       ],
       "competicao": [],
-      "metodologia": [
-       {
-        "el": "#ruler > div.bar.funil",
-        "text": "A partir do Sub-11, com o guia de sinais",
-        "why": "à direita da cena, sai da tela à direita",
-        "carousel": false,
-        "r": [
-         319,
-         558,
-         515,
-         572
-        ],
-        "stage": [
-         0,
-         57,
-         507,
-         950
-        ],
-        "at": [
-         "40%",
-         "60%",
-         "80%",
-         "95%"
-        ]
-       }
-      ],
+      "metodologia": [],
       "norte": [],
       "funil": [],
       "fases": [],
@@ -58627,7 +58121,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 53607
+     "ms": 55617
     }
    },
    "fontsBlocked": {
@@ -59729,32 +59223,7 @@
       }
      ],
      "competicao": [],
-     "metodologia": [
-      {
-       "el": "#ruler > div.bar.funil",
-       "text": "A partir do Sub-11, com o guia de sinais",
-       "why": "à direita da cena, sai da tela à direita",
-       "carousel": false,
-       "r": [
-        319,
-        558,
-        540,
-        571
-       ],
-       "stage": [
-        0,
-        57,
-        507,
-        950
-       ],
-       "at": [
-        "40%",
-        "60%",
-        "80%",
-        "95%"
-       ]
-      }
-     ],
+     "metodologia": [],
      "norte": [],
      "funil": [],
      "fases": [],
@@ -60001,7 +59470,33 @@
       "lacuna": [],
       "terr": [],
       "sistema": [],
-      "estrutura": [],
+      "estrutura": [
+       {
+        "el": ".org-row > span.pchip",
+        "text": "Campanha gaúcha",
+        "why": "cortado dentro de pchip",
+        "carousel": false,
+        "r": [
+         543,
+         331,
+         659,
+         346
+        ],
+        "stage": [
+         0,
+         57,
+         678,
+         950
+        ],
+        "at": [
+         "20%",
+         "40%",
+         "60%",
+         "80%",
+         "95%"
+        ]
+       }
+      ],
       "rede": [
        {
         "el": ".card > p",
@@ -60950,32 +60445,7 @@
        }
       ],
       "competicao": [],
-      "metodologia": [
-       {
-        "el": "#ruler > div.bar.funil",
-        "text": "A partir do Sub-11, com o guia de sinais",
-        "why": "à direita da cena, sai da tela à direita",
-        "carousel": false,
-        "r": [
-         488,
-         541,
-         719,
-         558
-        ],
-        "stage": [
-         0,
-         57,
-         678,
-         950
-        ],
-        "at": [
-         "40%",
-         "60%",
-         "80%",
-         "95%"
-        ]
-       }
-      ],
+      "metodologia": [],
       "norte": [],
       "funil": [],
       "fases": [],
@@ -61044,7 +60514,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 62900
+     "ms": 64681
     },
     "no-preference": {
      "status": 200,
@@ -61148,7 +60618,33 @@
       "lacuna": [],
       "terr": [],
       "sistema": [],
-      "estrutura": [],
+      "estrutura": [
+       {
+        "el": ".org-row > span.pchip",
+        "text": "Campanha gaúcha",
+        "why": "cortado dentro de pchip",
+        "carousel": false,
+        "r": [
+         543,
+         331,
+         659,
+         346
+        ],
+        "stage": [
+         0,
+         57,
+         678,
+         950
+        ],
+        "at": [
+         "20%",
+         "40%",
+         "60%",
+         "80%",
+         "95%"
+        ]
+       }
+      ],
       "rede": [
        {
         "el": ".card > p",
@@ -62097,32 +61593,7 @@
        }
       ],
       "competicao": [],
-      "metodologia": [
-       {
-        "el": "#ruler > div.bar.funil",
-        "text": "A partir do Sub-11, com o guia de sinais",
-        "why": "à direita da cena, sai da tela à direita",
-        "carousel": false,
-        "r": [
-         488,
-         541,
-         719,
-         558
-        ],
-        "stage": [
-         0,
-         57,
-         678,
-         950
-        ],
-        "at": [
-         "40%",
-         "60%",
-         "80%",
-         "95%"
-        ]
-       }
-      ],
+      "metodologia": [],
       "norte": [],
       "funil": [],
       "fases": [],
@@ -62191,7 +61662,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 63513
+     "ms": 67705
     }
    },
    "fontsBlocked": {
@@ -62295,7 +61766,33 @@
      "lacuna": [],
      "terr": [],
      "sistema": [],
-     "estrutura": [],
+     "estrutura": [
+      {
+       "el": ".org-row > span.pchip",
+       "text": "Campanha gaúcha",
+       "why": "cortado dentro de pchip",
+       "carousel": false,
+       "r": [
+        543,
+        332,
+        659,
+        346
+       ],
+       "stage": [
+        0,
+        57,
+        678,
+        950
+       ],
+       "at": [
+        "20%",
+        "40%",
+        "60%",
+        "80%",
+        "95%"
+       ]
+      }
+     ],
      "rede": [
       {
        "el": ".card > div.big",
@@ -63265,32 +62762,7 @@
       }
      ],
      "competicao": [],
-     "metodologia": [
-      {
-       "el": "#ruler > div.bar.funil",
-       "text": "A partir do Sub-11, com o guia de sinais",
-       "why": "à direita da cena, sai da tela à direita",
-       "carousel": false,
-       "r": [
-        488,
-        556,
-        749,
-        571
-       ],
-       "stage": [
-        0,
-        57,
-        678,
-        950
-       ],
-       "at": [
-        "40%",
-        "60%",
-        "80%",
-        "95%"
-       ]
-      }
-     ],
+     "metodologia": [],
      "norte": [],
      "funil": [],
      "fases": [],
@@ -64535,32 +64007,7 @@
        }
       ],
       "competicao": [],
-      "metodologia": [
-       {
-        "el": "#ruler > div.bar.funil",
-        "text": "A partir do Sub-11, com o guia de sinais",
-        "why": "à direita da cena, sai da tela à direita",
-        "carousel": false,
-        "r": [
-         204,
-         494,
-         400,
-         508
-        ],
-        "stage": [
-         0,
-         57,
-         320,
-         880
-        ],
-        "at": [
-         "40%",
-         "60%",
-         "80%",
-         "95%"
-        ]
-       }
-      ],
+      "metodologia": [],
       "norte": [],
       "funil": [],
       "fases": [],
@@ -64629,7 +64076,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 45038
+     "ms": 44836
     },
     "no-preference": {
      "status": 200,
@@ -65731,32 +65178,7 @@
        }
       ],
       "competicao": [],
-      "metodologia": [
-       {
-        "el": "#ruler > div.bar.funil",
-        "text": "A partir do Sub-11, com o guia de sinais",
-        "why": "à direita da cena, sai da tela à direita",
-        "carousel": false,
-        "r": [
-         204,
-         504,
-         400,
-         518
-        ],
-        "stage": [
-         0,
-         57,
-         320,
-         880
-        ],
-        "at": [
-         "40%",
-         "60%",
-         "80%",
-         "95%"
-        ]
-       }
-      ],
+      "metodologia": [],
       "norte": [],
       "funil": [],
       "fases": [],
@@ -65825,7 +65247,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 45624
+     "ms": 47822
     }
    },
    "fontsBlocked": {
@@ -66930,15 +66352,15 @@
      "competicao": [],
      "metodologia": [
       {
-       "el": "#ruler > div.bar.funil",
-       "text": "A partir do Sub-11, com o guia de sinais",
-       "why": "à direita da cena, sai da tela à direita",
+       "el": ".wrap > p.eyebrow",
+       "text": "A metodologia",
+       "why": "acima da cena",
        "carousel": false,
        "r": [
-        204,
-        506,
-        425,
-        519
+        18,
+        23,
+        143,
+        38
        ],
        "stage": [
         0,
@@ -66947,22 +66369,20 @@
         880
        ],
        "at": [
-        "40%",
-        "60%",
         "80%",
         "95%"
        ]
       },
       {
-       "el": ".wrap > p.eyebrow",
-       "text": "A metodologia",
+       "el": ".wrap > h2.h2.met-h2",
+       "text": "O método vem do Celeiro de Ases. O SACI leva ele a",
        "why": "acima da cena",
        "carousel": false,
        "r": [
         18,
-        34,
-        143,
-        49
+        54,
+        272,
+        156
        ],
        "stage": [
         0,
@@ -66982,9 +66402,9 @@
        "carousel": false,
        "r": [
         227,
-        768,
+        778,
         296,
-        903
+        913
        ],
        "stage": [
         0,
@@ -67003,9 +66423,9 @@
        "carousel": false,
        "r": [
         227,
-        768,
+        778,
         298,
-        903
+        913
        ],
        "stage": [
         0,
@@ -68212,32 +67632,7 @@
        }
       ],
       "competicao": [],
-      "metodologia": [
-       {
-        "el": "#ruler > div.bar.funil",
-        "text": "A partir do Sub-11, com o guia de sinais",
-        "why": "à direita da cena, sai da tela à direita",
-        "carousel": false,
-        "r": [
-         529,
-         597,
-         761,
-         614
-        ],
-        "stage": [
-         0,
-         57,
-         744,
-         1059
-        ],
-        "at": [
-         "40%",
-         "60%",
-         "80%",
-         "95%"
-        ]
-       }
-      ],
+      "metodologia": [],
       "norte": [],
       "funil": [],
       "fases": [],
@@ -68306,7 +67701,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 64413
+     "ms": 68911
     },
     "no-preference": {
      "status": 200,
@@ -69358,32 +68753,7 @@
        }
       ],
       "competicao": [],
-      "metodologia": [
-       {
-        "el": "#ruler > div.bar.funil",
-        "text": "A partir do Sub-11, com o guia de sinais",
-        "why": "à direita da cena, sai da tela à direita",
-        "carousel": false,
-        "r": [
-         529,
-         597,
-         761,
-         614
-        ],
-        "stage": [
-         0,
-         57,
-         744,
-         1059
-        ],
-        "at": [
-         "40%",
-         "60%",
-         "80%",
-         "95%"
-        ]
-       }
-      ],
+      "metodologia": [],
       "norte": [],
       "funil": [],
       "fases": [],
@@ -69452,7 +68822,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 71598
+     "ms": 75363
     }
    },
    "fontsBlocked": {
@@ -70504,32 +69874,7 @@
       }
      ],
      "competicao": [],
-     "metodologia": [
-      {
-       "el": "#ruler > div.bar.funil",
-       "text": "A partir do Sub-11, com o guia de sinais",
-       "why": "à direita da cena, sai da tela à direita",
-       "carousel": false,
-       "r": [
-        529,
-        612,
-        790,
-        627
-       ],
-       "stage": [
-        0,
-        57,
-        744,
-        1059
-       ],
-       "at": [
-        "40%",
-        "60%",
-        "80%",
-        "95%"
-       ]
-      }
-     ],
+     "metodologia": [],
      "norte": [],
      "funil": [],
      "fases": [],
@@ -71718,7 +71063,7 @@
       "gapAt760": 90
      },
      "errors": [],
-     "ms": 72706
+     "ms": 79245
     },
     "no-preference": {
      "status": 200,
@@ -72764,7 +72109,7 @@
       "gapAt760": 90
      },
      "errors": [],
-     "ms": 80890
+     "ms": 83687
     }
    },
    "fontsBlocked": {
@@ -74941,7 +74286,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 77059
+     "ms": 80712
     },
     "no-preference": {
      "status": 200,
@@ -75998,7 +75343,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 81414
+     "ms": 86277
     }
    },
    "fontsBlocked": {
@@ -76986,32 +76331,7 @@
       }
      ],
      "competicao": [],
-     "metodologia": [
-      {
-       "el": "#ruler > div.bar.funil",
-       "text": "A partir do Sub-11, com o guia de sinais",
-       "why": "à direita da cena, sai da tela à direita",
-       "carousel": false,
-       "r": [
-        577,
-        640,
-        838,
-        655
-       ],
-       "stage": [
-        0,
-        57,
-        820,
-        1106
-       ],
-       "at": [
-        "40%",
-        "60%",
-        "80%",
-        "95%"
-       ]
-      }
-     ],
+     "metodologia": [],
      "norte": [],
      "funil": [],
      "fases": [],
@@ -78178,7 +77498,7 @@
       "gapAt760": 14
      },
      "errors": [],
-     "ms": 81724
+     "ms": 87711
     },
     "no-preference": {
      "status": 200,
@@ -79202,7 +78522,7 @@
       "gapAt760": 14
      },
      "errors": [],
-     "ms": 87661
+     "ms": 93374
     }
    },
    "fontsBlocked": {
@@ -81347,7 +80667,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 89918
+     "ms": 95554
     },
     "no-preference": {
      "status": 200,
@@ -82394,7 +81714,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 100633
+     "ms": 99844
     }
    },
    "fontsBlocked": {
@@ -84467,7 +83787,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 105559
+     "ms": 105805
     },
     "no-preference": {
      "status": 200,
@@ -85419,7 +84739,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 102996
+     "ms": 109624
     }
    },
    "fontsBlocked": {
@@ -87549,32 +86869,7 @@
        }
       ],
       "competicao": [],
-      "metodologia": [
-       {
-        "el": "#ruler > div.bar.funil",
-        "text": "A partir do Sub-11, com o guia de sinais",
-        "why": "à direita da cena, sai da tela à direita",
-        "carousel": false,
-        "r": [
-         204,
-         529,
-         400,
-         543
-        ],
-        "stage": [
-         0,
-         57,
-         320,
-         950
-        ],
-        "at": [
-         "40%",
-         "60%",
-         "80%",
-         "95%"
-        ]
-       }
-      ],
+      "metodologia": [],
       "norte": [],
       "funil": [],
       "fases": [],
@@ -87643,7 +86938,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 45138
+     "ms": 47628
     },
     "no-preference": {
      "status": 200,
@@ -88745,32 +88040,7 @@
        }
       ],
       "competicao": [],
-      "metodologia": [
-       {
-        "el": "#ruler > div.bar.funil",
-        "text": "A partir do Sub-11, com o guia de sinais",
-        "why": "à direita da cena, sai da tela à direita",
-        "carousel": false,
-        "r": [
-         204,
-         539,
-         400,
-         553
-        ],
-        "stage": [
-         0,
-         57,
-         320,
-         950
-        ],
-        "at": [
-         "40%",
-         "60%",
-         "80%",
-         "95%"
-        ]
-       }
-      ],
+      "metodologia": [],
       "norte": [],
       "funil": [],
       "fases": [],
@@ -88839,7 +88109,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 46029
+     "ms": 50363
     }
    },
    "fontsBlocked": {
@@ -89942,32 +89212,7 @@
       }
      ],
      "competicao": [],
-     "metodologia": [
-      {
-       "el": "#ruler > div.bar.funil",
-       "text": "A partir do Sub-11, com o guia de sinais",
-       "why": "à direita da cena, sai da tela à direita",
-       "carousel": false,
-       "r": [
-        204,
-        541,
-        425,
-        554
-       ],
-       "stage": [
-        0,
-        57,
-        320,
-        950
-       ],
-       "at": [
-        "40%",
-        "60%",
-        "80%",
-        "95%"
-       ]
-      }
-     ],
+     "metodologia": [],
      "norte": [],
      "funil": [],
      "fases": [],
@@ -91211,32 +90456,7 @@
        }
       ],
       "competicao": [],
-      "metodologia": [
-       {
-        "el": "#ruler > div.bar.funil",
-        "text": "A partir do Sub-11, com o guia de sinais",
-        "why": "à direita da cena, sai da tela à direita",
-        "carousel": false,
-        "r": [
-         319,
-         558,
-         515,
-         572
-        ],
-        "stage": [
-         0,
-         57,
-         507,
-         950
-        ],
-        "at": [
-         "40%",
-         "60%",
-         "80%",
-         "95%"
-        ]
-       }
-      ],
+      "metodologia": [],
       "norte": [],
       "funil": [],
       "fases": [],
@@ -91305,7 +90525,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 51655
+     "ms": 54748
     },
     "no-preference": {
      "status": 200,
@@ -92406,32 +91626,7 @@
        }
       ],
       "competicao": [],
-      "metodologia": [
-       {
-        "el": "#ruler > div.bar.funil",
-        "text": "A partir do Sub-11, com o guia de sinais",
-        "why": "à direita da cena, sai da tela à direita",
-        "carousel": false,
-        "r": [
-         319,
-         558,
-         515,
-         572
-        ],
-        "stage": [
-         0,
-         57,
-         507,
-         950
-        ],
-        "at": [
-         "40%",
-         "60%",
-         "80%",
-         "95%"
-        ]
-       }
-      ],
+      "metodologia": [],
       "norte": [],
       "funil": [],
       "fases": [],
@@ -92500,7 +91695,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 57019
+     "ms": 57715
     }
    },
    "fontsBlocked": {
@@ -93602,32 +92797,7 @@
       }
      ],
      "competicao": [],
-     "metodologia": [
-      {
-       "el": "#ruler > div.bar.funil",
-       "text": "A partir do Sub-11, com o guia de sinais",
-       "why": "à direita da cena, sai da tela à direita",
-       "carousel": false,
-       "r": [
-        319,
-        558,
-        540,
-        571
-       ],
-       "stage": [
-        0,
-        57,
-        507,
-        950
-       ],
-       "at": [
-        "40%",
-        "60%",
-        "80%",
-        "95%"
-       ]
-      }
-     ],
+     "metodologia": [],
      "norte": [],
      "funil": [],
      "fases": [],
@@ -93874,7 +93044,33 @@
       "lacuna": [],
       "terr": [],
       "sistema": [],
-      "estrutura": [],
+      "estrutura": [
+       {
+        "el": ".org-row > span.pchip",
+        "text": "Campanha gaúcha",
+        "why": "cortado dentro de pchip",
+        "carousel": false,
+        "r": [
+         543,
+         331,
+         659,
+         346
+        ],
+        "stage": [
+         0,
+         57,
+         678,
+         950
+        ],
+        "at": [
+         "20%",
+         "40%",
+         "60%",
+         "80%",
+         "95%"
+        ]
+       }
+      ],
       "rede": [
        {
         "el": ".card > p",
@@ -94823,32 +94019,7 @@
        }
       ],
       "competicao": [],
-      "metodologia": [
-       {
-        "el": "#ruler > div.bar.funil",
-        "text": "A partir do Sub-11, com o guia de sinais",
-        "why": "à direita da cena, sai da tela à direita",
-        "carousel": false,
-        "r": [
-         488,
-         541,
-         719,
-         558
-        ],
-        "stage": [
-         0,
-         57,
-         678,
-         950
-        ],
-        "at": [
-         "40%",
-         "60%",
-         "80%",
-         "95%"
-        ]
-       }
-      ],
+      "metodologia": [],
       "norte": [],
       "funil": [],
       "fases": [],
@@ -94917,7 +94088,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 61705
+     "ms": 66505
     },
     "no-preference": {
      "status": 200,
@@ -95021,7 +94192,33 @@
       "lacuna": [],
       "terr": [],
       "sistema": [],
-      "estrutura": [],
+      "estrutura": [
+       {
+        "el": ".org-row > span.pchip",
+        "text": "Campanha gaúcha",
+        "why": "cortado dentro de pchip",
+        "carousel": false,
+        "r": [
+         543,
+         331,
+         659,
+         346
+        ],
+        "stage": [
+         0,
+         57,
+         678,
+         950
+        ],
+        "at": [
+         "20%",
+         "40%",
+         "60%",
+         "80%",
+         "95%"
+        ]
+       }
+      ],
       "rede": [
        {
         "el": ".card > p",
@@ -95970,32 +95167,7 @@
        }
       ],
       "competicao": [],
-      "metodologia": [
-       {
-        "el": "#ruler > div.bar.funil",
-        "text": "A partir do Sub-11, com o guia de sinais",
-        "why": "à direita da cena, sai da tela à direita",
-        "carousel": false,
-        "r": [
-         488,
-         541,
-         719,
-         558
-        ],
-        "stage": [
-         0,
-         57,
-         678,
-         950
-        ],
-        "at": [
-         "40%",
-         "60%",
-         "80%",
-         "95%"
-        ]
-       }
-      ],
+      "metodologia": [],
       "norte": [],
       "funil": [],
       "fases": [],
@@ -96064,7 +95236,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 63622
+     "ms": 64538
     }
    },
    "fontsBlocked": {
@@ -96168,7 +95340,33 @@
      "lacuna": [],
      "terr": [],
      "sistema": [],
-     "estrutura": [],
+     "estrutura": [
+      {
+       "el": ".org-row > span.pchip",
+       "text": "Campanha gaúcha",
+       "why": "cortado dentro de pchip",
+       "carousel": false,
+       "r": [
+        543,
+        332,
+        659,
+        346
+       ],
+       "stage": [
+        0,
+        57,
+        678,
+        950
+       ],
+       "at": [
+        "20%",
+        "40%",
+        "60%",
+        "80%",
+        "95%"
+       ]
+      }
+     ],
      "rede": [
       {
        "el": ".card > div.big",
@@ -97138,32 +96336,7 @@
       }
      ],
      "competicao": [],
-     "metodologia": [
-      {
-       "el": "#ruler > div.bar.funil",
-       "text": "A partir do Sub-11, com o guia de sinais",
-       "why": "à direita da cena, sai da tela à direita",
-       "carousel": false,
-       "r": [
-        488,
-        556,
-        749,
-        571
-       ],
-       "stage": [
-        0,
-        57,
-        678,
-        950
-       ],
-       "at": [
-        "40%",
-        "60%",
-        "80%",
-        "95%"
-       ]
-      }
-     ],
+     "metodologia": [],
      "norte": [],
      "funil": [],
      "fases": [],
@@ -98408,32 +97581,7 @@
        }
       ],
       "competicao": [],
-      "metodologia": [
-       {
-        "el": "#ruler > div.bar.funil",
-        "text": "A partir do Sub-11, com o guia de sinais",
-        "why": "à direita da cena, sai da tela à direita",
-        "carousel": false,
-        "r": [
-         204,
-         494,
-         400,
-         508
-        ],
-        "stage": [
-         0,
-         57,
-         320,
-         880
-        ],
-        "at": [
-         "40%",
-         "60%",
-         "80%",
-         "95%"
-        ]
-       }
-      ],
+      "metodologia": [],
       "norte": [],
       "funil": [],
       "fases": [],
@@ -98502,7 +97650,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 43739
+     "ms": 46600
     },
     "no-preference": {
      "status": 200,
@@ -99604,32 +98752,7 @@
        }
       ],
       "competicao": [],
-      "metodologia": [
-       {
-        "el": "#ruler > div.bar.funil",
-        "text": "A partir do Sub-11, com o guia de sinais",
-        "why": "à direita da cena, sai da tela à direita",
-        "carousel": false,
-        "r": [
-         204,
-         504,
-         400,
-         518
-        ],
-        "stage": [
-         0,
-         57,
-         320,
-         880
-        ],
-        "at": [
-         "40%",
-         "60%",
-         "80%",
-         "95%"
-        ]
-       }
-      ],
+      "metodologia": [],
       "norte": [],
       "funil": [],
       "fases": [],
@@ -99698,7 +98821,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 46859
+     "ms": 48237
     }
    },
    "fontsBlocked": {
@@ -100803,15 +99926,15 @@
      "competicao": [],
      "metodologia": [
       {
-       "el": "#ruler > div.bar.funil",
-       "text": "A partir do Sub-11, com o guia de sinais",
-       "why": "à direita da cena, sai da tela à direita",
+       "el": ".wrap > p.eyebrow",
+       "text": "A metodologia",
+       "why": "acima da cena",
        "carousel": false,
        "r": [
-        204,
-        506,
-        425,
-        519
+        18,
+        23,
+        143,
+        38
        ],
        "stage": [
         0,
@@ -100820,22 +99943,20 @@
         880
        ],
        "at": [
-        "40%",
-        "60%",
         "80%",
         "95%"
        ]
       },
       {
-       "el": ".wrap > p.eyebrow",
-       "text": "A metodologia",
+       "el": ".wrap > h2.h2.met-h2",
+       "text": "O método vem do Celeiro de Ases. O SACI leva ele a",
        "why": "acima da cena",
        "carousel": false,
        "r": [
         18,
-        34,
-        143,
-        49
+        54,
+        272,
+        156
        ],
        "stage": [
         0,
@@ -100855,9 +99976,9 @@
        "carousel": false,
        "r": [
         227,
-        768,
+        778,
         296,
-        903
+        913
        ],
        "stage": [
         0,
@@ -100876,9 +99997,9 @@
        "carousel": false,
        "r": [
         227,
-        768,
+        778,
         298,
-        903
+        913
        ],
        "stage": [
         0,
@@ -102119,7 +101240,7 @@
       "gapAt760": 40
      },
      "errors": [],
-     "ms": 35153
+     "ms": 35958
     },
     "no-preference": {
      "status": 200,
@@ -103205,7 +102326,7 @@
       "gapAt760": 40
      },
      "errors": [],
-     "ms": 38928
+     "ms": 39033
     }
    },
    "fontsBlocked": {
@@ -105403,7 +104524,7 @@
       "gapAt760": 60
      },
      "errors": [],
-     "ms": 33858
+     "ms": 36772
     },
     "no-preference": {
      "status": 200,
@@ -106441,7 +105562,7 @@
       "gapAt760": 60
      },
      "errors": [],
-     "ms": 37770
+     "ms": 39321
     }
    },
    "fontsBlocked": {
@@ -108442,7 +107563,7 @@
       "recursos": []
      },
      "scroll": {
-      "steps": 156,
+      "steps": 154,
       "progStart": 0,
       "progEnd": 1,
       "backwards": 0,
@@ -108504,7 +107625,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 37350
+     "ms": 39791
     },
     "no-preference": {
      "status": 200,
@@ -109453,7 +108574,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 44612
+     "ms": 44229
     }
    },
    "fontsBlocked": {
@@ -111389,7 +110510,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 48589
+     "ms": 48070
     },
     "no-preference": {
      "status": 200,
@@ -112302,7 +111423,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 52708
+     "ms": 53071
     }
    },
    "fontsBlocked": {
@@ -114040,7 +113161,7 @@
       "recursos": []
      },
      "scroll": {
-      "steps": 147,
+      "steps": 146,
       "progStart": 0,
       "progEnd": 1,
       "backwards": 0,
@@ -114102,7 +113223,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 62430
+     "ms": 59677
     },
     "no-preference": {
      "status": 200,
@@ -114853,7 +113974,7 @@
       "recursos": []
      },
      "scroll": {
-      "steps": 147,
+      "steps": 146,
       "progStart": 0,
       "progEnd": 1,
       "backwards": 0,
@@ -114915,7 +114036,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 68162
+     "ms": 68505
     }
    },
    "fontsBlocked": {
@@ -116441,7 +115562,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 104872
+     "ms": 103431
     },
     "no-preference": {
      "status": 200,
@@ -117019,7 +116140,7 @@
       "recursos": []
      },
      "scroll": {
-      "steps": 141,
+      "steps": 144,
       "progStart": 0,
       "progEnd": 1,
       "backwards": 0,
@@ -117081,7 +116202,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 110688
+     "ms": 111050
     }
    },
    "fontsBlocked": {
@@ -118741,7 +117862,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 68488
+     "ms": 71449
     },
     "no-preference": {
      "status": 200,
@@ -119686,7 +118807,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 68445
+     "ms": 71585
     }
    },
    "fontsBlocked": {
@@ -121792,7 +120913,7 @@
       "gapAt760": 40
      },
      "errors": [],
-     "ms": 64200
+     "ms": 65527
     },
     "no-preference": {
      "status": 200,
@@ -122878,7 +121999,7 @@
       "gapAt760": 40
      },
      "errors": [],
-     "ms": 62910
+     "ms": 65149
     }
    },
    "fontsBlocked": {
@@ -124106,7 +123227,7 @@
         "key": "metodologia",
         "pinned": true,
         "tight": true,
-        "scale": "0.9479"
+        "scale": "0.9517"
        },
        {
         "id": "norte",
@@ -125191,7 +124312,7 @@
       "recursos": []
      },
      "scroll": {
-      "steps": 160,
+      "steps": 158,
       "progStart": 0,
       "progEnd": 1,
       "backwards": 0,
@@ -125253,7 +124374,7 @@
       "gapAt760": 0
      },
      "errors": [],
-     "ms": 43796
+     "ms": 46305
     },
     "no-preference": {
      "status": 200,
@@ -125320,7 +124441,7 @@
         "key": "metodologia",
         "pinned": true,
         "tight": true,
-        "scale": "0.9479"
+        "scale": "0.9517"
        },
        {
         "id": "norte",
@@ -126467,7 +125588,7 @@
       "gapAt760": 0
      },
      "errors": [],
-     "ms": 47359
+     "ms": 48621
     }
    },
    "fontsBlocked": {
@@ -126534,7 +125655,7 @@
        "key": "metodologia",
        "pinned": true,
        "tight": true,
-       "scale": "0.8975"
+       "scale": "0.901"
       },
       {
        "id": "norte",
@@ -127663,7 +126784,7 @@
        "key": "metodologia",
        "pinned": true,
        "tight": true,
-       "scale": "0.9479"
+       "scale": "0.9517"
       },
       {
        "id": "norte",
@@ -127802,7 +126923,7 @@
         "key": "metodologia",
         "pinned": true,
         "tight": true,
-        "scale": "0.7835"
+        "scale": "0.7884"
        },
        {
         "id": "norte",
@@ -129002,7 +128123,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 47336
+     "ms": 49534
     },
     "no-preference": {
      "status": 200,
@@ -129069,7 +128190,7 @@
         "key": "metodologia",
         "pinned": true,
         "tight": true,
-        "scale": "0.7835"
+        "scale": "0.7884"
        },
        {
         "id": "norte",
@@ -130269,7 +129390,7 @@
       "gapAt760": 96
      },
      "errors": [],
-     "ms": 21824
+     "ms": 22838
     }
    },
    "fontsBlocked": {
@@ -130336,7 +129457,7 @@
        "key": "metodologia",
        "pinned": true,
        "tight": true,
-       "scale": "0.7407"
+       "scale": "0.7393"
       },
       {
        "id": "norte",
@@ -131495,7 +130616,7 @@
        "key": "metodologia",
        "pinned": true,
        "tight": true,
-       "scale": "0.7835"
+       "scale": "0.7884"
       },
       {
        "id": "norte",

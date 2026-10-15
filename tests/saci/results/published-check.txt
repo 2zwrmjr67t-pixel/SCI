@@ -1,6 +1,6 @@
 URL: https://2zwrmjr67t-pixel.github.io/SCI/
-Data: 2026-10-15T17:22:02Z
-Commit do repo: ffe163fb937d15255035b16f9a39d5736b3937fd
+Data: 2026-10-15T18:07:42Z
+Commit do repo: 1c1afcdf2b145da69f3f592527f9815b3d63c051
 
 == Cabeçalhos HTTP
 HTTP/2 200 
@@ -10,21 +10,21 @@ last-modified: Mon, 12 Oct 2026 13:45:21 GMT
 access-control-allow-origin: *
 strict-transport-security: max-age=31556952
 etag: "6acce471-1d0f0"
-expires: Thu, 15 Oct 2026 17:32:02 GMT
+expires: Thu, 15 Oct 2026 18:17:42 GMT
 cache-control: max-age=600
 x-proxy-cache: MISS
-x-github-request-id: 6FD8:36FB72:4C1454:509583:6AD10BBA
-x-github-edge-region: iad
+x-github-request-id: 7F94:E6C14:40C40:49BB3:6AD1166E
+x-github-edge-region: westus3
 accept-ranges: bytes
 age: 0
-date: Thu, 15 Oct 2026 17:22:02 GMT
+date: Thu, 15 Oct 2026 18:07:42 GMT
 via: 1.1 varnish
-x-served-by: cache-iad-kiad7000047-IAD
+x-served-by: cache-bur-kbur8200133-BUR
 x-cache: MISS
 x-cache-hits: 0
-x-timer: S1792084923.826238,VS0,VE137
+x-timer: S1792087662.369028,VS0,VE123
 vary: Accept-Encoding
-x-fastly-request-id: f99a83451603a6f637c5f01a502b04a5347f7c87
+x-fastly-request-id: f8580c7f47d0ce3ec25ef38cdf0fa0a816e7c868
 content-length: 119024
 
 
